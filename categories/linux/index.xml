@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>相忘于江湖</title>
+    <link>https://zzzqiii.github.io/categories/linux/</link>
+    <description>Recent content on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Mar 2021 10:59:00 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conda安装软件</title>
+      <link>https://zzzqiii.github.io/p/conda%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Sat, 06 Mar 2021 10:59:00 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/conda%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</guid>
+      <description>使用conda安装软件 很早就听说过conda安装软件很方便，今天终于在自己的电脑上尝试了。因为实验室的服务器没有联网，就在window子系统下试了一下。
+下载 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 安装 chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限 bash Miniconda3-latest-Linux-x86_64.sh #运行 启动conda cd /home/zuozhangqi/miniconda3/bin chmod 777 activate . ./activate 当命令行前面出现(base)的时候说明现在已经在conda的环境中了。这时候输入conda list 命令就有反应了
+添加镜像 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ 显示安装的频道
+conda config --set show_channel_urls yes 查看已经添加的频道
+conda config --get channels 编辑已经添加的频道
+vim ~/.condarc 安装软件 conda install busco which busco #查看软件安装位置 conda install 软件名=版本号 #安装特定版本软件 conda list #查看已安装软件 conda update 软件名 #更新指定软件 conda remove 软件名 #卸载指定软件 退出conda环境 .</description>
+    </item>
+    
+  </channel>
+</rss>

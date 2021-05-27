@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>relational data on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/relational-data/</link>
+    <description>Recent content in relational data on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Mar 2021 19:12:27 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/relational-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第9章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC9%E7%AB%A0/</link>
+      <pubDate>Wed, 31 Mar 2021 19:12:27 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC9%E7%AB%A0/</guid>
+      <description>使用dplyr处理关系数据 9.1简介  合并连接 筛选连接 集合操作  library(tidyverse) library(nycflights13) library(maps) flights ## # A tibble: 336,776 x 19 ## year month day dep_time sched_dep_time dep_delay ## &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; ## 1 2013 1 1 517 515 2 ## 2 2013 1 1 533 529 4 ## 3 2013 1 1 542 540 2 ## 4 2013 1 1 544 545 -1 ## 5 2013 1 1 554 600 -6 ## 6 2013 1 1 554 558 -4 ## 7 2013 1 1 555 600 -5 ## 8 2013 1 1 557 600 -3 ## 9 2013 1 1 557 600 -3 ## 10 2013 1 1 558 600 -2 ## # .</description>
+    </item>
+    
+  </channel>
+</rss>

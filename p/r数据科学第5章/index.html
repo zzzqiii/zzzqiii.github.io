@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc]
+探索性数据分析 简介  探索性数据分析：exploratory data analysis, EDA.使用可视化方法和数据转换来系统化地探索数据。
+ 对分布进行可视化表示 对分布进行可视化的方法取决于变量是分类变量还是连续变量。
+分类变量在R中通常保存为因子或字符向量。想要检查分类变量的分布，可以使用条形图：
+ggplot(data = diamonds) &#43; geom_bar(mapping = aes(x = cut)) diamonds %&amp;gt;% count(cut) ## # A tibble: 5 x 2 ## cut n ## * &amp;lt;ord&amp;gt; &amp;lt;int&amp;gt; ## 1 Fair 1610 ## 2 Good 4906 ## 3 Very Good 12082 ## 4 Premium 13791 ## 5 Ideal 21551 如果可以在无限大的有序集合中任意取值，那么这个变量就是连续变量。数值型和日期时间型变量就是连续变量的两个例子。要想检查连续变量的分布，可以使用直方图。
+ggplot(data = diamonds) &#43; geom_histogram(mapping = aes(x = carat), binwidth = 0.'><title>R数据科学第5章</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC5%E7%AB%A0/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='R数据科学第5章'>
+<meta property='og:description' content='[toc]
+探索性数据分析 简介  探索性数据分析：exploratory data analysis, EDA.使用可视化方法和数据转换来系统化地探索数据。
+ 对分布进行可视化表示 对分布进行可视化的方法取决于变量是分类变量还是连续变量。
+分类变量在R中通常保存为因子或字符向量。想要检查分类变量的分布，可以使用条形图：
+ggplot(data = diamonds) &#43; geom_bar(mapping = aes(x = cut)) diamonds %&amp;gt;% count(cut) ## # A tibble: 5 x 2 ## cut n ## * &amp;lt;ord&amp;gt; &amp;lt;int&amp;gt; ## 1 Fair 1610 ## 2 Good 4906 ## 3 Very Good 12082 ## 4 Premium 13791 ## 5 Ideal 21551 如果可以在无限大的有序集合中任意取值，那么这个变量就是连续变量。数值型和日期时间型变量就是连续变量的两个例子。要想检查连续变量的分布，可以使用直方图。
+ggplot(data = diamonds) &#43; geom_histogram(mapping = aes(x = carat), binwidth = 0.'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC5%E7%AB%A0/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='exploratory data analysis' /><meta property='article:published_time' content='2021-03-24T11:15:48&#43;08:00'/><meta property='article:modified_time' content='2021-03-24T11:15:48&#43;08:00'/>
+<meta name="twitter:title" content="R数据科学第5章">
+<meta name="twitter:description" content="[toc]
+探索性数据分析 简介  探索性数据分析：exploratory data analysis, EDA.使用可视化方法和数据转换来系统化地探索数据。
+ 对分布进行可视化表示 对分布进行可视化的方法取决于变量是分类变量还是连续变量。
+分类变量在R中通常保存为因子或字符向量。想要检查分类变量的分布，可以使用条形图：
+ggplot(data = diamonds) &#43; geom_bar(mapping = aes(x = cut)) diamonds %&amp;gt;% count(cut) ## # A tibble: 5 x 2 ## cut n ## * &amp;lt;ord&amp;gt; &amp;lt;int&amp;gt; ## 1 Fair 1610 ## 2 Good 4906 ## 3 Very Good 12082 ## 4 Premium 13791 ## 5 Ideal 21551 如果可以在无限大的有序集合中任意取值，那么这个变量就是连续变量。数值型和日期时间型变量就是连续变量的两个例子。要想检查连续变量的分布，可以使用直方图。
+ggplot(data = diamonds) &#43; geom_histogram(mapping = aes(x = carat), binwidth = 0.">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/r-data-science/" >
+                R data science
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC5%E7%AB%A0/">R数据科学第5章</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Mar 24, 2021</time>
+    </footer>12
+    2432
+</div>
+</header>
+
+    <section class="article-content">
+    <p>[toc]</p>
+<h1 id="探索性数据分析">探索性数据分析</h1>
+<h2 id="简介">简介</h2>
+<blockquote>
+<p>探索性数据分析：exploratory data analysis, EDA.使用可视化方法和数据转换来系统化地探索数据。</p>
+</blockquote>
+<h3 id="对分布进行可视化表示">对分布进行可视化表示</h3>
+<p>对分布进行可视化的方法取决于变量是分类变量还是连续变量。</p>
+<p>分类变量在R中通常保存为因子或字符向量。想要检查分类变量的分布，可以使用条形图：</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">cut</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 5 x 2
+##   cut           n
+## * &lt;ord&gt;     &lt;int&gt;
+## 1 Fair       1610
+## 2 Good       4906
+## 3 Very Good 12082
+## 4 Premium   13791
+## 5 Ideal     21551
+</code></pre><p>如果可以在无限大的有序集合中任意取值，那么这个变量就是连续变量。数值型和日期时间型变量就是连续变量的两个例子。要想检查连续变量的分布，可以使用直方图。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="nf">cut_width</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">0.5</span><span class="p">))</span>
+</code></pre></div><pre><code>## # A tibble: 11 x 2
+##    `cut_width(carat, 0.5)`     n
+##  * &lt;fct&gt;                   &lt;int&gt;
+##  1 [-0.25,0.25]              785
+##  2 (0.25,0.75]             29498
+##  3 (0.75,1.25]             15977
+##  4 (1.25,1.75]              5313
+##  5 (1.75,2.25]              2002
+##  6 (2.25,2.75]               322
+##  7 (2.75,3.25]                32
+##  8 (3.25,3.75]                 5
+##  9 (3.75,4.25]                 4
+## 10 (4.25,4.75]                 1
+## 11 (4.75,5.25]                 1
+</code></pre><p>如果想要在同一张图上叠加多个直方图，最好用<code>geom_freqploy()</code>函数来代替<code>geom_histogram()</code> 函数。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">smaller</span> <span class="o">&lt;-</span> <span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="n">carat</span> <span class="o">&lt;</span> <span class="m">3</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">smaller</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8"  /></p>
+<h3 id="典型值">典型值</h3>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">smaller</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9"  /></p>
+<h3 id="异常值">异常值</h3>
+<p>异常值是与众不同的观测或者是模式之外的数据点。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#发现y轴的取值范围很宽，看不出异常值。</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-10-2.png" alt="plot of chunk unnamed-chunk-10"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#`coord_cartesian()`函数可以将y轴靠近0的部分放大。可以看出有3个异常值。</span>
+
+<span class="n">unusual</span> <span class="o">&lt;-</span> <span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="m">3</span> <span class="o">|</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="m">20</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">arrange</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">unusual</span>
+</code></pre></div><pre><code>## # A tibble: 9 x 10
+##   carat cut     color clarity depth table price     x     y     z
+##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  1    Very G~ H     VS2      63.3    53  5139  0      0    0   
+## 2  1.14 Fair    G     VS1      57.5    67  6381  0      0    0   
+## 3  1.56 Ideal   G     VS2      62.2    54 12800  0      0    0   
+## 4  1.2  Premium D     VVS1     62.1    59 15686  0      0    0   
+## 5  2.25 Premium H     SI2      62.8    59 18034  0      0    0   
+## 6  0.71 Good    F     SI2      64.1    60  2130  0      0    0   
+## 7  0.71 Good    F     SI2      64.1    60  2130  0      0    0   
+## 8  0.51 Ideal   E     VS1      61.8    55  2075  5.15  31.8  5.12
+## 9  2    Premium H     SI2      58.9    57 12210  8.09  58.9  8.06
+</code></pre><h3 id="练习">练习</h3>
+<p>(1) 研究 x、y 和 z变量在diamonds数据集中的分布。你能发现什么？思考一下，对于一条钻石数据，如何确定表示长、宽和高的变量？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">)</span> 
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">)</span> 
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-11-2.png" alt="plot of chunk unnamed-chunk-11"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">z</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">)</span> 
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-11-3.png" alt="plot of chunk unnamed-chunk-11"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">filter</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="n">x</span> <span class="o">&gt;</span><span class="m">0</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span><span class="m">10</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-11-4.png" alt="plot of chunk unnamed-chunk-11"  /></p>
+<p>(2) 研究 price 的分布，你能发现不寻常或令人惊奇的事情吗？（提示：仔细考虑一下binwidth 参数，并确定试验了足够多的取值。）</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="nf">filter</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="m">2500</span><span class="p">),</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-12-1.png" alt="plot of chunk unnamed-chunk-12"  /></p>
+<p>(3) 0.99 克拉的钻石有多少？1克拉的钻石有多少？造成这种区别的原因是什么？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">filter</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="n">carat</span> <span class="o">&gt;=</span> <span class="m">0.99</span> <span class="o">&amp;</span> <span class="n">carat</span> <span class="o">&lt;=</span> <span class="m">1</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">carat</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 2 x 2
+##   carat     n
+## * &lt;dbl&gt; &lt;int&gt;
+## 1  0.99    23
+## 2  1     1558
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="n">carat</span> <span class="o">&gt;=</span> <span class="m">0.9</span><span class="p">,</span> <span class="n">carat</span> <span class="o">&lt;=</span> <span class="m">1.1</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">carat</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="kc">Inf</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 21 x 2
+##    carat     n
+##  * &lt;dbl&gt; &lt;int&gt;
+##  1  0.9   1485
+##  2  0.91   570
+##  3  0.92   226
+##  4  0.93   142
+##  5  0.94    59
+##  6  0.95    65
+##  7  0.96   103
+##  8  0.97    59
+##  9  0.98    31
+## 10  0.99    23
+## 11  1     1558
+## 12  1.01  2242
+## 13  1.02   883
+## 14  1.03   523
+## 15  1.04   475
+## 16  1.05   361
+## 17  1.06   373
+## 18  1.07   342
+## 19  1.08   246
+## 20  1.09   287
+## 21  1.1    278
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#可能每多0.1克拉，钻石就会贵一定的价钱。</span>
+</code></pre></div><p>(4) 比较并对比 coord_cartesina()和xlim()/ylim()在放大直方图时的功能。如果不设置binwidth参数，会发生什么情况？如果将直方图放大到只显示一半的条形，那么又会发生什么情况？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-14-1.png" alt="plot of chunk unnamed-chunk-14"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">))</span>
+</code></pre></div><pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-14-2.png" alt="plot of chunk unnamed-chunk-14"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#不设置binwidth后，`stat_bin()` using `bins = 30`。</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">ylim</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">)</span>
+</code></pre></div><pre><code>## Warning: Removed 11 rows containing missing values (geom_bar).
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-14-3.png" alt="plot of chunk unnamed-chunk-14"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#设置ylim后会把不再这个区间的值剔除。</span>
+</code></pre></div><h2 id="54缺失值">5.4缺失值</h2>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#发现异常值后，有两种做法</span>
+<span class="c1">#1. 将带有可疑行全部丢弃（不推荐）</span>
+<span class="n">diamonds2</span> <span class="o">&lt;-</span> <span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="nf">between</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
+
+<span class="c1">#2. 用缺失值来代替异常值</span>
+<span class="n">diamonds2</span> <span class="o">&lt;-</span> <span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="m">3</span> <span class="o">|</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="m">20</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="c1">#ifelse() 函数有3 个参数。第一个参数test应该是一个逻辑向量，如果test 为TRUE，函数结果就是第二个参数yes的值；如果test为FALSE，函数结果就是第三个参数no 的值。</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">()</span>  
+</code></pre></div><pre><code>## Warning: Removed 9 rows containing missing values (geom_point).
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#会提出警告以通知缺失值被丢弃了</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>  
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-15-2.png" alt="plot of chunk unnamed-chunk-15"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#不显示这条警告</span>
+
+<span class="n">nycflights13</span><span class="o">::</span><span class="n">flights</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span>
+    <span class="n">cancelled</span> <span class="o">=</span> <span class="nf">is.na</span><span class="p">(</span><span class="n">dep_time</span><span class="p">),</span>
+    <span class="n">sched_hour</span> <span class="o">=</span> <span class="n">sched_dep_time</span> <span class="o">%/%</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">sched_min</span> <span class="o">=</span> <span class="n">sched_dep_time</span> <span class="o">%%</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">sched_dep_time</span> <span class="o">=</span> <span class="n">sched_hour</span> <span class="o">+</span> <span class="n">sched_min</span> <span class="o">/</span> <span class="m">60</span>
+  <span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">sched_dep_time</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_freqpoly</span><span class="p">(</span>
+      <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">cancelled</span><span class="p">),</span>
+      <span class="n">binwidth</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">4</span>
+    <span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-15-3.png" alt="plot of chunk unnamed-chunk-15"  /></p>
+<h3 id="练习-1">练习</h3>
+<p>(1) 直方图如何处理缺失值？条形图如何处理缺失值？为什么会有这种区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds2</span> <span class="o">&lt;-</span> <span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="m">3</span> <span class="o">|</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="m">20</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds2</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">()</span>
+</code></pre></div><pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+</code></pre><pre><code>## Warning: Removed 9 rows containing non-finite values (stat_bin).
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#直方图会把缺失值去除。</span>
+
+<span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">cut</span> <span class="o">=</span> <span class="nf">if_else</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="nf">n</span><span class="p">())</span> <span class="o">&lt;</span> <span class="m">0.1</span><span class="p">,</span> <span class="kc">NA_character_</span><span class="p">,</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">cut</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-16-2.png" alt="plot of chunk unnamed-chunk-16"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#runif()生成0，1之间的随机数。</span>
+<span class="c1">#条形图中会把NA当成单独的一类。</span>
+</code></pre></div><p>(2) na.rm = TRUE 在mean() 和sum() 函数中的作用是什么？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">mean</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kc">NA</span><span class="p">),</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div><pre><code>## [1] 1
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sum</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kc">NA</span><span class="p">),</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div><pre><code>## [1] 3
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#作用是去除NA</span>
+</code></pre></div><h2 id="55相关变动">5.5相关变动</h2>
+<h3 id="551分类变量与连续变量">5.5.1分类变量与连续变量</h3>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">cut</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">500</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#很难看出分布上的差别。</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-18-2.png" alt="plot of chunk unnamed-chunk-18"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#因为各组的数量差别很大。</span>
+
+<span class="nf">ggplot</span><span class="p">(</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span>
+  <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..density..</span><span class="p">)</span>
+<span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">cut</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">500</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-18-3.png" alt="plot of chunk unnamed-chunk-18"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#y轴显示的是密度，而不是计数，密度是对计数的标准化，每个频率多边形下边的面积都是1。</span>
+</code></pre></div><p>箱线图</p>
+<ul>
+<li>下面的边表示分布的第25个百分位数，上面的边表示分布的第75个百分位数。</li>
+<li>箱子中间的横线表示分布的中位数。</li>
+<li>圆点是落在箱子上下两边1.5倍四分位距外的观测，这些离群点就是异常值。</li>
+<li>从箱子上下两边延伸出的直线（须）可以到达分布中最远的非离群点。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">class</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-19-2.png" alt="plot of chunk unnamed-chunk-19"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">median</span><span class="p">),</span>
+      <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span>
+    <span class="p">)</span>
+  <span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-19-3.png" alt="plot of chunk unnamed-chunk-19"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#reorder的作用是根据hwy的median对class重新排序。</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">max</span><span class="p">),</span>
+      <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span>
+    <span class="p">)</span>
+  <span class="p">)</span> <span class="o">+</span>
+  <span class="nf">coord_flip</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-19-4.png" alt="plot of chunk unnamed-chunk-19"  /></p>
+<h4 id="练习-2">练习</h4>
+<p>(1) 前面对比了已取消航班和未取消航班的出发时间，使用学习到的知识对这个对比的可视化结果进行改善。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">nycflights13</span><span class="o">::</span><span class="n">flights</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span>
+    <span class="n">cancelled</span> <span class="o">=</span> <span class="nf">is.na</span><span class="p">(</span><span class="n">dep_time</span><span class="p">),</span>
+    <span class="n">sched_hour</span> <span class="o">=</span> <span class="n">sched_dep_time</span> <span class="o">%/%</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">sched_min</span> <span class="o">=</span> <span class="n">sched_dep_time</span> <span class="o">%%</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">sched_dep_time</span> <span class="o">=</span> <span class="n">sched_hour</span> <span class="o">+</span> <span class="n">sched_min</span> <span class="o">/</span> <span class="m">60</span>
+  <span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">sched_dep_time</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..density..</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">(</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">cancelled</span><span class="p">),</span>
+    <span class="n">binwidth</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">4</span>
+  <span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-20-1.png" alt="plot of chunk unnamed-chunk-20"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">nycflights13</span><span class="o">::</span><span class="n">flights</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span>
+    <span class="n">cancelled</span> <span class="o">=</span> <span class="nf">is.na</span><span class="p">(</span><span class="n">dep_time</span><span class="p">),</span>
+    <span class="n">sched_hour</span> <span class="o">=</span> <span class="n">sched_dep_time</span> <span class="o">%/%</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">sched_min</span> <span class="o">=</span> <span class="n">sched_dep_time</span> <span class="o">%%</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">sched_dep_time</span> <span class="o">=</span> <span class="n">sched_hour</span> <span class="o">+</span> <span class="n">sched_min</span> <span class="o">/</span> <span class="m">60</span>
+  <span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">sched_dep_time</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cancelled</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-20-2.png" alt="plot of chunk unnamed-chunk-20"  />
+(2) 在钻石数据集中，哪个变量对于预测钻石的价格最重要？这个变量与切割质量的关系是怎样的？为什么这两个变量的关系组合会导致质量更差的钻石价格更高呢？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="nf">cut_width</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">0.1</span><span class="p">)),</span> <span class="n">orientation</span> <span class="o">=</span> <span class="s">&#34;x&#34;</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-21-1.png" alt="plot of chunk unnamed-chunk-21"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">carat</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-21-2.png" alt="plot of chunk unnamed-chunk-21"  />
+(3) 安装ggstance 包，并创建一个横向箱线图。这种方法与使用coord_flip() 函数有何区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">median</span><span class="p">),</span>
+                             <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">coord_flip</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-22-1.png" alt="plot of chunk unnamed-chunk-22"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_boxploth</span><span class="p">(</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">median</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div><pre><code>## Error in geom_boxploth(mapping = aes(y = reorder(class, hwy, FUN = median), : 没有&quot;geom_boxploth&quot;这个函数
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># x就是横坐标，y就是纵坐标。</span>
+</code></pre></div><p>(4) 箱线图存在的问题是，在小数据集时代开发而成，对于现在的大数据集会显示出数量极其庞大的异常值。解决这个问题的一种方法是使用字母价值图。安装lvplot 包，并尝试使用geom_lv()函数来显示价格基于切割质量的分布。你能发现什么问题？如何解释这种图形？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_lv</span><span class="p">()</span>
+</code></pre></div><pre><code>## Error in geom_lv(): 没有&quot;geom_lv&quot;这个函数
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#lv: letter-value plot.相比箱型图，它提供了更多的分位数。</span>
+</code></pre></div><p>(5) 比较并对比geom_violin()、分面的geom_histogram()和着色的geom_freqploy()。每种方法的优缺点是什么？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..density..</span><span class="p">))</span><span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">cut</span><span class="p">),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">500</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-24-1.png" alt="plot of chunk unnamed-chunk-24"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">cut</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">scales</span> <span class="o">=</span> <span class="s">&#34;free_y&#34;</span><span class="p">)</span>
+</code></pre></div><pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-24-2.png" alt="plot of chunk unnamed-chunk-24"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_violin</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">coord_flip</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-24-3.png" alt="plot of chunk unnamed-chunk-24"  />
+(6) 对于小数据集，如果要观察连续变量和分类变量间的关系，有时使用geom_jitter() 函数是特别有用的。ggbeeswarm包提供了和geom_jitter()相似的一些方法。列出这些方法并简单描述每种方法的作用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_quasirandom</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">median</span><span class="p">),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span>
+  <span class="p">))</span>
+</code></pre></div><pre><code>## Error in geom_quasirandom(mapping = aes(x = reorder(class, hwy, FUN = median), : 没有&quot;geom_quasirandom&quot;这个函数
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#jitter(添加抖动)和小提琴图的结合</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_quasirandom</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">median</span><span class="p">),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span>
+  <span class="p">),</span>
+  <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;tukey&#34;</span> <span class="c1">#&#34;tukeyDense&#34; &#34;frowney&#34;</span>
+  <span class="p">)</span>
+</code></pre></div><pre><code>## Error in geom_quasirandom(mapping = aes(x = reorder(class, hwy, FUN = median), : 没有&quot;geom_quasirandom&quot;这个函数
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_beeswarm</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">median</span><span class="p">),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span>
+  <span class="p">))</span>
+</code></pre></div><pre><code>## Error in geom_beeswarm(mapping = aes(x = reorder(class, hwy, FUN = median), : 没有&quot;geom_beeswarm&quot;这个函数
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#和小提琴图类似</span>
+</code></pre></div><h3 id="两个分类变量">两个分类变量</h3>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_count</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">color</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-26-1.png" alt="plot of chunk unnamed-chunk-26"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">cut</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 35 x 3
+##    color cut           n
+##    &lt;ord&gt; &lt;ord&gt;     &lt;int&gt;
+##  1 D     Fair        163
+##  2 D     Good        662
+##  3 D     Very Good  1513
+##  4 D     Premium    1603
+##  5 D     Ideal      2834
+##  6 E     Fair        224
+##  7 E     Good        933
+##  8 E     Very Good  2400
+##  9 E     Premium    2337
+## 10 E     Ideal      3903
+## # ... with 25 more rows
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">cut</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">n</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-26-2.png" alt="plot of chunk unnamed-chunk-26"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#geom_tile 用矩形平铺平面</span>
+</code></pre></div><h4 id="练习-3">练习</h4>
+<p>(1) 如何调整count 数据，使其能更清楚地表示出切割质量在颜色间的分布，或者颜色在切割质量间的分布？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">cut</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">prop</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">prop</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-27-1.png" alt="plot of chunk unnamed-chunk-27"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">cut</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">cut</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">prop</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">prop</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-27-2.png" alt="plot of chunk unnamed-chunk-27"  />
+(2) 使用geom_tile()函数结合dplyr来探索平均航班延误数量是如何随着目的地和月份的变化而变化的。为什么这张图难以阅读？如何改进？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">cancelled</span> <span class="o">=</span> <span class="n">dep_delay</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">summarise</span><span class="p">(</span><span class="n">times</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">cancelled</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">dest</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">month</span><span class="p">)))</span> <span class="o">+</span> 
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">times</span><span class="p">))</span>
+</code></pre></div><pre><code>## Error in mutate(., cancelled = dep_delay &gt; 0): 找不到对象'flights'
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果直接写x=month，会把month当作数值型变量处理。</span>
+<span class="c1">#有的航班并不是每个月都飞，需要再分组一次。</span>
+<span class="n">flights</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">cancelled</span> <span class="o">=</span> <span class="n">dep_delay</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">summarise</span><span class="p">(</span><span class="n">times</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">cancelled</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="nf">n</span><span class="p">()</span> <span class="o">==</span> <span class="m">12</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ungroup</span><span class="p">()</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">dest</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">times</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">month</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dest</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">times</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_tile</span><span class="p">()</span>
+</code></pre></div><pre><code>## Error in mutate(., cancelled = dep_delay &gt; 0): 找不到对象'flights'
+</code></pre><p>(3) 为什么在以上示例中使用aes(x = color, y = cut) 要比aes(x = cut, y = color) 更好？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">cut</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">n</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-29-1.png" alt="plot of chunk unnamed-chunk-29"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">cut</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">n</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-29-2.png" alt="plot of chunk unnamed-chunk-29"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#第一个看起来更舒服。</span>
+</code></pre></div><h3 id="两个连续变量">两个连续变量</h3>
+<p>散点图</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-30-1.png" alt="plot of chunk unnamed-chunk-30"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#出现了过绘制（很多点彼此重叠）</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">100</span>
+  <span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-30-2.png" alt="plot of chunk unnamed-chunk-30"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#使用alpha图形属性添加透明度</span>
+</code></pre></div><p>使用分箱(hexbin包)</p>
+<ul>
+<li>geom_bin2d() 和geom_hex() 函数在两个维度上进行分箱。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_bin2d</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-31-1.png" alt="plot of chunk unnamed-chunk-31"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#geom_bin2d创建长方形分箱。</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_hex</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-31-2.png" alt="plot of chunk unnamed-chunk-31"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#geom_hex创建六边形分箱。</span>
+</code></pre></div><ul>
+<li>对一个连续变量进行分箱.
+因此这个连续变量的作用就相当于分类变量。
+接下来就可以使用前面学过的对分类变量和连续变量的组合进行可视化的技术。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="nf">cut_width</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">0.1</span><span class="p">)))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-32-1.png" alt="plot of chunk unnamed-chunk-32"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#看不出每个箱线图是对不同数量的观测进行统计摘要的。</span>
+<span class="c1">#如果想要体现这种信息，可以使用参数varwidth=TRUE让箱线图的宽度与观测数量成正比。</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="nf">cut_width</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">0.1</span><span class="p">)),</span> <span class="n">varwidth</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-32-2.png" alt="plot of chunk unnamed-chunk-32"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#另一种方法是近似地显示每个分箱中的数据点的数量，此时可以使用cut_number() 函数：</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="nf">cut_number</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">20</span><span class="p">)))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-32-3.png" alt="plot of chunk unnamed-chunk-32"  /></p>
+<h4 id="练习-4">练习</h4>
+<p>(1) 除了使用箱线图对条件分布进行摘要统计，你还可以使用频率多边形图。使用cut_width()函数或cut_number()函数时需要考虑什么问题？这对carat 和price 的二维分布的可视化表示有什么影响？</p>
+<p>使用cut_width()时，width(分组宽度)确定后，分组数量会自动计算。
+使用cut_number()时，number(分组数量)确定后，会自动计算分组宽度。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> 
+  <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="nf">cut_number</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">()</span>
+</code></pre></div><pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-33-1.png" alt="plot of chunk unnamed-chunk-33"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span>
+  <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="nf">cut_width</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">price</span>
+    <span class="p">)</span>
+<span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_freqpoly</span><span class="p">()</span>
+</code></pre></div><pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.
+</code></pre><p><img src="/R_data_science_c5/unnamed-chunk-33-2.png" alt="plot of chunk unnamed-chunk-33"  />
+(2) 按照price 分类对carat 的分布进行可视化表示。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">summary</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span>
+</code></pre></div><pre><code>##      carat               cut        color        clarity     
+##  Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065  
+##  1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258  
+##  Median :0.7000   Very Good:12082   F: 9542   SI2    : 9194  
+##  Mean   :0.7979   Premium  :13791   G:11292   VS1    : 8171  
+##  3rd Qu.:1.0400   Ideal    :21551   H: 8304   VVS2   : 5066  
+##  Max.   :5.0100                     I: 5422   VVS1   : 3655  
+##                                     J: 2808   (Other): 2531  
+##      depth           table           price      
+##  Min.   :43.00   Min.   :43.00   Min.   :  326  
+##  1st Qu.:61.00   1st Qu.:56.00   1st Qu.:  950  
+##  Median :61.80   Median :57.00   Median : 2401  
+##  Mean   :61.75   Mean   :57.46   Mean   : 3933  
+##  3rd Qu.:62.50   3rd Qu.:59.00   3rd Qu.: 5324  
+##  Max.   :79.00   Max.   :95.00   Max.   :18823  
+##                                                 
+##        x                y                z         
+##  Min.   : 0.000   Min.   : 0.000   Min.   : 0.000  
+##  1st Qu.: 4.710   1st Qu.: 4.720   1st Qu.: 2.910  
+##  Median : 5.700   Median : 5.710   Median : 3.530  
+##  Mean   : 5.731   Mean   : 5.735   Mean   : 3.539  
+##  3rd Qu.: 6.540   3rd Qu.: 6.540   3rd Qu.: 4.040  
+##  Max.   :10.740   Max.   :58.900   Max.   :31.800  
+## 
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span>
+       <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">carat</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="nf">cut_number</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="m">10</span><span class="p">)))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-34-1.png" alt="plot of chunk unnamed-chunk-34"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">summary</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span>
+</code></pre></div><pre><code>##      carat               cut        color        clarity     
+##  Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065  
+##  1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258  
+##  Median :0.7000   Very Good:12082   F: 9542   SI2    : 9194  
+##  Mean   :0.7979   Premium  :13791   G:11292   VS1    : 8171  
+##  3rd Qu.:1.0400   Ideal    :21551   H: 8304   VVS2   : 5066  
+##  Max.   :5.0100                     I: 5422   VVS1   : 3655  
+##                                     J: 2808   (Other): 2531  
+##      depth           table           price      
+##  Min.   :43.00   Min.   :43.00   Min.   :  326  
+##  1st Qu.:61.00   1st Qu.:56.00   1st Qu.:  950  
+##  Median :61.80   Median :57.00   Median : 2401  
+##  Mean   :61.75   Mean   :57.46   Mean   : 3933  
+##  3rd Qu.:62.50   3rd Qu.:59.00   3rd Qu.: 5324  
+##  Max.   :79.00   Max.   :95.00   Max.   :18823  
+##                                                 
+##        x                y                z         
+##  Min.   : 0.000   Min.   : 0.000   Min.   : 0.000  
+##  1st Qu.: 4.710   1st Qu.: 4.720   1st Qu.: 2.910  
+##  Median : 5.700   Median : 5.710   Median : 3.530  
+##  Mean   : 5.731   Mean   : 5.735   Mean   : 3.539  
+##  3rd Qu.: 6.540   3rd Qu.: 6.540   3rd Qu.: 4.040  
+##  Max.   :10.740   Max.   :58.900   Max.   :31.800  
+## 
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span>
+       <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">price</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">carat</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="nf">cut_width</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="m">2000</span><span class="p">)),</span>
+               <span class="n">varwidth</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">coord_flip</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-34-2.png" alt="plot of chunk unnamed-chunk-34"  />
+(3) 比较特别大的钻石和比较小的钻石的价格分布。结果符合预期吗？还是出乎意料？</p>
+<p>(4) 组合使用你学习到的两种技术，对cut、carat和price的组合分布进行可视化表示。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_bin2d</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">cut</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-35-1.png" alt="plot of chunk unnamed-chunk-35"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span> 
+  <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">cut_number</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-35-2.png" alt="plot of chunk unnamed-chunk-35"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">,</span>
+  <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="nf">cut_number</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cut</span> <span class="p">)</span>
+<span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">()</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-35-3.png" alt="plot of chunk unnamed-chunk-35"  />
+(5) 二维图形可以显示一维图形中看不到的离群点。例如，以下图形中的有些点具有异常的x 值和y 值组合，这使得这些点成为了离群点，即使这些点的x 值和y 值在单独检验时似乎是正常的。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">11</span><span class="p">),</span> <span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">11</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-36-1.png" alt="plot of chunk unnamed-chunk-36"  />
+coord_cartesian  默认情况，指定参数则控制图形特定区域放大显示.</p>
+<p><code>coord_cartesian(xlim = NULL, ylim = NULL, expand = TRUE)</code></p>
+<p>如果不加参数，就是默认的图形，和不加这个函数一样</p>
+<ul>
+<li>xlim 和 ylim 各接一个二元数值向量，控制显示的区域范围，原理不是截取，而是放大该区域，原有图形不变，超出此范围的点也可以照常显示</li>
+<li>expand 为T则默认指定xlim轴两端还留一些空隙，F则控制范围即为图形的边缘</li>
+</ul>
+<h2 id="56模式和模型">5.6模式和模型</h2>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">faithful</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">eruptions</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">waiting</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-37-1.png" alt="plot of chunk unnamed-chunk-37"  />
+数据中的模式提供了关键线索。如果两个变量之间存在系统性的关系，那么这种关系就会在数据中表现为一种模式。</p>
+<ul>
+<li>如果两个变量是共同变化的，就可以使用一个变量的值来更好地预测另一个变量的值。</li>
+<li>如果相关变动可以归因于一种因果关系，那么就可以使用一个变量的值来控制另一个变量的值。</li>
+</ul>
+<p>模型是用于从数据中抽取模式的一种工具。</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#切割质量与价格之间的关系很难理解，因为切割质量和克拉数和价格之间的关系是紧密相关的。使用模型去除价格和克拉数之间的强关系，继续研究剩余的微妙关系。</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">modelr</span><span class="p">)</span>
+<span class="n">mod</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">price</span><span class="p">)</span> <span class="o">~</span> <span class="nf">log</span><span class="p">(</span><span class="n">carat</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span>
+
+<span class="n">diamonds2</span> <span class="o">&lt;-</span> <span class="n">diamonds</span> <span class="o">%&gt;%</span>
+  <span class="nf">add_residuals</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">resid</span> <span class="o">=</span> <span class="nf">exp</span><span class="p">(</span><span class="n">resid</span><span class="p">))</span>
+<span class="c1">#拟合了一个模型，可以根据carat预测price，并计算出残差（预测值和实际值之间的差别）</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">resid</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-38-1.png" alt="plot of chunk unnamed-chunk-38"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">resid</span><span class="p">))</span>
+</code></pre></div><p><img src="/R_data_science_c5/unnamed-chunk-38-2.png" alt="plot of chunk unnamed-chunk-38"  /></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/exploratory-data-analysis/">exploratory data analysis</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC13%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第13章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC11%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第11章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC10%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第10章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC9%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第9章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC8%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第8章</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rmd on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/rmd/</link>
+    <description>Recent content in Rmd on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Mar 2021 16:50:53 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/rmd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rmarkdown写博客</title>
+      <link>https://zzzqiii.github.io/p/rmarkdown%E5%86%99%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Tue, 16 Mar 2021 16:50:53 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/rmarkdown%E5%86%99%E5%8D%9A%E5%AE%A2/</guid>
+      <description>Rmarkdown写博客 最近在学R，所以用Rmarkdown做笔记。然后想把Rmd格式的笔记上传到博客上。搜索到了这篇文章，借鉴了一下。在此处记录。
+首先Rmd写完后，保存并保存为md格式，在控制台输入
+knitr::knit(input = &amp;quot;笔记.Rmd&amp;quot;, output = &amp;quot;笔记.md&amp;quot;) 然后就会输出md格式的文件，生成的图片会放在一个单独的文件夹里。
+之后再hugo new post/new.md, 把笔记.md复制到生成的md文件中。
+剩下就是图片的问题了。
+把上上条命令生成的图片复制到static目录下，然后把md文件中图片的地址批量替换(ctrl + H)成static目录下的地址即可，注意不要把static写进去。
+其他就跟正常写博客一样就好啦。</description>
+    </item>
+    
+  </channel>
+</rss>

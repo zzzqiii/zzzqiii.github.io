@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>相忘于江湖</title>
+    <link>https://zzzqiii.github.io/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/</link>
+    <description>Recent content on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 May 2021 23:07:46 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 8</title>
+      <link>https://zzzqiii.github.io/p/1-8/</link>
+      <pubDate>Mon, 17 May 2021 23:07:46 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1-8/</guid>
+      <description>vector #include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;ctime&amp;gt; using namespace std; bool cmp(int a, int b) //a是否应该排在b的前面 { return a &amp;lt; b; //如果a小于b的话a就应该排在b的前面。 } int main() { vector&amp;lt;int&amp;gt; a({1, 2, 3, 4, 5}); reverse(a.begin(), a.end()); for (int x : a) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; random_shuffle(a.begin(), a.end()); //把数组的顺序打乱。但是每次运行的结果是一样的。  srand(time(0));//加了一个跟时间有关的随机数种子，再打乱之后每次运行的结果就会发生变化。  random_shuffle(a.begin(), a.end()); sort(a.begin(), a.end());//从小到大  sort(a.begin(), a.end(), greater&amp;lt;int&amp;gt;()); //从大到小  sort(a.begin(), a.end(), cmp); //自定义比较。  for (int x : a) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; int b[] = {1, 2, 4, 5, 6}; reverse(b, b + 5); //逗号前写第一个位置的指针，逗号后写最后一个的下一个。  for (int x : b) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; int p[] = {1, 1, 2, 2, 3, 3, 4}; int m = unique(p, p+7) - p; cout &amp;lt;&amp;lt; m &amp;lt;&amp;lt; endl; for (int i = 0; i &amp;lt; m; i ++) cout &amp;lt;&amp;lt; p[i] &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; vector&amp;lt;int&amp;gt; q({1,1,2,2,3,3,4}); int n = unique(q.</description>
+    </item>
+    
+    <item>
+      <title>1 8_练习</title>
+      <link>https://zzzqiii.github.io/p/1-8_%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Mon, 17 May 2021 15:45:01 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1-8_%E7%BB%83%E4%B9%A0/</guid>
+      <description>67. 数字在排序数组中出现的次数 统计一个数字在排序数组中出现的次数。
+例如输入排序数组 [1,2,3,3,3,3,4,5] 和数字 3，由于 3 在这个数组中出现了 4 次，因此输出 4。
+样例 输入：[1, 2, 3, 3, 3, 3, 4, 5] , 3
+输出：4
+class Solution { public: int getNumberOfK(vector&amp;lt;int&amp;gt;&amp;amp; nums , int k) { int t = 0; for (int x : nums) if (x == k) t ++; return t; } }; 68. 0到n-1中缺失的数字 一个长度为 n−1 的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围 0 到 n−1 之内。
+在范围 0 到 n−1 的 n 个数字中有且只有一个数字不在该数组中，请找出这个数字。</description>
+    </item>
+    
+    <item>
+      <title>1 7_练习</title>
+      <link>https://zzzqiii.github.io/p/1-7_%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Sat, 15 May 2021 21:02:04 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1-7_%E7%BB%83%E4%B9%A0/</guid>
+      <description>16. 斐波那契数列 输入一个整数 n ，求斐波那契数列的第 n 项。
+假定从 0 开始，第 0 项为 0。(n≤39)
+样例 输入整数 n=5
+返回 5
+class Solution { public: int Fibonacci(int n) { if (n &amp;lt;= 1) return n; else return Fibonacci(n - 1) + Fibonacci(n - 2); } }; 21. 替换空格 请实现一个函数，把字符串中的每个空格替换成&amp;quot;%20&amp;quot;。
+你可以假定输入字符串的长度最大是 1000。
+注意输出字符串的长度可能大于 1000。
+样例 输入：&amp;ldquo;We are happy.&amp;rdquo;
+输出：&amp;ldquo;We%20are%20happy.&amp;rdquo;
+class Solution { public: string replaceSpaces(string &amp;amp;str) { string res; for (auto c : str) { if (c == &#39; &#39;) res += &amp;quot;%20&amp;quot;; else res += c; } return res; } }; 84.</description>
+    </item>
+    
+    <item>
+      <title>1</title>
+      <link>https://zzzqiii.github.io/p/1/</link>
+      <pubDate>Sat, 15 May 2021 17:08:47 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1/</guid>
+      <description>类和结构体 #include &amp;lt;iostream&amp;gt;using namespace std; class Student { private: int age, height; double money; string books[50]; //只能在类里面调用  public: string name; void say() { cout &amp;lt;&amp;lt; &amp;#34;I&amp;#39;m&amp;#34; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; endl; } int get_age() { return age; } void add_money(double x) { money += x; } //可以在外面也可以在类里面调用  //可以有多个private和public }b, persons[100];//也可以直接在后面声明。 //一定要加分号 struct Person { int age, height; double money; Person() {} Person(int _age, int _height, double _money) //构造函数，和结构体同名，没有类型，里面可以传递参数。可以定义多个构造函数。  { age = _age; height = _height; money = _money; } //特殊写法，更快。  Person(int _age, int _height, double _money) : age(_age), height(_height), money(_money) {} }; int main() { Student c; Person people[50]; //也可以声明数组  Person p(18, 180, 100.</description>
+    </item>
+    
+    <item>
+      <title>1 6_函数_练习</title>
+      <link>https://zzzqiii.github.io/p/1-6_%E5%87%BD%E6%95%B0_%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Thu, 13 May 2021 23:14:08 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1-6_%E5%87%BD%E6%95%B0_%E7%BB%83%E4%B9%A0/</guid>
+      <description>804. n的阶乘 输入一个整数 n，请你编写一个函数，int fact(int n)，计算并输出 n 的阶乘。
+输入格式 共一行，包含一个整数 n。
+输出格式 共一行，包含一个整数表示 n 的阶乘的值。
+数据范围 1≤n≤10 输入样例： 3 输出样例： 6
+#include &amp;lt;iostream&amp;gt; using namespace std; int fact(int n) { int res = 1; while (n != 1) { res = res * n; n --; } return res; } int main() { int n; cin &amp;gt;&amp;gt; n; cout &amp;lt;&amp;lt; fact(n); return 0; } 805. x和y的最大值 输入两个整数 x 和 y，请你编写一个函数，int max(int x, int y)，计算并输出 x 和 y 的最大值。</description>
+    </item>
+    
+    <item>
+      <title>1 5_字符串</title>
+      <link>https://zzzqiii.github.io/p/1-5_%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Sat, 08 May 2021 12:20:23 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1-5_%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>输入输出 48 - 57 分别对应 0 - 9
+大写英文字母从65开始.65-90
+小写英文字母从97开始。97-122
+差值32
+字符串就是字符数组加上结束符&amp;quot;\0&amp;quot;.
+字符数组：用来存储字符串的数组。
+printf输出字符串：%s
+空字符：\0 0
+char a2[] = {&amp;lsquo;A&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;}
+cout &amp;laquo; a2 + 1 &amp;laquo; endl; 从b开始输出，第二个开始
+char s[100]
+scanf(&amp;quot;%s&amp;quot;, s) 不用加取地址符号&amp;amp;，因为字符串本身就是指针。
+cin &amp;raquo; s;
+cin &amp;raquo; s + 1; 从第二个开始读入
+cout &amp;laquo; s &amp;laquo; endl;
+不管是cin还是scanf，读入字符串的时候不是一行的读进来，读入遇到空格、回车或者是文件结束符未知。
+fgets(s, 100, stdin); 第二个参数是最多读入多少字符，第三个参数是从哪个文件读入，一般是stdin（系统里的一个变量，已经定义好了）。这个方法可以用来读入一行。
+cin.getline(s, 100); 效果和fgets一样。
+string s;
+getline(cin, s); 这个方法也可以读入一行，但是只能读入到字符串里，不能读到字符数组中。
+string只能用cin读，scanf读不了。
+输出：
+printf(&amp;quot;%s\n&amp;quot;, s);
+puts(s); 等价于上面这句话，包括换行符。
+字符串常用操作 下面几个函数需要引入头文件:</description>
+    </item>
+    
+    <item>
+      <title>1 4_练习</title>
+      <link>https://zzzqiii.github.io/p/1-4_%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Wed, 05 May 2021 19:59:49 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1-4_%E7%BB%83%E4%B9%A0/</guid>
+      <description>737. 数组替换 输入一个长度为 10 的整数数组 X[10]，将里面的非正整数全部替换为 1，输出替换完成后的数组。
+输入格式 输入包含 10 个整数，每个整数占一行。
+输出格式 输出新数组中的所有元素，每个元素占一行。
+输出格式为 X[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。
+数据范围 −100≤X[i]≤100 输入样例： 10 -9 0 -4 -10 0 -2 -7 7 4 输出样例： X[0] = 10 X[1] = 1 X[2] = 1 X[3] = 1 X[4] = 1 X[5] = 1 X[6] = 1
+X[7] = 1 X[8] = 7 X[9] = 4
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a[9]; for (int i = 0; i &amp;lt; 10; i++) { cin &amp;gt;&amp;gt; a[i]; if (a[i] &amp;lt;= 0) a[i] = 1; printf(&amp;#34;X[%d] = %d\n&amp;#34;, i, a[i]); } return 0; } 738.</description>
+    </item>
+    
+    <item>
+      <title>1.4 数组</title>
+      <link>https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Wed, 05 May 2021 14:31:49 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84/</guid>
+      <description>程序 = 逻辑 + 数据，数组是存储数据的强而有力的手段。
+ 定义数组 int a[10], b[10]; float c[11]; double d[12]; char e[14]; string g[14];
+数组初始化 int a[3] = {0, 1, 3}; int b[] = {0, 1, 3}; //定义了一个长度为3的数组。 int c[5] = {0, 1, 1}; //定义了一个长度是5的数组，没有给出的值默认是0； char d[] = {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;} int f[10] = {0}; //将数组全部初始化成0的写法。  定义在函数内部的变量是随机的，同理，数组也是随机的。
+局部变量定义在栈里面，全局变量定义在堆里面。
+函数外面的变量全都是零。
+a[0] = 1; 下标从0开始。
+旋转k次
+reverse(a+起始位置， a+终止位置的下一个位置)
+精度不够 |x-y| &amp;lt; 1e-6
+定义常量 const double eps = 1e-6</description>
+    </item>
+    
+    <item>
+      <title>1.3 循环结构</title>
+      <link>https://zzzqiii.github.io/p/1.3-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Tue, 04 May 2021 14:52:55 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.3-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/</guid>
+      <description>学习循环语句只需要抓住一点——代码是顺序执行的。
+ while 循环  while	95%使用频率高  循环版的if语句
+#include &amp;lt;iostream&amp;gt; using namespace std; int main() { int i = 0; if (i &amp;lt; 10) { cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; i ++; } while (i &amp;lt; 10) { cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; i ++; } return 0; }  do while	5%  功能完全等价。
+先上车后买票。
+从第二个开始判断。
+while从第一个开始判断。
+注释快捷键 CTRL + /
+死循环永久执行，无法结束，要避免死循环。
+for 循环 for 70%
+while 25%</description>
+    </item>
+    
+    <item>
+      <title>1.3 循环结构练习</title>
+      <link>https://zzzqiii.github.io/p/1.3-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Tue, 04 May 2021 14:52:26 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.3-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0/</guid>
+      <description>708. 偶数 编写一个程序，输出 1 到 100 之间（包括 1 和 100）的全部偶数。
+输入格式 无输入。
+输出格式 输出全部偶数，每个偶数占一行。
+输入样例 No input 输出样例 2 4 6 &amp;hellip; 100
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { for(int i=1; i&amp;lt;=100; i++) { if(i % 2 == 0) cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; } } 709. 奇书 输入一个整数 X，输出 1 到 X 之间（包括 1 和 X）的全部奇数。
+输入格式 一个整数 X。
+输出格式 输出所有满足条件的奇数，每个数占一行。
+数据范围 1≤X≤1000 输入样例： 8 输出样例： 1 3 5 7</description>
+    </item>
+    
+    <item>
+      <title>1.2 判断语句练习</title>
+      <link>https://zzzqiii.github.io/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Mon, 03 May 2021 21:07:19 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/</guid>
+      <description>665. 倍数 读取两个正整数值 A 和 B。
+如果其中一个是另一个的整数倍，则输出 Sao Multiplos，否则输出 Nao sao Multiplos。
+输入格式 共一行，两个整数 A 和 B。
+输出格式 按题目所述，输出结果。
+数据范围 0&amp;lt;A,B&amp;lt;100 输入样例： 6 24 输出样例： Sao Multiplos
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a, b; cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b; if (a &amp;gt; b &amp;amp; a % b == 0 || a == b || a &amp;lt; b &amp;amp; b % a == 0) cout &amp;lt;&amp;lt; &amp;#34;Sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; else cout &amp;lt;&amp;lt; &amp;#34;Nao sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; return 0; } 660.</description>
+    </item>
+    
+    <item>
+      <title>1.2 判断语句</title>
+      <link>https://zzzqiii.github.io/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Mon, 03 May 2021 19:12:58 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/</guid>
+      <description>printf语句 保留几位小数，比cout简单。
+printf(&amp;quot;%.2lf\n&amp;quot;, f);
+printf(&amp;quot;%5d!\n&amp;quot;, a); //最少保留5位字符，在数字左边补上空格
+printf(&amp;quot;%-5d!\n&amp;quot;, a); //右边补上空格
+printf(&amp;quot;%05d!\n&amp;quot;, a); //补上0
+printf(&amp;quot;%5.1lf&amp;quot;, f)；//浮点数补位
+printf(&amp;quot;%05.1lf&amp;quot;, f); //空位补0
+printf(&amp;quot;%-5.1lf\n&amp;quot;, f); //右边补位
+基本if-else语句 #include &amp;lt;cstdio&amp;gt;#include &amp;lt;iostream&amp;gt; using namespace std; int main() { int score; cin &amp;gt;&amp;gt; score; if (score &amp;gt;= 60) { cout &amp;lt;&amp;lt; &amp;#34;及格&amp;#34;; } else { cout &amp;lt;&amp;lt; &amp;#34;不及格&amp;#34;; } } if ()
+{
+}
+else()
+{
+}
+变形：
+else可以省略；
+判断语句中大括号内只有一句话的时候大括号可以省略；
+大括号内部也可以嵌套语句；
+c++以分号来判断语句结束，和缩进与换行无关。
+常用判断方式：
+大于 a &amp;gt; b 小于 a &amp;lt; b 大于等于 a &amp;gt;= b 小于等于 a &amp;lt;= b 等于 a == b 不等于 a !</description>
+    </item>
+    
+    <item>
+      <title>1.1 输入输出、变量、表达式和顺序语句练习</title>
+      <link>https://zzzqiii.github.io/p/1.1-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E9%A1%BA%E5%BA%8F%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Mon, 03 May 2021 14:09:32 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.1-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E9%A1%BA%E5%BA%8F%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/</guid>
+      <description>608. 差 读取四个整数 A,B,C,DA,B,C,D，并计算 (A×B−C×D)(A×B−C×D) 的值。
+输入格式
+输入共四行，第一行包含整数 AA，第二行包含整数 BB，第三行包含整数 CC，第四行包含整数 DD。
+输出格式
+输出格式为 DIFERENCA = X，其中 XX 为 (A×B−C×D)(A×B−C×D) 的结果。
+数据范围
+−10000≤A,B,C,D≤10000
+#include &amp;lt;iostream&amp;gt; using namespace std; int main() { int a, b, c, d; scanf(&amp;#34;%d%d%d%d&amp;#34;, &amp;amp;a, &amp;amp;b, &amp;amp;c, &amp;amp;d); printf(&amp;#34;DIFERENCA = %d&amp;#34;, a*b - c*d); return 0; } 604. 圆的面积 计算圆的面积的公式定义为 A=πR2A=πR2。
+请利用这个公式计算所给圆的面积。
+π 的取值为 3.141593.14159。
+输入格式
+输入包含一个浮点数，为圆的半径 RR。
+输出格式
+输出格式为 A=X，其中 XX 为圆的面积，用浮点数表示，保留四位小数。
+数据范围
+0&amp;lt;R&amp;lt;10000.000&amp;lt;R&amp;lt;10000.00
+输入样例：
+2.00 输出样例：</description>
+    </item>
+    
+    <item>
+      <title>1.1 输入输出、变量、表达式和顺序语句</title>
+      <link>https://zzzqiii.github.io/p/1.1-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E9%A1%BA%E5%BA%8F%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Mon, 03 May 2021 14:03:43 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/1.1-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E9%A1%BA%E5%BA%8F%E8%AF%AD%E5%8F%A5/</guid>
+      <description>变量、输入输出、表达式和顺序语句 #include &amp;lt;iostream&amp;gt; using namespace std; int main() { cout &amp;lt;&amp;lt; &amp;#34;hello world&amp;#34; &amp;lt;&amp;lt; endl; return 0; } 第一部分：
+头文件
+#include printf scanf
+#include cin
+cout
+第二部分：
+using namespace std;
+Namespace 命名空间 std
+报错找error
+第三部分
+程序执行入口：
+Int main()
+{
+​	return 0;
+}
+最后要返回0
+#include &amp;lt;iostream&amp;gt;using namespace std; int main() { #自由发挥部分  return 0; #必须是0 } 变量 变量用来储存信息
+ bool false = 0, true = 1  bool false/true	1byte</description>
+    </item>
+    
+  </channel>
+</rss>

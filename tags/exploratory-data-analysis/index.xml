@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>exploratory data analysis on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/exploratory-data-analysis/</link>
+    <description>Recent content in exploratory data analysis on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Mar 2021 11:15:48 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/exploratory-data-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第5章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC5%E7%AB%A0/</link>
+      <pubDate>Wed, 24 Mar 2021 11:15:48 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC5%E7%AB%A0/</guid>
+      <description>[toc]
+探索性数据分析 简介  探索性数据分析：exploratory data analysis, EDA.使用可视化方法和数据转换来系统化地探索数据。
+ 对分布进行可视化表示 对分布进行可视化的方法取决于变量是分类变量还是连续变量。
+分类变量在R中通常保存为因子或字符向量。想要检查分类变量的分布，可以使用条形图：
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut)) diamonds %&amp;gt;% count(cut) ## # A tibble: 5 x 2 ## cut n ## * &amp;lt;ord&amp;gt; &amp;lt;int&amp;gt; ## 1 Fair 1610 ## 2 Good 4906 ## 3 Very Good 12082 ## 4 Premium 13791 ## 5 Ideal 21551 如果可以在无限大的有序集合中任意取值，那么这个变量就是连续变量。数值型和日期时间型变量就是连续变量的两个例子。要想检查连续变量的分布，可以使用直方图。
+ggplot(data = diamonds) + geom_histogram(mapping = aes(x = carat), binwidth = 0.</description>
+    </item>
+    
+  </channel>
+</rss>

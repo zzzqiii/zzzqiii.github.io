@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>相忘于江湖</title>
+    <link>https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/</link>
+    <description>Recent content on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 May 2021 20:15:33 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基础算法</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 23 May 2021 20:15:33 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</guid>
+      <description>快排（分治）  确定分界点。q[l], q[(l+r)/2], q[r]随机 ⭐调整区间。大于分界点的放一边，小于的放一边。 递归处理左右两端  第二步：
+  开两个数组：a[], b[]
+  小于x的放在a中，大于的放在b中。
+  a和b放回q中。
+  或者用指针
+  归并排序——分治  确定分界点：mid = （l + r）/ 2; 递归排序 归并——合二为一  整数二分 </description>
+    </item>
+    
+  </channel>
+</rss>

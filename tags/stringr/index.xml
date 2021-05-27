@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stringr on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/stringr/</link>
+    <description>Recent content in stringr on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Apr 2021 15:03:24 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第10章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC10%E7%AB%A0/</link>
+      <pubDate>Tue, 13 Apr 2021 15:03:24 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC10%E7%AB%A0/</guid>
+      <description>使用stringr处理字符串 library(tidyverse) library(stringr) library(stringi) 字符串基础 单引号和双引号创建字符串。 如果想要在字符串中包含一个单引号或双引号，可以使用\对其进行转义。
+test &amp;lt;- &amp;#34;string\&amp;#34;string&amp;#34; print(test) ## [1] &amp;quot;string\&amp;quot;string&amp;quot; test ## [1] &amp;quot;string\&amp;quot;string&amp;quot; writeLines(test) #查看字符串的初始内容。 ## string&amp;quot;string str_length(c(&amp;#34;a&amp;#34;, &amp;#34;R4ds&amp;#34;, NA)) #字符串长度 ## [1] 1 4 NA str_c(&amp;#34;x&amp;#34;, &amp;#34;y&amp;#34;) #组合字符串 ## [1] &amp;quot;xy&amp;quot; str_c(&amp;#34;x&amp;#34;, &amp;#34;y&amp;#34;, sep = &amp;#34;,&amp;#34;) ## [1] &amp;quot;x,y&amp;quot; x &amp;lt;- c(&amp;#34;abc&amp;#34;, NA) str_c(&amp;#34;|-&amp;#34;, x, &amp;#34;-|&amp;#34;) ## [1] &amp;quot;|-abc-|&amp;quot; NA str_c(&amp;#34;|-&amp;#34;, str_replace_na(x), &amp;#34;-|&amp;#34;) ## [1] &amp;quot;|-abc-|&amp;quot; &amp;quot;|-NA-|&amp;quot; str_c(&amp;#34;prefix&amp;#34;, c(&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;), &amp;#34;-suffix&amp;#34;) ## [1] &amp;quot;prefixa-suffix&amp;quot; &amp;quot;prefixb-suffix&amp;quot; &amp;quot;prefixc-suffix&amp;quot; name &amp;lt;- &amp;#34;zzq&amp;#34; time_of_day &amp;lt;- &amp;#34;afternoon&amp;#34; birthday &amp;lt;- FALSE str_c( &amp;#34;Good &amp;#34;, time_of_day, &amp;#34; &amp;#34;, name, if (birthday) &amp;#34; and HAPPY BIRTHDAY&amp;#34;, &amp;#34;.</description>
+    </item>
+    
+  </channel>
+</rss>

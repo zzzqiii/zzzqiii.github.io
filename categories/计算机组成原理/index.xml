@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机组成原理 on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</link>
+    <description>Recent content in 计算机组成原理 on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 May 2021 12:49:49 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>冯诺依曼体系结构</title>
+      <link>https://zzzqiii.github.io/p/%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Fri, 21 May 2021 12:49:49 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</guid>
+      <description>基本硬件组成  CPU 中央处理器 内存：程序加载到内存里才能运行，读取的数据、计算的结果也要放在内存里。内存越大加载的东西越多。 主板：是一个有着很多插槽的配件。CPU插在主板上，内存也要插在主板上。主板的芯片组和总线解决了CPU和内存之间如何通信的问题。芯片组控制了数据传输的流转，总线决定了数据能传输得多快。 输入/输出设备（I/O设备） 显卡 GPU （图形处理器） 鼠标、键盘、硬盘插在主板上，通过主板上的南桥芯片组来控制和CPU的通信。 北桥芯片，连接CPU和内存，显卡之间的通信。现在北桥芯片的工作以及被迁移到CPU的内部。 智能手机：SoC （system on a chip）  冯诺依曼体系结构 First draft
+存储程序计算机：可编程、可存储
+  处理器单元：包括算术逻辑单元和处理器寄存器，用来完成各种算数和逻辑运算。
+  控制器单元：包含指令寄存器和程序计数器。
+算术逻辑单元和控制器单元共同组成了CPU。
+  内存：存储数据和指令。以及外存。
+  输入输出设备
+  </description>
+    </item>
+    
+  </channel>
+</rss>

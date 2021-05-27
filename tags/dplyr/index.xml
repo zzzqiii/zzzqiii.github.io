@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dplyr on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/dplyr/</link>
+    <description>Recent content in dplyr on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Mar 2021 16:35:09 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第三章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%89%E7%AB%A0/</link>
+      <pubDate>Tue, 16 Mar 2021 16:35:09 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%89%E7%AB%A0/</guid>
+      <description>第 3 章　使用 dplyr 进行数据转换 library(nycflights13) library(tidyverse) ?flights flights ## # A tibble: 336,776 x 19 ## year month day dep_time sched_dep_time dep_delay arr_time ## &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; ## 1 2013 1 1 517 515 2 830 ## 2 2013 1 1 533 529 4 850 ## 3 2013 1 1 542 540 2 923 ## 4 2013 1 1 544 545 -1 1004 ## 5 2013 1 1 554 600 -6 812 ## 6 2013 1 1 554 558 -4 740 ## 7 2013 1 1 555 600 -5 913 ## 8 2013 1 1 557 600 -3 709 ## 9 2013 1 1 557 600 -3 838 ## 10 2013 1 1 558 600 -2 753 ## # .</description>
+    </item>
+    
+  </channel>
+</rss>

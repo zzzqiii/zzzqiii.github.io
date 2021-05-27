@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>相忘于江湖</title>
+    <link>https://zzzqiii.github.io/categories/try/</link>
+    <description>Recent content on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 May 2021 13:45:54 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/try/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>加装固态硬盘</title>
+      <link>https://zzzqiii.github.io/p/%E5%8A%A0%E8%A3%85%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/</link>
+      <pubDate>Wed, 12 May 2021 13:45:54 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%8A%A0%E8%A3%85%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/</guid>
+      <description>y电脑C盘太慢了，开机都很卡，于是装了一块固态。
+一开始买的是三星的860 EVO M.2接口（sata总线）这一款，买回来装上发现型号不对，问了一下电脑客服说我这台电脑支持的协议是 PCIe 3.0 x4 NVMe，Class 35和PCIe 3.0 x4 NVMe，Class 40。于是退货又重新买了980 NVMe PAle3.0*4这款。装上去总算是没问题了。
+然后下载了三星的一个数据迁移软件，叫Data migration。把C盘迁移到加装的固态硬盘上，等几分钟就好了，迁移好了它会自动帮我们该盘符名字，不用自己改了。然后重启一下，按F2或者F10或者F12，会跳出来一个页面。选择bios sequence，然后把固态硬盘的位置移到最上面就好了。
+最后可以把原来的C盘格式化。</description>
+    </item>
+    
+    <item>
+      <title>First</title>
+      <link>https://zzzqiii.github.io/p/first/</link>
+      <pubDate>Wed, 03 Mar 2021 21:48:43 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/first/</guid>
+      <description>&lt;h1 id=&#34;利用hugo创建个人博客&#34;&gt;利用hugo创建个人博客&lt;/h1&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

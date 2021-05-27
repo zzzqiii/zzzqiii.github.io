@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/github/</link>
+    <description>Recent content in github on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Mar 2021 12:57:21 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决谷歌浏览器无法进入GitHub</title>
+      <link>https://zzzqiii.github.io/p/%E8%A7%A3%E5%86%B3%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5github/</link>
+      <pubDate>Sat, 06 Mar 2021 12:57:21 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E8%A7%A3%E5%86%B3%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5github/</guid>
+      <description>谷歌浏览器无法访问GitHub 谷歌浏览器总是进不去GitHub，但是edge可以。在网上搜了一下，发现是ip地址的原因。
+解决方法如下：
+  访问https://github.com.ipaddress.com/www.github.com，查看ip地址。
+  在C:\Windows\System32\drivers\etc文件夹中找到hosts文件，添加一行。前面为刚刚查到的ip。一定要改成自己ip，之前搜到别的方法，复制别人的ip没有解决问题。
+140.82.114.4 github.com   点击host文件没有权限保留更改，右键hosts，选择属性，点击安全→编辑→Users→写入，然后确定即可。修改完hosts文件之后可以再回来把写入这个勾取消掉。
+  参考 浏览器无法进入GitHub（已解决）</description>
+    </item>
+    
+  </channel>
+</rss>

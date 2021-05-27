@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>readr on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/readr/</link>
+    <description>Recent content in readr on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Mar 2021 19:04:41 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/readr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第8章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC8%E7%AB%A0/</link>
+      <pubDate>Wed, 31 Mar 2021 19:04:41 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC8%E7%AB%A0/</guid>
+      <description>使用readr进行数据导入 library(tidyverse) 入门 readr的多数函数用于将平面文件转换为数据框。
+ read_csv读取逗号分隔文件。 read_csv2()读取分号分隔文件。 read_tsv()读取制表符分隔文件。 read_delim()读取使用任意分隔符的文件。 read_fwf()读取固定宽度的文件，既可以使用fwf_widths() 函数按照宽度来设定域，也可以使用fwf_positions()函数按照位置来设定域。 read_table()读取固定宽度文件的一种常用变体，空白字符分隔各列。 read_log()读取apache风格的日志文件。  read_csv(&amp;#34;a, b, c 1, 2, 3 4, 5, 6&amp;#34;) ## # A tibble: 2 x 3 ## a b c ## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 1 2 3 ## 2 4 5 6 #read_csv()使用第一行作为列名称。 read_csv(&amp;#34;first line second line x, y, z 1, 2, 3&amp;#34;, skip = 2) ## # A tibble: 1 x 3 ## x y z ## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 1 2 3 read_csv(&amp;#34;#comment x, y, z 1, 2, 3&amp;#34;, comment = &amp;#34;#&amp;#34;) ## # A tibble: 1 x 3 ## x y z ## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 1 2 3 #使用skip = n来跳过前n行，或使用commt = ”#“来丢弃以#开头的行。 read_csv(&amp;#34;1, 2, 3\n4, 5, 6&amp;#34;, col_names = FALSE) ## # A tibble: 2 x 3 ## X1 X2 X3 ## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 1 2 3 ## 2 4 5 6 #不将第一行作为列标题。 read_csv(&amp;#34;1, 2, 3\n4, 5, 6&amp;#34;, col_names = c(&amp;#34;x&amp;#34;, &amp;#34;y&amp;#34;, &amp;#34;z&amp;#34;)) ## # A tibble: 2 x 3 ## x y z ## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 1 2 3 ## 2 4 5 6 read_csv(&amp;#34;a, b, c\n1, 2, &amp;#34;, na = &amp;#34; &amp;#34;) ## # A tibble: 1 x 3 ## a b c ## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;lgl&amp;gt; ## 1 1 2 NA #na设定使用哪个值来表示文件中的缺失值.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/ggplot/</link>
+    <description>Recent content in ggplot on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Mar 2021 21:48:43 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第一章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%80%E7%AB%A0/</link>
+      <pubDate>Wed, 03 Mar 2021 21:48:43 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%80%E7%AB%A0/</guid>
+      <description>[toc]
+第 1 章　使用 ggplot2 进行数据可视化 library(tidyverse) mpg ## # A tibble: 234 x 11 ## manufacturer model displ year cyl trans drv cty hwy ## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; ## 1 audi a4 1.8 1999 4 auto(~ f 18 29 ## 2 audi a4 1.8 1999 4 manua~ f 21 29 ## 3 audi a4 2 2008 4 manua~ f 20 31 ## 4 audi a4 2 2008 4 auto(~ f 21 30 ## 5 audi a4 2.</description>
+    </item>
+    
+  </channel>
+</rss>

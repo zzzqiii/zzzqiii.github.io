@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='665. 倍数 读取两个正整数值 A 和 B。
+如果其中一个是另一个的整数倍，则输出 Sao Multiplos，否则输出 Nao sao Multiplos。
+输入格式 共一行，两个整数 A 和 B。
+输出格式 按题目所述，输出结果。
+数据范围 0&amp;lt;A,B&amp;lt;100 输入样例： 6 24 输出样例： Sao Multiplos
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a, b; cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b; if (a &amp;gt; b &amp;amp; a % b == 0 || a == b || a &amp;lt; b &amp;amp; b % a == 0) cout &amp;lt;&amp;lt; &amp;#34;Sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; else cout &amp;lt;&amp;lt; &amp;#34;Nao sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; return 0; } 660.'><title>1.2 判断语句练习</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='1.2 判断语句练习'>
+<meta property='og:description' content='665. 倍数 读取两个正整数值 A 和 B。
+如果其中一个是另一个的整数倍，则输出 Sao Multiplos，否则输出 Nao sao Multiplos。
+输入格式 共一行，两个整数 A 和 B。
+输出格式 按题目所述，输出结果。
+数据范围 0&amp;lt;A,B&amp;lt;100 输入样例： 6 24 输出样例： Sao Multiplos
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a, b; cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b; if (a &amp;gt; b &amp;amp; a % b == 0 || a == b || a &amp;lt; b &amp;amp; b % a == 0) cout &amp;lt;&amp;lt; &amp;#34;Sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; else cout &amp;lt;&amp;lt; &amp;#34;Nao sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; return 0; } 660.'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-03T21:07:19&#43;08:00'/><meta property='article:modified_time' content='2021-05-03T21:07:19&#43;08:00'/>
+<meta name="twitter:title" content="1.2 判断语句练习">
+<meta name="twitter:description" content="665. 倍数 读取两个正整数值 A 和 B。
+如果其中一个是另一个的整数倍，则输出 Sao Multiplos，否则输出 Nao sao Multiplos。
+输入格式 共一行，两个整数 A 和 B。
+输出格式 按题目所述，输出结果。
+数据范围 0&amp;lt;A,B&amp;lt;100 输入样例： 6 24 输出样例： Sao Multiplos
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a, b; cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b; if (a &amp;gt; b &amp;amp; a % b == 0 || a == b || a &amp;lt; b &amp;amp; b % a == 0) cout &amp;lt;&amp;lt; &amp;#34;Sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; else cout &amp;lt;&amp;lt; &amp;#34;Nao sao Multiplos&amp;#34; &amp;lt;&amp;lt; endl; return 0; } 660.">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" >
+                
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/1.2-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/">1.2 判断语句练习</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">May 03, 2021</time>
+    </footer>11
+    2280
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="665-倍数">665. 倍数</h2>
+<p>读取两个正整数值 A 和 B。</p>
+<p>如果其中一个是另一个的整数倍，则输出 Sao Multiplos，否则输出 Nao sao Multiplos。</p>
+<p>输入格式
+共一行，两个整数 A 和 B。</p>
+<p>输出格式
+按题目所述，输出结果。</p>
+<p>数据范围
+0&lt;A,B&lt;100
+输入样例：
+6 24
+输出样例：
+Sao Multiplos</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Sao Multiplos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Nao sao Multiplos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="660-零食">660. 零食</h2>
+<p>某商店出售 5 种零食，零食编号为 1∼5。</p>
+<p>5 种零食的价目表如下所示：</p>
+<p>零食种类        价格
+零食  1         R$ 4.00
+零食  2         R$ 4.50
+零食  3         R$ 5.00
+零食  4         R$ 2.00
+零食  5         R$ 1.50
+现在给定某种零食的编号和数量，请你计算总价值是多少。</p>
+<p>输入格式
+输入包含两个整数 x 和 y，其中 x 为零食编号，y 为零食数量。</p>
+<p>输出格式
+输出格式为 Total: R$ X，其中 X 为总价值，保留两位小数。</p>
+<p>数据范围
+1≤x≤5,
+1≤y≤100
+输入样例：
+3 2
+输出样例：
+Total: R$ 10.00</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">4.00</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">4.50</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">5.00</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">2.00</span><span class="p">);</span>
+    <span class="k">else</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">1.50</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="659-区间">659. 区间</h2>
+<p>给定一个浮点数，请你判断该数字属于以下哪个区间：[0,25],(25,50],(50,75],(75,100]。</p>
+<p>如果给定的数值小于 0 或大于 100，则程序输出 Fora de intervalo，表示超出范围。</p>
+<p>开区间 (a,b)：在实数 a 和实数 b 之间的所有实数，但不包含 a 和 b。</p>
+<p>闭区间 [a,b]：在实数 a 和实数 b 之间的所有实数，包含 a 和 b。</p>
+<p>输入格式
+输入一个浮点数。</p>
+<p>输出格式
+判断输入数值位于哪个区间，按格式 Intervalo x 输出，其中 x 为区间范围 [0,25],(25,50],(50,75],(75,100] 中的一个。</p>
+<p>如果数值位于所有区间之外，则输出 Fora de intervalo。</p>
+<p>输入样例：
+25.01
+输出样例：
+Intervalo (25,50]</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo [0,25]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">25</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo (25,50]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">50</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">75</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo (50,75]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">70</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo (75,100]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Fora de intervalo&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="664-三角形-">664. 三角形 ?</h2>
+<p>读取三个浮点数 A，B 和 C 并验证是否可以用它们形成三角形。</p>
+<p>如果可能，则计算并输出三角形的周长：</p>
+<p>Perimetro = XX.X</p>
+<p>如果不可能，则计算并输出以 A 和 B 为底以 C 为高的梯形面积：</p>
+<p>Area = XX.X</p>
+<p>输入格式
+共一行，包含三个浮点数 A,B,C。</p>
+<p>输出格式
+按题目描述格式，输出答案，答案保留一位小数。</p>
+<p>数据范围
+0&lt;A,B,C&lt;100.0
+输入样例1：
+6.0 4.0 2.0
+输出样例1：
+Area = 10.0
+输入样例2：
+6.0 4.0 2.1
+输出样例2：
+Perimetro = 12.1</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Perimetro = %.1lf&#34;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Area = %.1lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>绝对值：整数abs()  浮点数fabs（） ?</p>
+<h2 id="667-游戏时间">667. 游戏时间</h2>
+<p>读取两个整数 A 和 B，表示游戏的开始时间和结束时间，以小时为单位。</p>
+<p>然后请你计算游戏的持续时间，已知游戏可以在一天开始并在另一天结束，最长持续时间为 24 小时。</p>
+<p>如果 A 与 B 相等，则视为持续了 24 小时。</p>
+<p>输入格式
+共一行，包含两个整数 A 和 B。</p>
+<p>输出格式
+输出格式为 O JOGO DUROU X HORA(S)，其中 X 为游戏持续时间。</p>
+<p>数据范围
+0≤A,B≤23
+输入样例1：
+16 2
+输出样例1：
+O JOGO DUROU 10 HORA(S)
+输入样例2：
+0 0
+输出样例2：
+O JOGO DUROU 24 HORA(S)
+输入样例3：
+2 16
+输出样例3：
+O JOGO DUROU 14 HORA(S)</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">-</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="669-加薪">669. 加薪</h2>
+<p>ABC 公司决定给员工加薪，加薪情况如下所示：</p>
+<pre><code>薪水                涨薪幅度
+</code></pre>
+<p>0 - 400.00                15%
+400.01 - 800.00           12%
+800.01 - 1200.00          10%
+1200.01 - 2000.00         7%
+超过 2000.00              4%
+读取员工的工资，计算并输出员工的新工资，以及员工增加的收入和涨薪幅度。</p>
+<p>输入格式
+共一行，包含一个保留两位小数的浮点数。</p>
+<p>输出格式
+输出格式如下所示：</p>
+<p>第一行输出 Novo salario: X，X 表示员工新工资，保留两位小数。</p>
+<p>第二行输出 Reajuste ganho: Y，Y 表示员工增加的具体收入数值，保留两位小数。</p>
+<p>第三行输出 Em percentual: Z，Z 表示涨薪幅度，注意用百分比表示。</p>
+<p>数据范围
+0≤原工资≤2500.00
+输入样例：
+400.00
+输出样例：
+Novo salario: 460.00
+Reajuste ganho: 60.00
+Em percentual: 15 %</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 15 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.15</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.15</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">400.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">800.00</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 12 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.12</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.12</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">800.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">1200.00</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 10 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.1</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">1200.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">2000.00</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 7 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.07</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.07</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 4 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.04</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.04</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>printf输出%要打两个%%，输出两个打4个</p>
+<h2 id="670-动物">670. 动物</h2>
+<p>给定你三个葡萄牙语单词，这些词将根据下表从左到右定义一个动物。</p>
+<p>请你确定并输出这个动物的名称。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/04/13/19_c2433a725d-UOJ_1049_b.png" alt="UOJ_1049_b.png"  /></p>
+<p>输入格式
+根据上表，输入包含三个单词，每行一个，用以识别动物，单词由小写字母构成。</p>
+<p>输出格式
+输出识别出的动物的名称。</p>
+<p>输入样例：
+vertebrado
+mamifero
+onivoro
+输出样例：
+homem</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="s">&#34;vertebrado&#34;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="s">&#34;ave&#34;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;carnivoro&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;aguia&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;pomba&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;onivoro&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;homem&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;vaca&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="s">&#34;inseto&#34;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;hematofago&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;pulga&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;lagarta&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;hematofago&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;sanguessuga&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;minhoca&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="657-选择练习1">657. 选择练习1</h2>
+<p>读取 4 个整数值 A，B，C 和 D。</p>
+<p>如果四个整数同时满足以下条件：</p>
+<p>B 大于 C。
+D 大于 A。
+C 和 D 的总和大于 A 和 B 的总和。
+C 和 D 是正值。
+A 是偶数。
+则输出 Valores aceitos，否则，输出 Valores nao aceitos。</p>
+<p>输入格式
+输入占一行，包含四个整数 A,B,C,D。</p>
+<p>输出格式
+如果输入数值满足题目条件则输出 Valores aceitos，否则输出 Valores nao aceitos。</p>
+<p>数据范围
+−100≤A,B,C,D≤100
+输入样例：
+5 6 7 8
+输出样例：
+Valores nao aceitos</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Valores aceitos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Valores nao aceitos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="671-ddd">671. DDD</h2>
+<p>给定一个整数，请根据下表确定并输出其对应的城市名称：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/04/13/19_262d74385d-UOJ_1050.png" alt="UOJ_1050.png"  /></p>
+<p>如果输入数字不在上表中，则输出 DDD nao cadastrado。</p>
+<p>输入格式
+共一行，包含一个整数。</p>
+<p>输出格式
+输出对应城市名称，如果没有对应城市名称，则输出 DDD nao cadastrado。</p>
+<p>输入样例：
+11
+输出样例：
+Sao Paulo</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">61</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Brasilia&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">71</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Salvador&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Sao Paulo&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">21</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Rio de Janeiro&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">32</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Juiz de Fora&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">19</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Campinas&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">27</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Vitoria&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">31</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Belo Horizonte&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;DDD nao cadastrado&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="662-点的坐标">662. 点的坐标</h2>
+<p>给定两个保留一位小数的浮点数 X,Y，用来表示一个点的横纵坐标。</p>
+<p>请你判断该点在坐标系中的位置。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/04/12/19_00c6382e5d-UOJ_1041.png" alt="UOJ_1041.png"  /></p>
+<p>输入格式
+共一行，包含两个浮点数 X,Y，表示点的横纵坐标。</p>
+<p>输出格式
+如果点在第一象限，则输出 Q1，在第二象限，则输出 Q2，以此类推。</p>
+<p>如果点在原点处，则输出 Origem。</p>
+<p>否则，如果点在 x 坐标上，则输出 Eixo X，在 y 坐标上，则输出 Eixo Y。</p>
+<p>数据范围
+−10.0≤X,Y≤10.0
+输入样例1：
+4.5 -2.2
+输出样例1：
+Q4
+输入样例2：
+0.0 0.0
+输出样例2：
+Origem</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q1&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q2&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q3&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q4&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Eixo X&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Eixo Y&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Origem&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="666-三角形类型">666. 三角形类型?</h2>
+<p>读取表示三角形三条边的 3 个浮点数 A，B 和 C 并按降序排列，使 A 边是三边中最大的一边。</p>
+<p>接下来，根据以下情况，确定它们可以组成的三角形类型：</p>
+<p>如果 A≥B+C，则说明三条边不能构成三角形，请输出：NAO FORMA TRIANGULO
+否则，说明三条边可以构成三角形，然后按如下情况输出：
+如果A2=B2+C2，请输出：TRIANGULO RETANGULO
+如果A2&gt;B2+C2，请输出：TRIANGULO OBTUSANGULO
+如果A2&lt;B2+C2，请输出：TRIANGULO ACUTANGULO
+如果三个边长度都相同，请输出：TRIANGULO EQUILATERO
+如果只有两个边长度相同而第三个边长度不同，请输出：TRIANGULO ISOSCELES
+输入格式
+共一行，包含三个浮点数 A,B,C。</p>
+<p>输出格式
+输出 A,B,C 组成的三角形的类型。</p>
+<p>注意，上述条件可能满足不止一条，这种情况下将所有类型名称，按题目介绍顺序输出，每行输出一条。</p>
+<p>数据范围
+0&lt;A,B,C&lt;10.0
+输入样例：
+7.0 5.0 7.0
+输出样例：
+TRIANGULO ACUTANGULO
+TRIANGULO ISOSCELES</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="n">z</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">a</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">)</span> <span class="n">a</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">))</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;NAO FORMA TRIANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">==</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO RETANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO EQUILATERO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ISOSCELES&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO OBTUSANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO EQUILATERO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ISOSCELES&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ACUTANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO EQUILATERO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ISOSCELES&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>如何简化</p>
+<p>报错，使用了float，导致两个看起来相等的数不相等，原因不懂，教训是以后不使用float，用double。</p>
+<h2 id="668-游戏时间2">668. 游戏时间2</h2>
+<p>读取四个整数 A,B,C,D，用来表示游戏的开始时间和结束时间。</p>
+<p>其中 A 和 B 为开始时刻的小时和分钟数，C 和 D 为结束时刻的小时和分钟数。</p>
+<p>请你计算游戏的持续时间。</p>
+<p>比赛最短持续 1 分钟，最长持续 24 小时。</p>
+<p>输入格式
+共一行，包含四个整数 A,B,C,D。</p>
+<p>输出格式
+输出格式为 O JOGO DUROU X HORA(S) E Y MINUTO(S)，表示游戏共持续了 X 小时 Y 分钟。</p>
+<p>数据范围
+0≤A,C≤23,
+0≤B,D≤59
+输入样例1：
+7 8 9 10
+输出样例1：
+O JOGO DUROU 2 HORA(S) E 2 MINUTO(S)
+输入样例2：
+7 7 7 7
+输出样例2：
+O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)
+输入样例3：
+7 10 8 9
+输出样例3：
+O JOGO DUROU 0 HORA(S) E 59 MINUTO(S)</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">min1</span><span class="p">,</span> <span class="n">min2</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">min1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">min2</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">d</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">min1</span> <span class="o">&lt;</span> <span class="n">min2</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S) E &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; MINUTO(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S) E &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; MINUTO(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+<span class="p">}</span>
+</code></pre></div><h2 id="672-税">672. 税</h2>
+<p>读取一个保留两位小数的浮点数值，表示一个公民的工资。</p>
+<p>在公民缴纳个人所得税时，不同收入部分需要缴税的税率也是不同的。</p>
+<p>请根据下表确定该公民需要缴纳的个人所得税是多少。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/04/13/19_59eb56625d-UOJ_1051_en.png" alt="UOJ_1051_en.png"  /></p>
+<p>输入格式
+共一行，包含一个浮点数。</p>
+<p>输出格式
+如果公民需要缴税，则输出所需缴纳的税额。输出格式为 R$ X，其中 X 为个税的金额，保留两位小数。</p>
+<p>如果公民不需要缴税，则输出 Isento。</p>
+<p>数据范围
+0≤公民工资≤5000
+输入样例1：
+3002.00
+输出样例1：
+R$ 80.36
+输入样例2：
+1700.00
+输出样例2：
+Isento
+输入样例3：
+4520.00
+输出样例3：
+R$ 355.60
+样例解释
+对于样例 1，0∼2000.00 部分不用缴税，2000.01∼3000.00 部分按 8% 的税率缴税，共计 1000×8%=80，3000.01∼3002.00 部分按 18% 的税率缴税，共计 2×18%=0.36，合计 80.36。</p>
+<p>对于样例 2，公民收入未超过 2000，所以输出 Isento。</p>
+<p>对于样例 3，0∼2000.00 部分不用缴税，2000.01∼3000.00 部分按 8% 的税率缴税，共计 1000×8%=80，3000.01∼4500.00 部分按 18% 的税率缴税，共计 1500×18%=270，4500.01∼4520 部分按 28% 的税率缴税，共计 20×28%=5.60，合计 355.60。</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">2000</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Isento&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">2000.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">3000</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R$ %.2lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="mi">2000</span><span class="p">)</span><span class="o">*</span><span class="mf">0.08</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">3000.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">4500</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R$ %.2lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="mi">3000</span><span class="p">)</span><span class="o">*</span><span class="mf">0.18</span><span class="o">+</span><span class="mi">1000</span><span class="o">*</span><span class="mf">0.08</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">4500</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R$ %.2lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="mi">4500</span><span class="p">)</span><span class="o">*</span><span class="mf">0.28</span><span class="o">+</span><span class="mi">1000</span><span class="o">*</span><span class="mf">0.08</span><span class="o">+</span><span class="mi">1500</span><span class="o">*</span><span class="mf">0.18</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="663-简单排序">663. 简单排序?</h2>
+<p>读取三个整数并按升序对它们进行排序。</p>
+<p>输入格式
+共一行，包含三个整数。</p>
+<p>输出格式
+首先，将三个整数按升序顺序输出，每行输出一个整数。</p>
+<p>然后，输出一个空行。</p>
+<p>紧接着，将三个整数按原输入顺序输出，每行输出一个整数。</p>
+<p>数据范围
+−100≤输入整数≤100
+输入样例：
+7 21 -14
+输出样例：
+-14
+7
+21</p>
+<p>7
+21
+-14</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">min</span><span class="p">,</span> <span class="n">media</span><span class="p">,</span> <span class="n">max</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">min</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">media</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="n">max</span> <span class="o">-</span> <span class="n">min</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">min</span><span class="p">,</span> <span class="n">media</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    
+<span class="p">}</span>
+</code></pre></div><p>听一下老师怎么讲</p>
+<h2 id="658-一元二次方程公式">658. 一元二次方程公式</h2>
+<p>读取三个浮点数 a,b,c 的值，利用一元二次方程求根公式对方程 ax2+bx+c=0 进行求解。</p>
+<p>一元二次方程求根公式为：</p>
+<p>x=−b±b2−4ac−−−−−−−√2a
+如果 b2−4ac&lt;0 导致方程无解或 a=0，则输出 Impossivel calcular。</p>
+<p>输入格式
+输入三个浮点数 a,b,c。</p>
+<p>输出格式
+参照输出格式，输出方程的根，输出结果保留五位小数，如果无解则输出 Impossivel calcular。</p>
+<p>两个根可以按任意顺序输出，都算正确。</p>
+<p>数据保证不存在只有一个解的情况。</p>
+<p>数据范围
+−1000.0≤a,b,c≤1000.0
+输入样例：
+10.0 20.1 5.1
+输出样例：
+R1 = -0.29788
+R2 = -1.71212</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Impossivel calcular&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R1 = %.5f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">));</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R2 = %.5f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="661-平均数3">661. 平均数3</h2>
+<p>读取 4 个数字 N1,N2,N3,N4，这 4 个数字都是保留 1 位小数的浮点数，对应于学生获得的 4 个分数。</p>
+<p>这 4 个分数的权重分别为 2,3,4,1，请你计算学生成绩的平均值 X 并输出 Media: X。</p>
+<p>接下来分为以下三种情况：</p>
+<p>如果平均值为 7.0 或更高，则输出 Aluno aprovado.。
+如果平均值小于 5.0，则输出 Aluno reprovado.。
+如果平均值大于等于 5.0 并且小于 7.0，则输出 Aluno em exame.，并再读取一个数字 Y，然后输出 Nota do exame: Y。接下来重新计算平均值 Z=(X+Y)/2，如果 Z 大于或等于 5.0，则输出 Aluno aprovado.，否则输出 Aluno reprovado.。最后输出 Media final: Z，表示学生的最终成绩。
+输入格式
+输入中包含四个浮点数，表示学生的四个成绩。</p>
+<p>也有部分满足情况 3 的数据，多包含一个浮点数。</p>
+<p>输出格式
+输出的结果均保留 1 位小数，具体形式参照题目描述和输出样例。</p>
+<p>数据范围
+0≤输入数据≤10.0
+输入样例1：
+2.0 4.0 7.5 8.0
+6.4
+输出样例1：
+Media: 5.4
+Aluno em exame.
+Nota do exame: 6.4
+Aluno aprovado.
+Media final: 5.9
+输入样例2：
+2.0 6.5 4.0 9.0
+输出样例2：
+Media: 4.9
+Aluno reprovado.
+输入样例3：
+9.0 4.0 8.5 9.0
+输出样例3：
+Media: 7.3
+Aluno aprovado.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n1</span> <span class="o">&gt;&gt;</span> <span class="n">n2</span> <span class="o">&gt;&gt;</span> <span class="n">n3</span> <span class="o">&gt;&gt;</span> <span class="n">n4</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">*</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="n">n3</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="n">n4</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Media: %.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno aprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span><span class="mi">5</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;Aluno reprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno em exame.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Nota do exame: %.1f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">&gt;=</span> <span class="mf">5.0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno aprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno reprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Media final: %.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/1-8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1 8</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1-8_%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1 8_练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1-7_%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1 7_练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1-6_%E5%87%BD%E6%95%B0_%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1 6_函数_练习</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

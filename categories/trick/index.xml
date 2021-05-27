@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>相忘于江湖</title>
+    <link>https://zzzqiii.github.io/categories/trick/</link>
+    <description>Recent content on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Apr 2021 13:15:46 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/trick/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows上的Linux子系统迁移到非C盘位置</title>
+      <link>https://zzzqiii.github.io/p/windows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F%E8%BF%81%E7%A7%BB%E5%88%B0%E9%9D%9Ec%E7%9B%98%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 02 Apr 2021 13:15:46 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/windows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F%E8%BF%81%E7%A7%BB%E5%88%B0%E9%9D%9Ec%E7%9B%98%E4%BD%8D%E7%BD%AE/</guid>
+      <description>的 Windows上安装Linux子系统非常方便，但是默认安装在C盘，眼见着C盘空间越来越小，于是想着把它移到别的盘。
+使用工具：[LxRunOffline](Releases · DDoSolitary/LxRunOffline · GitHub).
+我下载的是LxRunOffline-v3.5.0-msvc
+解压后，通过gitbash进入到LxRunOffline-v3.5.0-msvc目录，
+执行一下命令：
+$ ./LxRunOffline.exe list Ubuntu #显示安装的Linux子系统 $ ./LxRunOffline.exe move -n Ubuntu -d /e/WSL/Ubuntu #把上条命令显示的Ubuntu移动到别的盘 Ps. 第二条命令出现了警告，并且等了差不多二十分钟，不过不碍事。
+[WARNING] Ignoring an unsupported file &amp;quot;\\?\C:\Users\optiPlex 7080\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\dev\console&amp;quot; of type 0020000. [WARNING] Ignoring an unsupported file &amp;quot;\\?\C:\Users\optiPlex 7080\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\dev\full&amp;quot; of type 0020000. [WARNING] Ignoring an unsupported file &amp;quot;\\?\C:\Users\optiPlex 7080\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\dev\mapper\control&amp;quot; of type 0020000. [WARNING] Ignoring an unsupported file &amp;quot;\\?\C:\Users\optiPlex 7080\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\dev\null&amp;quot; of type 0020000. [WARNING] Ignoring an unsupported file &amp;quot;\\?</description>
+    </item>
+    
+    <item>
+      <title>Rmarkdown写博客</title>
+      <link>https://zzzqiii.github.io/p/rmarkdown%E5%86%99%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Tue, 16 Mar 2021 16:50:53 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/rmarkdown%E5%86%99%E5%8D%9A%E5%AE%A2/</guid>
+      <description>Rmarkdown写博客 最近在学R，所以用Rmarkdown做笔记。然后想把Rmd格式的笔记上传到博客上。搜索到了这篇文章，借鉴了一下。在此处记录。
+首先Rmd写完后，保存并保存为md格式，在控制台输入
+knitr::knit(input = &amp;quot;笔记.Rmd&amp;quot;, output = &amp;quot;笔记.md&amp;quot;) 然后就会输出md格式的文件，生成的图片会放在一个单独的文件夹里。
+之后再hugo new post/new.md, 把笔记.md复制到生成的md文件中。
+剩下就是图片的问题了。
+把上上条命令生成的图片复制到static目录下，然后把md文件中图片的地址批量替换(ctrl + H)成static目录下的地址即可，注意不要把static写进去。
+其他就跟正常写博客一样就好啦。</description>
+    </item>
+    
+    <item>
+      <title>解决谷歌浏览器无法进入GitHub</title>
+      <link>https://zzzqiii.github.io/p/%E8%A7%A3%E5%86%B3%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5github/</link>
+      <pubDate>Sat, 06 Mar 2021 12:57:21 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E8%A7%A3%E5%86%B3%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5github/</guid>
+      <description>谷歌浏览器无法访问GitHub 谷歌浏览器总是进不去GitHub，但是edge可以。在网上搜了一下，发现是ip地址的原因。
+解决方法如下：
+  访问https://github.com.ipaddress.com/www.github.com，查看ip地址。
+  在C:\Windows\System32\drivers\etc文件夹中找到hosts文件，添加一行。前面为刚刚查到的ip。一定要改成自己ip，之前搜到别的方法，复制别人的ip没有解决问题。
+140.82.114.4 github.com   点击host文件没有权限保留更改，右键hosts，选择属性，点击安全→编辑→Users→写入，然后确定即可。修改完hosts文件之后可以再回来把写入这个勾取消掉。
+  参考 浏览器无法进入GitHub（已解决）</description>
+    </item>
+    
+  </channel>
+</rss>

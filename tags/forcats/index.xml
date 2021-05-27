@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>forcats on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/tags/forcats/</link>
+    <description>Recent content in forcats on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Apr 2021 15:03:32 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/forcats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R数据科学第11章</title>
+      <link>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC11%E7%AB%A0/</link>
+      <pubDate>Tue, 13 Apr 2021 15:03:32 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC11%E7%AB%A0/</guid>
+      <description>使用forcats处理因子 library(tidyverse) library(forcats) 创建因子 要想创建一个因子，必须先创建有效水平的一个列表：
+x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#34;, &amp;#34;Mar&amp;#34;) month_levels &amp;lt;- c( &amp;#34;Jan&amp;#34;, &amp;#34;Feb&amp;#34;, &amp;#34;Mar&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;May&amp;#34;, &amp;#34;Jun&amp;#34;, &amp;#34;Jul&amp;#34;, &amp;#34;Aug&amp;#34;, &amp;#34;Sep&amp;#34;, &amp;#34;Oct&amp;#34;, &amp;#34;Nov&amp;#34;, &amp;#34;Dec&amp;#34; ) y1 &amp;lt;- factor(x1, levels = month_levels) y1 ## [1] Dec Apr Jan Mar ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec sort(y1) ## [1] Jan Mar Apr Dec ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug .</description>
+    </item>
+    
+  </channel>
+</rss>
