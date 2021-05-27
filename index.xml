@@ -53,7 +53,7 @@
         <guid>https://zzzqiii.github.io/p/pasa/</guid>
         <description>&lt;p&gt;虽然实验室的服务器上装了这个软件，但是我一用就报错，于是放弃了最轻松的方法。&lt;/p&gt;
 &lt;p&gt;于是尝试在wls上装，一开始安装照着这个教程https://blog.csdn.net/no_giveup/article/details/79707505。首先是装mysql，本来很简单。只要&lt;code&gt;sudo apt-get install mysql-server&lt;/code&gt; 就好了，但是因为是在wls上装的，由于某些原因又报错了。&lt;/p&gt;
-&lt;p&gt;搜索到了https://blog.csdn.net/weixin_43530726/article/details/91303898这个帖子，提到了而wslows共用端口，会出现因为端口占用导致服务启动失败，所以要先停止windows的mysql服务。按这个帖子的操作到了第二部，又遇到报错&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/36099028/error-1064-42000-you-have-an-error-in-your-sql-syntax-want-to-configure-a-pa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;搜索到了https://blog.csdn.net/weixin_43530726/article/details/91303898这个帖子，提到了而wsl和windows共用端口，会出现因为端口占用导致服务启动失败，所以要先停止windows的mysql服务。按这个帖子的操作到了第二步，又遇到报错&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/36099028/error-1064-42000-you-have-an-error-in-your-sql-syntax-want-to-configure-a-pa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ERROR 1064 (42000): You have an error in your SQL syntax; Want to configure a password as root being the user&lt;/a&gt;，于是按stackoverflow的方法把命令改成&lt;code&gt;T PASSWORD FOR root = &#39;elephant7&#39;&lt;/code&gt;, 一直到最后一步，安装好了。&lt;/p&gt;
 &lt;p&gt;再回到安装pasa的教程，接下来是登录mysql创建用户和安装perl模块。创建mysql用户这一步好像没有报错，但是按照模块这一步报错了。太烦了，遂放弃。&lt;/p&gt;
 &lt;p&gt;尝试使用docker。不记得这是第几次因为装不上软件想尝试用docker了，以前都是尝试用docker的时候总是连装都装不上，在实验室的服务器和wsl上都尝试过都失败了，这次直接在windows上装了，网上一搜发现有官方教程，https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server（windows的），https://docs.docker.com/docker-for-windows/install/（docker的）。windows的写的很详细，还是中文，简直太感动了。照着这个教程安装没啥问题，安装好了提示我要更新wsl为wsl2，这个也有官方教程，也很详细https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4&amp;mdash;download-the-linux-kernel-update-package，按这个一步步来，好像也没啥问题。装好后打开docker，又报错You are not allowed to use Docker . You must be in the “docker-users” group. 还好又找到了解决办法https://avidosguy.wordpress.com/2019/10/10/solved-you-are-not-allowed-to-use-docker-you-must-be-in-the-docker-users-group/，把用户添加到docker用户组里就好了。然后可以用了。要先注册一个dock hub的账户，然后可以登录。这里好像都比较顺利。&lt;/p&gt;
@@ -64,15 +64,34 @@
 &lt;p&gt;CONTAINER ID   IMAGE                              COMMAND       CREATED       STATUS       PORTS     NAMES
 f74291bfdc9e   pasapipeline/pasapipeline:latest   &amp;ldquo;/bin/bash&amp;rdquo;   3 hours ago   Up 3 hours             pasa&lt;/p&gt;
 &lt;p&gt;这里写了命令是啥，于是我把前面那条命令的centos换成了id，然后就可以了，泪目了，但还没完。后来发现用git bash进不去，有点奇怪。&lt;/p&gt;
-&lt;p&gt;我先跑第一条命令&lt;code&gt;Launch_PASA_pipeline.pl -c alignAssembly.config -C -R -g genome.fa -t transcripts.fasta.clean -T -u transcripts.fasta --ALIGNER gmap&lt;/code&gt;, 其实师兄的pipeline的最后一个不是写gmap写的是blat但是官方manual上写的是gmap，我就改了一下，刚开始一切正常，我很欣慰，可是没想到它这个东西不讲武德，劈里啪啦输出一大堆之后说某一步有错误，然后就停止了。吐血。不过没关系，我再把gmap改成blat试一下，&lt;code&gt;/usr/local/src/PASApipeline/Launch_PASA_pipeline.pl -c alignAssembly.config -C -R -g genome.fa -t transcripts.fasta.clean -T -u transcripts.fasta --ALIGNERS blat&lt;/code&gt;, 很好这次很长时间都没报错，但是呢，这个东西它在一个地方停了下来，&lt;/p&gt;
+&lt;p&gt;我先跑第一条命令&lt;code&gt;Launch_PASA_pipeline.pl -c alignAssembly.config -C -R -g genome.fa -t transcripts.fasta.clean -T -u transcripts.fasta --ALIGNER gmap&lt;/code&gt;, 其实pipeline的最后一个不是写gmap写的是blat但是官方manual上写的是gmap，我就改了一下，刚开始一切正常，我很欣慰，可是没想到它劈里啪啦输出一大堆之后说某一步有错误，然后就停止了。吐血。不过没关系，我再把gmap改成blat试一下，&lt;code&gt;/usr/local/src/PASApipeline/Launch_PASA_pipeline.pl -c alignAssembly.config -C -R -g genome.fa -t transcripts.fasta.clean -T -u transcripts.fasta --ALIGNERS blat&lt;/code&gt;, 很好这次很长时间都没报错，但是呢，这个东西它在一个地方停了下来，&lt;/p&gt;
 &lt;p&gt;[Sat May 22 09:50:36 2021] Running CMD: /usr/local/src/PASApipeline/scripts/assemble_clusters.dbi -G genome.fa  -M &amp;lsquo;/tmp/sample_mydb_pasa.sqlite&amp;rsquo;  -T 2  &amp;gt; sample_mydb_pasa.sqlite.pasa_alignment_assembly_building.ascii_illustrations.out&lt;/p&gt;
-&lt;p&gt;就是这里，卡在这里一动不动好久，然后写这个md的时候我去把这个复制下来，右键不小心直接粘在屏幕上了，然后它就出来了一条&lt;/p&gt;
+&lt;p&gt;就是这里，卡在这里一动不动好久，然后写这个记录贴的时候我去把这个复制下来，右键不小心直接粘在屏幕上了，然后它就出来了一条&lt;/p&gt;
 &lt;p&gt;Finished.  Consider using PasaWeb to explore the results&lt;/p&gt;
 &lt;p&gt;嗯？所以这是好了？我晕了。&lt;/p&gt;
-&lt;p&gt;因为后面又遇到了报错，从头来过，这次用sqlit&lt;/p&gt;
+&lt;p&gt;因为后面又遇到了报错，从头来过，这次用sqlit。&lt;/p&gt;
+&lt;p&gt;从sample data的文件夹里把sqlite.confs文件夹复制到工作目录。然后后面的都成功跑通了。就是有几步等待的时间很长，要耐心。之前卡住也是正常的，那一步就是会花很长时间。&lt;/p&gt;
 &lt;p&gt;第一步，比对：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;../PASApipeline/Launch_PASA_pipeline.pl -c sqlite.confs/alignAssembly.config -C -R -g genome.fa -t transcripts.fasta.clean -T -u transcripts.fasta --ALIGNERS blat
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/PASApipeline/PASApipeline/wiki/PASA_alignment_assembly&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PASA_alignment_assembly · PASApipeline/PASApipeline Wiki (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;第二步，更新注释文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# check gff3&lt;/span&gt;
+misc_utilities/pasa_gff3_validator.pl orign.gff3
+
+&lt;span class=&#34;c1&#34;&gt;# load annotation&lt;/span&gt;
+scripts/Load_Current_Gene_Annotations.dbi -c alignAssembly.config -g genome.fa -P orign.gff3
+
+&lt;span class=&#34;c1&#34;&gt;# update&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# annotCompare.config, set up the mysql database name same as alignAssembly.config&lt;/span&gt;
+Launch_PASA_pipeline.pl -c annotCompare.config -A -g genome.fa -t transcripts.fasta.clean
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/PASApipeline/PASApipeline/wiki/PASA_genome_annotation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PASA_genome_annotation · PASApipeline/PASApipeline Wiki (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后生成一下内容：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210527145245058.png&#34; alt=&#34;image-20210527145245058&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;下一步功能注释用的gff3文件是sample_mydb_pasa.sqlite.gene_structures_post_PASA_updates.31951.gff3&lt;/p&gt;
+&lt;p&gt;最后的教训是要耐心，仔细，遇到问题先思考，多看看官方文档，不要总想着求助别人。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>冯诺依曼体系结构</title>
@@ -112,11 +131,11 @@ f74291bfdc9e   pasapipeline/pasapipeline:latest   &amp;ldquo;/bin/bash&amp;rdquo
 </description>
         </item>
         <item>
-        <title>1 8</title>
-        <link>https://zzzqiii.github.io/p/1-8/</link>
+        <title>1.8 STL</title>
+        <link>https://zzzqiii.github.io/p/1.8-stl/</link>
         <pubDate>Mon, 17 May 2021 23:07:46 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1-8/</guid>
+        <guid>https://zzzqiii.github.io/p/1.8-stl/</guid>
         <description>&lt;h2 id=&#34;vector&#34;&gt;vector&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
@@ -457,11 +476,11 @@ f74291bfdc9e   pasapipeline/pasapipeline:latest   &amp;ldquo;/bin/bash&amp;rdquo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
-        <title>1 8_练习</title>
-        <link>https://zzzqiii.github.io/p/1-8_%E7%BB%83%E4%B9%A0/</link>
+        <title>1.8 STL练习</title>
+        <link>https://zzzqiii.github.io/p/1.8-stl%E7%BB%83%E4%B9%A0/</link>
         <pubDate>Mon, 17 May 2021 15:45:01 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1-8_%E7%BB%83%E4%B9%A0/</guid>
+        <guid>https://zzzqiii.github.io/p/1.8-stl%E7%BB%83%E4%B9%A0/</guid>
         <description>&lt;h2 id=&#34;67-数字在排序数组中出现的次数&#34;&gt;67. 数字在排序数组中出现的次数&lt;/h2&gt;
 &lt;p&gt;统计一个数字在排序数组中出现的次数。&lt;/p&gt;
 &lt;p&gt;例如输入排序数组 [1,2,3,3,3,3,4,5] 和数字 3，由于 3 在这个数组中出现了 4 次，因此输出 4。&lt;/p&gt;
@@ -774,11 +793,11 @@ queue.empty(); // returns false&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>1 7_练习</title>
-        <link>https://zzzqiii.github.io/p/1-7_%E7%BB%83%E4%B9%A0/</link>
+        <title>1.7 类结构体指针引用练习</title>
+        <link>https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/</link>
         <pubDate>Sat, 15 May 2021 21:02:04 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1-7_%E7%BB%83%E4%B9%A0/</guid>
+        <guid>https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/</guid>
         <description>&lt;h2 id=&#34;16-斐波那契数列&#34;&gt;16. 斐波那契数列&lt;/h2&gt;
 &lt;p&gt;输入一个整数 n ，求斐波那契数列的第 n 项。&lt;/p&gt;
 &lt;p&gt;假定从 0 开始，第 0 项为 0。(n≤39)&lt;/p&gt;
@@ -1065,11 +1084,11 @@ B:     b1 → b2 → b3&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
-        <title>1</title>
-        <link>https://zzzqiii.github.io/p/1/</link>
+        <title>1.7 类结构体指针引用</title>
+        <link>https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8/</link>
         <pubDate>Sat, 15 May 2021 17:08:47 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1/</guid>
+        <guid>https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8/</guid>
         <description>&lt;h2 id=&#34;类和结构体&#34;&gt;类和结构体&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
@@ -1208,11 +1227,11 @@ cout &amp;lt;&amp;lt; (void*)&amp;amp;c &amp;lt;&amp;lt; endl;
 </description>
         </item>
         <item>
-        <title>1 6_函数_练习</title>
-        <link>https://zzzqiii.github.io/p/1-6_%E5%87%BD%E6%95%B0_%E7%BB%83%E4%B9%A0/</link>
+        <title>1.6 函数练习</title>
+        <link>https://zzzqiii.github.io/p/1.6-%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/</link>
         <pubDate>Thu, 13 May 2021 23:14:08 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1-6_%E5%87%BD%E6%95%B0_%E7%BB%83%E4%B9%A0/</guid>
+        <guid>https://zzzqiii.github.io/p/1.6-%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/</guid>
         <description>&lt;h2 id=&#34;804-n的阶乘&#34;&gt;804. n的阶乘&lt;/h2&gt;
 &lt;p&gt;输入一个整数 n，请你编写一个函数，int fact(int n)，计算并输出 n 的阶乘。&lt;/p&gt;
 &lt;p&gt;输入格式
@@ -1980,11 +1999,11 @@ I love AcWing.&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>1 5_字符串</title>
-        <link>https://zzzqiii.github.io/p/1-5_%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+        <title>1.5 字符串</title>
+        <link>https://zzzqiii.github.io/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
         <pubDate>Sat, 08 May 2021 12:20:23 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1-5_%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+        <guid>https://zzzqiii.github.io/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
         <description>&lt;h2 id=&#34;输入输出&#34;&gt;输入输出&lt;/h2&gt;
 &lt;p&gt;48 - 57  分别对应 0 - 9&lt;/p&gt;
 &lt;p&gt;大写英文字母从65开始.65-90&lt;/p&gt;
@@ -2059,11 +2078,11 @@ I love AcWing.&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>1 4_练习</title>
-        <link>https://zzzqiii.github.io/p/1-4_%E7%BB%83%E4%B9%A0/</link>
+        <title>1.4 数组练习</title>
+        <link>https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/</link>
         <pubDate>Wed, 05 May 2021 19:59:49 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/1-4_%E7%BB%83%E4%B9%A0/</guid>
+        <guid>https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/</guid>
         <description>&lt;h2 id=&#34;737-数组替换&#34;&gt;737. 数组替换&lt;/h2&gt;
 &lt;p&gt;输入一个长度为 10 的整数数组 X[10]，将里面的非正整数全部替换为 1，输出替换完成后的数组。&lt;/p&gt;
 &lt;p&gt;输入格式
@@ -11122,14 +11141,6 @@ perl Convert_gth.pl gth.out &amp;gt;protein_alignments.gff3
         <pubDate>Wed, 03 Mar 2021 22:18:45 +0800</pubDate>
         
         <guid>https://zzzqiii.github.io/p/wgcna/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Kegg</title>
-        <link>https://zzzqiii.github.io/p/kegg/</link>
-        <pubDate>Wed, 03 Mar 2021 22:18:27 +0800</pubDate>
-        
-        <guid>https://zzzqiii.github.io/p/kegg/</guid>
         <description></description>
         </item>
         <item>

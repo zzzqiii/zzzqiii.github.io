@@ -48,7 +48,7 @@
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1-8/</loc>
+    <loc>https://zzzqiii.github.io/p/1.8-stl/</loc>
     <lastmod>2021-05-17T23:07:46+08:00</lastmod>
   </url>
   
@@ -58,22 +58,22 @@
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1-8_%E7%BB%83%E4%B9%A0/</loc>
+    <loc>https://zzzqiii.github.io/p/1.8-stl%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2021-05-17T15:45:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1-7_%E7%BB%83%E4%B9%A0/</loc>
+    <loc>https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2021-05-15T21:02:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1/</loc>
+    <loc>https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8/</loc>
     <lastmod>2021-05-15T17:08:47+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1-6_%E5%87%BD%E6%95%B0_%E7%BB%83%E4%B9%A0/</loc>
+    <loc>https://zzzqiii.github.io/p/1.6-%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2021-05-13T23:14:08+08:00</lastmod>
   </url>
   
@@ -93,12 +93,12 @@
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1-5_%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <loc>https://zzzqiii.github.io/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2021-05-08T12:20:23+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zzzqiii.github.io/p/1-4_%E7%BB%83%E4%B9%A0/</loc>
+    <loc>https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2021-05-05T19:59:49+08:00</lastmod>
   </url>
   
@@ -300,11 +300,6 @@
   <url>
     <loc>https://zzzqiii.github.io/p/wgcna/</loc>
     <lastmod>2021-03-03T22:18:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zzzqiii.github.io/p/kegg/</loc>
-    <lastmod>2021-03-03T22:18:27+08:00</lastmod>
   </url>
   
   <url>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='16. 斐波那契数列 输入一个整数 n ，求斐波那契数列的第 n 项。
+假定从 0 开始，第 0 项为 0。(n≤39)
+样例 输入整数 n=5
+返回 5
+class Solution { public: int Fibonacci(int n) { if (n &amp;lt;= 1) return n; else return Fibonacci(n - 1) &#43; Fibonacci(n - 2); } }; 21. 替换空格 请实现一个函数，把字符串中的每个空格替换成&amp;quot;%20&amp;quot;。
+你可以假定输入字符串的长度最大是 1000。
+注意输出字符串的长度可能大于 1000。
+样例 输入：&amp;ldquo;We are happy.&amp;rdquo;
+输出：&amp;ldquo;We%20are%20happy.&amp;rdquo;
+class Solution { public: string replaceSpaces(string &amp;amp;str) { string res; for (auto c : str) { if (c == &#39; &#39;) res &#43;= &amp;quot;%20&amp;quot;; else res &#43;= c; } return res; } }; 84.'><title>1.7 类结构体指针引用练习</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='1.7 类结构体指针引用练习'>
+<meta property='og:description' content='16. 斐波那契数列 输入一个整数 n ，求斐波那契数列的第 n 项。
+假定从 0 开始，第 0 项为 0。(n≤39)
+样例 输入整数 n=5
+返回 5
+class Solution { public: int Fibonacci(int n) { if (n &amp;lt;= 1) return n; else return Fibonacci(n - 1) &#43; Fibonacci(n - 2); } }; 21. 替换空格 请实现一个函数，把字符串中的每个空格替换成&amp;quot;%20&amp;quot;。
+你可以假定输入字符串的长度最大是 1000。
+注意输出字符串的长度可能大于 1000。
+样例 输入：&amp;ldquo;We are happy.&amp;rdquo;
+输出：&amp;ldquo;We%20are%20happy.&amp;rdquo;
+class Solution { public: string replaceSpaces(string &amp;amp;str) { string res; for (auto c : str) { if (c == &#39; &#39;) res &#43;= &amp;quot;%20&amp;quot;; else res &#43;= c; } return res; } }; 84.'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-15T21:02:04&#43;08:00'/><meta property='article:modified_time' content='2021-05-15T21:02:04&#43;08:00'/>
+<meta name="twitter:title" content="1.7 类结构体指针引用练习">
+<meta name="twitter:description" content="16. 斐波那契数列 输入一个整数 n ，求斐波那契数列的第 n 项。
+假定从 0 开始，第 0 项为 0。(n≤39)
+样例 输入整数 n=5
+返回 5
+class Solution { public: int Fibonacci(int n) { if (n &amp;lt;= 1) return n; else return Fibonacci(n - 1) &#43; Fibonacci(n - 2); } }; 21. 替换空格 请实现一个函数，把字符串中的每个空格替换成&amp;quot;%20&amp;quot;。
+你可以假定输入字符串的长度最大是 1000。
+注意输出字符串的长度可能大于 1000。
+样例 输入：&amp;ldquo;We are happy.&amp;rdquo;
+输出：&amp;ldquo;We%20are%20happy.&amp;rdquo;
+class Solution { public: string replaceSpaces(string &amp;amp;str) { string res; for (auto c : str) { if (c == &#39; &#39;) res &#43;= &amp;quot;%20&amp;quot;; else res &#43;= c; } return res; } }; 84.">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" style="background-color: #2a9d8f; color: #fff;">
+                acwing语法基础课
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/">1.7 类结构体指针引用练习</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">May 15, 2021</time>
+    </footer>4
+    779
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="16-斐波那契数列">16. 斐波那契数列</h2>
+<p>输入一个整数 n ，求斐波那契数列的第 n 项。</p>
+<p>假定从 0 开始，第 0 项为 0。(n≤39)</p>
+<p>样例
+输入整数 n=5</p>
+<p>返回 5</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><h2 id="21-替换空格">21. 替换空格</h2>
+<p>请实现一个函数，把字符串中的每个空格替换成&quot;%20&quot;。</p>
+<p>你可以假定输入字符串的长度最大是 1000。</p>
+<p>注意输出字符串的长度可能大于 1000。</p>
+<p>样例
+输入：&ldquo;We are happy.&rdquo;</p>
+<p>输出：&ldquo;We%20are%20happy.&rdquo;</p>
+<pre><code>class Solution {
+public:
+    string replaceSpaces(string &amp;str) {
+        string res;
+        for (auto c : str)
+        {
+            if (c == ' ')  res += &quot;%20&quot;;
+            else res += c;
+        }
+        return res;
+             
+    }
+}; 
+</code></pre><h2 id="84-求12n">84. 求1+2+…+n</h2>
+<p>求 1+2+…+n，要求不能使用乘除法、for、while、if、else、switch、case 等关键字及条件判断语句 (A?B:C)。</p>
+<p>样例
+输入：10</p>
+<p>输出：55</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">getSum</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">res</span> <span class="o">+=</span> <span class="n">getSum</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><p>&amp;&amp;短路运算</p>
+<h2 id="28-在o1时间删除链表结点">28. 在O(1)时间删除链表结点</h2>
+<p>给定单向链表的一个节点指针，定义一个函数在O(1)时间删除该结点。</p>
+<p>假设链表一定存在，并且该节点一定不是尾节点。</p>
+<p>样例
+输入：链表 1-&gt;4-&gt;6-&gt;8
+删掉节点：第2个节点即6（头节点为第0个节点）</p>
+<p>输出：新链表 1-&gt;4-&gt;8</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
+</span><span class="cm"> * Definition for singly-linked list.
+</span><span class="cm"> * struct ListNode {
+</span><span class="cm"> *     int val;
+</span><span class="cm"> *     ListNode *next;
+</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span class="cm"> * };
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">deleteNode</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span><span class="c1">//伪装成下一个点。
+</span><span class="c1"></span>        <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="c1">//将下一个点删除。
+</span><span class="c1"></span>        <span class="c1">//*(node) = *(node-&gt;next); 另一种写法
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210515213951691.png" alt="image-20210515213951691"  /></p>
+<p>先伪装成下一个人，再把下一个人干掉。</p>
+<h2 id="36-合并两个排序的列表">36. 合并两个排序的列表</h2>
+<p>输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。</p>
+<p>样例
+输入：1-&gt;3-&gt;5 , 2-&gt;4-&gt;5</p>
+<p>输出：1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;5</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
+</span><span class="cm"> * Definition for singly-linked list.
+</span><span class="cm"> * struct ListNode {
+</span><span class="cm"> *     int val;
+</span><span class="cm"> *     ListNode *next;
+</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span class="cm"> * };
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">merge</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span><span class="o">*</span> <span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">dummy</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">l1</span> <span class="o">&amp;&amp;</span> <span class="n">l2</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
+                <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
+                <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l2</span><span class="p">)</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
+        
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><h2 id="78-左旋转字符串">78. 左旋转字符串</h2>
+<p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。</p>
+<p>请定义一个函数实现字符串左旋转操作的功能。</p>
+<p>比如输入字符串&quot;abcdefg&quot;和数字 2，该函数将返回左旋转 2 位得到的结果&quot;cdefgab&quot;。</p>
+<p>注意：</p>
+<p>数据保证 n 小于等于输入字符串的长度。
+样例
+输入：&ldquo;abcdefg&rdquo; , n=2</p>
+<p>输出：&ldquo;cdefgab&rdquo;</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">string</span> <span class="n">leftRotateString</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">string</span> <span class="n">res</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><h2 id="87-把字符串转换成整数">87. 把字符串转换成整数</h2>
+<p>请你写一个函数 StrToInt，实现把字符串转换成整数这个功能。</p>
+<p>当然，不能使用 atoi 或者其他类似的库函数。</p>
+<p>样例
+输入：&ldquo;123&rdquo;</p>
+<p>输出：123
+注意:</p>
+<p>你的函数应满足下列条件：</p>
+<p>忽略所有行首空格，找到第一个非空格字符，可以是 ‘+/−’ 表示是正数或者负数，紧随其后找到最长的一串连续数字，将其解析成一个整数；
+整数后可能有任意非数字字符，请将其忽略；
+如果整数长度为 0，则返回 0；
+如果整数大于 INT_MAX(231−1)，请返回 INT_MAX；如果整数小于INT_MIN(−231) ，请返回 INT_MIN；</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">strToInt</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="kt">char</span> <span class="n">f</span><span class="p">;</span>
+        <span class="n">string</span> <span class="n">d</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="kt">long</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">p</span><span class="p">;</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39; &#39;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="sc">&#39;0&#39;</span> <span class="o">||</span> <span class="n">str</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span>   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span> 
+                <span class="n">d</span> <span class="o">+=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">))</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>   
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+            <span class="n">d1</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="p">)</span>  <span class="n">d1</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">d1</span><span class="p">;</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">d1</span> <span class="o">&gt;</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        
+        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">d1</span> <span class="o">&lt;</span> <span class="n">pow</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">pow</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">);</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="n">d1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210516103226637.png" alt="image-20210516103226637"  /></p>
+<h2 id="35-反转链表">35. 反转链表</h2>
+<p>定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。</p>
+<p>思考题：</p>
+<p>请同时实现迭代版本和递归版本。
+样例
+输入:1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</p>
+<p>输出:5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
+</span><span class="cm"> * Definition for singly-linked list.
+</span><span class="cm"> * struct ListNode {
+</span><span class="cm"> *     int val;
+</span><span class="cm"> *     ListNode *next;
+</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span class="cm"> * };
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">reverseList</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">))</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">auto</span> <span class="n">o</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="n">o</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><h2 id="66-两个链表的第一个公共结点">66. 两个链表的第一个公共结点</h2>
+<p>输入两个链表，找出它们的第一个公共结点。</p>
+<p>当不存在公共节点时，返回空节点。</p>
+<p>样例
+给出两个链表如下所示：
+A：        a1 → a2
+↘
+c1 → c2 → c3
+↗         <br>
+B:     b1 → b2 → b3</p>
+<p>输出第一个公共节点c1</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210516110722549.png" alt="image-20210516110722549"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
+</span><span class="cm"> * Definition for singly-linked list.
+</span><span class="cm"> * struct ListNode {
+</span><span class="cm"> *     int val;
+</span><span class="cm"> *     ListNode *next;
+</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span class="cm"> * };
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">findFirstCommonNode</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">headA</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">headB</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">c</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">headA</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">headB</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">!=</span><span class="n">q</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">p</span> <span class="o">=</span> <span class="n">headB</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="p">)</span>  <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">q</span> <span class="o">=</span> <span class="n">headA</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+            
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><h2 id="29-删除链表中重复的节点">29. 删除链表中重复的节点</h2>
+<p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留。</p>
+<p>样例1
+输入：1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5</p>
+<p>输出：1-&gt;2-&gt;5
+样例2
+输入：1-&gt;1-&gt;1-&gt;2-&gt;3</p>
+<p>输出：2-&gt;3</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210516112747636.png" alt="image-20210516112747636"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
+</span><span class="cm"> * Definition for singly-linked list.
+</span><span class="cm"> * struct ListNode {
+</span><span class="cm"> *     int val;
+</span><span class="cm"> *     ListNode *next;
+</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span class="cm"> * };
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">deleteDuplication</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">dummy</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">dummy</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span>   <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/1.8-stl/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.8 STL</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.8-stl%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.8 STL练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.7 类结构体指针引用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.6-%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.6 函数练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.5 字符串</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

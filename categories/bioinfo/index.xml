@@ -15,12 +15,35 @@
       <guid>https://zzzqiii.github.io/p/pasa/</guid>
       <description>虽然实验室的服务器上装了这个软件，但是我一用就报错，于是放弃了最轻松的方法。
 于是尝试在wls上装，一开始安装照着这个教程https://blog.csdn.net/no_giveup/article/details/79707505。首先是装mysql，本来很简单。只要sudo apt-get install mysql-server 就好了，但是因为是在wls上装的，由于某些原因又报错了。
-搜索到了https://blog.csdn.net/weixin_43530726/article/details/91303898这个帖子，提到了而wslows共用端口，会出现因为端口占用导致服务启动失败，所以要先停止windows的mysql服务。按这个帖子的操作到了第二部，又遇到报错ERROR 1064 (42000): You have an error in your SQL syntax; Want to configure a password as root being the user，于是按stackoverflow的方法把命令改成T PASSWORD FOR root = &#39;elephant7&#39;, 一直到最后一步，安装好了。
+搜索到了https://blog.csdn.net/weixin_43530726/article/details/91303898这个帖子，提到了而wsl和windows共用端口，会出现因为端口占用导致服务启动失败，所以要先停止windows的mysql服务。按这个帖子的操作到了第二步，又遇到报错ERROR 1064 (42000): You have an error in your SQL syntax; Want to configure a password as root being the user，于是按stackoverflow的方法把命令改成T PASSWORD FOR root = &#39;elephant7&#39;, 一直到最后一步，安装好了。
 再回到安装pasa的教程，接下来是登录mysql创建用户和安装perl模块。创建mysql用户这一步好像没有报错，但是按照模块这一步报错了。太烦了，遂放弃。
 尝试使用docker。不记得这是第几次因为装不上软件想尝试用docker了，以前都是尝试用docker的时候总是连装都装不上，在实验室的服务器和wsl上都尝试过都失败了，这次直接在windows上装了，网上一搜发现有官方教程，https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server（windows的），https://docs.docker.com/docker-for-windows/install/（docker的）。windows的写的很详细，还是中文，简直太感动了。照着这个教程安装没啥问题，安装好了提示我要更新wsl为wsl2，这个也有官方教程，也很详细https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4&amp;mdash;download-the-linux-kernel-update-package，按这个一步步来，好像也没啥问题。装好后打开docker，又报错You are not allowed to use Docker . You must be in the “docker-users” group. 还好又找到了解决办法https://avidosguy.wordpress.com/2019/10/10/solved-you-are-not-allowed-to-use-docker-you-must-be-in-the-docker-users-group/，把用户添加到docker用户组里就好了。然后可以用了。要先注册一个dock hub的账户，然后可以登录。这里好像都比较顺利。
 接下来是把pasa的镜像pull下来。命令很简单，docker pull pasapipeline/pasapipeline, 但是呢，由于我是一个新得不能再新的新手，我甚至不知道命令输在那里好吧。摸索了一番发现直接命令行工具里输入就好了，power shell或者cmd或者git bash都可以。
 pull完了之后打开docker的toolbox可以在images一栏看到pasa，然后点右边的run就好了，最好设置名字，不然会出现随机的，后面不太方便。pasa的文档写的很简单，如下：
 结合了这个帖子https://www.jianshu.com/p/8e46e3291872，理解了一下这些命令，但是直觉告诉我事情不会这么简单，果然第一步就报错了docker run --rm -it -v /tmp:/tmp -v /raid1/data:/raid1/data pasapipeline/pasapipeline:latest就是这一步，-v应该是把本地的文件挂载上去，但是呢，文件夹是有了，可是里面根本没有东西，我又把文件打包成zip，有是有，但是根本就解压不了，就是个空壳。可能别人是在Linux系统上操作的吧。又看到了一个帖子说要把启用或关闭windows功能的Hyper-V勾上，可是勾上之后让我关机重启了一下，之后并没有任何变化。于是我又放弃了，直接用docker cp把文件传上去，docker cp D:/temp/09_ogs/ pasa:/usr/local/src, pasa是前面创建容器的时候取的名字。到这里，我以为快成功了，没想到接下来又报错。从box里进去pasa的/bin/sh，然后运行pasa，很快啊，一跑上去就报错了。然后我去搜如何进入已经启动的容器，说是用docker exec -it pasa /bin/bash个命令，centos换成容器的名字，我换成了我的容器的名字，很快啊，又报错，笑死，根本进不去。然后我又研究了一下这个命令，发现从toolbox里进去的cmd上面有一行字，写的是…… /bin/sh，我又有灵感了，把前面那条命令的bash换成sh，好了，现在可以从powershell里进去了，但是还是原来那个环境，啥也没变。然后又看到一个帖子，现在想想简直是救命恩贴，说是先docker ps查看安装的容器，然后我发现出来的是</description>
+    </item>
+    
+    <item>
+      <title>sra下载</title>
+      <link>https://zzzqiii.github.io/p/sra%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Mon, 10 May 2021 15:11:09 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/sra%E4%B8%8B%E8%BD%BD/</guid>
+      <description>下载
+ conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
+  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
+  手动下载：
+ https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
+解压，把bin添加到环境变量。
+发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
+需要configure。
+在bin目录下vdb-config -i
+然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
+下载SRA  prefetch --option-file sra.txt
+数据默认下载到~/ncbi/public/sra/里面
+会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
+如果是fastq
+fastq-dump --split-files SRR6784805.</description>
     </item>
     
     <item>

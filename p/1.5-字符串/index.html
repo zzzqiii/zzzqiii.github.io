@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='输入输出 48 - 57 分别对应 0 - 9
+大写英文字母从65开始.65-90
+小写英文字母从97开始。97-122
+差值32
+字符串就是字符数组加上结束符&amp;quot;\0&amp;quot;.
+字符数组：用来存储字符串的数组。
+printf输出字符串：%s
+空字符：\0 0
+char a2[] = {&amp;lsquo;A&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;}
+cout &amp;laquo; a2 &#43; 1 &amp;laquo; endl; 从b开始输出，第二个开始
+char s[100]
+scanf(&amp;quot;%s&amp;quot;, s) 不用加取地址符号&amp;amp;，因为字符串本身就是指针。
+cin &amp;raquo; s;
+cin &amp;raquo; s &#43; 1; 从第二个开始读入
+cout &amp;laquo; s &amp;laquo; endl;
+不管是cin还是scanf，读入字符串的时候不是一行的读进来，读入遇到空格、回车或者是文件结束符未知。
+fgets(s, 100, stdin); 第二个参数是最多读入多少字符，第三个参数是从哪个文件读入，一般是stdin（系统里的一个变量，已经定义好了）。这个方法可以用来读入一行。
+cin.getline(s, 100); 效果和fgets一样。
+string s;
+getline(cin, s); 这个方法也可以读入一行，但是只能读入到字符串里，不能读到字符数组中。
+string只能用cin读，scanf读不了。
+输出：
+printf(&amp;quot;%s\n&amp;quot;, s);
+puts(s); 等价于上面这句话，包括换行符。
+字符串常用操作 下面几个函数需要引入头文件:'><title>1.5 字符串</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='1.5 字符串'>
+<meta property='og:description' content='输入输出 48 - 57 分别对应 0 - 9
+大写英文字母从65开始.65-90
+小写英文字母从97开始。97-122
+差值32
+字符串就是字符数组加上结束符&amp;quot;\0&amp;quot;.
+字符数组：用来存储字符串的数组。
+printf输出字符串：%s
+空字符：\0 0
+char a2[] = {&amp;lsquo;A&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;}
+cout &amp;laquo; a2 &#43; 1 &amp;laquo; endl; 从b开始输出，第二个开始
+char s[100]
+scanf(&amp;quot;%s&amp;quot;, s) 不用加取地址符号&amp;amp;，因为字符串本身就是指针。
+cin &amp;raquo; s;
+cin &amp;raquo; s &#43; 1; 从第二个开始读入
+cout &amp;laquo; s &amp;laquo; endl;
+不管是cin还是scanf，读入字符串的时候不是一行的读进来，读入遇到空格、回车或者是文件结束符未知。
+fgets(s, 100, stdin); 第二个参数是最多读入多少字符，第三个参数是从哪个文件读入，一般是stdin（系统里的一个变量，已经定义好了）。这个方法可以用来读入一行。
+cin.getline(s, 100); 效果和fgets一样。
+string s;
+getline(cin, s); 这个方法也可以读入一行，但是只能读入到字符串里，不能读到字符数组中。
+string只能用cin读，scanf读不了。
+输出：
+printf(&amp;quot;%s\n&amp;quot;, s);
+puts(s); 等价于上面这句话，包括换行符。
+字符串常用操作 下面几个函数需要引入头文件:'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-08T12:20:23&#43;08:00'/><meta property='article:modified_time' content='2021-05-08T12:20:23&#43;08:00'/>
+<meta name="twitter:title" content="1.5 字符串">
+<meta name="twitter:description" content="输入输出 48 - 57 分别对应 0 - 9
+大写英文字母从65开始.65-90
+小写英文字母从97开始。97-122
+差值32
+字符串就是字符数组加上结束符&amp;quot;\0&amp;quot;.
+字符数组：用来存储字符串的数组。
+printf输出字符串：%s
+空字符：\0 0
+char a2[] = {&amp;lsquo;A&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;}
+cout &amp;laquo; a2 &#43; 1 &amp;laquo; endl; 从b开始输出，第二个开始
+char s[100]
+scanf(&amp;quot;%s&amp;quot;, s) 不用加取地址符号&amp;amp;，因为字符串本身就是指针。
+cin &amp;raquo; s;
+cin &amp;raquo; s &#43; 1; 从第二个开始读入
+cout &amp;laquo; s &amp;laquo; endl;
+不管是cin还是scanf，读入字符串的时候不是一行的读进来，读入遇到空格、回车或者是文件结束符未知。
+fgets(s, 100, stdin); 第二个参数是最多读入多少字符，第三个参数是从哪个文件读入，一般是stdin（系统里的一个变量，已经定义好了）。这个方法可以用来读入一行。
+cin.getline(s, 100); 效果和fgets一样。
+string s;
+getline(cin, s); 这个方法也可以读入一行，但是只能读入到字符串里，不能读到字符数组中。
+string只能用cin读，scanf读不了。
+输出：
+printf(&amp;quot;%s\n&amp;quot;, s);
+puts(s); 等价于上面这句话，包括换行符。
+字符串常用操作 下面几个函数需要引入头文件:">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" style="background-color: #2a9d8f; color: #fff;">
+                acwing语法基础课
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/1.5-%E5%AD%97%E7%AC%A6%E4%B8%B2/">1.5 字符串</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">May 08, 2021</time>
+    </footer>1
+    210
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="输入输出">输入输出</h2>
+<p>48 - 57  分别对应 0 - 9</p>
+<p>大写英文字母从65开始.65-90</p>
+<p>小写英文字母从97开始。97-122</p>
+<p>差值32</p>
+<p>字符串就是字符数组加上结束符&quot;\0&quot;.</p>
+<p>字符数组：用来存储字符串的数组。</p>
+<p>printf输出字符串：%s</p>
+<p>空字符：\0    0</p>
+<p>char a2[] = {&lsquo;A&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;}</p>
+<p>cout &laquo; a2 + 1 &laquo; endl;  从b开始输出，第二个开始</p>
+<p>char s[100]</p>
+<p>scanf(&quot;%s&quot;, s) 不用加取地址符号&amp;，因为字符串本身就是指针。</p>
+<p>cin &raquo; s;</p>
+<p>cin &raquo; s + 1; 从第二个开始读入</p>
+<p>cout &laquo; s &laquo; endl;</p>
+<p>不管是cin还是scanf，读入字符串的时候不是一行的读进来，读入遇到空格、回车或者是文件结束符未知。</p>
+<p>fgets(s, 100, stdin); 第二个参数是最多读入多少字符，第三个参数是从哪个文件读入，一般是stdin（系统里的一个变量，已经定义好了）。这个方法可以用来读入一行。</p>
+<p>cin.getline(s, 100); 效果和fgets一样。</p>
+<p>string s;</p>
+<p>getline(cin, s); 这个方法也可以读入一行，但是只能读入到字符串里，不能读到字符数组中。</p>
+<p>string只能用cin读，scanf读不了。</p>
+<p>输出：</p>
+<p>printf(&quot;%s\n&quot;, s);</p>
+<p>puts(s); 等价于上面这句话，包括换行符。</p>
+<h2 id="字符串常用操作">字符串常用操作</h2>
+<p>下面几个函数需要引入头文件:</p>
+<p>#include &lt;string.h&gt;</p>
+<p><!-- raw HTML omitted -->中也有这个函数</p>
+<p>(1)  strlen(str)，求字符串的长度，不包含结束符。</p>
+<p>(2)  strcmp(a, b)，比较两个字符串的大小，a &lt; b 返回-1，a == b 返回0，a &gt; b返回1。这里的比较方式是字典序！string compare</p>
+<p>(3)  strcpy(a, b)，将字符串b复制给从a开始的字符数组。</p>
+<h2 id="标准库类型-string">标准库类型 string</h2>
+<p>可变长的字符序列，比字符数组更加好用。需要引入头文件：</p>
+<p>#include <!-- raw HTML omitted --></p>
+<p>string s1;</p>
+<p>输出：printf(&quot;%s\n&quot;, s1.c_str())</p>
+<p>不能直接用printf</p>
+<p>puts(s1.c_str())</p>
+<p>读入：cin.getline(s2, 1000);</p>
+<p>getline(cin, s1)</p>
+<p>s1.empty()判断是否为空字符。返回布尔值</p>
+<p>s.size()返回字符串长度，很快，不用循环一边数组。</p>
+<p>for (char c : s) cout &laquo; c &laquo; endl; 范围遍历，遍历字符串的每一个字符。</p>
+<p>for (char c : s) c = &lsquo;a&rsquo;;</p>
+<p>等价于：</p>
+<p>for (int i = 0; i &lt; size.(); i++)</p>
+<p>{</p>
+<p>​	char c = str[i];</p>
+<p>​	c = &lsquo;a&rsquo;; //不改变字符串</p>
+<p>}</p>
+<p>如果是for (char &amp;c : s) c = &lsquo;a&rsquo; 或者char &amp;c = str[i]// 会改变字符串</p>
+<p>while (~scanf(&quot;%c&quot;, &amp;c))</p>
+<p>getline会把回车过滤，fgets会把回车也读进来。</p>
+<p>substr(i, len) 返回从i开始，长度为len的一段。</p>
+<p><!-- raw HTML omitted --> 包括了<!-- raw HTML omitted --></p>
+<p>stringstream在<!-- raw HTML omitted -->中</p>
+<p>把字符串初始化为类似cin的一个东西</p>
+<p>string s;</p>
+<p>stringstream ssin(s);</p>
+<p>ssin &raquo; a &raquo; str &raquo; b &raquo; c;</p>
+<p>从中读出任意需要的东西。从字符串中提取需要的东西</p>
+<p>char s[1000];</p>
+<p>fgets(s, 1000, stdin);</p>
+<p>int a, b;</p>
+<p>char str[1000];</p>
+<p>double c;</p>
+<p>sscanf(s, &ldquo;%d%s%d%lf&rdquo;, &amp;a, str, &amp;b, &amp;c);</p>
+<p>printf(&quot;%d%s%d%lf&quot;, a, str, b, c)</p>
+<p>~a等价于a != -1</p>
+<p>str.back()字符串的最后一个位置</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/1.8-stl/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.8 STL</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.8-stl%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.8 STL练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.7 类结构体指针引用练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.7 类结构体指针引用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.6-%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.6 函数练习</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
