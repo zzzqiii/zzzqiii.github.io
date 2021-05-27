@@ -224,10 +224,10 @@
 <li>筛选连接</li>
 <li>集合操作</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">nycflights13</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">maps</span><span class="p">)</span>
-<span class="n">flights</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+<span style="color:#a6e22e">library</span>(nycflights13)
+<span style="color:#a6e22e">library</span>(maps)
+flights
 </code></pre></div><pre><code>## # A tibble: 336,776 x 19
 ##     year month   day dep_time sched_dep_time dep_delay
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
@@ -247,7 +247,7 @@
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">airlines</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">airlines
 </code></pre></div><pre><code>## # A tibble: 16 x 2
 ##    carrier name                       
 ##    &lt;chr&gt;   &lt;chr&gt;                      
@@ -267,7 +267,7 @@
 ## 14 VX      Virgin America             
 ## 15 WN      Southwest Airlines Co.     
 ## 16 YV      Mesa Airlines Inc.
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">airports</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">airports
 </code></pre></div><pre><code>## # A tibble: 1,458 x 8
 ##    faa   name      lat    lon   alt    tz dst   tzone 
 ##    &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -282,7 +282,7 @@
 ##  9 0P2   Shoest~  39.8  -76.6  1000    -5 U     Ameri~
 ## 10 0S9   Jeffer~  48.1 -123.    108    -8 A     Ameri~
 ## # ... with 1,448 more rows
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">planes</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">planes
 </code></pre></div><pre><code>## # A tibble: 3,322 x 9
 ##    tailnum  year type      manufacturer  model engines
 ##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;   &lt;int&gt;
@@ -298,7 +298,7 @@
 ## 10 N110UW   1999 Fixed wi~ AIRBUS INDUS~ A320~       2
 ## # ... with 3,312 more rows, and 3 more variables:
 ## #   seats &lt;int&gt;, speed &lt;int&gt;, engine &lt;chr&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">weather</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">weather
 </code></pre></div><pre><code>## # A tibble: 26,115 x 15
 ##    origin  year month   day  hour  temp  dewp humid
 ##    &lt;chr&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -318,40 +318,40 @@
 ## #   visib &lt;dbl&gt;, time_hour &lt;dttm&gt;
 </code></pre><h3 id="练习">练习</h3>
 <p>(1) 假设想要画出每架飞机从起点到终点的（近似）飞行路线，需要哪些变量？需要组合哪些表格？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#flights 和 airports</span>
-<span class="n">flights_loc</span> <span class="o">&lt;-</span> <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">inner_join</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">airports</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="n">faa</span><span class="p">,</span> <span class="n">origin_lat</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> 
-                    <span class="n">origin_lon</span> <span class="o">=</span> <span class="n">lon</span><span class="p">),</span>
-      <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;origin&#34;</span>
-    <span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">inner_join</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">airports</span><span class="p">,</span> <span class="n">dest</span> <span class="o">=</span> <span class="n">faa</span><span class="p">,</span> <span class="n">dest_lat</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> 
-                    <span class="n">dest_lon</span> <span class="o">=</span> <span class="n">lon</span><span class="p">),</span>
-      <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;dest&#34;</span>
-    <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#flights 和 airports</span>
+flights_loc <span style="color:#f92672">&lt;-</span> flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">inner_join</span>(<span style="color:#a6e22e">select</span>(airports, origin <span style="color:#f92672">=</span> faa, origin_lat <span style="color:#f92672">=</span> lat, 
+                    origin_lon <span style="color:#f92672">=</span> lon),
+      by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;origin&#34;</span>
+    ) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">inner_join</span>(<span style="color:#a6e22e">select</span>(airports, dest <span style="color:#f92672">=</span> faa, dest_lat <span style="color:#f92672">=</span> lat, 
+                    dest_lon <span style="color:#f92672">=</span> lon),
+      by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dest&#34;</span>
+    )
 </code></pre></div><h2 id="键">键</h2>
 <ul>
 <li>主键：唯一标识其所在数据表中的观测</li>
 <li>外键：唯一标识另一个数据表中的观测</li>
 <li>代理键：使用mutate() 函数和row_number() 函数为表加上一个主键。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#验证是否能真正唯一标识每个观测</span>
-<span class="n">planes</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">tailnum</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#验证是否能真正唯一标识每个观测</span>
+planes <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(tailnum) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>## # A tibble: 0 x 2
 ## # ... with 2 variables: tailnum &lt;chr&gt;, n &lt;int&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">weather</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">weather <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(year, month, day, hour, origin) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>## # A tibble: 3 x 6
 ##    year month   day  hour origin     n
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;int&gt;
 ## 1  2013    11     3     1 EWR        2
 ## 2  2013    11     3     1 JFK        2
 ## 3  2013    11     3     1 LGA        2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">tailnum</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(year, month, day, tailnum) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>## # A tibble: 64,928 x 5
 ##     year month   day tailnum     n
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;int&gt;
@@ -367,10 +367,10 @@
 ## 10  2013     1     1 N13566      3
 ## # ... with 64,918 more rows
 </code></pre><p>(1) 向flights 添加一个代理键。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">arrange</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">sched_dep_time</span><span class="p">,</span> <span class="n">carrier</span><span class="p">,</span> <span class="n">flight</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">flight_id</span> <span class="o">=</span> <span class="nf">row_number</span><span class="p">())</span> <span class="o">%&gt;%</span>
-  <span class="nf">glimpse</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(year, month, day, sched_dep_time, carrier, flight) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(flight_id <span style="color:#f92672">=</span> <span style="color:#a6e22e">row_number</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">glimpse</span>()
 </code></pre></div><pre><code>## Rows: 336,776
 ## Columns: 20
 ## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013,~
@@ -394,12 +394,12 @@
 ## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01~
 ## $ flight_id      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10~
 </code></pre><h2 id="合并连接">合并连接</h2>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights2</span> <span class="o">&lt;-</span> <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="o">:</span><span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">tailnum</span><span class="p">,</span> <span class="n">carrier</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights2 <span style="color:#f92672">&lt;-</span> flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(year<span style="color:#f92672">:</span>day, hour, origin, dest, tailnum, carrier)
 
-<span class="n">flights2</span> <span class="o">%&gt;%</span>
-  <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">origin</span><span class="p">,</span> <span class="o">-</span><span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">airlines</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;carrier&#34;</span><span class="p">)</span>
+flights2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>origin, <span style="color:#f92672">-</span>dest) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(airlines, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;carrier&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 336,776 x 7
 ##     year month   day  hour tailnum carrier name       
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;      
@@ -414,9 +414,9 @@
 ##  9  2013     1     1     6 N593JB  B6      JetBlue Ai~
 ## 10  2013     1     1     6 N3ALAA  AA      American A~
 ## # ... with 336,766 more rows
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights2</span> <span class="o">%&gt;%</span>
-  <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">origin</span><span class="p">,</span> <span class="o">-</span><span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="n">airlines</span><span class="o">$</span><span class="n">name</span><span class="nf">[match</span><span class="p">(</span><span class="n">carrier</span><span class="p">,</span> <span class="n">airlines</span><span class="o">$</span><span class="n">carrier</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>origin, <span style="color:#f92672">-</span>dest) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(name <span style="color:#f92672">=</span> airlines<span style="color:#f92672">$</span>name<span style="color:#a6e22e">[match</span>(carrier, airlines<span style="color:#f92672">$</span>carrier)])
 </code></pre></div><pre><code>## # A tibble: 336,776 x 7
 ##     year month   day  hour tailnum carrier name       
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;      
@@ -432,58 +432,58 @@
 ## 10  2013     1     1     6 N3ALAA  AA      American A~
 ## # ... with 336,766 more rows
 </code></pre><h3 id="理解连接">理解连接</h3>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">tribble</span><span class="p">(</span>
-  <span class="o">~</span><span class="n">key</span><span class="p">,</span> <span class="o">~</span><span class="n">val_x</span><span class="p">,</span>
-  <span class="m">1</span><span class="p">,</span> <span class="s">&#34;x1&#34;</span><span class="p">,</span>
-  <span class="m">2</span><span class="p">,</span> <span class="s">&#34;x2&#34;</span><span class="p">,</span>
-  <span class="m">3</span><span class="p">,</span> <span class="s">&#34;x3&#34;</span>
-<span class="p">)</span>
-<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">tribble</span><span class="p">(</span>
-<span class="o">~</span><span class="n">key</span><span class="p">,</span> <span class="o">~</span><span class="n">val_y</span><span class="p">,</span>
-<span class="m">1</span><span class="p">,</span> <span class="s">&#34;y1&#34;</span><span class="p">,</span>
-<span class="m">2</span><span class="p">,</span> <span class="s">&#34;y2&#34;</span><span class="p">,</span>
-<span class="m">4</span><span class="p">,</span> <span class="s">&#34;y3&#34;</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tribble</span>(
+  <span style="color:#f92672">~</span>key, <span style="color:#f92672">~</span>val_x,
+  <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;x1&#34;</span>,
+  <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;x2&#34;</span>,
+  <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;x3&#34;</span>
+)
+y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tribble</span>(
+<span style="color:#f92672">~</span>key, <span style="color:#f92672">~</span>val_y,
+<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;y1&#34;</span>,
+<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;y2&#34;</span>,
+<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#34;y3&#34;</span>
+)
 
-<span class="n">x</span> <span class="o">%&gt;%</span>
-  <span class="nf">inner_join</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;key&#34;</span><span class="p">)</span> <span class="c1">#内连接</span>
+x <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">inner_join</span>(y, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;key&#34;</span>) <span style="color:#75715e">#内连接</span>
 </code></pre></div><pre><code>## # A tibble: 2 x 3
 ##     key val_x val_y
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1     1 x1    y1   
 ## 2     2 x2    y2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">merge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">merge</span>(x, y)
 </code></pre></div><pre><code>##   key val_x val_y
 ## 1   1    x1    y1
 ## 2   2    x2    y2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;key&#34;</span><span class="p">)</span> <span class="c1">#左连接，保留x中的所有观测</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(y, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;key&#34;</span>) <span style="color:#75715e">#左连接，保留x中的所有观测</span>
 </code></pre></div><pre><code>## # A tibble: 3 x 3
 ##     key val_x val_y
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1     1 x1    y1   
 ## 2     2 x2    y2   
 ## 3     3 x3    &lt;NA&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">merge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">all.x</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">merge</span>(x, y, all.x <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>##   key val_x val_y
 ## 1   1    x1    y1
 ## 2   2    x2    y2
 ## 3   3    x3  &lt;NA&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">%&gt;%</span>
-  <span class="nf">right_join</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;key&#34;</span><span class="p">)</span> <span class="c1">#右连接，保留y中的所有观测</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">right_join</span>(y, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;key&#34;</span>) <span style="color:#75715e">#右连接，保留y中的所有观测</span>
 </code></pre></div><pre><code>## # A tibble: 3 x 3
 ##     key val_x val_y
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1     1 x1    y1   
 ## 2     2 x2    y2   
 ## 3     4 &lt;NA&gt;  y3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">merge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">all.y</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">merge</span>(x, y, all.y <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>##   key val_x val_y
 ## 1   1    x1    y1
 ## 2   2    x2    y2
 ## 3   4  &lt;NA&gt;    y3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">%&gt;%</span>
-  <span class="nf">full_join</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;key&#34;</span><span class="p">)</span> <span class="c1">#全连接，保留x y中的所有观测</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">full_join</span>(y, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;key&#34;</span>) <span style="color:#75715e">#全连接，保留x y中的所有观测</span>
 </code></pre></div><pre><code>## # A tibble: 4 x 3
 ##     key val_x val_y
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
@@ -491,15 +491,15 @@
 ## 2     2 x2    y2   
 ## 3     3 x3    &lt;NA&gt; 
 ## 4     4 &lt;NA&gt;  y3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">merge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">all.x</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">all.y</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">merge</span>(x, y, all.x <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, all.y <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>##   key val_x val_y
 ## 1   1    x1    y1
 ## 2   2    x2    y2
 ## 3   3    x3  &lt;NA&gt;
 ## 4   4  &lt;NA&gt;    y3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#by的默认值by = NULL,这会使用存在于两个表中的所有变量，这种方式称为自然连接。</span>
-<span class="n">flights2</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">weather</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#by的默认值by = NULL,这会使用存在于两个表中的所有变量，这种方式称为自然连接。</span>
+flights2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(weather)
 </code></pre></div><pre><code>## Joining, by = c(&quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;hour&quot;, &quot;origin&quot;)
 </code></pre><pre><code>## # A tibble: 336,776 x 18
 ##     year month   day  hour origin dest  tailnum
@@ -519,9 +519,9 @@
 ## #   humid &lt;dbl&gt;, wind_dir &lt;dbl&gt;, wind_speed &lt;dbl&gt;,
 ## #   wind_gust &lt;dbl&gt;, precip &lt;dbl&gt;, pressure &lt;dbl&gt;,
 ## #   visib &lt;dbl&gt;, time_hour &lt;dttm&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#by = &#34;x&#34;,只使用某些公共变量。</span>
-<span class="n">flights2</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">planes</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;tailnum&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#by = &#34;x&#34;,只使用某些公共变量。</span>
+flights2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(planes, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tailnum&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 336,776 x 16
 ##    year.x month   day  hour origin dest  tailnum
 ##     &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  
@@ -539,9 +539,9 @@
 ## #   carrier &lt;chr&gt;, year.y &lt;int&gt;, type &lt;chr&gt;,
 ## #   manufacturer &lt;chr&gt;, model &lt;chr&gt;, engines &lt;int&gt;,
 ## #   seats &lt;int&gt;, speed &lt;int&gt;, engine &lt;chr&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#命名字符向量by = c(&#34;a&#34; = &#34;b&#34;)，匹配x表中的a变量和y表中的b变量。输出结果中使用的是x表中的变量。</span>
-<span class="n">flights2</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">airports</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;dest&#34;</span> <span class="o">=</span> <span class="s">&#34;faa&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#命名字符向量by = c(&#34;a&#34; = &#34;b&#34;)，匹配x表中的a变量和y表中的b变量。输出结果中使用的是x表中的变量。</span>
+flights2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(airports, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dest&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;faa&#34;</span>))
 </code></pre></div><pre><code>## # A tibble: 336,776 x 15
 ##     year month   day  hour origin dest  tailnum
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  
@@ -558,8 +558,8 @@
 ## # ... with 336,766 more rows, and 8 more variables:
 ## #   carrier &lt;chr&gt;, name &lt;chr&gt;, lat &lt;dbl&gt;, lon &lt;dbl&gt;,
 ## #   alt &lt;dbl&gt;, tz &lt;dbl&gt;, dst &lt;chr&gt;, tzone &lt;chr&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">airports</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;origin&#34;</span> <span class="o">=</span> <span class="s">&#34;faa&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(airports, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;origin&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;faa&#34;</span>))
 </code></pre></div><pre><code>## # A tibble: 336,776 x 26
 ##     year month   day dep_time sched_dep_time dep_delay
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
@@ -583,20 +583,20 @@
 ## #   dst &lt;chr&gt;, tzone &lt;chr&gt;
 </code></pre><h3 id="练习-1">练习</h3>
 <p>(1)将起点机场和终点机场的位置信息（即lat 和lon）添加到flights 中。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">airport_loc</span> <span class="o">&lt;-</span> <span class="n">airports</span> <span class="o">%&gt;%</span>
-  <span class="nf">select</span><span class="p">(</span><span class="n">faa</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">airport_loc <span style="color:#f92672">&lt;-</span> airports <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(faa, lat, lon)
 
-<span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="o">:</span><span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span>
-    <span class="n">airport_loc</span><span class="p">,</span>
-    <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;origin&#34;</span> <span class="o">=</span> <span class="s">&#34;faa&#34;</span><span class="p">)</span>
-  <span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span>
-    <span class="n">airport_loc</span><span class="p">,</span>
-    <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;dest&#34;</span> <span class="o">=</span> <span class="s">&#34;faa&#34;</span><span class="p">),</span>
-    <span class="n">suffix</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;_origin&#34;</span><span class="p">,</span> <span class="s">&#34;_dest&#34;</span><span class="p">)</span>
-  <span class="p">)</span>
+flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(year<span style="color:#f92672">:</span>day, hour, origin, dest) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(
+    airport_loc,
+    by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;origin&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;faa&#34;</span>)
+  ) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(
+    airport_loc,
+    by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dest&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;faa&#34;</span>),
+    suffix <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;_origin&#34;</span>, <span style="color:#e6db74">&#34;_dest&#34;</span>)
+  )
 </code></pre></div><pre><code>## # A tibble: 336,776 x 10
 ##     year month   day  hour origin dest  lat_origin
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;
@@ -613,22 +613,22 @@
 ## # ... with 336,766 more rows, and 3 more variables:
 ## #   lon_origin &lt;dbl&gt;, lat_dest &lt;dbl&gt;, lon_dest &lt;dbl&gt;
 </code></pre><p>(2) 飞机的机龄和延误时间有关系吗？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">pl</span> <span class="o">&lt;-</span> <span class="nf">inner_join</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span>
-                 <span class="nf">select</span><span class="p">(</span><span class="n">planes</span><span class="p">,</span> <span class="n">tailnum</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
-                 <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;tailnum&#34;</span><span class="p">)</span><span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">year.y</span> <span class="o">=</span> <span class="m">2013</span> <span class="o">-</span> <span class="n">year.y</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">rename</span><span class="p">(</span><span class="n">age</span> <span class="o">=</span> <span class="n">year.y</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">age</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">summarise</span><span class="p">(</span>
-    <span class="n">dep_delay_mean</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
-    <span class="n">dep_delay_sd</span> <span class="o">=</span> <span class="nf">sd</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
-    <span class="n">arr_delay_mean</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">arr_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
-    <span class="n">arr_delay_sd</span> <span class="o">=</span> <span class="nf">sd</span><span class="p">(</span><span class="n">arr_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
-    <span class="n">n_arr_delay</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">arr_delay</span><span class="p">)),</span>
-    <span class="n">n_dep_delay</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">))</span>
-  <span class="p">)</span>
-<span class="n">pl</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pl <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">inner_join</span>(flights,
+                 <span style="color:#a6e22e">select</span>(planes, tailnum, year),
+                 by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tailnum&#34;</span>)<span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(year.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2013</span> <span style="color:#f92672">-</span> year.y) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">rename</span>(age <span style="color:#f92672">=</span> year.y) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(age)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(age) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(
+    dep_delay_mean <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(dep_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>),
+    dep_delay_sd <span style="color:#f92672">=</span> <span style="color:#a6e22e">sd</span>(dep_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>),
+    arr_delay_mean <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(arr_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>),
+    arr_delay_sd <span style="color:#f92672">=</span> <span style="color:#a6e22e">sd</span>(arr_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>),
+    n_arr_delay <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(arr_delay)),
+    n_dep_delay <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(dep_delay))
+  )
+pl
 </code></pre></div><pre><code>## # A tibble: 46 x 7
 ##      age dep_delay_mean dep_delay_sd arr_delay_mean
 ##  * &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
@@ -645,46 +645,46 @@
 ## # ... with 36 more rows, and 3 more variables:
 ## #   arr_delay_sd &lt;dbl&gt;, n_arr_delay &lt;int&gt;,
 ## #   n_dep_delay &lt;int&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dep_delay_mean</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="s">&#34;Age of plane (years)&#34;</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">10</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="s">&#34;Mean Departure Delay (minutes)&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(pl, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> age, y <span style="color:#f92672">=</span> dep_delay_mean)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_continuous</span>(<span style="color:#e6db74">&#34;Age of plane (years)&#34;</span>, breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">30</span>, by <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_continuous</span>(<span style="color:#e6db74">&#34;Mean Departure Delay (minutes)&#34;</span>)
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/unnamed-chunk-74-1.png" alt="plot of chunk unnamed-chunk-73"  />
 (4) 什么样的天气状况更容易出现延误？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights_weather</span> <span class="o">&lt;-</span> 
-  <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">inner_join</span><span class="p">(</span><span class="n">weather</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span>
-    <span class="s">&#34;origin&#34;</span> <span class="o">=</span> <span class="s">&#34;origin&#34;</span><span class="p">,</span>
-    <span class="s">&#34;year&#34;</span> <span class="o">=</span> <span class="s">&#34;year&#34;</span><span class="p">,</span>
-    <span class="s">&#34;month&#34;</span> <span class="o">=</span> <span class="s">&#34;month&#34;</span><span class="p">,</span>
-    <span class="s">&#34;day&#34;</span> <span class="o">=</span> <span class="s">&#34;day&#34;</span><span class="p">,</span>
-    <span class="s">&#34;hour&#34;</span> <span class="o">=</span> <span class="s">&#34;hour&#34;</span>
-  <span class="p">))</span>
-<span class="n">flights_weather</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">precip</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">summarise</span><span class="p">(</span><span class="n">delay</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">precip</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">delay</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights_weather <span style="color:#f92672">&lt;-</span> 
+  flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">inner_join</span>(weather, by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(
+    <span style="color:#e6db74">&#34;origin&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;origin&#34;</span>,
+    <span style="color:#e6db74">&#34;year&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;year&#34;</span>,
+    <span style="color:#e6db74">&#34;month&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;month&#34;</span>,
+    <span style="color:#e6db74">&#34;day&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;day&#34;</span>,
+    <span style="color:#e6db74">&#34;hour&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hour&#34;</span>
+  ))
+flights_weather <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(precip) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(delay <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(dep_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> precip, y <span style="color:#f92672">=</span> delay)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_line</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_point</span>()
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/unnamed-chunk-74-1.png" alt="plot of chunk unnamed-chunk-74"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights_weather</span> <span class="o">%&gt;%</span>
-  <span class="nf">ungroup</span><span class="p">()</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">visib_cat</span> <span class="o">=</span> <span class="nf">cut_interval</span><span class="p">(</span><span class="n">visib</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">visib_cat</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">summarise</span><span class="p">(</span><span class="n">dep_delay</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">visib_cat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dep_delay</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights_weather <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ungroup</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(visib_cat <span style="color:#f92672">=</span> <span style="color:#a6e22e">cut_interval</span>(visib, n <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(visib_cat) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(dep_delay <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(dep_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> visib_cat, y <span style="color:#f92672">=</span> dep_delay)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/unnamed-chunk-74-1.png" alt="plot of chunk unnamed-chunk-74"  />
 (5) 2013 年6 月13 日发生了什么情况？展示出这天延误时间的空间模式，并使用Google 说明一下这天的天气状况。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="m">2013</span><span class="p">,</span> <span class="n">month</span> <span class="o">==</span> <span class="m">6</span><span class="p">,</span> <span class="n">day</span> <span class="o">==</span> <span class="m">13</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">summarise</span><span class="p">(</span><span class="n">delay</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">arr_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">inner_join</span><span class="p">(</span><span class="n">airports</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;dest&#34;</span> <span class="o">=</span> <span class="s">&#34;faa&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">lon</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">delay</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">delay</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">borders</span><span class="p">(</span><span class="s">&#34;state&#34;</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">coord_quickmap</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">scale_colour_viridis_b</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(year <span style="color:#f92672">==</span> <span style="color:#ae81ff">2013</span>, month <span style="color:#f92672">==</span> <span style="color:#ae81ff">6</span>, day <span style="color:#f92672">==</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(dest) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(delay <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(arr_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">inner_join</span>(airports, by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dest&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;faa&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(y <span style="color:#f92672">=</span> lat, x <span style="color:#f92672">=</span> lon, size <span style="color:#f92672">=</span> delay, color <span style="color:#f92672">=</span> delay)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">borders</span>(<span style="color:#e6db74">&#34;state&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">coord_quickmap</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_colour_viridis_b</span>()
 </code></pre></div><pre><code>## Warning: Removed 3 rows containing missing values
 ## (geom_point).
 </code></pre><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/unnamed-chunk-74-1.png" alt="plot of chunk unnamed-chunk-75"  /></p>
@@ -693,9 +693,9 @@
 <li><code>semi_join(x, y)</code>: 保留x表中与y表中的观测相匹配的所有观测。</li>
 <li><code>anti_join(x, y)</code>：丢弃x表中与y表中的观测相匹配的所有观测。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="p">(</span><span class="n">top_dest</span> <span class="o">&lt;-</span> <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">(top_dest <span style="color:#f92672">&lt;-</span> flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(dest, sort <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">10</span>))
 </code></pre></div><pre><code>## # A tibble: 10 x 2
 ##    dest      n
 ##    &lt;chr&gt; &lt;int&gt;
@@ -709,8 +709,8 @@
 ##  8 FLL   12055
 ##  9 MIA   11728
 ## 10 DCA    9705
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">dest</span> <span class="o">%in%</span> <span class="n">top_dest</span><span class="o">$</span><span class="n">dest</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(dest <span style="color:#f92672">%in%</span> top_dest<span style="color:#f92672">$</span>dest)
 </code></pre></div><pre><code>## # A tibble: 141,145 x 19
 ##     year month   day dep_time sched_dep_time dep_delay
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
@@ -730,8 +730,8 @@
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">semi_join</span><span class="p">(</span><span class="n">top_dest</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">semi_join</span>(top_dest)
 </code></pre></div><pre><code>## Joining, by = &quot;dest&quot;
 </code></pre><pre><code>## # A tibble: 141,145 x 19
 ##     year month   day dep_time sched_dep_time dep_delay
@@ -752,9 +752,9 @@
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">anti_join</span><span class="p">(</span><span class="n">planes</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;tailnum&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">tailnum</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">anti_join</span>(planes, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tailnum&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(tailnum, sort <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## # A tibble: 722 x 2
 ##    tailnum     n
 ##    &lt;chr&gt;   &lt;int&gt;
@@ -770,15 +770,15 @@
 ## 10 N531MQ    349
 ## # ... with 712 more rows
 </code></pre><p>(1) 如果一条航班信息的tailnum是缺失值，这说明什么？如果机尾编号在planes 中没有匹配的记录，一般是什么情况？（提示：有一个变量可以解释约90% 的这种情况。）</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">tailnum</span><span class="p">),</span> <span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">arr_time</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">nrow</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">is.na</span>(tailnum), <span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(arr_time)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">nrow</span>()
 </code></pre></div><pre><code>## [1] 0
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#tailnum是缺失值，说明该航班取消了。</span>
-<span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">anti_join</span><span class="p">(</span><span class="n">planes</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;tailnum&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">carrier</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#tailnum是缺失值，说明该航班取消了。</span>
+flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">anti_join</span>(planes, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tailnum&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(carrier, sort <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(p <span style="color:#f92672">=</span> n <span style="color:#f92672">/</span> <span style="color:#a6e22e">sum</span>(n))
 </code></pre></div><pre><code>## # A tibble: 10 x 3
 ##    carrier     n        p
 ##    &lt;chr&gt;   &lt;int&gt;    &lt;dbl&gt;
@@ -793,12 +793,12 @@
 ##  9 F9         50 0.000950
 ## 10 WN         38 0.000722
 </code></pre><p>(2) 对航班信息进行筛选，只保留至少有100 次飞行记录的飞机的航班信息。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">pl100</span> <span class="o">&lt;-</span> <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">tailnum</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="m">100</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pl100 <span style="color:#f92672">&lt;-</span> flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(tailnum) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">100</span>)
 
-<span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">semi_join</span><span class="p">(</span><span class="n">pl100</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;tailnum&#34;</span><span class="p">)</span>
+flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">semi_join</span>(pl100, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tailnum&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 230,902 x 19
 ##     year month   day dep_time sched_dep_time dep_delay
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
@@ -819,20 +819,20 @@
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
 </code></pre><p>(3)找出这一整年中航班延误最严重的48小时。与weather数据互相参照，你能找出某种模式吗？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">whour</span> <span class="o">&lt;-</span> <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">summarise</span><span class="p">(</span><span class="n">dep_delay</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">ungroup</span><span class="p">()</span> <span class="o">%&gt;%</span>
-  <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">slice</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">48</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">whour <span style="color:#f92672">&lt;-</span> flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(origin, year, month, day, hour) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(dep_delay <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(dep_delay, na.rm <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ungroup</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(dep_delay)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">48</span>)
 </code></pre></div><pre><code>## `summarise()` has grouped output by 'origin', 'year', 'month', 'day'. You can override using the `.groups` argument.
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">weather_whour</span> <span class="o">&lt;-</span> <span class="nf">semi_join</span><span class="p">(</span><span class="n">weather</span><span class="p">,</span> <span class="n">whour</span><span class="p">,</span> 
-                           <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;origin&#34;</span><span class="p">,</span> <span class="s">&#34;year&#34;</span><span class="p">,</span> <span class="s">&#34;month&#34;</span><span class="p">,</span> <span class="s">&#34;day&#34;</span><span class="p">,</span> <span class="s">&#34;hour&#34;</span><span class="p">))</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">weather_whour</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">precip</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">wind_speed</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">temp</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">weather_whour <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">semi_join</span>(weather, whour, 
+                           by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;origin&#34;</span>, <span style="color:#e6db74">&#34;year&#34;</span>, <span style="color:#e6db74">&#34;month&#34;</span>, <span style="color:#e6db74">&#34;day&#34;</span>, <span style="color:#e6db74">&#34;hour&#34;</span>))
+<span style="color:#a6e22e">ggplot</span>(weather_whour, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> precip, y <span style="color:#f92672">=</span> wind_speed, color <span style="color:#f92672">=</span> temp)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_point</span>()
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/unnamed-chunk-74-1.png" alt="plot of chunk unnamed-chunk-79"  /></p>
 <p>(4)你能说出anti_join(flights, airports, by = c(&ldquo;dest&rdquo; = &ldquo;faa&rdquo;)) 这条语句的意义吗？
 anti_join(airports, flights, by = c(&ldquo;faa&rdquo; = &ldquo;dest&rdquo;)) 这条语句的意义呢？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">anti_join</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">airports</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;dest&#34;</span> <span class="o">=</span> <span class="s">&#34;faa&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">distinct</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">anti_join</span>(flights, airports, by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dest&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;faa&#34;</span>)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">distinct</span>(dest)
 </code></pre></div><pre><code>## # A tibble: 4 x 1
 ##   dest 
 ##   &lt;chr&gt;
@@ -840,8 +840,8 @@ anti_join(airports, flights, by = c(&ldquo;faa&rdquo; = &ldquo;dest&rdquo;)) 这
 ## 2 SJU  
 ## 3 STT  
 ## 4 PSE
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#国外机场</span>
-<span class="nf">anti_join</span><span class="p">(</span><span class="n">airports</span><span class="p">,</span> <span class="n">flights</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;faa&#34;</span> <span class="o">=</span> <span class="s">&#34;dest&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#国外机场</span>
+<span style="color:#a6e22e">anti_join</span>(airports, flights, by <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;faa&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dest&#34;</span>))
 </code></pre></div><pre><code>## # A tibble: 1,357 x 8
 ##    faa   name      lat    lon   alt    tz dst   tzone 
 ##    &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -856,15 +856,15 @@ anti_join(airports, flights, by = c(&ldquo;faa&rdquo; = &ldquo;dest&rdquo;)) 这
 ##  9 0P2   Shoest~  39.8  -76.6  1000    -5 U     Ameri~
 ## 10 0S9   Jeffer~  48.1 -123.    108    -8 A     Ameri~
 ## # ... with 1,347 more rows
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#2013年没有从纽约市直飞航班的机场名单</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#2013年没有从纽约市直飞航班的机场名单</span>
 </code></pre></div><p>(5)或许你认为飞机和航空公司之间存在着某种隐含关系，因为每架飞机都属于一个航空公司。使用你在前面章节中学到的工具来确认或否定这个假设。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">plane_carrier</span> <span class="o">&lt;-</span> 
-  <span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">tailnum</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">distinct</span><span class="p">(</span><span class="n">tailnum</span><span class="p">,</span> <span class="n">carrier</span><span class="p">)</span>
-<span class="n">plane_carrier</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">tailnum</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plane_carrier <span style="color:#f92672">&lt;-</span> 
+  flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(tailnum)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">distinct</span>(tailnum, carrier)
+plane_carrier <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(tailnum) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>## # A tibble: 17 x 2
 ##    tailnum     n
 ##    &lt;chr&gt;   &lt;int&gt;
@@ -885,11 +885,11 @@ anti_join(airports, flights, by = c(&ldquo;faa&rdquo; = &ldquo;dest&rdquo;)) 这
 ## 15 N989AT      2
 ## 16 N990AT      2
 ## 17 N994AT      2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">plane_carrier</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">tailnum</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">filter</span><span class="p">(</span><span class="nf">n</span><span class="p">()</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">left_join</span><span class="p">(</span><span class="n">airlines</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;carrier&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">arrange</span><span class="p">(</span><span class="n">tailnum</span><span class="p">,</span> <span class="n">carrier</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plane_carrier <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(tailnum) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">n</span>() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">left_join</span>(airlines, by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;carrier&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(tailnum, carrier)
 </code></pre></div><pre><code>## # A tibble: 34 x 3
 ## # Groups:   tailnum [17]
 ##    carrier tailnum name                    
@@ -905,7 +905,7 @@ anti_join(airports, flights, by = c(&ldquo;faa&rdquo; = &ldquo;dest&rdquo;)) 这
 ##  9 9E      N197PQ  Endeavor Air Inc.       
 ## 10 EV      N197PQ  ExpressJet Airlines Inc.
 ## # ... with 24 more rows
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#一架飞机可能用于多家航空公司</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#一架飞机可能用于多家航空公司</span>
 </code></pre></div><h2 id="96-连接中的问题">9.6 连接中的问题</h2>
 <ul>
 <li>基于对数据的理解来确定主键。</li>
@@ -918,35 +918,35 @@ anti_join(airports, flights, by = c(&ldquo;faa&rdquo; = &ldquo;dest&rdquo;)) 这
 <li><code>union(x, y)</code> 返回x表或y表中的唯一观测。</li>
 <li><code>setdiff(x, y)</code> 返回在x表，但不在y表中的观测。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df1</span> <span class="o">&lt;-</span> <span class="nf">tribble</span><span class="p">(</span>
-  <span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="o">~</span><span class="n">y</span><span class="p">,</span>
-  <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span>
-  <span class="m">2</span><span class="p">,</span> <span class="m">1</span>
-<span class="p">)</span>
-<span class="n">df2</span> <span class="o">&lt;-</span> <span class="nf">tribble</span><span class="p">(</span>
-  <span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="o">~</span><span class="n">y</span><span class="p">,</span>
-  <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span>
-  <span class="m">1</span><span class="p">,</span> <span class="m">2</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tribble</span>(
+  <span style="color:#f92672">~</span>x, <span style="color:#f92672">~</span>y,
+  <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>,
+  <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>
+)
+df2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tribble</span>(
+  <span style="color:#f92672">~</span>x, <span style="color:#f92672">~</span>y,
+  <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>,
+  <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
+)
 
-<span class="nf">intersect</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+<span style="color:#a6e22e">intersect</span>(df1, df2)
 </code></pre></div><pre><code>## # A tibble: 1 x 2
 ##       x     y
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     1
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">union</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">union</span>(df1, df2)
 </code></pre></div><pre><code>## # A tibble: 3 x 2
 ##       x     y
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     1
 ## 2     2     1
 ## 3     1     2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">setdiff</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">setdiff</span>(df1, df2)
 </code></pre></div><pre><code>## # A tibble: 1 x 2
 ##       x     y
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1     2     1
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">setdiff</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">df1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">setdiff</span>(df2, df1)
 </code></pre></div><pre><code>## # A tibble: 1 x 2
 ##       x     y
 ##   &lt;dbl&gt; &lt;dbl&gt;

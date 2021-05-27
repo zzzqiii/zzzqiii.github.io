@@ -269,16 +269,16 @@ Int main()
 
     <section class="article-content">
     <h1 id="变量输入输出表达式和顺序语句">变量、输入输出、表达式和顺序语句</h1>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;hello world&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;hello world&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
     
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>第一部分：</p>
 <p>头文件</p>
 <p>#include <!-- raw HTML omitted --></p>
@@ -297,15 +297,15 @@ Int main()
 <p>​				return 0;</p>
 <p>}</p>
 <p>最后要返回0</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
     
-    <span class="cp">#自由发挥部分
-</span><span class="cp"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="err">#必须是</span><span class="mi">0</span>
-<span class="p">}</span>
+    <span style="color:#75715e">#自由发挥部分
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>; <span style="color:#960050;background-color:#1e0010">#必须是</span><span style="color:#ae81ff">0</span>
+}
 </code></pre></div><h2 id="变量">变量</h2>
 <p>变量用来储存信息</p>
 <ul>
@@ -356,37 +356,37 @@ Int main()
 <p>memory limit error 超内存</p>
 <p>segmentation fault 数组越界</p>
 <p>compiler error 编译错误</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span> <span class="c1">//第一个引号里是字符串，字符串里读入两个变量，分别是整数类型，%d是指读入整数类型，再读到a和b里面去，要加&amp;符号，不加报错
-</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span><span class="c1">//%d输出整数。第一个位置的数放到第一个%d中去，第二个位置的数放到第二个%d中去。
-</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a+b=%d</span><span class="se">\n</span><span class="s">a*b=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">);</span> <span class="c1">//格式化输出
-</span><span class="c1"></span>    
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b;
+    scanf(<span style="color:#e6db74">&#34;%d%d&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b); <span style="color:#75715e">//第一个引号里是字符串，字符串里读入两个变量，分别是整数类型，%d是指读入整数类型，再读到a和b里面去，要加&amp;符号，不加报错
+</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;%d %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a <span style="color:#f92672">+</span> b, a <span style="color:#f92672">*</span> b);<span style="color:#75715e">//%d输出整数。第一个位置的数放到第一个%d中去，第二个位置的数放到第二个%d中去。
+</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;a+b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">a*b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a<span style="color:#f92672">+</span>b, a<span style="color:#f92672">*</span>b); <span style="color:#75715e">//格式化输出
+</span><span style="color:#75715e"></span>    
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>scanf printf要判断变量类型</p>
 <p>如果是浮点数把%d换成%f，保留两位小数换成%.2f，三位小数%.3f，保留几位就是点几</p>
 <p>scanf printf的功能和cout cin类似，但是比后者强，所以常用前者，后者效率更低</p>
 <p>字符串输入输出</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%c%c&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c %c</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">char</span> a, b;
+    scanf(<span style="color:#e6db74">&#34;%c%c&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b);
+    printf(<span style="color:#e6db74">&#34;%c %c</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a, b);
     
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span><span class="n">c</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}c
 </code></pre></div><p>%c可以读入空格。所以对于这个程序，输入ac，输出是a c。所以要注意过滤空格。</p>
 <p>%d不会读入空格。</p>
 <p>cin 也不会读入空格。</p>

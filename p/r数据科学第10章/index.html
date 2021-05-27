@@ -221,116 +221,116 @@ test &amp;lt;- &amp;#34;string\&amp;#34;string&amp;#34; print(test) ## [1] &amp;
 
     <section class="article-content">
     <h1 id="使用stringr处理字符串">使用<code>stringr</code>处理字符串</h1>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">stringi</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+<span style="color:#a6e22e">library</span>(stringr)
+<span style="color:#a6e22e">library</span>(stringi)
 </code></pre></div><h2 id="字符串基础">字符串基础</h2>
 <p>单引号和双引号创建字符串。
 如果想要在字符串中包含一个单引号或双引号，可以使用<code>\</code>对其进行转义。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">test</span> <span class="o">&lt;-</span> <span class="s">&#34;string\&#34;string&#34;</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">test <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;string\&#34;string&#34;</span>
+<span style="color:#a6e22e">print</span>(test)
 </code></pre></div><pre><code>## [1] &quot;string\&quot;string&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">test</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">test
 </code></pre></div><pre><code>## [1] &quot;string\&quot;string&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">writeLines</span><span class="p">(</span><span class="n">test</span><span class="p">)</span> <span class="c1">#查看字符串的初始内容。</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">writeLines</span>(test) <span style="color:#75715e">#查看字符串的初始内容。</span>
 </code></pre></div><pre><code>## string&quot;string
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_length</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;R4ds&#34;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">))</span> <span class="c1">#字符串长度</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_length</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;R4ds&#34;</span>, <span style="color:#66d9ef">NA</span>)) <span style="color:#75715e">#字符串长度</span>
 </code></pre></div><pre><code>## [1]  1  4 NA
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;y&#34;</span><span class="p">)</span> <span class="c1">#组合字符串</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;y&#34;</span>) <span style="color:#75715e">#组合字符串</span>
 </code></pre></div><pre><code>## [1] &quot;xy&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;,&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;y&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;x,y&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
-<span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;|-&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&#34;-|&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#66d9ef">NA</span>)
+<span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;|-&#34;</span>, x, <span style="color:#e6db74">&#34;-|&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;|-abc-|&quot; NA
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;|-&#34;</span><span class="p">,</span> <span class="nf">str_replace_na</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&#34;-|&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;|-&#34;</span>, <span style="color:#a6e22e">str_replace_na</span>(x), <span style="color:#e6db74">&#34;-|&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;|-abc-|&quot; &quot;|-NA-|&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;prefix&#34;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">),</span> <span class="s">&#34;-suffix&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;prefix&#34;</span>, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;c&#34;</span>), <span style="color:#e6db74">&#34;-suffix&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;prefixa-suffix&quot; &quot;prefixb-suffix&quot; &quot;prefixc-suffix&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">name</span> <span class="o">&lt;-</span> <span class="s">&#34;zzq&#34;</span>
-<span class="n">time_of_day</span> <span class="o">&lt;-</span> <span class="s">&#34;afternoon&#34;</span>
-<span class="n">birthday</span> <span class="o">&lt;-</span> <span class="kc">FALSE</span>
-<span class="nf">str_c</span><span class="p">(</span>
-  <span class="s">&#34;Good &#34;</span><span class="p">,</span> <span class="n">time_of_day</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
-  <span class="nf">if </span><span class="p">(</span><span class="n">birthday</span><span class="p">)</span> <span class="s">&#34; and HAPPY BIRTHDAY&#34;</span><span class="p">,</span>
-  <span class="s">&#34;.&#34;</span>
-<span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">name <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;zzq&#34;</span>
+time_of_day <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;afternoon&#34;</span>
+birthday <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">FALSE</span>
+<span style="color:#a6e22e">str_c</span>(
+  <span style="color:#e6db74">&#34;Good &#34;</span>, time_of_day, <span style="color:#e6db74">&#34; &#34;</span>, name,
+  <span style="color:#a6e22e">if </span>(birthday) <span style="color:#e6db74">&#34; and HAPPY BIRTHDAY&#34;</span>,
+  <span style="color:#e6db74">&#34;.&#34;</span>
+)
 </code></pre></div><pre><code>## [1] &quot;Good afternoon zzq.&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#长度为零的对象会被丢弃</span>
-<span class="nf">str_c</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="s">&#34;z&#34;</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;,&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#长度为零的对象会被丢弃</span>
+<span style="color:#a6e22e">str_c</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;y&#34;</span>, <span style="color:#e6db74">&#34;z&#34;</span>), collapse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;x,y,z&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#字符向量合并为字符串</span>
-<span class="nf">str_c</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="s">&#34;z&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#字符向量合并为字符串</span>
+<span style="color:#a6e22e">str_c</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;y&#34;</span>, <span style="color:#e6db74">&#34;z&#34;</span>))
 </code></pre></div><pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Apple&#34;</span><span class="p">,</span> <span class="s">&#34;Banana&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">)</span>
-<span class="n">x</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Apple&#34;</span>, <span style="color:#e6db74">&#34;Banana&#34;</span>, <span style="color:#e6db74">&#34;pear&#34;</span>)
+x
 </code></pre></div><pre><code>## [1] &quot;Apple&quot;  &quot;Banana&quot; &quot;pear&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_sub</span>(x, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;p&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_sub</span>(x, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)
 </code></pre></div><pre><code>## [1] &quot;App&quot; &quot;Ban&quot; &quot;pea&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">-3</span><span class="p">,</span> <span class="m">-1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_sub</span>(x, <span style="color:#ae81ff">-3</span>, <span style="color:#ae81ff">-1</span>)
 </code></pre></div><pre><code>## [1] &quot;ple&quot; &quot;ana&quot; &quot;ear&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_sub</span><span class="p">(</span><span class="s">&#34;app&#34;</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_sub</span>(<span style="color:#e6db74">&#34;app&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>)
 </code></pre></div><pre><code>## [1] &quot;app&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">str_to_lower</span><span class="p">(</span><span class="nf">str_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
-<span class="c1">#大小写转换</span>
-<span class="n">x</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_sub</span>(x, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_to_lower</span>(<span style="color:#a6e22e">str_sub</span>(x, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>))
+<span style="color:#75715e">#大小写转换</span>
+x
 </code></pre></div><pre><code>## [1] &quot;apple&quot;  &quot;banana&quot; &quot;pear&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;eggplant&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">)</span>
-<span class="nf">str_sort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">locale</span> <span class="o">=</span> <span class="s">&#34;en&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;eggplant&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>)
+<span style="color:#a6e22e">str_sort</span>(x, locale <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;apple&quot;    &quot;banana&quot;   &quot;eggplant&quot;
 </code></pre><h3 id="练习">练习</h3>
 <p>(1) 在没有使用stringr的那些代码中，你会经常看到paste() 和paste0() 函数，这两个函数的区别是什么？ stringr 中的哪两个函数与它们是对应的？这些函数处理NA 的方式有什么不同？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">,</span> <span class="s">&#34;bar&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;foo bar&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">,</span> <span class="s">&#34;bar&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;foobar&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#66d9ef">NA</span>)
 </code></pre></div><pre><code>## [1] NA
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#66d9ef">NA</span>)
 </code></pre></div><pre><code>## [1] &quot;foo NA&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#66d9ef">NA</span>)
 </code></pre></div><pre><code>## [1] &quot;fooNA&quot;
 </code></pre><p>(2) 用自己的语言描述一下str_c()函数的sep和collapse 参数有什么区别？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;cdg&#34;</span><span class="p">,</span> <span class="s">&#34;adg&#34;</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;?&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;cdg&#34;</span>, <span style="color:#e6db74">&#34;adg&#34;</span>), collapse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;?&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;cdg?adg&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;cdg&#34;</span><span class="p">,</span> <span class="s">&#34;adg&#34;</span><span class="p">),</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;?&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;cdg&#34;</span>, <span style="color:#e6db74">&#34;adg&#34;</span>), sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;?&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;cdg&quot; &quot;adg&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;cdg&#34;</span><span class="p">,</span> <span class="s">&#34;adg&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;?&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;cdg&#34;</span>, <span style="color:#e6db74">&#34;adg&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;?&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;cdg?adg&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;a1&quot; &quot;a2&quot; &quot;a3&quot; &quot;a4&quot; &quot;a5&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;+&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>, collapse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;+&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;a1+a2+a3+a4+a5&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;+&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;+&#34;</span>)
 </code></pre></div><pre><code>## Error in paste(&quot;a&quot;, 1:5, sep = &quot;&quot;, sep = &quot;+&quot;): 正式参数&quot;sep&quot;有多个与之相对应的实际参数
 </code></pre><p>(3) 使用str_length()和str_sub()函数提取出一个字符串最中间的字符。如果字符串中的字符数是偶数，你应该怎么做？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;dog&#34;</span><span class="p">,</span> <span class="s">&#34;bigdog&#34;</span><span class="p">)</span>
-<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">ceiling</span><span class="p">(</span><span class="nf">str_length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
-<span class="c1">#取不大于某个数的最大整数</span>
-<span class="nf">str_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;dog&#34;</span>, <span style="color:#e6db74">&#34;bigdog&#34;</span>)
+m <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ceiling</span>(<span style="color:#a6e22e">str_length</span>(x)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)
+<span style="color:#75715e">#取不大于某个数的最大整数</span>
+<span style="color:#a6e22e">str_sub</span>(x, m, m)
 </code></pre></div><pre><code>## [1] &quot;a&quot; &quot;o&quot; &quot;g&quot;
 </code></pre><p>(4) str_wrap()函数的功能是什么？应该在何时使用这个函数？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#?str_wrap()</span>
-<span class="n">thanks_path</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="nf">R.home</span><span class="p">(</span><span class="s">&#34;doc&#34;</span><span class="p">),</span> <span class="s">&#34;THANKS&#34;</span><span class="p">)</span>
-<span class="n">thanks</span> <span class="o">&lt;-</span> <span class="nf">str_c</span><span class="p">(</span><span class="nf">readLines</span><span class="p">(</span><span class="n">thanks_path</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
-<span class="n">thanks</span> <span class="o">&lt;-</span> <span class="nf">word</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="nf">fixed</span><span class="p">(</span><span class="s">&#34;\n\n&#34;</span><span class="p">))</span>
-<span class="nf">cat</span><span class="p">(</span><span class="nf">str_wrap</span><span class="p">(</span><span class="n">thanks</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#?str_wrap()</span>
+thanks_path <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">file.path</span>(<span style="color:#a6e22e">R.home</span>(<span style="color:#e6db74">&#34;doc&#34;</span>), <span style="color:#e6db74">&#34;THANKS&#34;</span>)
+thanks <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_c</span>(<span style="color:#a6e22e">readLines</span>(thanks_path), collapse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+thanks <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">word</span>(thanks, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">fixed</span>(<span style="color:#e6db74">&#34;\n\n&#34;</span>))
+<span style="color:#a6e22e">cat</span>(<span style="color:#a6e22e">str_wrap</span>(thanks), <span style="color:#e6db74">&#34;\n&#34;</span>)
 </code></pre></div><pre><code>## R would not be what it is today without the invaluable help of these people
 ## outside of the (former and current) R Core team, who contributed by donating
 ## code, bug fixes and documentation:
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">cat</span><span class="p">(</span><span class="nf">str_wrap</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">60</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="m">2</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cat</span>(<span style="color:#a6e22e">str_wrap</span>(thanks, width <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>, indent <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#34;\n&#34;</span>)
 </code></pre></div><pre><code>##   R would not be what it is today without the invaluable
 ## help of these people outside of the (former and current) R
 ## Core team, who contributed by donating code, bug fixes and
 ## documentation:
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">cat</span><span class="p">(</span><span class="nf">str_wrap</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">60</span><span class="p">,</span> <span class="n">exdent</span> <span class="o">=</span> <span class="m">2</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cat</span>(<span style="color:#a6e22e">str_wrap</span>(thanks, width <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>, exdent <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#34;\n&#34;</span>)
 </code></pre></div><pre><code>## R would not be what it is today without the invaluable help
 ##   of these people outside of the (former and current) R
 ##   Core team, who contributed by donating code, bug fixes and
 ##   documentation:
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">cat</span><span class="p">(</span><span class="nf">str_wrap</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">exdent</span> <span class="o">=</span> <span class="m">2</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cat</span>(<span style="color:#a6e22e">str_wrap</span>(thanks, width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, exdent <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#34;\n&#34;</span>)
 </code></pre></div><pre><code>## R
 ##   would
 ##   not
@@ -366,52 +366,52 @@ test &amp;lt;- &amp;#34;string\&amp;#34;string&amp;#34; print(test) ## [1] &amp;
 ##   documentation:
 </code></pre><p>(5) str_trim() 函数的功能是什么？其逆操作是哪个函数？
 移除字符串开头和结尾的空格</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#?str_trim()</span>
-<span class="nf">str_trim</span><span class="p">(</span><span class="s">&#34;   ap  p  &#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#?str_trim()</span>
+<span style="color:#a6e22e">str_trim</span>(<span style="color:#e6db74">&#34;   ap  p  &#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;ap  p&quot;
 </code></pre><p>逆操作是<code>str_pad</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_pad</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="s">&#34;right&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_pad</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#ae81ff">6</span>, side <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;right&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;abc   &quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_pad</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="s">&#34;left&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_pad</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#ae81ff">6</span>, side <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;left&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;   abc&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_pad</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="s">&#34;both&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_pad</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#ae81ff">6</span>, side <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;both&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot; abc  &quot;
 </code></pre><p>(6) 编写一个函数将字符向量转换为字符串，例如，将字符向量c(&ldquo;a&rdquo;, &ldquo;b&rdquo;, &ldquo;c&rdquo;)转换为字符串a、b和c。仔细思考一下，如果给定一个长度为0、1 或2 的向量，那么这个函数应该怎么做？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">str_commasep</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">delim</span> <span class="o">=</span> <span class="s">&#34;,&#34;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-  <span class="nf">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="s">&#34;&#34;</span>
-  <span class="p">}</span>
-  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">x</span>
-  <span class="p">}</span>
-  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nf">str_c</span><span class="p">(</span><span class="n">x[[1]]</span><span class="p">,</span> <span class="s">&#34;and&#34;</span><span class="p">,</span> <span class="n">x[[2]]</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="n">else</span> <span class="p">{</span>
-    <span class="n">not_last</span> <span class="o">&lt;-</span> <span class="nf">str_c</span><span class="p">(</span><span class="n">x</span><span class="nf">[seq_len</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="m">1</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">delim</span><span class="p">)</span>
-    <span class="n">last</span> <span class="o">&lt;-</span> <span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;and&#34;</span><span class="p">,</span> <span class="n">x[[n]]</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
-    <span class="nf">str_c</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">not_last</span><span class="p">,</span> <span class="n">last</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-<span class="nf">str_commasep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">str_commasep <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x, delim <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>) {
+  n <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">length</span>(x)
+  <span style="color:#a6e22e">if</span>(n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#e6db74">&#34;&#34;</span>
+  }
+  else <span style="color:#a6e22e">if </span>(n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+    x
+  }
+  else <span style="color:#a6e22e">if </span>(n <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>) {
+    <span style="color:#a6e22e">str_c</span>(x[[1]], <span style="color:#e6db74">&#34;and&#34;</span>, x[[2]], sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>)
+  }
+  else {
+    not_last <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_c</span>(x<span style="color:#a6e22e">[seq_len</span>(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)], delim)
+    last <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;and&#34;</span>, x[[n]], sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>)
+    <span style="color:#a6e22e">str_c</span>(<span style="color:#a6e22e">c</span>(not_last, last), collapse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>)
+  }
+}
+<span style="color:#a6e22e">str_commasep</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>))
 </code></pre></div><pre><code>## [1] &quot;a and b&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_commasep</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_commasep</span>(<span style="color:#e6db74">&#34;a&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;a&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_commasep</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_commasep</span>(<span style="color:#e6db74">&#34;&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_commasep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_commasep</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;d&#34;</span>))
 </code></pre></div><pre><code>## [1] &quot;a, b, c, and d&quot;
 </code></pre><h2 id="使用正则表达式进行模式匹配">使用正则表达式进行模式匹配</h2>
 <h3 id="基础匹配">基础匹配</h3>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">)</span>
-<span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;an&#34;</span><span class="p">)</span> <span class="c1">#精准匹配字符串</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;pear&#34;</span>)
+<span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;an&#34;</span>) <span style="color:#75715e">#精准匹配字符串</span>
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;.a.&#34;</span><span class="p">)</span> <span class="c1">#.匹配任意字符</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;.a.&#34;</span>) <span style="color:#75715e">#.匹配任意字符</span>
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="练习-1">练习</h3>
 <p>如何匹配字符序列&quot;'\ ？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="s">&#34;\&#34;&#39;\\&#34;</span><span class="p">,</span> <span class="s">&#34;\&#34;&#39;\\\\&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(<span style="color:#e6db74">&#34;\&#34;&#39;\\&#34;</span>, <span style="color:#e6db74">&#34;\&#34;&#39;\\\\&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="锚点">锚点</h3>
 <ul>
@@ -419,14 +419,14 @@ test &amp;lt;- &amp;#34;string\&amp;#34;string&amp;#34; print(test) ## [1] &amp;
 <li>$从字符串末尾进行匹配
 始于power，终于money</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">)</span>
-<span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;^a&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;pear&#34;</span>)
+<span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;^a&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;a$&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;a$&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="练习-2">练习</h3>
 <p>(1)如何匹配字符串&quot;$^$&quot; ？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="s">&#34;$^$agdg&#34;</span><span class="p">,</span> <span class="s">&#34;\\$\\^\\$&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(<span style="color:#e6db74">&#34;$^$agdg&#34;</span>, <span style="color:#e6db74">&#34;\\$\\^\\$&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><p>(2) 给定stringr::words 中的常用单词语料库，创建正则表达式以找出满足下列条件的所
 有单词。
@@ -436,13 +436,13 @@ c. 长度正好为3 个字符的单词。（不要使用str_length() 函数，�
 d. 具有7 个或更多字符的单词。
 因为这个列表非常长，所以你可以设置str_view() 函数的match 参数，只显示匹配的
 单词（match = TRUE）或未匹配的单词（match = FALSE）。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^y&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;^y&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;x$&#34;</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;x$&#34;</span>, match<span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^...$&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;^...$&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;.......&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;.......&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="字符类与字符选项">字符类与字符选项</h3>
 <ul>
@@ -457,24 +457,24 @@ a. 以元音字母开头的单词。
 b. 只包含辅音字母的单词（提示：考虑一下匹配“非”元音字母）。
 c. 以ed 结尾，但不以eed 结尾的单词。
 d. 以ing 或ize 结尾的单词。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_subset</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">,</span> <span class="n">negate</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_subset</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>, negate <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## [1] &quot;by&quot;  &quot;dry&quot; &quot;fly&quot; &quot;mrs&quot; &quot;try&quot; &quot;why&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><p>^[aeiou]
 [^e]ed$
 ing|ize</p>
 <p>(2) 实际验证一下规则：i 总是在e 前面，除非i 前面有c。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_subset</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;cei|[^c]ie&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_subset</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;cei|[^c]ie&#34;</span>)
 </code></pre></div><pre><code>##  [1] &quot;achieve&quot;    &quot;believe&quot;    &quot;brief&quot;     
 ##  [4] &quot;client&quot;     &quot;die&quot;        &quot;experience&quot;
 ##  [7] &quot;field&quot;      &quot;friend&quot;     &quot;lie&quot;       
 ## [10] &quot;piece&quot;      &quot;quiet&quot;      &quot;receive&quot;   
 ## [13] &quot;tie&quot;        &quot;view&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_subset</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;cie|[^c]ei&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_subset</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;cie|[^c]ei&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;science&quot; &quot;society&quot; &quot;weigh&quot;
 </code></pre><p>(3) q 后面总是跟着一个u 吗？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;q[^u]&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;q[^u]&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="重复">重复</h3>
 <p>正则表达式的另一项强大功能是，其可以控制一个模式能够匹配多少次。</p>
@@ -483,12 +483,12 @@ ing|ize</p>
 <li>+: 1次或多次</li>
 <li>*: 0次或多次</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="s">&#34;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&#34;</span>
-<span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;CC?&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&#34;</span>
+<span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;CC?&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;CC+&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;CC+&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;C[LX]+&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(x, <span style="color:#e6db74">&#34;C[LX]+&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><p>• {n}：匹配n 次。
 • {n,}：匹配n 次或更多次。
@@ -512,11 +512,11 @@ d. &ldquo;\\{4}&rdquo;   \\</p>
 a. 以3 个辅音字母开头的单词。
 b. 有连续3 个或更多元音字母的单词。
 c. 有连续2 个或更多元音—辅音配对的单词。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^[^aeiou)]{3}&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;^[^aeiou)]{3}&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]{3,}&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;[aeiou]{3,}&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;([aeiou][^aeiou]){2,}&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;([aeiou][^aeiou]){2,}&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="分组与回溯引用">分组与回溯引用</h3>
 <p>括号还可以定义“分组”，可以通过回溯引用（如\1、\2 等）来引用这些分组。
@@ -530,30 +530,30 @@ e. &ldquo;(.)(.)(.).*\3\2\1&rdquo;       abczoeugncba</p>
 a. 开头字母和结尾字母相同的单词。
 b. 包含一对重复字母的单词（例如，church 中包含了重复的ch）。
 c. 包含一个至少重复3 次的字母的单词（例如，eleven 中的e 重复了3 次）</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^(.).*\\1$&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;^(.).*\\1$&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;(..).*\\1&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;(..).*\\1&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;(.).*\\1.*\\1&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(stringr<span style="color:#f92672">::</span>words, <span style="color:#e6db74">&#34;(.).*\\1.*\\1&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="匹配检测">匹配检测</h3>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">)</span>
-<span class="nf">str_detect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;e&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;pear&#34;</span>)
+<span style="color:#a6e22e">str_detect</span>(x, <span style="color:#e6db74">&#34;e&#34;</span>)
 </code></pre></div><pre><code>## [1]  TRUE FALSE  TRUE
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sum</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^t&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;^t&#34;</span>))
 </code></pre></div><pre><code>## [1] 65
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">mean</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]$&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mean</span>(<span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;[aeiou]$&#34;</span>))
 </code></pre></div><pre><code>## [1] 0.2765306
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">words</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;x$&#34;</span><span class="p">)</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">words<span style="color:#a6e22e">[str_detect</span>(words, <span style="color:#e6db74">&#34;x$&#34;</span>)]
 </code></pre></div><pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_subset</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;x$&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_subset</span>(words, <span style="color:#e6db74">&#34;x$&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span>
-  <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="p">,</span>
-  <span class="n">i</span> <span class="o">=</span> <span class="nf">seq_along</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">df</span> <span class="o">%&gt;%</span> 
-  <span class="nf">filter</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;x$&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tibble</span>(
+  word <span style="color:#f92672">=</span> words,
+  i <span style="color:#f92672">=</span> <span style="color:#a6e22e">seq_along</span>(word)
+)
+df <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;x$&#34;</span>))
 </code></pre></div><pre><code>## # A tibble: 4 x 2
 ##   word      i
 ##   &lt;chr&gt; &lt;int&gt;
@@ -561,14 +561,14 @@ c. 包含一个至少重复3 次的字母的单词（例如，eleven 中的e 重
 ## 2 sex     747
 ## 3 six     772
 ## 4 tax     841
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">)</span>
-<span class="nf">str_count</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;a&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;pear&#34;</span>)
+<span style="color:#a6e22e">str_count</span>(x, <span style="color:#e6db74">&#34;a&#34;</span>)
 </code></pre></div><pre><code>## [1] 1 3 1
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span>
-    <span class="n">vowels</span> <span class="o">=</span> <span class="nf">str_count</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">),</span>
-    <span class="n">consonants</span> <span class="o">=</span> <span class="nf">str_count</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s">&#34;[^aeiou]&#34;</span><span class="p">)</span>
-  <span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(
+    vowels <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_count</span>(word, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>),
+    consonants <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_count</span>(word, <span style="color:#e6db74">&#34;[^aeiou]&#34;</span>)
+  )
 </code></pre></div><pre><code>## # A tibble: 980 x 4
 ##    word         i vowels consonants
 ##    &lt;chr&gt;    &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
@@ -583,11 +583,11 @@ c. 包含一个至少重复3 次的字母的单词（例如，eleven 中的e 重
 ##  9 act          9      1          2
 ## 10 active      10      3          3
 ## # ... with 970 more rows
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_count</span><span class="p">(</span><span class="s">&#34;abababa&#34;</span><span class="p">,</span> <span class="s">&#34;aba&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_count</span>(<span style="color:#e6db74">&#34;abababa&#34;</span>, <span style="color:#e6db74">&#34;aba&#34;</span>)
 </code></pre></div><pre><code>## [1] 2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view_all</span><span class="p">(</span><span class="s">&#34;abababa&#34;</span><span class="p">,</span> <span class="s">&#34;aba&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view_all</span>(<span style="color:#e6db74">&#34;abababa&#34;</span>, <span style="color:#e6db74">&#34;aba&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="s">&#34;abababa&#34;</span><span class="p">,</span> <span class="s">&#34;aba&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(<span style="color:#e6db74">&#34;abababa&#34;</span>, <span style="color:#e6db74">&#34;aba&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="练习-5">练习</h3>
 <p>试着使用两种方法来解决以下每个问题，一种方法是使用单个正则表达式，另一种方法是使用多个str_detect() 函数的组合。
@@ -595,113 +595,113 @@ a. 找出以x 开头或结尾的所有单词。
 b. 找出以元音字母开头并以辅音字母结尾的所有单词。
 c. 是否存在包含所有元音字母的单词？
 d. 哪个单词包含最多数量的元音字母？哪个单词包含最大比例的元音字母？（提示：分母应该是什么？）</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;(^x)|(x$)&#34;</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(words, <span style="color:#e6db74">&#34;(^x)|(x$)&#34;</span>, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">words</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^x|x$&#34;</span><span class="p">)</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">words<span style="color:#a6e22e">[str_detect</span>(words, <span style="color:#e6db74">&#34;^x|x$&#34;</span>)]
 </code></pre></div><pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">start_with_x</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^x&#34;</span><span class="p">)</span>
-<span class="n">end_with_x</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;x$&#34;</span><span class="p">)</span>
-<span class="n">words[start_with_x</span><span class="o">|</span><span class="n">end_with_x]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">start_with_x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;^x&#34;</span>)
+end_with_x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;x$&#34;</span>)
+words[start_with_x<span style="color:#f92672">|</span>end_with_x]
 </code></pre></div><pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">words</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^[aeiou].*[^aeiou]$&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">words<span style="color:#a6e22e">[str_detect</span>(words, <span style="color:#e6db74">&#34;^[aeiou].*[^aeiou]$&#34;</span>)] <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>()
 </code></pre></div><pre><code>## [1] &quot;about&quot;   &quot;accept&quot;  &quot;account&quot; &quot;across&quot;  &quot;act&quot;    
 ## [6] &quot;actual&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_subset</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^[aeiou].*[^aeiou]$&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_subset</span>(words, <span style="color:#e6db74">&#34;^[aeiou].*[^aeiou]$&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>()
 </code></pre></div><pre><code>## [1] &quot;about&quot;   &quot;accept&quot;  &quot;account&quot; &quot;across&quot;  &quot;act&quot;    
 ## [6] &quot;actual&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">start_with_vowel</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^[aeiou]&#34;</span><span class="p">)</span>
-<span class="n">end_with_consonant</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[^aeiou]$&#34;</span><span class="p">)</span>
-<span class="n">words[start_with_vowel</span> <span class="o">&amp;</span> <span class="n">end_with_consonant]</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">start_with_vowel <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;^[aeiou]&#34;</span>)
+end_with_consonant <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;[^aeiou]$&#34;</span>)
+words[start_with_vowel <span style="color:#f92672">&amp;</span> end_with_consonant] <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>()
 </code></pre></div><pre><code>## [1] &quot;about&quot;   &quot;accept&quot;  &quot;account&quot; &quot;across&quot;  &quot;act&quot;    
 ## [6] &quot;actual&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">words</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;a&#34;</span><span class="p">)</span> <span class="o">&amp;</span>
-      <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;e&#34;</span><span class="p">)</span> <span class="o">&amp;</span> 
-      <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;i&#34;</span><span class="p">)</span> <span class="o">&amp;</span> 
-      <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;o&#34;</span><span class="p">)</span> <span class="o">&amp;</span>
-      <span class="nf">str_detect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;u&#34;</span><span class="p">)</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">words<span style="color:#a6e22e">[str_detect</span>(words, <span style="color:#e6db74">&#34;a&#34;</span>) <span style="color:#f92672">&amp;</span>
+      <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;e&#34;</span>) <span style="color:#f92672">&amp;</span> 
+      <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;i&#34;</span>) <span style="color:#f92672">&amp;</span> 
+      <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;o&#34;</span>) <span style="color:#f92672">&amp;</span>
+      <span style="color:#a6e22e">str_detect</span>(words, <span style="color:#e6db74">&#34;u&#34;</span>)]
 </code></pre></div><pre><code>## character(0)
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">length</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">length</span>(words)
 </code></pre></div><pre><code>## [1] 980
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">words</span><span class="nf">[order</span><span class="p">(</span><span class="nf">str_count</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">))</span><span class="nf">[length</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="n">]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">words<span style="color:#a6e22e">[order</span>(<span style="color:#a6e22e">str_count</span>(words, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>))<span style="color:#a6e22e">[length</span>(words)]]
 </code></pre></div><pre><code>## [1] &quot;television&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">vowels</span> <span class="o">&lt;-</span> <span class="nf">str_count</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">)</span>
-<span class="n">words</span><span class="nf">[which</span><span class="p">(</span><span class="n">vowels</span> <span class="o">==</span> <span class="nf">max</span><span class="p">(</span><span class="n">vowels</span><span class="p">))</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">vowels <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_count</span>(words, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>)
+words<span style="color:#a6e22e">[which</span>(vowels <span style="color:#f92672">==</span> <span style="color:#a6e22e">max</span>(vowels))]
 </code></pre></div><pre><code>## [1] &quot;appropriate&quot; &quot;associate&quot;   &quot;available&quot;  
 ## [4] &quot;colleague&quot;   &quot;encourage&quot;   &quot;experience&quot; 
 ## [7] &quot;individual&quot;  &quot;television&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">vowers_ratio</span> <span class="o">&lt;-</span> <span class="nf">str_count</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">)</span> <span class="o">/</span> <span class="nf">str_length</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="n">words</span><span class="nf">[which</span><span class="p">(</span><span class="n">vowers_ratio</span> <span class="o">==</span> <span class="nf">max</span><span class="p">(</span><span class="n">vowers_ratio</span><span class="p">))</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">vowers_ratio <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_count</span>(words, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">str_length</span>(words)
+words<span style="color:#a6e22e">[which</span>(vowers_ratio <span style="color:#f92672">==</span> <span style="color:#a6e22e">max</span>(vowers_ratio))]
 </code></pre></div><pre><code>## [1] &quot;a&quot;
 </code></pre><h3 id="提取匹配内容">提取匹配内容</h3>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">length</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">length</span>(sentences)
 </code></pre></div><pre><code>## [1] 720
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(sentences)
 </code></pre></div><pre><code>## [1] &quot;The birch canoe slid on the smooth planks.&quot; 
 ## [2] &quot;Glue the sheet to the dark blue background.&quot;
 ## [3] &quot;It's easy to tell the depth of a well.&quot;     
 ## [4] &quot;These days a chicken leg is a rare dish.&quot;   
 ## [5] &quot;Rice is often served in round bowls.&quot;       
 ## [6] &quot;The juice of lemons makes fine punch.&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">colors</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="s">&#34;orange&#34;</span><span class="p">,</span> <span class="s">&#34;yellow&#34;</span><span class="p">,</span> <span class="s">&#34;green&#34;</span><span class="p">,</span> <span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="s">&#34;purple&#34;</span><span class="p">)</span>
-<span class="n">color_match</span> <span class="o">&lt;-</span> <span class="nf">str_c</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;|&#34;</span><span class="p">)</span>
-<span class="n">color_match</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">colors <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;red&#34;</span>, <span style="color:#e6db74">&#34;orange&#34;</span>, <span style="color:#e6db74">&#34;yellow&#34;</span>, <span style="color:#e6db74">&#34;green&#34;</span>, <span style="color:#e6db74">&#34;blue&#34;</span>, <span style="color:#e6db74">&#34;purple&#34;</span>)
+color_match <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_c</span>(colors, collapse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;|&#34;</span>)
+color_match
 </code></pre></div><pre><code>## [1] &quot;red|orange|yellow|green|blue|purple&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">has_color</span> <span class="o">&lt;-</span> <span class="nf">str_subset</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">color_match</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">matches</span> <span class="o">&lt;-</span> <span class="nf">str_extract</span><span class="p">(</span><span class="n">has_color</span><span class="p">,</span> <span class="n">color_match</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">has_color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_subset</span>(sentences, color_match)
+<span style="color:#a6e22e">head</span>(matches <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_extract</span>(has_color, color_match))
 </code></pre></div><pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;red&quot;  &quot;blue&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">more</span> <span class="o">&lt;-</span> <span class="n">sentences</span><span class="nf">[str_count</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">color_match</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="n">]</span>
-<span class="nf">str_view_all</span><span class="p">(</span><span class="n">more</span><span class="p">,</span> <span class="n">color_match</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">more <span style="color:#f92672">&lt;-</span> sentences<span style="color:#a6e22e">[str_count</span>(sentences, color_match) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>]
+<span style="color:#a6e22e">str_view_all</span>(more, color_match)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="练习-6">练习</h3>
 <p>(1) 在前面的示例中，你或许已经发现正则表达式匹配了flickered，这并不是一种颜色。修改正则表达式来解决这个问题。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">color_match2</span> <span class="o">&lt;-</span> <span class="nf">str_c</span><span class="p">(</span><span class="s">&#34;\\b(&#34;</span><span class="p">,</span> <span class="n">color_match</span><span class="p">,</span> <span class="s">&#34;)\\b&#34;</span><span class="p">)</span>
-<span class="n">color_match2</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">color_match2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_c</span>(<span style="color:#e6db74">&#34;\\b(&#34;</span>, color_match, <span style="color:#e6db74">&#34;)\\b&#34;</span>)
+color_match2
 </code></pre></div><pre><code>## [1] &quot;\\b(red|orange|yellow|green|blue|purple)\\b&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">more2</span> <span class="o">&lt;-</span> <span class="n">sentences</span><span class="nf">[str_count</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">color_match</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="n">]</span>
-<span class="nf">str_view_all</span><span class="p">(</span><span class="n">more2</span><span class="p">,</span> <span class="n">color_match2</span><span class="p">,</span> <span class="n">match</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">more2 <span style="color:#f92672">&lt;-</span> sentences<span style="color:#a6e22e">[str_count</span>(sentences, color_match) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>]
+<span style="color:#a6e22e">str_view_all</span>(more2, color_match2, match <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><p>(2) 从Harvard sentences 数据集中提取以下内容。
 a. 每个句子的第一个单词。
 b. 以ing 结尾的所有单词。
 c. 所有复数形式的单词。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_extract</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="s">&#34;[A-Za-z]+&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_extract</span>(sentences, <span style="color:#e6db74">&#34;[A-Za-z]+&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>()
 </code></pre></div><pre><code>## [1] &quot;The&quot;   &quot;Glue&quot;  &quot;It&quot;    &quot;These&quot; &quot;Rice&quot;  &quot;The&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">pattern</span> <span class="o">&lt;-</span> <span class="s">&#34;\\b[A-Za-z]+ing\\b&#34;</span>
-<span class="n">sentences_with_ing</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
-<span class="nf">unique</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="nf">str_extract_all</span><span class="p">(</span><span class="n">sentences[sentences_with_ing]</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)))</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pattern <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;\\b[A-Za-z]+ing\\b&#34;</span>
+sentences_with_ing <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_detect</span>(sentences, pattern)
+<span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">unlist</span>(<span style="color:#a6e22e">str_extract_all</span>(sentences[sentences_with_ing], pattern))) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>()
 </code></pre></div><pre><code>## [1] &quot;spring&quot;  &quot;evening&quot; &quot;morning&quot; &quot;winding&quot; &quot;living&quot; 
 ## [6] &quot;king&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">unique</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="nf">str_extract_all</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="s">&#34;\\b[A-Za-z]{3,}s\\b&#34;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">()</span> 
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">unlist</span>(<span style="color:#a6e22e">str_extract_all</span>(sentences, <span style="color:#e6db74">&#34;\\b[A-Za-z]{3,}s\\b&#34;</span>))) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>() 
 </code></pre></div><pre><code>## [1] &quot;planks&quot; &quot;days&quot;   &quot;bowls&quot;  &quot;lemons&quot; &quot;makes&quot; 
 ## [6] &quot;hogs&quot;
 </code></pre><h3 id="分组匹配">分组匹配</h3>
 <p>括号可以阐明优先级，还能对正则表达式进行分组。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">noun</span> <span class="o">&lt;-</span> <span class="s">&#34;(a|the) ([^ ]+)&#34;</span>
-<span class="n">has_noun</span> <span class="o">&lt;-</span> <span class="n">sentences</span> <span class="o">%&gt;%</span>
-  <span class="nf">str_subset</span><span class="p">(</span><span class="n">noun</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
-<span class="c1">#匹配a或the空格，出空格以外任意字符。</span>
-<span class="n">has_noun</span> <span class="o">%&gt;%</span> 
-  <span class="nf">str_extract</span><span class="p">(</span><span class="n">noun</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">noun <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;(a|the) ([^ ]+)&#34;</span>
+has_noun <span style="color:#f92672">&lt;-</span> sentences <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">str_subset</span>(noun) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">10</span>)
+<span style="color:#75715e">#匹配a或the空格，出空格以外任意字符。</span>
+has_noun <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">str_extract</span>(noun)
 </code></pre></div><pre><code>##  [1] &quot;the smooth&quot; &quot;the sheet&quot;  &quot;the depth&quot; 
 ##  [4] &quot;a chicken&quot;  &quot;the parked&quot; &quot;the sun&quot;   
 ##  [7] &quot;the huge&quot;   &quot;the ball&quot;   &quot;the woman&quot; 
 ## [10] &quot;a helps&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">noun</span> <span class="o">&lt;-</span> <span class="s">&#34;(a|the) ([^ ]+)&#34;</span>
-<span class="n">has_noun</span> <span class="o">&lt;-</span> <span class="n">sentences</span> <span class="o">%&gt;%</span>
-<span class="nf">str_subset</span><span class="p">(</span><span class="n">noun</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
-<span class="n">has_noun</span> <span class="o">%&gt;%</span>
-<span class="nf">str_extract</span><span class="p">(</span><span class="n">noun</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">noun <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;(a|the) ([^ ]+)&#34;</span>
+has_noun <span style="color:#f92672">&lt;-</span> sentences <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">str_subset</span>(noun) <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">10</span>)
+has_noun <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">str_extract</span>(noun)
 </code></pre></div><pre><code>##  [1] &quot;the smooth&quot; &quot;the sheet&quot;  &quot;the depth&quot; 
 ##  [4] &quot;a chicken&quot;  &quot;the parked&quot; &quot;the sun&quot;   
 ##  [7] &quot;the huge&quot;   &quot;the ball&quot;   &quot;the woman&quot; 
 ## [10] &quot;a helps&quot;
 </code></pre><p>str_extract() 函数可以给出完整匹配；str_match()函数则可以给出每个独立分组。str_match()返回的不是字符向量，而是一个矩阵，其中一列是完整匹配，后面的列是每个分组的匹配：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">has_noun</span> <span class="o">%&gt;%</span>
-  <span class="nf">str_match</span><span class="p">(</span><span class="n">noun</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">has_noun <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">str_match</span>(noun)
 </code></pre></div><pre><code>##       [,1]         [,2]  [,3]     
 ##  [1,] &quot;the smooth&quot; &quot;the&quot; &quot;smooth&quot; 
 ##  [2,] &quot;the sheet&quot;  &quot;the&quot; &quot;sheet&quot;  
@@ -714,11 +714,11 @@ c. 所有复数形式的单词。</p>
 ##  [9,] &quot;the woman&quot;  &quot;the&quot; &quot;woman&quot;  
 ## [10,] &quot;a helps&quot;    &quot;a&quot;   &quot;helps&quot;
 </code></pre><p>如果数据是保存在tibble中的，那么使用tidyr::extract()会更容易。这个函数的工作方式与str_match()函数类似，只是要求为每个分组提供一个名称，以作为新列放在tibble 中：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">tibble</span><span class="p">(</span><span class="n">sentence</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="n">tidyr</span><span class="o">::</span><span class="nf">extract</span><span class="p">(</span>
-    <span class="n">sentence</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;article&#34;</span><span class="p">,</span> <span class="s">&#34;noun&#34;</span><span class="p">),</span> <span class="s">&#34;(a|the) ([^ ]+)&#34;</span><span class="p">,</span>
-    <span class="n">remove</span> <span class="o">=</span> <span class="kc">FALSE</span>
-  <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">tibble</span>(sentence <span style="color:#f92672">=</span> sentences) <span style="color:#f92672">%&gt;%</span>
+  tidyr<span style="color:#f92672">::</span><span style="color:#a6e22e">extract</span>(
+    sentence, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;article&#34;</span>, <span style="color:#e6db74">&#34;noun&#34;</span>), <span style="color:#e6db74">&#34;(a|the) ([^ ]+)&#34;</span>,
+    remove <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>
+  )
 </code></pre></div><pre><code>## # A tibble: 720 x 3
 ##    sentence                             article noun  
 ##    &lt;chr&gt;                                &lt;chr&gt;   &lt;chr&gt; 
@@ -735,8 +735,8 @@ c. 所有复数形式的单词。</p>
 ## # ... with 710 more rows
 </code></pre><h3 id="练习-7">练习</h3>
 <p>(1) 找出跟在一个数词（one、two、three等）后面的所有单词，提取出数词与后面的单词。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">after_number</span> <span class="o">&lt;-</span> <span class="s">&#34;\\b(one|two|three|four|five|six|seven|eight|nine|ten) (\\w+)&#34;</span>
-<span class="nf">str_subset</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">after_number</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">after_number <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;\\b(one|two|three|four|five|six|seven|eight|nine|ten) (\\w+)&#34;</span>
+<span style="color:#a6e22e">str_subset</span>(sentences, after_number)
 </code></pre></div><pre><code>##  [1] &quot;The rope will bind the seven books at once.&quot; 
 ##  [2] &quot;The two met while playing on the sand.&quot;      
 ##  [3] &quot;There are more than two factors here.&quot;       
@@ -759,8 +759,8 @@ c. 所有复数形式的单词。</p>
 ## [20] &quot;A six comes up more often than a ten.&quot;       
 ## [21] &quot;The mail comes in three batches per day.&quot;    
 ## [22] &quot;Slide the bill between the two leaves.&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sentences</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">after_number</span><span class="p">)</span><span class="n">]</span> <span class="o">%&gt;%</span>
-  <span class="nf">str_extract</span><span class="p">(</span><span class="n">after_number</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sentences<span style="color:#a6e22e">[str_detect</span>(sentences, after_number)] <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">str_extract</span>(after_number)
 </code></pre></div><pre><code>##  [1] &quot;seven books&quot;   &quot;two met&quot;       &quot;two factors&quot;  
 ##  [4] &quot;three lists&quot;   &quot;seven is&quot;      &quot;two when&quot;     
 ##  [7] &quot;ten inches&quot;    &quot;one war&quot;       &quot;one button&quot;   
@@ -770,9 +770,9 @@ c. 所有复数形式的单词。</p>
 ## [19] &quot;three inches&quot;  &quot;six comes&quot;     &quot;three batches&quot;
 ## [22] &quot;two leaves&quot;
 </code></pre><p>(2) 找出所有缩略形式，分别列出撇号前面和后面的部分。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">brev</span> <span class="o">&lt;-</span> <span class="s">&#34;([A-Za-z]+)&#39;([A-Za-z]+)&#34;</span>
-<span class="n">sentences</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">brev</span><span class="p">)</span><span class="n">]</span> <span class="o">%&gt;%</span>
-  <span class="nf">str_match</span><span class="p">(</span><span class="n">brev</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">brev <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;([A-Za-z]+)&#39;([A-Za-z]+)&#34;</span>
+sentences<span style="color:#a6e22e">[str_detect</span>(sentences, brev)] <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">str_match</span>(brev)
 </code></pre></div><pre><code>##       [,1]         [,2]       [,3]
 ##  [1,] &quot;It's&quot;       &quot;It&quot;       &quot;s&quot; 
 ##  [2,] &quot;man's&quot;      &quot;man&quot;      &quot;s&quot; 
@@ -791,18 +791,18 @@ c. 所有复数形式的单词。</p>
 ## [15,] &quot;neighbor's&quot; &quot;neighbor&quot; &quot;s&quot;
 </code></pre><h3 id="替换匹配内容">替换匹配内容</h3>
 <p>str_replace() 和str_replace_all() 函数可以使用新字符串替换匹配内容。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">)</span>
-<span class="nf">str_replace</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;pear&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>)
+<span style="color:#a6e22e">str_replace</span>(x, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;-pple&quot;  &quot;p-ar&quot;   &quot;b-nana&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_replace_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;[aeiou]&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_replace_all</span>(x, <span style="color:#e6db74">&#34;[aeiou]&#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;-ppl-&quot;  &quot;p--r&quot;   &quot;b-n-n-&quot;
 </code></pre><p>通过提供一个命名向量，使用str_replace_all()函数可以同时执行多个替换</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;1 house&#34;</span><span class="p">,</span> <span class="s">&#34;2 cars&#34;</span><span class="p">,</span> <span class="s">&#34;3 people&#34;</span><span class="p">)</span>
-<span class="nf">str_replace_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;1&#34;</span> <span class="o">=</span> <span class="s">&#34;one&#34;</span><span class="p">,</span> <span class="s">&#34;2&#34;</span> <span class="o">=</span> <span class="s">&#34;two&#34;</span><span class="p">,</span> <span class="s">&#34;3&#34;</span> <span class="o">=</span> <span class="s">&#34;three&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1 house&#34;</span>, <span style="color:#e6db74">&#34;2 cars&#34;</span>, <span style="color:#e6db74">&#34;3 people&#34;</span>)
+<span style="color:#a6e22e">str_replace_all</span>(x, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;one&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;two&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;three&#34;</span>))
 </code></pre></div><pre><code>## [1] &quot;one house&quot;    &quot;two cars&quot;     &quot;three people&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sentences</span> <span class="o">%&gt;%</span>
-  <span class="nf">str_replace</span><span class="p">(</span><span class="s">&#34;([^ ]+) ([^ ]+) ([^ ]+)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1 \\3 \\2&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sentences <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#34;([^ ]+) ([^ ]+) ([^ ]+)&#34;</span>, <span style="color:#e6db74">&#34;\\1 \\3 \\2&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">5</span>)
 </code></pre></div><pre><code>## [1] &quot;The canoe birch slid on the smooth planks.&quot; 
 ## [2] &quot;Glue sheet the to the dark blue background.&quot;
 ## [3] &quot;It's to easy tell the depth of a well.&quot;     
@@ -810,21 +810,21 @@ c. 所有复数形式的单词。</p>
 ## [5] &quot;Rice often is served in round bowls.&quot;
 </code></pre><h3 id="练习-8">练习</h3>
 <p>(1) 使用反斜杠替换字符串中的所有斜杠。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_replace_all</span><span class="p">(</span><span class="s">&#34;sentences/&#34;</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="s">&#34;\\\\&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_replace_all</span>(<span style="color:#e6db74">&#34;sentences/&#34;</span>, <span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#e6db74">&#34;\\\\&#34;</span>)
 </code></pre></div><pre><code>## [1] &quot;sentences\\&quot;
 </code></pre><p>(2) 使用replace_all() 函数实现str_to_lower() 函数的一个简单版。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">replacements</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;A&#34;</span> <span class="o">=</span> <span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;B&#34;</span> <span class="o">=</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span> <span class="o">=</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;D&#34;</span> <span class="o">=</span> <span class="s">&#34;d&#34;</span><span class="p">,</span> <span class="s">&#34;E&#34;</span> <span class="o">=</span> <span class="s">&#34;e&#34;</span><span class="p">,</span>
-                  <span class="s">&#34;F&#34;</span> <span class="o">=</span> <span class="s">&#34;f&#34;</span><span class="p">,</span> <span class="s">&#34;G&#34;</span> <span class="o">=</span> <span class="s">&#34;g&#34;</span><span class="p">,</span> <span class="s">&#34;H&#34;</span> <span class="o">=</span> <span class="s">&#34;h&#34;</span><span class="p">,</span> <span class="s">&#34;I&#34;</span> <span class="o">=</span> <span class="s">&#34;i&#34;</span><span class="p">,</span> <span class="s">&#34;J&#34;</span> <span class="o">=</span> <span class="s">&#34;j&#34;</span><span class="p">,</span> 
-                  <span class="s">&#34;K&#34;</span> <span class="o">=</span> <span class="s">&#34;k&#34;</span><span class="p">,</span> <span class="s">&#34;L&#34;</span> <span class="o">=</span> <span class="s">&#34;l&#34;</span><span class="p">,</span> <span class="s">&#34;M&#34;</span> <span class="o">=</span> <span class="s">&#34;m&#34;</span><span class="p">,</span> <span class="s">&#34;N&#34;</span> <span class="o">=</span> <span class="s">&#34;n&#34;</span><span class="p">,</span> <span class="s">&#34;O&#34;</span> <span class="o">=</span> <span class="s">&#34;o&#34;</span><span class="p">,</span> 
-                  <span class="s">&#34;P&#34;</span> <span class="o">=</span> <span class="s">&#34;p&#34;</span><span class="p">,</span> <span class="s">&#34;Q&#34;</span> <span class="o">=</span> <span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="s">&#34;R&#34;</span> <span class="o">=</span> <span class="s">&#34;r&#34;</span><span class="p">,</span> <span class="s">&#34;S&#34;</span> <span class="o">=</span> <span class="s">&#34;s&#34;</span><span class="p">,</span> <span class="s">&#34;T&#34;</span> <span class="o">=</span> <span class="s">&#34;t&#34;</span><span class="p">,</span> 
-                  <span class="s">&#34;U&#34;</span> <span class="o">=</span> <span class="s">&#34;u&#34;</span><span class="p">,</span> <span class="s">&#34;V&#34;</span> <span class="o">=</span> <span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="s">&#34;W&#34;</span> <span class="o">=</span> <span class="s">&#34;w&#34;</span><span class="p">,</span> <span class="s">&#34;X&#34;</span> <span class="o">=</span> <span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;Y&#34;</span> <span class="o">=</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> 
-                  <span class="s">&#34;Z&#34;</span> <span class="o">=</span> <span class="s">&#34;z&#34;</span><span class="p">)</span>
-<span class="nf">str_replace_all</span><span class="p">(</span><span class="s">&#34;AghAZ&#34;</span><span class="p">,</span> <span class="n">replacements</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">replacements <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;B&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;D&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;d&#34;</span>, <span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e&#34;</span>,
+                  <span style="color:#e6db74">&#34;F&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;f&#34;</span>, <span style="color:#e6db74">&#34;G&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;g&#34;</span>, <span style="color:#e6db74">&#34;H&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;h&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;J&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;j&#34;</span>, 
+                  <span style="color:#e6db74">&#34;K&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;k&#34;</span>, <span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;l&#34;</span>, <span style="color:#e6db74">&#34;M&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;m&#34;</span>, <span style="color:#e6db74">&#34;N&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;O&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;o&#34;</span>, 
+                  <span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;p&#34;</span>, <span style="color:#e6db74">&#34;Q&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;q&#34;</span>, <span style="color:#e6db74">&#34;R&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;r&#34;</span>, <span style="color:#e6db74">&#34;S&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;s&#34;</span>, <span style="color:#e6db74">&#34;T&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t&#34;</span>, 
+                  <span style="color:#e6db74">&#34;U&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;u&#34;</span>, <span style="color:#e6db74">&#34;V&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;v&#34;</span>, <span style="color:#e6db74">&#34;W&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;w&#34;</span>, <span style="color:#e6db74">&#34;X&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;Y&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>, 
+                  <span style="color:#e6db74">&#34;Z&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;z&#34;</span>)
+<span style="color:#a6e22e">str_replace_all</span>(<span style="color:#e6db74">&#34;AghAZ&#34;</span>, replacements)
 </code></pre></div><pre><code>## [1] &quot;aghaz&quot;
 </code></pre><p>(3) 交换words 中单词的首字母和末尾字母，其中哪些字符串仍然是个单词？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">swapped</span> <span class="o">&lt;-</span> <span class="nf">str_replace_all</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="s">&#34;^([A-Za-z])(.*)([A-Za-z])$&#34;</span><span class="p">,</span> <span class="s">&#34;\\3\\2\\1&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">swapped <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_replace_all</span>(words, <span style="color:#e6db74">&#34;^([A-Za-z])(.*)([A-Za-z])$&#34;</span>, <span style="color:#e6db74">&#34;\\3\\2\\1&#34;</span>)
 
-<span class="nf">intersect</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">swapped</span><span class="p">)</span>
+<span style="color:#a6e22e">intersect</span>(words, swapped)
 </code></pre></div><pre><code>##  [1] &quot;a&quot;          &quot;america&quot;    &quot;area&quot;      
 ##  [4] &quot;dad&quot;        &quot;dead&quot;       &quot;deal&quot;      
 ##  [7] &quot;dear&quot;       &quot;depend&quot;     &quot;dog&quot;       
@@ -842,9 +842,9 @@ c. 所有复数形式的单词。</p>
 ## [43] &quot;trust&quot;      &quot;window&quot;     &quot;yesterday&quot;
 </code></pre><h3 id="拆分">拆分</h3>
 <p>str_split() 函数可以将字符串拆分为多个片段。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sentences</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">str_split</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sentences <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">5</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">str_split</span>(<span style="color:#e6db74">&#34; &#34;</span>)
 </code></pre></div><pre><code>## [[1]]
 ## [1] &quot;The&quot;     &quot;birch&quot;   &quot;canoe&quot;   &quot;slid&quot;    &quot;on&quot;     
 ## [6] &quot;the&quot;     &quot;smooth&quot;  &quot;planks.&quot;
@@ -865,18 +865,18 @@ c. 所有复数形式的单词。</p>
 ## [[5]]
 ## [1] &quot;Rice&quot;   &quot;is&quot;     &quot;often&quot;  &quot;served&quot; &quot;in&quot;    
 ## [6] &quot;round&quot;  &quot;bowls.&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="s">&#34;a|b|c|d&#34;</span> <span class="o">%&gt;%</span>
-<span class="nf">str_split</span><span class="p">(</span><span class="s">&#34;\\|&#34;</span><span class="p">)</span><span class="o">%&gt;%</span>
-<span class="n">.[[1]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#e6db74">&#34;a|b|c|d&#34;</span> <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">str_split</span>(<span style="color:#e6db74">&#34;\\|&#34;</span>)<span style="color:#f92672">%&gt;%</span>
+.[[1]]
 </code></pre></div><pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="s">&#34;a|b|c|d&#34;</span> <span class="o">%&gt;%</span>
-<span class="nf">str_split</span><span class="p">(</span><span class="s">&#34;\\|&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#e6db74">&#34;a|b|c|d&#34;</span> <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">str_split</span>(<span style="color:#e6db74">&#34;\\|&#34;</span>)
 </code></pre></div><pre><code>## [[1]]
 ## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#返回一个矩阵</span>
-<span class="n">sentences</span> <span class="o">%&gt;%</span>
-<span class="nf">head</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="nf">str_split</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">,</span> <span class="n">simplify</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#返回一个矩阵</span>
+sentences <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">5</span>) <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">str_split</span>(<span style="color:#e6db74">&#34; &#34;</span>, simplify <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>##      [,1]    [,2]    [,3]    [,4]      [,5]  [,6]   
 ## [1,] &quot;The&quot;   &quot;birch&quot; &quot;canoe&quot; &quot;slid&quot;    &quot;on&quot;  &quot;the&quot;  
 ## [2,] &quot;Glue&quot;  &quot;the&quot;   &quot;sheet&quot; &quot;to&quot;      &quot;the&quot; &quot;dark&quot; 
@@ -889,46 +889,46 @@ c. 所有复数形式的单词。</p>
 ## [3,] &quot;of&quot;     &quot;a&quot;           &quot;well.&quot;
 ## [4,] &quot;a&quot;      &quot;rare&quot;        &quot;dish.&quot;
 ## [5,] &quot;bowls.&quot; &quot;&quot;            &quot;&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#设定拆分片段的最大数量</span>
-<span class="n">fields</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Name: Hadley : M : U&#34;</span><span class="p">,</span> <span class="s">&#34;Country: NZ&#34;</span><span class="p">,</span> <span class="s">&#34;Age: 35&#34;</span><span class="p">)</span>
-<span class="n">fields</span> <span class="o">%&gt;%</span> <span class="nf">str_split</span><span class="p">(</span><span class="s">&#34;: &#34;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">simplify</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#设定拆分片段的最大数量</span>
+fields <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Name: Hadley : M : U&#34;</span>, <span style="color:#e6db74">&#34;Country: NZ&#34;</span>, <span style="color:#e6db74">&#34;Age: 35&#34;</span>)
+fields <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">str_split</span>(<span style="color:#e6db74">&#34;: &#34;</span>, n <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, simplify <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>##      [,1]      [,2]            
 ## [1,] &quot;Name&quot;    &quot;Hadley : M : U&quot;
 ## [2,] &quot;Country&quot; &quot;NZ&quot;            
 ## [3,] &quot;Age&quot;     &quot;35&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">fields</span> <span class="o">%&gt;%</span> <span class="nf">str_split</span><span class="p">(</span><span class="s">&#34;: &#34;</span><span class="p">,</span> <span class="n">simplify</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">fields <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">str_split</span>(<span style="color:#e6db74">&#34;: &#34;</span>, simplify <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 </code></pre></div><pre><code>##      [,1]      [,2]      [,3] [,4]
 ## [1,] &quot;Name&quot;    &quot;Hadley &quot; &quot;M &quot; &quot;U&quot; 
 ## [2,] &quot;Country&quot; &quot;NZ&quot;      &quot;&quot;   &quot;&quot;  
 ## [3,] &quot;Age&quot;     &quot;35&quot;      &quot;&quot;   &quot;&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#通过字母、行、句子和单词边界（boundary() 函数）来拆分字符串</span>
-<span class="n">x</span> <span class="o">&lt;-</span> <span class="s">&#34;This is a sentence. This is another sentence.&#34;</span>
-<span class="nf">str_view_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">boundary</span><span class="p">(</span><span class="s">&#34;word&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#通过字母、行、句子和单词边界（boundary() 函数）来拆分字符串</span>
+x <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;This is a sentence. This is another sentence.&#34;</span>
+<span style="color:#a6e22e">str_view_all</span>(x, <span style="color:#a6e22e">boundary</span>(<span style="color:#e6db74">&#34;word&#34;</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">boundary</span><span class="p">(</span><span class="s">&#34;sentence&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view_all</span>(x, <span style="color:#a6e22e">boundary</span>(<span style="color:#e6db74">&#34;sentence&#34;</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">boundary</span><span class="p">(</span><span class="s">&#34;character&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view_all</span>(x, <span style="color:#a6e22e">boundary</span>(<span style="color:#e6db74">&#34;character&#34;</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="练习-9">练习</h3>
 <p>(1) 拆分字符串&quot;apples, pears, and bananas&quot;。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">fruit</span> <span class="o">&lt;-</span> <span class="s">&#34;apples, pears,    and   bananas&#34;</span>
-<span class="nf">str_split</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span> <span class="s">&#34;, +(and +)?&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">fruit <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;apples, pears,    and   bananas&#34;</span>
+<span style="color:#a6e22e">str_split</span>(fruit, <span style="color:#e6db74">&#34;, +(and +)?&#34;</span>)
 </code></pre></div><pre><code>## [[1]]
 ## [1] &quot;apples&quot;  &quot;pears&quot;   &quot;bananas&quot;
 </code></pre><p>(2) 为什么使用boundary(&ldquo;word&rdquo;) 的拆分效果要比&quot;&quot; 好？
 按边界(“word”)分割是将字符串分割为单词的更复杂的方法。它可以识别分隔单词的非空格标点符号，也可以删除标点符号，同时保留单词内部的非字母字符.</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sentence</span> <span class="o">&lt;-</span> <span class="s">&#34;The quick (“brown”) fox can’t jump 32.3 feet, right?&#34;</span>
-<span class="nf">str_split</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sentence <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;The quick (“brown”) fox can’t jump 32.3 feet, right?&#34;</span>
+<span style="color:#a6e22e">str_split</span>(sentence, <span style="color:#e6db74">&#34; &#34;</span>)
 </code></pre></div><pre><code>## [[1]]
 ## [1] &quot;The&quot;       &quot;quick&quot;     &quot;(“brown”)&quot; &quot;fox&quot;      
 ## [5] &quot;can’t&quot;     &quot;jump&quot;      &quot;32.3&quot;      &quot;feet,&quot;    
 ## [9] &quot;right?&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_split</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="nf">boundary</span><span class="p">(</span><span class="s">&#34;word&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_split</span>(sentence, <span style="color:#a6e22e">boundary</span>(<span style="color:#e6db74">&#34;word&#34;</span>))
 </code></pre></div><pre><code>## [[1]]
 ## [1] &quot;The&quot;   &quot;quick&quot; &quot;brown&quot; &quot;fox&quot;   &quot;can’t&quot; &quot;jump&quot; 
 ## [7] &quot;32.3&quot;  &quot;feet&quot;  &quot;right&quot;
 </code></pre><p>(3) 使用空字符串（&quot;&quot;）进行拆分会得到什么结果？尝试一下，然后阅读文档。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_split</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_split</span>(sentence, <span style="color:#e6db74">&#34;&#34;</span>)
 </code></pre></div><pre><code>## [[1]]
 ##  [1] &quot;T&quot; &quot;h&quot; &quot;e&quot; &quot; &quot; &quot;q&quot; &quot;u&quot; &quot;i&quot; &quot;c&quot; &quot;k&quot; &quot; &quot; &quot;(&quot; &quot;“&quot;
 ## [13] &quot;b&quot; &quot;r&quot; &quot;o&quot; &quot;w&quot; &quot;n&quot; &quot;”&quot; &quot;)&quot; &quot; &quot; &quot;f&quot; &quot;o&quot; &quot;x&quot; &quot; &quot;
@@ -944,32 +944,32 @@ c. 所有复数形式的单词。</p>
 <ul>
 <li>ignore_case = TRUE既可以匹配大写字母，也可以匹配小写字母，它总是使用当前的区域设置：</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">bananas</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;Banana&#34;</span><span class="p">,</span> <span class="s">&#34;BANANA&#34;</span><span class="p">)</span>
-<span class="nf">str_view</span><span class="p">(</span><span class="n">bananas</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bananas <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;Banana&#34;</span>, <span style="color:#e6db74">&#34;BANANA&#34;</span>)
+<span style="color:#a6e22e">str_view</span>(bananas, <span style="color:#e6db74">&#34;banana&#34;</span>)
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="n">bananas</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span><span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="n">ignore_case</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(bananas, <span style="color:#a6e22e">regex</span>(<span style="color:#e6db74">&#34;banana&#34;</span>, ignore_case <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><ul>
 <li>multiline = TRUE可以使得^和$从每行的开头和末尾开始匹配，而不是从完整字符串的开头和末尾开始匹配：</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="s">&#34;Line 1\nLine 2\nLine 3&#34;</span>
-<span class="nf">str_extract_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;^Line&#34;</span><span class="p">)</span><span class="n">[[1]]</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;Line 1\nLine 2\nLine 3&#34;</span>
+<span style="color:#a6e22e">str_extract_all</span>(x, <span style="color:#e6db74">&#34;^Line&#34;</span>)[[1]]
 </code></pre></div><pre><code>## [1] &quot;Line&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_extract_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span><span class="s">&#34;^Line&#34;</span><span class="p">,</span> <span class="n">multiline</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span><span class="n">[[1]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_extract_all</span>(x, <span style="color:#a6e22e">regex</span>(<span style="color:#e6db74">&#34;^Line&#34;</span>, multiline <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))[[1]]
 </code></pre></div><pre><code>## [1] &quot;Line&quot; &quot;Line&quot; &quot;Line&quot;
 </code></pre><ul>
 <li>comments = TRUE 可以在复杂的正则表达式中加入注释和空白字符,匹配时会忽略空格和# 后面的内容。如果想要匹配一个空格，你需要对其进行转义：&quot;\ &quot;</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">phone</span> <span class="o">&lt;-</span> <span class="nf">regex</span><span class="p">(</span><span class="s">&#34;
-</span><span class="s">\\(? # 可选的开括号
-</span><span class="s">(\\d{3}) # 地区编码
-</span><span class="s">[)- ]? # 可选的闭括号、短划线或空格
-</span><span class="s">(\\d{3}) # 另外3个数字
-</span><span class="s">[ -]? # 可选的空格或短划线
-</span><span class="s">(\\d{3}) # 另外3个数字
-</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">phone <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">regex</span>(<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">\\(? # 可选的开括号
+</span><span style="color:#e6db74">(\\d{3}) # 地区编码
+</span><span style="color:#e6db74">[)- ]? # 可选的闭括号、短划线或空格
+</span><span style="color:#e6db74">(\\d{3}) # 另外3个数字
+</span><span style="color:#e6db74">[ -]? # 可选的空格或短划线
+</span><span style="color:#e6db74">(\\d{3}) # 另外3个数字
+</span><span style="color:#e6db74">&#34;</span>, comments <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
 
-<span class="nf">str_match</span><span class="p">(</span><span class="s">&#34;523-694-8249&#34;</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span>
+<span style="color:#a6e22e">str_match</span>(<span style="color:#e6db74">&#34;523-694-8249&#34;</span>, phone)
 </code></pre></div><pre><code>##      [,1]          [,2]  [,3]  [,4] 
 ## [1,] &quot;523-694-824&quot; &quot;523&quot; &quot;694&quot; &quot;824&quot;
 </code></pre><p>• dotall = TRUE 可以使得. 匹配包括\n 在内的所有字符。</p>
@@ -985,20 +985,20 @@ c. 所有复数形式的单词。</p>
 <p>还可以在其他函数中使用boundary() 函数来匹配边界.</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="s">&#34;This is a sentence.&#34;</span>
-<span class="nf">str_view_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">boundary</span><span class="p">(</span><span class="s">&#34;word&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;This is a sentence.&#34;</span>
+<span style="color:#a6e22e">str_view_all</span>(x, <span style="color:#a6e22e">boundary</span>(<span style="color:#e6db74">&#34;word&#34;</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><h3 id="练习-10">练习</h3>
 <p>(1) 如何找出包含\ 的所有字符串？分别使用regex()和fixed()函数来完成这个任务。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;age\\dge&#34;</span><span class="p">,</span> <span class="s">&#34;abg&#34;</span><span class="p">,</span> <span class="s">&#34;din/dg&#34;</span><span class="p">),</span> <span class="nf">regex</span><span class="p">(</span><span class="s">&#34;\\\\&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;age\\dge&#34;</span>, <span style="color:#e6db74">&#34;abg&#34;</span>, <span style="color:#e6db74">&#34;din/dg&#34;</span>), <span style="color:#a6e22e">regex</span>(<span style="color:#e6db74">&#34;\\\\&#34;</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str_view</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;age\\dge&#34;</span><span class="p">,</span> <span class="s">&#34;abg&#34;</span><span class="p">,</span> <span class="s">&#34;din/dg&#34;</span><span class="p">),</span> <span class="nf">fixed</span><span class="p">(</span><span class="s">&#34;\\&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str_view</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;age\\dge&#34;</span>, <span style="color:#e6db74">&#34;abg&#34;</span>, <span style="color:#e6db74">&#34;din/dg&#34;</span>), <span style="color:#a6e22e">fixed</span>(<span style="color:#e6db74">&#34;\\&#34;</span>))
 </code></pre></div><pre><code>## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre><p>(2) sentences 数据集中最常见的5 个单词是什么？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">tibble</span><span class="p">(</span><span class="n">word</span> <span class="o">=</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">str_extract_all</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="nf">boundary</span><span class="p">(</span><span class="s">&#34;word&#34;</span><span class="p">))))</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">word</span> <span class="o">=</span> <span class="nf">str_to_lower</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">head</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">tibble</span>(word <span style="color:#f92672">=</span> <span style="color:#a6e22e">unlist</span>(<span style="color:#a6e22e">str_extract_all</span>(sentences, <span style="color:#a6e22e">boundary</span>(<span style="color:#e6db74">&#34;word&#34;</span>)))) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(word <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_to_lower</span>(word)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(word, sort <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">5</span>)
 </code></pre></div><pre><code>## # A tibble: 5 x 2
 ##   word      n
 ##   &lt;chr&gt; &lt;int&gt;
@@ -1011,7 +1011,7 @@ c. 所有复数形式的单词。</p>
 <ul>
 <li>apropos() 函数可以在全局环境空间中搜索所有可用对象。当不能确切想起函数名称时，这个函数特别有用：</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">apropos</span><span class="p">(</span><span class="s">&#34;replace&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">apropos</span>(<span style="color:#e6db74">&#34;replace&#34;</span>)
 </code></pre></div><pre><code>##  [1] &quot;%+replace%&quot;                    
 ##  [2] &quot;.rs.registerReplaceHook&quot;       
 ##  [3] &quot;.rs.replaceBinding&quot;            
@@ -1047,7 +1047,7 @@ c. 所有复数形式的单词。</p>
 </code></pre><ul>
 <li>dir() 函数可以列出一个目录下的所有文件。dir()函数的patten参数可以是一个正则表达式，此时它只返回与这个模式相匹配的文件名。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="nf">dir</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;\\.Rmd$&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(<span style="color:#a6e22e">dir</span>(pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\\.Rmd$&#34;</span>))
 </code></pre></div><pre><code>## [1] &quot;R_data_science.Rmd&quot;     &quot;R_data_science_c10.Rmd&quot;
 ## [3] &quot;R_data_science_c11.Rmd&quot; &quot;R_data_science_c3.Rmd&quot; 
 ## [5] &quot;R_data_science_c5.Rmd&quot;  &quot;R_data_science_c7.Rmd&quot;
@@ -1060,18 +1060,18 @@ stingi 234个函数，更全面。
 a. 计算单词的数量。
 b. 找出重复字符串。
 c. 生成随机文本。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stri_count_words</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">sentences</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">stri_count_words</span>(<span style="color:#a6e22e">head</span>(sentences))
 </code></pre></div><pre><code>## [1] 8 8 9 9 7 7
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stri_duplicated</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;the&#34;</span><span class="p">,</span> <span class="s">&#34;brown&#34;</span><span class="p">,</span> <span class="s">&#34;cow&#34;</span><span class="p">,</span> <span class="s">&#34;jumped&#34;</span><span class="p">,</span> <span class="s">&#34;over&#34;</span><span class="p">,</span>
-                           <span class="s">&#34;the&#34;</span><span class="p">,</span> <span class="s">&#34;lazy&#34;</span><span class="p">,</span> <span class="s">&#34;fox&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">stri_duplicated</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;the&#34;</span>, <span style="color:#e6db74">&#34;brown&#34;</span>, <span style="color:#e6db74">&#34;cow&#34;</span>, <span style="color:#e6db74">&#34;jumped&#34;</span>, <span style="color:#e6db74">&#34;over&#34;</span>,
+                           <span style="color:#e6db74">&#34;the&#34;</span>, <span style="color:#e6db74">&#34;lazy&#34;</span>, <span style="color:#e6db74">&#34;fox&#34;</span>))
 </code></pre></div><pre><code>## [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stri_rand_strings</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>  <span class="c1">#generates random strings</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">stri_rand_strings</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>)  <span style="color:#75715e">#generates random strings</span>
 </code></pre></div><pre><code>## [1] &quot;m9xRO&quot; &quot;Grjwi&quot; &quot;zDMuX&quot; &quot;GrGR2&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stri_rand_shuffle</span><span class="p">(</span><span class="s">&#34;The brown fox jumped over the lazy cow.&#34;</span><span class="p">)</span> <span class="c1">#随机打乱文本</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">stri_rand_shuffle</span>(<span style="color:#e6db74">&#34;The brown fox jumped over the lazy cow.&#34;</span>) <span style="color:#75715e">#随机打乱文本</span>
 </code></pre></div><pre><code>## [1] &quot;b eoxo .vloe ztTrdjhn  o mwfyewp ecauhr&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stri_rand_lipsum</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">stri_rand_lipsum</span>(<span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>## [1] &quot;Lorem ipsum dolor sit amet, aliquet rutrum porttitor et et id vel ornare justo, vel. Et ut amet, adipiscing aliquam nulla mauris in, tristique pharetra. In convallis neque bibendum libero maximus eu sit egestas montes vitae lobortis. Lorem quam sed, neque justo sed curae. Sit est vitae maecenas. Sit mattis donec ipsum amet massa orci phasellus. Aliquam blandit mauris duis, morbi vel lacus, accumsan ac conubia. Cubilia fermentum ultricies sit libero posuere ullamcorper pharetra aliquam ridiculus ante in porttitor a tempor sed.&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#狗屁文字生成函数</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#狗屁文字生成函数</span>
 </code></pre></div>
 </section>
 

@@ -221,7 +221,7 @@
 
     <section class="article-content">
     <h1 id="使用readr进行数据导入">使用readr进行数据导入</h1>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
 </code></pre></div><h2 id="入门">入门</h2>
 <p>readr的多数函数用于将平面文件转换为数据框。</p>
 <ul>
@@ -233,57 +233,57 @@
 <li><code>read_table()</code>读取固定宽度文件的一种常用变体，空白字符分隔各列。</li>
 <li><code>read_log()</code>读取apache风格的日志文件。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a, b, c
-</span><span class="s">1, 2, 3
-</span><span class="s">4, 5, 6&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a, b, c
+</span><span style="color:#e6db74">1, 2, 3
+</span><span style="color:#e6db74">4, 5, 6&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 2 x 3
 ##       a     b     c
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2     3
 ## 2     4     5     6
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#read_csv()使用第一行作为列名称。</span>
-<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;first line
-</span><span class="s">         second line
-</span><span class="s">         x, y, z
-</span><span class="s">         1, 2, 3&#34;</span><span class="p">,</span> <span class="n">skip</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#read_csv()使用第一行作为列名称。</span>
+<span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;first line
+</span><span style="color:#e6db74">         second line
+</span><span style="color:#e6db74">         x, y, z
+</span><span style="color:#e6db74">         1, 2, 3&#34;</span>, skip <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
 </code></pre></div><pre><code>## # A tibble: 1 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2     3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;#comment
-</span><span class="s">         x, y, z
-</span><span class="s">         1, 2, 3&#34;</span><span class="p">,</span> <span class="n">comment</span> <span class="o">=</span> <span class="s">&#34;#&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;#comment
+</span><span style="color:#e6db74">         x, y, z
+</span><span style="color:#e6db74">         1, 2, 3&#34;</span>, comment <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 1 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2     3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#使用skip = n来跳过前n行，或使用commt = ”#“来丢弃以#开头的行。</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#使用skip = n来跳过前n行，或使用commt = ”#“来丢弃以#开头的行。</span>
 
-<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;1, 2, 3\n4, 5, 6&#34;</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;1, 2, 3\n4, 5, 6&#34;</span>, col_names <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 </code></pre></div><pre><code>## # A tibble: 2 x 3
 ##      X1    X2    X3
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2     3
 ## 2     4     5     6
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#不将第一行作为列标题。</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#不将第一行作为列标题。</span>
 
-<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;1, 2, 3\n4, 5, 6&#34;</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="s">&#34;z&#34;</span><span class="p">))</span>
+<span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;1, 2, 3\n4, 5, 6&#34;</span>, col_names <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;y&#34;</span>, <span style="color:#e6db74">&#34;z&#34;</span>))
 </code></pre></div><pre><code>## # A tibble: 2 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2     3
 ## 2     4     5     6
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a, b, c\n1, 2, &#34;</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a, b, c\n1, 2, &#34;</span>, na <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 1 x 3
 ##       a     b c    
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;
 ## 1     1     2 NA
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#na设定使用哪个值来表示文件中的缺失值.</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#na设定使用哪个值来表示文件中的缺失值.</span>
 </code></pre></div><h3 id="练习">练习</h3>
 <p>(1) 如果一个文件中的域是由“|”分隔的，那么应该使用哪个函数来读取这个文件？
 <code>read_delim(file, delim = &quot;|)</code></p>
 <p>(2) 除了file、skip和comment，还有哪些参数是read_csv() 和read_tsv() 这两个函数共有的？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">intersect</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="nf">formals</span><span class="p">(</span><span class="n">read_csv</span><span class="p">)),</span> <span class="nf">names</span><span class="p">(</span><span class="nf">formals</span><span class="p">(</span><span class="n">read_tsv</span><span class="p">)))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">intersect</span>(<span style="color:#a6e22e">names</span>(<span style="color:#a6e22e">formals</span>(read_csv)), <span style="color:#a6e22e">names</span>(<span style="color:#a6e22e">formals</span>(read_tsv)))
 </code></pre></div><pre><code>##  [1] &quot;file&quot;            &quot;col_names&quot;      
 ##  [3] &quot;col_types&quot;       &quot;locale&quot;         
 ##  [5] &quot;na&quot;              &quot;quoted_na&quot;      
@@ -291,28 +291,28 @@
 ##  [9] &quot;trim_ws&quot;         &quot;skip&quot;           
 ## [11] &quot;n_max&quot;           &quot;guess_max&quot;      
 ## [13] &quot;progress&quot;        &quot;skip_empty_rows&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#trim_ws 去除单元格前后的空格</span>
-<span class="c1">#n_max 设置读取的行数</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#trim_ws 去除单元格前后的空格</span>
+<span style="color:#75715e">#n_max 设置读取的行数</span>
 
-<span class="nf">identical</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="nf">formals</span><span class="p">(</span><span class="n">read_csv</span><span class="p">)),</span> <span class="nf">names</span><span class="p">(</span><span class="nf">formals</span><span class="p">(</span><span class="n">read_tsv</span><span class="p">)))</span>
+<span style="color:#a6e22e">identical</span>(<span style="color:#a6e22e">names</span>(<span style="color:#a6e22e">formals</span>(read_csv)), <span style="color:#a6e22e">names</span>(<span style="color:#a6e22e">formals</span>(read_tsv)))
 </code></pre></div><pre><code>## [1] TRUE
 </code></pre><p>(3) read_fwf() 函数中最重要的参数是什么？</p>
 <p><code>col_position</code>
 (4) 有时CSV 文件中的字符串会包含逗号。为了防止引发问题，需要用引号（如&quot;或'）将逗号围起来。按照惯例，read_csv() 默认引号为&quot;，如果想要改变默认值，就要转而
 使用read_delim()函数。要想将以下文本读入一个数据框，需要设定哪些参数？
 &ldquo;x,y\n1,&lsquo;a,b&rsquo;&rdquo;</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_delim</span><span class="p">(</span><span class="s">&#34;x,y\n1,&#39;a,b&#39;&#34;</span><span class="p">,</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_delim</span>(<span style="color:#e6db74">&#34;x,y\n1,&#39;a,b&#39;&#34;</span>, <span style="color:#e6db74">&#34;,&#34;</span>, quote <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 1 x 2
 ##       x y    
 ##   &lt;dbl&gt; &lt;chr&gt;
 ## 1     1 a,b
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;x,y\n1,&#39;a,b&#39;&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;x,y\n1,&#39;a,b&#39;&#34;</span>, quote <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 1 x 2
 ##       x y    
 ##   &lt;dbl&gt; &lt;chr&gt;
 ## 1     1 a,b
 </code></pre><p>(5) 找出以下每个行内CSV 文件中的错误。如果运行代码，会发生什么情况？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a,b\n1,2,3\n4,5,6&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a,b\n1,2,3\n4,5,6&#34;</span>)
 </code></pre></div><pre><code>## Warning: 2 parsing failures.
 ## row col  expected    actual         file
 ##   1  -- 2 columns 3 columns literal data
@@ -322,8 +322,8 @@
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2
 ## 2     4     5
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#列名只有两个，但是后面有三个，因此把最后一列去除了。</span>
-<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a,b,c\n1,2\n1,2,3,4&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#列名只有两个，但是后面有三个，因此把最后一列去除了。</span>
+<span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a,b,c\n1,2\n1,2,3,4&#34;</span>)
 </code></pre></div><pre><code>## Warning: 2 parsing failures.
 ## row col  expected    actual         file
 ##   1  -- 3 columns 2 columns literal data
@@ -333,8 +333,8 @@
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2    NA
 ## 2     1     2     3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#去除了第四列，第三列空的补上了NA</span>
-<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a,b\n\&#34;1&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#去除了第四列，第三列空的补上了NA</span>
+<span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a,b\n\&#34;1&#34;</span>)
 </code></pre></div><pre><code>## Warning: 2 parsing failures.
 ## row col                     expected    actual         file
 ##   1  a  closing quote at end of file           literal data
@@ -343,58 +343,58 @@
 ##       a b    
 ##   &lt;dbl&gt; &lt;chr&gt;
 ## 1     1 &lt;NA&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#多了一个引号</span>
-<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a,b\n1,2\na,b&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#多了一个引号</span>
+<span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a,b\n1,2\na,b&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 2 x 2
 ##   a     b    
 ##   &lt;chr&gt; &lt;chr&gt;
 ## 1 1     2    
 ## 2 a     b
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;a;b\n1;3&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;a;b\n1;3&#34;</span>)
 </code></pre></div><pre><code>## # A tibble: 1 x 1
 ##   `a;b`
 ##   &lt;chr&gt;
 ## 1 1;3
 </code></pre><h2 id="解析向量">解析向量</h2>
 <p>** <code>parse_*</code> **函数族：接受一个字符向量，并返回一个特定向量，如逻辑、整数或日期向量：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str</span><span class="p">(</span><span class="nf">parse_logical</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;TRUE&#34;</span><span class="p">,</span> <span class="s">&#34;FALSE&#34;</span><span class="p">,</span> <span class="s">&#34;NA&#34;</span><span class="p">)))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str</span>(<span style="color:#a6e22e">parse_logical</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;TRUE&#34;</span>, <span style="color:#e6db74">&#34;FALSE&#34;</span>, <span style="color:#e6db74">&#34;NA&#34;</span>)))
 </code></pre></div><pre><code>##  logi [1:3] TRUE FALSE NA
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str</span><span class="p">(</span><span class="nf">parse_integer</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="s">&#34;2&#34;</span><span class="p">,</span> <span class="s">&#34;3&#34;</span><span class="p">)))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str</span>(<span style="color:#a6e22e">parse_integer</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>)))
 </code></pre></div><pre><code>##  int [1:3] 1 2 3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">str</span><span class="p">(</span><span class="nf">parse_date</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;2020-01-01&#34;</span><span class="p">,</span> <span class="s">&#34;2021-03-27&#34;</span><span class="p">)))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">str</span>(<span style="color:#a6e22e">parse_date</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;2020-01-01&#34;</span>, <span style="color:#e6db74">&#34;2021-03-27&#34;</span>)))
 </code></pre></div><pre><code>##  Date[1:2], format: &quot;2020-01-01&quot; &quot;2021-03-27&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">parse_integer</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="s">&#34;234&#34;</span><span class="p">,</span><span class="s">&#34;-&#34;</span><span class="p">),</span> <span class="n">na</span> <span class="o">=</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">parse_integer</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;234&#34;</span>,<span style="color:#e6db74">&#34;-&#34;</span>), na <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-&#34;</span>)
 </code></pre></div><pre><code>## [1]   1 234  NA
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">parse_integer</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;123&#34;</span><span class="p">,</span> <span class="s">&#34;abc&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">parse_integer</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;123&#34;</span>, <span style="color:#e6db74">&#34;abc&#34;</span>))
 </code></pre></div><pre><code>## Warning: 1 parsing failure.
 ## row col   expected actual
 ##   2  -- an integer    abc
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#解析失败，失败的值以缺失值的形式存在</span>
-<span class="n">x</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#解析失败，失败的值以缺失值的形式存在</span>
+x
 </code></pre></div><pre><code>## [1] 123  NA
 ## attr(,&quot;problems&quot;)
 ## # A tibble: 1 x 4
 ##     row   col expected   actual
 ##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; 
 ## 1     2    NA an integer abc
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果解析失败的值很多，那么就应该使用problems() 函数来获取完整的失败信息集合。这个函数会返回一个tibble，你可以使用dplyr 包来进行处理：</span>
-<span class="nf">problems</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#如果解析失败的值很多，那么就应该使用problems() 函数来获取完整的失败信息集合。这个函数会返回一个tibble，你可以使用dplyr 包来进行处理：</span>
+<span style="color:#a6e22e">problems</span>(x)
 </code></pre></div><pre><code>## # A tibble: 1 x 4
 ##     row   col expected   actual
 ##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; 
 ## 1     2    NA an integer abc
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">parse_number</span><span class="p">(</span><span class="s">&#34;$100&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">parse_number</span>(<span style="color:#e6db74">&#34;$100&#34;</span>)
 </code></pre></div><pre><code>## [1] 100
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">parse_number</span><span class="p">(</span><span class="s">&#34;20%&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">parse_number</span>(<span style="color:#e6db74">&#34;20%&#34;</span>)
 </code></pre></div><pre><code>## [1] 20
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">parse_number</span><span class="p">(</span><span class="s">&#34;$123,134,567&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">parse_number</span>(<span style="color:#e6db74">&#34;$123,134,567&#34;</span>)
 </code></pre></div><pre><code>## [1] 123134567
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">parse_number</span><span class="p">(</span><span class="s">&#34;123.345.456&#34;</span><span class="p">,</span> <span class="n">locale</span> <span class="o">=</span> <span class="nf">locale</span><span class="p">(</span><span class="n">grouping_mark</span> <span class="o">=</span> <span class="s">&#34;.&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">parse_number</span>(<span style="color:#e6db74">&#34;123.345.456&#34;</span>, locale <span style="color:#f92672">=</span> <span style="color:#a6e22e">locale</span>(grouping_mark <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.&#34;</span>))
 </code></pre></div><pre><code>## [1] 123345456
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">parse_number</span><span class="p">(</span><span class="s">&#34;123&#39;134&#39;345&#34;</span><span class="p">,</span> <span class="n">locale</span> <span class="o">=</span> <span class="nf">locale</span><span class="p">(</span><span class="n">grouping_mark</span> <span class="o">=</span> <span class="s">&#34;&#39;&#34;</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">parse_number</span>(<span style="color:#e6db74">&#34;123&#39;134&#39;345&#34;</span>, locale <span style="color:#f92672">=</span> <span style="color:#a6e22e">locale</span>(grouping_mark <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>))
 </code></pre></div><pre><code>## [1] 123134345
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">fruit</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">)</span>
-<span class="nf">parse_factor</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;bananana&#34;</span><span class="p">),</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">fruit</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">fruit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>)
+<span style="color:#a6e22e">parse_factor</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;bananana&#34;</span>), levels <span style="color:#f92672">=</span> fruit)
 </code></pre></div><pre><code>## Warning: 1 parsing failure.
 ## row col           expected   actual
 ##   3  -- value in level set bananana
@@ -419,7 +419,7 @@ encoding</li>
 </ul>
 <h2 id="解析文件">解析文件</h2>
 <p>readr 使用一种启发式过程来确定每列的类型：先读取文件的前1000 行，然后使用（相对保守的）某种启发式算法确定每列的类型。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">challenge</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="nf">readr_example</span><span class="p">(</span><span class="s">&#34;challenge.csv&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">challenge <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#a6e22e">readr_example</span>(<span style="color:#e6db74">&#34;challenge.csv&#34;</span>))
 </code></pre></div><pre><code>## 
 ## -- Column specification -----------------
 ## cols(
@@ -435,7 +435,7 @@ encoding</li>
 ## 1005   y 1/0/T/F/TRUE/FALSE 2020-01-13 'C:/Users/optiPlex 7080/Documents/R/win-library/4.0/readr/extdata/challenge.csv'
 ## .... ... .................. .......... ................................................................................
 ## See problems(...) for more details.
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">problems</span><span class="p">(</span><span class="n">challenge</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">problems</span>(challenge)
 </code></pre></div><pre><code>## # A tibble: 1,000 x 5
 ##      row col   expected   actual file    
 ##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;   

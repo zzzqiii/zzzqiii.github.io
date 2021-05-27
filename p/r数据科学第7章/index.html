@@ -229,7 +229,7 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 <code>library(tidyverse)</code></p>
 <h2 id="创建tibble">创建tibble</h2>
 <p><code>as_tibble()</code>函数可以将数据框转换为tibble。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">as_tibble</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">as_tibble</span>(iris)
 </code></pre></div><pre><code>## # A tibble: 150 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
@@ -246,11 +246,11 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 ## # ... with 140 more rows, and 1 more variable:
 ## #   Species &lt;fct&gt;
 </code></pre><p><code>tibble()</code>函数使用一个向量来创建新tibble。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">tibble</span><span class="p">(</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="n">x^2</span> <span class="o">+</span> <span class="n">y</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">tibble</span>(
+  x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>,
+  y <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
+  z <span style="color:#f92672">=</span> x^2 <span style="color:#f92672">+</span> y
+)
 </code></pre></div><pre><code>## # A tibble: 5 x 3
 ##       x     y     z
 ##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -260,36 +260,36 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 ## 4     4     1    17
 ## 5     5     1    26
 </code></pre><p>可以在tibble 中使用在R中无效的变量名称（即不符合语法的名称）作为列名称，要引用这样的变量，需要使用反引号将它们括起来，如：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="p">(</span><span class="n">tb</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span>
-  <span class="n">`:)`</span> <span class="o">=</span> <span class="s">&#34;smile&#34;</span><span class="p">,</span>
-  <span class="n">` `</span> <span class="o">=</span> <span class="s">&#34;space&#34;</span><span class="p">,</span>
-  <span class="n">`1000`</span> <span class="o">=</span> <span class="s">&#34;number&#34;</span>
-<span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">(tb <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tibble</span>(
+  `:)` <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;smile&#34;</span>,
+  ` ` <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;space&#34;</span>,
+  `1000` <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;number&#34;</span>
+))
 </code></pre></div><pre><code>## # A tibble: 1 x 3
 ##   `:)`  ` `   `1000`
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; 
 ## 1 smile space number
 </code></pre><p>创建tibble 的另一种方法是使用tribble()函数，tribble 是transposed tibble（转置tibble）。这样可以用易读的方式对少量数据进行布局。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">tribble</span><span class="p">(</span>
-  <span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="o">~</span><span class="n">y</span><span class="p">,</span> <span class="o">~</span><span class="n">z</span><span class="p">,</span>
-  <span class="c1">#--/--/--</span>
-  <span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3.6</span><span class="p">,</span>
-  <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">8.5</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">tribble</span>(
+  <span style="color:#f92672">~</span>x, <span style="color:#f92672">~</span>y, <span style="color:#f92672">~</span>z,
+  <span style="color:#75715e">#--/--/--</span>
+  <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3.6</span>,
+  <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">8.5</span>
+)
 </code></pre></div><pre><code>## # A tibble: 2 x 3
 ##   x         y     z
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 a         2   3.6
 ## 2 b         1   8.5
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#以#开头的行的注释明确指出标题行的位置。</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#以#开头的行的注释明确指出标题行的位置。</span>
 </code></pre></div><h2 id="对比tibble与dataframe">对比tibble与data.frame</h2>
 <p>使用方法主要有两处不同：打印和子集。</p>
 <h3 id="打印">打印</h3>
 <p>tibble打印只显示前10行结果，而且列也是适合屏幕的，并且还会打印列的类型。</p>
 <p>有时需要比默认显示更多的输出，这是就要设置几个选项。
 <code>print()</code>函数打印数据框</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">nycflights13</span><span class="o">::</span><span class="n">flights</span> <span class="o">%&gt;%</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="kc">Inf</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">nycflights13<span style="color:#f92672">::</span>flights <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">print</span>(n <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, width <span style="color:#f92672">=</span> <span style="color:#66d9ef">Inf</span>)
 </code></pre></div><pre><code>## # A tibble: 336,776 x 19
 ##    year month   day dep_time sched_dep_time dep_delay
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
@@ -320,12 +320,12 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 ## 4 2013-01-01 05:00:00
 ## 5 2013-01-01 06:00:00
 ## # ... with 336,771 more rows
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#n控制打印行数，width = Inf显示出所有列。</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#n控制打印行数，width = Inf显示出所有列。</span>
 </code></pre></div><h3 id="取子集">取子集</h3>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="p">(</span><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">5</span><span class="p">),</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
-<span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">(df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tibble</span>(
+  x <span style="color:#f92672">=</span> <span style="color:#a6e22e">runif</span>(<span style="color:#ae81ff">5</span>),
+  y <span style="color:#f92672">=</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">5</span>)
+))
 </code></pre></div><pre><code>## # A tibble: 5 x 2
 ##        x        y
 ##    &lt;dbl&gt;    &lt;dbl&gt;
@@ -334,30 +334,30 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 ## 3 0.697  -0.0912 
 ## 4 0.951   1.89   
 ## 5 0.436   0.00938
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#rnomr()函数的功能用于生成一组符合正态分布的随机数</span>
-<span class="n">df</span><span class="o">$</span><span class="n">x</span> <span class="c1">#按名称提取</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#rnomr()函数的功能用于生成一组符合正态分布的随机数</span>
+df<span style="color:#f92672">$</span>x <span style="color:#75715e">#按名称提取</span>
 </code></pre></div><pre><code>## [1] 0.10863839 0.03382588 0.69746073 0.95114137
 ## [5] 0.43553731
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df[[1]]</span> <span class="c1">#按位置提取</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df[[1]] <span style="color:#75715e">#按位置提取</span>
 </code></pre></div><pre><code>## [1] 0.10863839 0.03382588 0.69746073 0.95114137
 ## [5] 0.43553731
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df[[</span><span class="s">&#34;x&#34;</span><span class="n">]]</span> <span class="c1">#按名称提取</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df[[<span style="color:#e6db74">&#34;x&#34;</span>]] <span style="color:#75715e">#按名称提取</span>
 </code></pre></div><pre><code>## [1] 0.10863839 0.03382588 0.69746073 0.95114137
 ## [5] 0.43553731
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#在管道中使用提取操作，需要使用特殊的占位符</span>
-<span class="n">df</span> <span class="o">%&gt;%</span> <span class="n">.$x</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#在管道中使用提取操作，需要使用特殊的占位符</span>
+df <span style="color:#f92672">%&gt;%</span> .$x
 </code></pre></div><pre><code>## [1] 0.10863839 0.03382588 0.69746073 0.95114137
 ## [5] 0.43553731
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">%&gt;%</span> <span class="n">.[[</span><span class="s">&#34;x&#34;</span><span class="n">]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">%&gt;%</span> .[[<span style="color:#e6db74">&#34;x&#34;</span>]]
 </code></pre></div><pre><code>## [1] 0.10863839 0.03382588 0.69746073 0.95114137
 ## [5] 0.43553731
 </code></pre><h2 id="与旧代码进行交互">与旧代码进行交互</h2>
 <p>有些比较旧的函数不支持tibble。如果遇到这种函数，可以使用as.data.frame()函数将tibble转换回data.frame：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">tb</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(<span style="color:#a6e22e">as.data.frame</span>(tb))
 </code></pre></div><pre><code>## [1] &quot;data.frame&quot;
 </code></pre><h2 id="练习">练习</h2>
 <p>(1) 如何识别一个对象是否为tibble？（提示：尝试打印出标准数据框mtcars。）</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">mtcars</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">mtcars
 </code></pre></div><pre><code>##                      mpg cyl  disp  hp drat    wt
 ## Mazda RX4           21.0   6 160.0 110 3.90 2.620
 ## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875
@@ -424,7 +424,7 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 ## Ferrari Dino        15.50  0  1    5    6
 ## Maserati Bora       14.60  0  1    5    8
 ## Volvo 142E          18.60  1  1    4    2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">as_tibble</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">as_tibble</span>(mtcars)
 </code></pre></div><pre><code>## # A tibble: 32 x 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -440,65 +440,65 @@ as_tibble(iris) ## # A tibble: 150 x 5 ## Sepal.Length Sepal.Width Petal.Length 
 ## 10  19.2     6  168.   123  3.92  3.44  18.3     1
 ## # ... with 22 more rows, and 3 more variables:
 ## #   am &lt;dbl&gt;, gear &lt;dbl&gt;, carb &lt;dbl&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">is_tibble</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">is_tibble</span>(mtcars)
 </code></pre></div><pre><code>## [1] FALSE
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">is_tibble</span><span class="p">(</span><span class="n">ggplot2</span><span class="o">::</span><span class="n">diamonds</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">is_tibble</span>(ggplot2<span style="color:#f92672">::</span>diamonds)
 </code></pre></div><pre><code>## [1] TRUE
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(mtcars)
 </code></pre></div><pre><code>## [1] &quot;data.frame&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">ggplot2</span><span class="o">::</span><span class="n">diamonds</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(ggplot2<span style="color:#f92672">::</span>diamonds)
 </code></pre></div><pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
 </code></pre><p>(2) 对比在data.frame和等价的tibble上进行的以下操作。有何区别？为什么默认的数据框操作会让人感到沮丧？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="p">(</span><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">abc</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">xyz</span> <span class="o">=</span> <span class="s">&#34;a&#34;</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">(df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(abc <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, xyz <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;a&#34;</span>))
 </code></pre></div><pre><code>##   abc xyz
 ## 1   1   a
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df</span><span class="o">$</span><span class="n">x</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df<span style="color:#f92672">$</span>x
 </code></pre></div><pre><code>## [1] &quot;a&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df[</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df[, <span style="color:#e6db74">&#34;xyz&#34;</span>]
 </code></pre></div><pre><code>## [1] &quot;a&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="n">]</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(df[, <span style="color:#e6db74">&#34;xyz&#34;</span>])
 </code></pre></div><pre><code>## [1] &quot;character&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="p">)</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df[, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#e6db74">&#34;xyz&#34;</span>)]
 </code></pre></div><pre><code>##   abc xyz
 ## 1   1   a
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(df[, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#e6db74">&#34;xyz&#34;</span>)])
 </code></pre></div><pre><code>## [1] &quot;data.frame&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">tbl</span> <span class="o">&lt;-</span> <span class="nf">as_tibble</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">tbl</span><span class="o">$</span><span class="n">x</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">tbl <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as_tibble</span>(df)
+tbl<span style="color:#f92672">$</span>x
 </code></pre></div><pre><code>## Warning: Unknown or uninitialised column: `x`.
 </code></pre><pre><code>## NULL
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">tbl[</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">tbl[, <span style="color:#e6db74">&#34;xyz&#34;</span>]
 </code></pre></div><pre><code>## # A tibble: 1 x 1
 ##   xyz  
 ##   &lt;chr&gt;
 ## 1 a
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">tbl[</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="n">]</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(tbl[, <span style="color:#e6db74">&#34;xyz&#34;</span>])
 </code></pre></div><pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">tbl[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="p">)</span><span class="n">]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">tbl[, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#e6db74">&#34;xyz&#34;</span>)]
 </code></pre></div><pre><code>## # A tibble: 1 x 2
 ##     abc xyz  
 ##   &lt;dbl&gt; &lt;chr&gt;
 ## 1     1 a
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">tbl[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="s">&#34;xyz&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(tbl[, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#e6db74">&#34;xyz&#34;</span>)])
 </code></pre></div><pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#默认数据框中，$x会自动补齐成$xyz.</span>
-<span class="c1">#当使用[]选取列时，如果只选了一列，得到的是vector而不是data.frame</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#默认数据框中，$x会自动补齐成$xyz.</span>
+<span style="color:#75715e">#当使用[]选取列时，如果只选了一列，得到的是vector而不是data.frame</span>
 </code></pre></div><p>(3) 如果将一个变量的名称保存在一个对象中，如var &lt;- &ldquo;mpg&rdquo;，如何从tibble 中提取出这个变量？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">var</span> <span class="o">&lt;-</span> <span class="s">&#34;mpg&#34;</span>
-<span class="n">df[[var]]</span> <span class="c1">#√</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">var <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;mpg&#34;</span>
+df[[var]] <span style="color:#75715e">#√</span>
 </code></pre></div><pre><code>## NULL
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">df</span><span class="o">$</span><span class="n">var</span>  <span class="c1">#×</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df<span style="color:#f92672">$</span>var  <span style="color:#75715e">#×</span>
 </code></pre></div><pre><code>## NULL
 </code></pre><p>(4) 在以下的数据框中练习如何引用不符合语法规则的变量名。
 a. 提取名称为1 的变量。
 b. 绘制表示变量1 和变量2 关系的散点图。
 c. 创建一个名称为3 的新列，其值为列2 除以列1。
 d. 将这些列重新命名为one、two 和three。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">annoying</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span>
-<span class="n">`1`</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span>
-<span class="n">`2`</span> <span class="o">=</span> <span class="n">`1`</span> <span class="o">*</span> <span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">`1`</span><span class="p">))</span>
-<span class="p">)</span>
-<span class="n">annoying</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">annoying <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tibble</span>(
+`1` <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>,
+`2` <span style="color:#f92672">=</span> `1` <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#a6e22e">length</span>(`1`))
+)
+annoying
 </code></pre></div><pre><code>## # A tibble: 10 x 2
 ##      `1`   `2`
 ##    &lt;int&gt; &lt;dbl&gt;
@@ -512,17 +512,17 @@ d. 将这些列重新命名为one、two 和three。</p>
 ##  8     8 15.4 
 ##  9     9 18.9 
 ## 10    10 20.2
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">annoying[[</span><span class="s">&#34;1&#34;</span><span class="n">]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">annoying[[<span style="color:#e6db74">&#34;1&#34;</span>]]
 </code></pre></div><pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">annoying[[1]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">annoying[[1]]
 </code></pre></div><pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">annoying</span><span class="o">$</span><span class="n">`1`</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">annoying<span style="color:#f92672">$</span>`1`
 </code></pre></div><pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">annoying</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">`1`</span><span class="p">,</span> <span class="n">`2`</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(annoying, <span style="color:#a6e22e">aes</span>(`1`, `2`)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">annoying</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">`3`</span> <span class="o">=</span> <span class="n">`2`</span> <span class="o">/</span> <span class="n">`1`</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">annoying <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(`3` <span style="color:#f92672">=</span> `2` <span style="color:#f92672">/</span> `1`)
 </code></pre></div><pre><code>## # A tibble: 10 x 3
 ##      `1`   `2`   `3`
 ##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -536,7 +536,7 @@ d. 将这些列重新命名为one、two 和three。</p>
 ##  8     8 15.4   1.93
 ##  9     9 18.9   2.09
 ## 10    10 20.2   2.02
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">mutate</span><span class="p">(</span><span class="n">annoying</span><span class="p">,</span> <span class="n">`3`</span> <span class="o">=</span> <span class="n">`2`</span> <span class="o">/</span> <span class="n">`1`</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mutate</span>(annoying, `3` <span style="color:#f92672">=</span> `2` <span style="color:#f92672">/</span> `1`)
 </code></pre></div><pre><code>## # A tibble: 10 x 3
 ##      `1`   `2`   `3`
 ##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -550,28 +550,28 @@ d. 将这些列重新命名为one、two 和three。</p>
 ##  8     8 15.4   1.93
 ##  9     9 18.9   2.09
 ## 10    10 20.2   2.02
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">annoying[[</span><span class="s">&#34;3&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">annoying</span><span class="o">$</span><span class="n">`2`</span> <span class="o">/</span> <span class="n">annoying</span><span class="o">$</span><span class="n">`1`</span>
-<span class="n">annoying[[</span><span class="s">&#34;3&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">annoying[[</span><span class="s">&#34;2&#34;</span><span class="n">]]</span> <span class="o">/</span> <span class="n">annoying[[</span><span class="s">&#34;1&#34;</span><span class="n">]]</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">annoying[[<span style="color:#e6db74">&#34;3&#34;</span>]] <span style="color:#f92672">&lt;-</span> annoying<span style="color:#f92672">$</span>`2` <span style="color:#f92672">/</span> annoying<span style="color:#f92672">$</span>`1`
+annoying[[<span style="color:#e6db74">&#34;3&#34;</span>]] <span style="color:#f92672">&lt;-</span> annoying[[<span style="color:#e6db74">&#34;2&#34;</span>]] <span style="color:#f92672">/</span> annoying[[<span style="color:#e6db74">&#34;1&#34;</span>]]
 
-<span class="n">annoying</span> <span class="o">&lt;-</span> <span class="nf">rename</span><span class="p">(</span><span class="n">annoying</span><span class="p">,</span> <span class="n">one</span> <span class="o">=</span> <span class="n">`1`</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">`2`</span><span class="p">,</span> <span class="n">three</span> <span class="o">=</span> <span class="n">`3`</span><span class="p">)</span>
-<span class="nf">glimpse</span><span class="p">(</span><span class="n">annoying</span><span class="p">)</span>
+annoying <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rename</span>(annoying, one <span style="color:#f92672">=</span> `1`, two <span style="color:#f92672">=</span> `2`, three <span style="color:#f92672">=</span> `3`)
+<span style="color:#a6e22e">glimpse</span>(annoying)
 </code></pre></div><pre><code>## Rows: 10
 ## Columns: 3
 ## $ one   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 ## $ two   &lt;dbl&gt; 2.606479, 3.533105, 8.009857, 7.907794~
 ## $ three &lt;dbl&gt; 2.606479, 1.766552, 2.669952, 1.976949~
 </code></pre><p>(5) tibble::enframe()函数的功能是什么？什么时候可以使用这个函数？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">tibble</span><span class="o">::</span><span class="n">enframe</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">?</span>tibble<span style="color:#f92672">::</span>enframe
 
-<span class="nf">enframe</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="m">3</span><span class="p">))</span>
+<span style="color:#a6e22e">enframe</span>(<span style="color:#a6e22e">c</span>(a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))
 </code></pre></div><pre><code>## # A tibble: 3 x 2
 ##   name  value
 ##   &lt;chr&gt; &lt;dbl&gt;
 ## 1 a         1
 ## 2 b         2
 ## 3 c         3
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#把向量转换成数据框，数据框转换成向量。</span>
-<span class="nf">enframe</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#把向量转换成数据框，数据框转换成向量。</span>
+<span style="color:#a6e22e">enframe</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>))
 </code></pre></div><pre><code>## # A tibble: 3 x 2
 ##    name value
 ##   &lt;int&gt; &lt;dbl&gt;
@@ -579,8 +579,8 @@ d. 将这些列重新命名为one、two 和three。</p>
 ## 2     2     5
 ## 3     3     3
 </code></pre><p>(6) 哪个选项控制在tibble底部打印的额外列名称的数量？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">print.tbl</span>
-<span class="c1">#n_extra 参数控制打印的额外列名称的数量。</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">?</span>print.tbl
+<span style="color:#75715e">#n_extra 参数控制打印的额外列名称的数量。</span>
 </code></pre></div>
 </section>
 

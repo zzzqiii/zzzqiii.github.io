@@ -249,13 +249,13 @@ INFO: ***** Start a BUSCO v5.0.0 analysis, current time: 03/06/2021 14:29:00 ***
 <li>基因组质量评估 （busco）</li>
 </ol>
 <p><strong>安装</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda install
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda install
 </code></pre></div><p><strong>下载数据库文件</strong></p>
 <p>下载地址<a href="https://busco-data.ezlab.org/v4/data/lineages/">https://busco-data.ezlab.org/v4/data/lineages/</a>, 我注释的是昆虫基因组，选择的是insecta_odb10.2020-09-10.tar.gz，点击右键复制链接。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">wget -c https://busco-data.ezlab.org/v4/data/lineages/insecta_odb10.2020-09-10.tar.gz
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget -c https://busco-data.ezlab.org/v4/data/lineages/insecta_odb10.2020-09-10.tar.gz
 tar -xzvf insecta_odb10.2020-09-10.tar.gz
 </code></pre></div><p><strong>运行</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">busco -l /home/zuozhangqi/busco_downloads/insecta_odb10 -i Genome.final.fa -o sinc_busco -m genome
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">busco -l /home/zuozhangqi/busco_downloads/insecta_odb10 -i Genome.final.fa -o sinc_busco -m genome
 </code></pre></div><blockquote>
 <p>-l lineages下载的数据库文件路径</p>
 <p>-i 基因组文件</p>

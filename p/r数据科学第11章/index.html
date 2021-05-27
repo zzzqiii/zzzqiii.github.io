@@ -221,52 +221,52 @@ x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#3
 
     <section class="article-content">
     <h1 id="使用forcats处理因子">使用forcats处理因子</h1>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">forcats</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+<span style="color:#a6e22e">library</span>(forcats)
 </code></pre></div><h2 id="创建因子">创建因子</h2>
 <p>要想创建一个因子，必须先创建有效水平的一个列表：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Dec&#34;</span><span class="p">,</span> <span class="s">&#34;Apr&#34;</span><span class="p">,</span> <span class="s">&#34;Jan&#34;</span><span class="p">,</span> <span class="s">&#34;Mar&#34;</span><span class="p">)</span>
-<span class="n">month_levels</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
-<span class="s">&#34;Jan&#34;</span><span class="p">,</span> <span class="s">&#34;Feb&#34;</span><span class="p">,</span> <span class="s">&#34;Mar&#34;</span><span class="p">,</span> <span class="s">&#34;Apr&#34;</span><span class="p">,</span> <span class="s">&#34;May&#34;</span><span class="p">,</span> <span class="s">&#34;Jun&#34;</span><span class="p">,</span>
-<span class="s">&#34;Jul&#34;</span><span class="p">,</span> <span class="s">&#34;Aug&#34;</span><span class="p">,</span> <span class="s">&#34;Sep&#34;</span><span class="p">,</span> <span class="s">&#34;Oct&#34;</span><span class="p">,</span> <span class="s">&#34;Nov&#34;</span><span class="p">,</span> <span class="s">&#34;Dec&#34;</span>
-<span class="p">)</span>
-<span class="n">y1</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">month_levels</span><span class="p">)</span>
-<span class="n">y1</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Dec&#34;</span>, <span style="color:#e6db74">&#34;Apr&#34;</span>, <span style="color:#e6db74">&#34;Jan&#34;</span>, <span style="color:#e6db74">&#34;Mar&#34;</span>)
+month_levels <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(
+<span style="color:#e6db74">&#34;Jan&#34;</span>, <span style="color:#e6db74">&#34;Feb&#34;</span>, <span style="color:#e6db74">&#34;Mar&#34;</span>, <span style="color:#e6db74">&#34;Apr&#34;</span>, <span style="color:#e6db74">&#34;May&#34;</span>, <span style="color:#e6db74">&#34;Jun&#34;</span>,
+<span style="color:#e6db74">&#34;Jul&#34;</span>, <span style="color:#e6db74">&#34;Aug&#34;</span>, <span style="color:#e6db74">&#34;Sep&#34;</span>, <span style="color:#e6db74">&#34;Oct&#34;</span>, <span style="color:#e6db74">&#34;Nov&#34;</span>, <span style="color:#e6db74">&#34;Dec&#34;</span>
+)
+y1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(x1, levels <span style="color:#f92672">=</span> month_levels)
+y1
 </code></pre></div><pre><code>## [1] Dec Apr Jan Mar
 ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sort</span>(y1)
 </code></pre></div><pre><code>## [1] Jan Mar Apr Dec
 ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Dec&#34;</span><span class="p">,</span> <span class="s">&#34;Apr&#34;</span><span class="p">,</span> <span class="s">&#34;Jam&#34;</span><span class="p">,</span> <span class="s">&#34;Mar&#34;</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">month_levels</span><span class="p">)</span>
-<span class="n">y2</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">x2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Dec&#34;</span>, <span style="color:#e6db74">&#34;Apr&#34;</span>, <span style="color:#e6db74">&#34;Jam&#34;</span>, <span style="color:#e6db74">&#34;Mar&#34;</span>)
+y2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(x2, levels <span style="color:#f92672">=</span> month_levels)
+y2
 </code></pre></div><pre><code>## [1] Dec  Apr  &lt;NA&gt; Mar 
 ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#不在有效水平集合内的所有值都会自动转换为NA</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#不在有效水平集合内的所有值都会自动转换为NA</span>
 
-<span class="c1">#显示错误信息</span>
-<span class="n">y2</span> <span class="o">&lt;-</span> <span class="nf">parse_factor</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">month_levels</span><span class="p">)</span>
+<span style="color:#75715e">#显示错误信息</span>
+y2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">parse_factor</span>(x2, levels <span style="color:#f92672">=</span> month_levels)
 </code></pre></div><pre><code>## Warning: 1 parsing failure.
 ## row col           expected actual
 ##   3  -- value in level set    Jam
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果省略了定义水平的这个步骤，那么会将按字母顺序排序的数据作为水平</span>
-<span class="nf">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#如果省略了定义水平的这个步骤，那么会将按字母顺序排序的数据作为水平</span>
+<span style="color:#a6e22e">factor</span>(x1)
 </code></pre></div><pre><code>## [1] Dec Apr Jan Mar
 ## Levels: Apr Dec Jan Mar
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果要让因子的顺序与初始数据的顺序保持一致，在创建因子时，将水平设置为unique(x)，或者在创建因子后再对其使用fct_inorder() 函数。</span>
-<span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="nf">unique</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
-<span class="n">f1</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#如果要让因子的顺序与初始数据的顺序保持一致，在创建因子时，将水平设置为unique(x)，或者在创建因子后再对其使用fct_inorder() 函数。</span>
+f1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(x1, levels <span style="color:#f92672">=</span> <span style="color:#a6e22e">unique</span>(x1))
+f1
 </code></pre></div><pre><code>## [1] Dec Apr Jan Mar
 ## Levels: Dec Apr Jan Mar
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">f2</span> <span class="o">&lt;-</span> <span class="n">x1</span> <span class="o">%&gt;%</span> <span class="nf">factor</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">fct_inorder</span><span class="p">()</span>
-<span class="n">f2</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">f2 <span style="color:#f92672">&lt;-</span> x1 <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">factor</span>() <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">fct_inorder</span>()
+f2
 </code></pre></div><pre><code>## [1] Dec Apr Jan Mar
 ## Levels: Dec Apr Jan Mar
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果想要直接访问因子的有效水平集合，那么可以使用levels() 函数</span>
-<span class="nf">levels</span><span class="p">(</span><span class="n">f2</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#如果想要直接访问因子的有效水平集合，那么可以使用levels() 函数</span>
+<span style="color:#a6e22e">levels</span>(f2)
 </code></pre></div><pre><code>## [1] &quot;Dec&quot; &quot;Apr&quot; &quot;Jan&quot; &quot;Mar&quot;
 </code></pre><h2 id="综合社会调查">综合社会调查</h2>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gss_cat
 </code></pre></div><pre><code>## # A tibble: 21,483 x 9
 ##     year marital    age race  rincome  partyid  relig 
 ##    &lt;int&gt; &lt;fct&gt;    &lt;int&gt; &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;    &lt;fct&gt; 
@@ -282,24 +282,24 @@ x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#3
 ## 10  2000 Married     47 White $25000 ~ Strong ~ Prote~
 ## # ... with 21,473 more rows, and 2 more variables:
 ## #   denom &lt;fct&gt;, tvhours &lt;int&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#查看因子水平</span>
-<span class="n">gss_cat</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">race</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#查看因子水平</span>
+gss_cat <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(race)
 </code></pre></div><pre><code>## # A tibble: 3 x 2
 ##   race      n
 ## * &lt;fct&gt; &lt;int&gt;
 ## 1 Other  1959
 ## 2 Black  3129
 ## 3 White 16395
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">gss_cat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">race</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_bar</span><span class="p">()</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(gss_cat, <span style="color:#a6e22e">aes</span>(race)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_bar</span>()
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/c11-chunk-3-2.png" alt="plot of chunk c11-chunk-3"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">gss_cat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">race</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(gss_cat, <span style="color:#a6e22e">aes</span>(race)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_discrete</span>(drop <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/c11-chunk-3-2.png" alt="plot of chunk c11-chunk-3"  /></p>
 <h2 id="修改因子水平">修改因子水平</h2>
 <p>fct_recode() 函数可以对每个水平进行修改或重新编码</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span> <span class="o">%&gt;%</span> <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gss_cat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">count</span>(partyid)
 </code></pre></div><pre><code>## # A tibble: 10 x 2
 ##    partyid                n
 ##  * &lt;fct&gt;              &lt;int&gt;
@@ -313,15 +313,15 @@ x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#3
 ##  8 Ind,near dem        2499
 ##  9 Not str democrat    3690
 ## 10 Strong democrat     3490
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span> <span class="o">%&gt;%</span> 
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_recode</span><span class="p">(</span><span class="n">partyid</span><span class="p">,</span> 
-                              <span class="s">&#34;Republican, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong republican&#34;</span><span class="p">,</span>
-<span class="s">&#34;Republican, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">,</span>
-<span class="s">&#34;Independent, near rep&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span>
-<span class="s">&#34;Independent, near dem&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">,</span>
-<span class="s">&#34;Democrat, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span>
-<span class="s">&#34;Democrat, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gss_cat <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(partyid <span style="color:#f92672">=</span> <span style="color:#a6e22e">fct_recode</span>(partyid, 
+                              <span style="color:#e6db74">&#34;Republican, strong&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Strong republican&#34;</span>,
+<span style="color:#e6db74">&#34;Republican, weak&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Not str republican&#34;</span>,
+<span style="color:#e6db74">&#34;Independent, near rep&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Ind,near rep&#34;</span>,
+<span style="color:#e6db74">&#34;Independent, near dem&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Ind,near dem&#34;</span>,
+<span style="color:#e6db74">&#34;Democrat, weak&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Not str democrat&#34;</span>,
+<span style="color:#e6db74">&#34;Democrat, strong&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Strong democrat&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(partyid)
 </code></pre></div><pre><code>## # A tibble: 10 x 2
 ##    partyid                   n
 ##  * &lt;fct&gt;                 &lt;int&gt;
@@ -335,21 +335,21 @@ x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#3
 ##  8 Independent, near dem  2499
 ##  9 Democrat, weak         3690
 ## 10 Democrat, strong       3490
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#fct_recode() 会让没有明确提及的水平保持原样，也可以将多个原水平赋给同一个新水平，这样就可以合并原来的分类</span>
-<span class="n">gss_cat</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_recode</span><span class="p">(</span>
-    <span class="n">partyid</span><span class="p">,</span>
-    <span class="s">&#34;Republican, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong republican&#34;</span><span class="p">,</span>
-<span class="s">&#34;Republican, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">,</span>
-<span class="s">&#34;Independent, near rep&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span>
-<span class="s">&#34;Independent, near dem&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">,</span>
-<span class="s">&#34;Democrat, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span>
-<span class="s">&#34;Democrat, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">,</span>
-<span class="s">&#34;Other&#34;</span> <span class="o">=</span> <span class="s">&#34;No answer&#34;</span><span class="p">,</span>
-<span class="s">&#34;Other&#34;</span> <span class="o">=</span> <span class="s">&#34;Don&#39;t know&#34;</span><span class="p">,</span>
-<span class="s">&#34;Other&#34;</span> <span class="o">=</span> <span class="s">&#34;Other party&#34;</span>
-  <span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#fct_recode() 会让没有明确提及的水平保持原样，也可以将多个原水平赋给同一个新水平，这样就可以合并原来的分类</span>
+gss_cat <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(partyid <span style="color:#f92672">=</span> <span style="color:#a6e22e">fct_recode</span>(
+    partyid,
+    <span style="color:#e6db74">&#34;Republican, strong&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Strong republican&#34;</span>,
+<span style="color:#e6db74">&#34;Republican, weak&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Not str republican&#34;</span>,
+<span style="color:#e6db74">&#34;Independent, near rep&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Ind,near rep&#34;</span>,
+<span style="color:#e6db74">&#34;Independent, near dem&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Ind,near dem&#34;</span>,
+<span style="color:#e6db74">&#34;Democrat, weak&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Not str democrat&#34;</span>,
+<span style="color:#e6db74">&#34;Democrat, strong&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Strong democrat&#34;</span>,
+<span style="color:#e6db74">&#34;Other&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;No answer&#34;</span>,
+<span style="color:#e6db74">&#34;Other&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Don&#39;t know&#34;</span>,
+<span style="color:#e6db74">&#34;Other&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Other party&#34;</span>
+  )) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(partyid)
 </code></pre></div><pre><code>## # A tibble: 8 x 2
 ##   partyid                   n
 ## * &lt;fct&gt;                 &lt;int&gt;
@@ -361,16 +361,16 @@ x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#3
 ## 6 Independent, near dem  2499
 ## 7 Democrat, weak         3690
 ## 8 Democrat, strong       3490
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果想要合并多个水平，那么可以使用fct_recode() 函数的变体fct_collapse() 函数。</span>
-<span class="n">gss_cat</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_collapse</span><span class="p">(</span>
-    <span class="n">partyid</span><span class="p">,</span>
-    <span class="n">other</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;No answer&#34;</span><span class="p">,</span> <span class="s">&#34;Don&#39;t know&#34;</span><span class="p">,</span> <span class="s">&#34;Other party&#34;</span><span class="p">),</span>
-<span class="n">rep</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Strong republican&#34;</span><span class="p">,</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">),</span>
-<span class="n">ind</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span> <span class="s">&#34;Independent&#34;</span><span class="p">,</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">),</span>
-<span class="n">dem</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">)</span>
-  <span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#如果想要合并多个水平，那么可以使用fct_recode() 函数的变体fct_collapse() 函数。</span>
+gss_cat <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(partyid <span style="color:#f92672">=</span> <span style="color:#a6e22e">fct_collapse</span>(
+    partyid,
+    other <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;No answer&#34;</span>, <span style="color:#e6db74">&#34;Don&#39;t know&#34;</span>, <span style="color:#e6db74">&#34;Other party&#34;</span>),
+rep <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Strong republican&#34;</span>, <span style="color:#e6db74">&#34;Not str republican&#34;</span>),
+ind <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Ind,near rep&#34;</span>, <span style="color:#e6db74">&#34;Independent&#34;</span>, <span style="color:#e6db74">&#34;Ind,near dem&#34;</span>),
+dem <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Not str democrat&#34;</span>, <span style="color:#e6db74">&#34;Strong democrat&#34;</span>)
+  )) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(partyid)
 </code></pre></div><pre><code>## # A tibble: 4 x 2
 ##   partyid     n
 ## * &lt;fct&gt;   &lt;int&gt;
@@ -380,30 +380,30 @@ x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#3
 ## 4 dem      7180
 </code></pre><h3 id="练习">练习</h3>
 <p>美国民主党、共和党和中间派的人数比例是如何随时间而变化的？</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">levels</span><span class="p">(</span><span class="n">gss_cat</span><span class="o">$</span><span class="n">partyid</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">levels</span>(gss_cat<span style="color:#f92672">$</span>partyid)
 </code></pre></div><pre><code>##  [1] &quot;No answer&quot;          &quot;Don't know&quot;        
 ##  [3] &quot;Other party&quot;        &quot;Strong republican&quot; 
 ##  [5] &quot;Not str republican&quot; &quot;Ind,near rep&quot;      
 ##  [7] &quot;Independent&quot;        &quot;Ind,near dem&quot;      
 ##  [9] &quot;Not str democrat&quot;   &quot;Strong democrat&quot;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_collapse</span><span class="p">(</span>
-    <span class="n">partyid</span><span class="p">,</span>
-    <span class="n">other</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;No answer&#34;</span><span class="p">,</span> <span class="s">&#34;Don&#39;t know&#34;</span><span class="p">,</span> <span class="s">&#34;Other party&#34;</span><span class="p">),</span>
-<span class="n">rep</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Strong republican&#34;</span><span class="p">,</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">),</span>
-<span class="n">ind</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span> <span class="s">&#34;Independent&#34;</span><span class="p">,</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">),</span>
-<span class="n">dem</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">)</span>
-  <span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">count</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">partyid</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="nf">mutate</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">%&gt;%</span>
-  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">year</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="nf">fct_reorder2</span><span class="p">(</span><span class="n">partyid</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-  <span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">labs</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s">&#34;Party ID&#34;</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gss_cat <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(partyid <span style="color:#f92672">=</span> <span style="color:#a6e22e">fct_collapse</span>(
+    partyid,
+    other <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;No answer&#34;</span>, <span style="color:#e6db74">&#34;Don&#39;t know&#34;</span>, <span style="color:#e6db74">&#34;Other party&#34;</span>),
+rep <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Strong republican&#34;</span>, <span style="color:#e6db74">&#34;Not str republican&#34;</span>),
+ind <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Ind,near rep&#34;</span>, <span style="color:#e6db74">&#34;Independent&#34;</span>, <span style="color:#e6db74">&#34;Ind,near dem&#34;</span>),
+dem <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Not str democrat&#34;</span>, <span style="color:#e6db74">&#34;Strong democrat&#34;</span>)
+  )) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(year, partyid) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(year) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(p <span style="color:#f92672">=</span> n <span style="color:#f92672">/</span> <span style="color:#a6e22e">sum</span>(n)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(
+    x <span style="color:#f92672">=</span> year, y <span style="color:#f92672">=</span> p,
+    color <span style="color:#f92672">=</span> <span style="color:#a6e22e">fct_reorder2</span>(partyid, year, p)
+  )) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_line</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Party ID&#34;</span>)
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/c11-chunk-3-2.png" alt="plot of chunk c11-chunk-5"  /></p>
 
 </section>

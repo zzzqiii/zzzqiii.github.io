@@ -241,28 +241,28 @@
 3
 输出样例：
 6</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">fact</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">--</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fact</span>(<span style="color:#66d9ef">int</span> n)
+{
+    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">while</span> (n <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>)
+    {
+        res <span style="color:#f92672">=</span> res <span style="color:#f92672">*</span> n;
+        n <span style="color:#f92672">--</span>;
+    }
+    <span style="color:#66d9ef">return</span> res;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n;
+    cin <span style="color:#f92672">&gt;&gt;</span> n;
+    cout <span style="color:#f92672">&lt;&lt;</span> fact(n);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="805-x和y的最大值">805. x和y的最大值</h2>
 <p>输入两个整数 x 和 y，请你编写一个函数，int max(int x, int y)，计算并输出 x 和 y 的最大值。</p>
 <p>输入格式
@@ -275,22 +275,22 @@
 3 6
 输出样例：
 6</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">max</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y)
+{
+    <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span> y) <span style="color:#66d9ef">return</span> x;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> y;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> m, n;
+    cin <span style="color:#f92672">&gt;&gt;</span> m <span style="color:#f92672">&gt;&gt;</span> n;
+    cout <span style="color:#f92672">&lt;&lt;</span> max(m, n);
+}
 </code></pre></div><h2 id="808-最大公约数">808. 最大公约数</h2>
 <p>输入两个整数 a 和 b，请你编写一个函数，int gcd(int a, int b), 计算并输出 a 和 b 的最大公约数。</p>
 <p>输入格式
@@ -303,25 +303,25 @@
 12 16
 输出样例：
 4</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">min</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">--</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">gcd</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b)
+{
+    <span style="color:#66d9ef">int</span> min <span style="color:#f92672">=</span> a;
+    <span style="color:#66d9ef">if</span> (b <span style="color:#f92672">&lt;</span> a) min <span style="color:#f92672">=</span> b;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> min; i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">--</span> )
+        <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+            <span style="color:#66d9ef">return</span> i;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+    cout <span style="color:#f92672">&lt;&lt;</span> gcd(a, b);
+}
 </code></pre></div><h2 id="811-交换数值">811. 交换数值</h2>
 <p>输入两个整数 x 和 y，请你编写一个函数，void swap(int &amp;x, int &amp;y), 交换两个整数的数值并输出交换后的 x 和 y。</p>
 <p>输入格式
@@ -334,24 +334,24 @@
 3 5
 输出样例：
 5 3</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x, <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>y)
+{
+    <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> x;
+    x <span style="color:#f92672">=</span> y;
+    y <span style="color:#f92672">=</span> t;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> x, y;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+    swap(x, y);
+    cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> y;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="812-打印数字">812. 打印数字</h2>
 <p>输入一个长度为 n 的数组 a 和一个整数 size，请你编写一个函数, void print(int a[], int size), 打印数组 a 中的前 size 个数。</p>
 <p>输入格式
@@ -367,24 +367,24 @@
 1 2 3 4 5
 输出样例：
 1 2 3</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span>(<span style="color:#66d9ef">int</span> a[], <span style="color:#66d9ef">int</span> size)
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i <span style="color:#f92672">++</span>) cout <span style="color:#f92672">&lt;&lt;</span> a[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">size</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n, size;
+    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> size;
+    <span style="color:#66d9ef">int</span> a[n];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+    print(a, size);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="813-打印矩阵">813. 打印矩阵</h2>
 <p>给定一个 row×col 的二维数组 a，请你编写一个函数，void print2D(int a[][N], int row, int col)，打印数组构成的 row 行，col 列的矩阵。</p>
 <p>注意，每打印完一整行需要输出一个回车。</p>
@@ -405,51 +405,51 @@
 1 3 4 5
 2 6 9 4
 1 4 7 5</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">print2D</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[][</span><span class="mi">200</span><span class="p">],</span> <span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">col</span> <span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print2D</span>(<span style="color:#66d9ef">int</span> a[][<span style="color:#ae81ff">200</span>], <span style="color:#66d9ef">int</span> row, <span style="color:#66d9ef">int</span> col)
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> row; i <span style="color:#f92672">++</span>)
+    {
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> col ; j <span style="color:#f92672">++</span>)
+            cout <span style="color:#f92672">&lt;&lt;</span> a[i][j] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+        cout <span style="color:#f92672">&lt;&lt;</span> endl;
+    }
     
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">200</span><span class="p">][</span><span class="mi">200</span><span class="p">];</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
-            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
-    <span class="n">print2D</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> m, n, a[<span style="color:#ae81ff">200</span>][<span style="color:#ae81ff">200</span>];
+    cin <span style="color:#f92672">&gt;&gt;</span> m <span style="color:#f92672">&gt;&gt;</span> n;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m; i <span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; j <span style="color:#f92672">++</span>)
+            cin <span style="color:#f92672">&gt;&gt;</span> a[i][j];
+    print2D(a, m, n);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     
-<span class="p">}</span>
+}
 </code></pre></div><h2 id="819-递归求阶乘">819. 递归求阶乘</h2>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">fact</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="k">else</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fact</span>(<span style="color:#66d9ef">int</span> n)
+{
+    <span style="color:#66d9ef">int</span> res;
+    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
+        res <span style="color:#f92672">=</span> n <span style="color:#f92672">*</span> fact(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">else</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> res;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n;
+    cin <span style="color:#f92672">&gt;&gt;</span> n;
+    cout <span style="color:#f92672">&lt;&lt;</span> fact(n);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="820-递归求斐波那契数列">820. 递归求斐波那契数列</h2>
 <p>请使用递归的方式求斐波那契数列的第 n 项。</p>
 <p>斐波那契数列：1,1,2,3,5…，这个数列从第 3 项开始，每一项都等于前两项之和</p>
@@ -463,23 +463,23 @@
 4
 输出样例：
 3</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">feb</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">feb</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">feb</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="k">else</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">feb</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">feb</span>(<span style="color:#66d9ef">int</span> n)
+{
+    <span style="color:#66d9ef">int</span> res;
+    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>) res <span style="color:#f92672">=</span> feb(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> feb(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>);
+    <span style="color:#66d9ef">else</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> res;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> m;
+    cin <span style="color:#f92672">&gt;&gt;</span> m;
+    cout <span style="color:#f92672">&lt;&lt;</span> feb(m);
+}
 </code></pre></div><h2 id="810-绝对值">810. 绝对值</h2>
 <p>输入一个整数 x，请你编写一个函数，int abs(int x)，输出 x 的绝对值。</p>
 <p>输入格式
@@ -492,22 +492,22 @@
 -3
 输出样例：
 3</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">x</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">abs</span>(<span style="color:#66d9ef">int</span> x)
+{
+    <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>x;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> x;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> x;
+    cin <span style="color:#f92672">&gt;&gt;</span> x;
+    cout <span style="color:#f92672">&lt;&lt;</span> abs(x);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="806-两个数的和">806. 两个数的和</h2>
 <p>输入两个浮点数 x 和 y，请你编写一个函数，double add(double x, double y)，计算并输出 x 与 y 的和。</p>
 <p>输入格式
@@ -520,23 +520,23 @@
 1.11 2.22
 输出样例：
 3.33</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">double</span> <span class="nf">add</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">double</span> x, <span style="color:#66d9ef">double</span> y)
+{
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.2lf&#34;</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">));</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> x, y;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+    printf(<span style="color:#e6db74">&#34;%.2lf&#34;</span>, add(x, y));
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="807-区间求和">807. 区间求和</h2>
 <p>输入两个整数 l 和 r，请你编写一个函数，int sum(int l, int r)，计算并输出区间 [l,r] 内所有整数的和。</p>
 <p>输入格式
@@ -549,25 +549,25 @@
 3 5
 输出样例：
 12</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sum</span>(<span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r)
+{
+    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> l; i <span style="color:#f92672">&lt;=</span> r; i <span style="color:#f92672">++</span>)
+        res <span style="color:#f92672">+=</span> i;
+    <span style="color:#66d9ef">return</span> res;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> x, y;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+    cout <span style="color:#f92672">&lt;&lt;</span> sum(x, y);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="809-最小公倍数">809. 最小公倍数</h2>
 <p>输入两个整数 a 和 b，请你编写一个函数，int lcm(int a, int b)，计算并输出 a 和 b 的最小公倍数。</p>
 <p>输入格式
@@ -580,25 +580,25 @@
 6 8
 输出样例：
 24</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">lcm</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">max</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">lcm</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b)
+{
+    <span style="color:#66d9ef">int</span> max <span style="color:#f92672">=</span> a;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&lt;</span> b) max <span style="color:#f92672">=</span> b;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> max; i <span style="color:#f92672">&lt;=</span> a <span style="color:#f92672">*</span> b; i <span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">%</span> a <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">%</span> b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> i;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+    cout <span style="color:#f92672">&lt;&lt;</span> lcm(a, b);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="814-复制数组">814. 复制数组</h2>
 <p>给定两个数组 a 和 b 以及一个整数 size，请你编写一个函数，void copy(int a[], int b[], int size)，将 a 数组中的前 size 个数字，复制到 b 数组中。</p>
 <p>复制完成后，输出 b 数组。</p>
@@ -617,27 +617,27 @@
 4 5 6 7 8
 输出样例：
 1 2 6 7 8</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">b</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">copy</span>(<span style="color:#66d9ef">int</span> a[], <span style="color:#66d9ef">int</span> b[], <span style="color:#66d9ef">int</span> size)
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i <span style="color:#f92672">++</span>)
+        b[i] <span style="color:#f92672">=</span> a[i];
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">size</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">size</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n, m, size;
+    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m <span style="color:#f92672">&gt;&gt;</span> size;
+    <span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">100</span>], b[<span style="color:#ae81ff">100</span>];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m; i <span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> b[i];
+    copy(a, b, size);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m; i <span style="color:#f92672">++</span>) cout <span style="color:#f92672">&lt;&lt;</span> b[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="815-打印字符串">815. 打印字符串?</h2>
 <p>给定一个字符串，请你编写一个函数，void print(char str[])，将这个字符串打印出来。</p>
 <p>输入格式
@@ -650,23 +650,23 @@
 I love AcWing.
 输出样例：
 I love AcWing.</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">char</span> <span class="n">str</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span>(<span style="color:#66d9ef">char</span> str[])
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> strlen(str); i <span style="color:#f92672">++</span>)   cout <span style="color:#f92672">&lt;&lt;</span> str[i];
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
-    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span> 
-    <span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">char</span> str[<span style="color:#ae81ff">200</span>];
+    cin.getline(str, <span style="color:#ae81ff">200</span>); 
+    print(str);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="816-数组翻转">816. 数组翻转</h2>
 <p>给定一个长度为 n 的数组 a 和一个整数 size，请你编写一个函数，void reverse(int a[], int size)，实现将数组 a 中的前 size 个数翻转。</p>
 <p>输出翻转后的数组 a。</p>
@@ -682,28 +682,28 @@ I love AcWing.</p>
 1 2 3 4 5
 输出样例：
 3 2 1 4 5</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">reverse</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">];</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reverse</span>(<span style="color:#66d9ef">int</span> a[], <span style="color:#66d9ef">int</span> size)
+{
+    <span style="color:#66d9ef">int</span> b[<span style="color:#ae81ff">1000</span>];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i <span style="color:#f92672">++</span>) b[i] <span style="color:#f92672">=</span> a[i];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i <span style="color:#f92672">++</span>) a[i] <span style="color:#f92672">=</span> b[size <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> i];
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">size</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-    <span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n, size;
+    <span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">1000</span>];
+    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> size;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+    <span style="color:#66d9ef">int</span> b[<span style="color:#ae81ff">1000</span>];
+    reverse(a, size);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>) cout <span style="color:#f92672">&lt;&lt;</span> a[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="817-数组去重">817. 数组去重</h2>
 <p>给定一个长度为 n 的数组 a，请你编写一个函数：</p>
 <p>int get_unique_count(int a[], int n);  // 返回数组前n个数中的不同数的个数
@@ -719,38 +719,38 @@ I love AcWing.</p>
 1 1 2 4 5
 输出样例：
 4</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">get_unique_count</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">bool</span> <span class="n">unique</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="p">{</span>
-                <span class="n">unique</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">unique</span><span class="p">)</span> <span class="n">k</span> <span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get_unique_count</span>(<span style="color:#66d9ef">int</span> a[], <span style="color:#66d9ef">int</span> n)
+{
+    <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>)
+    {
+        <span style="color:#66d9ef">bool</span> unique <span style="color:#f92672">=</span> true;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> i; j <span style="color:#f92672">++</span>)
+        {
+            <span style="color:#66d9ef">if</span> (a[j] <span style="color:#f92672">==</span> a[i])
+            {
+                unique <span style="color:#f92672">=</span> false;
+                <span style="color:#66d9ef">break</span>;
+            }
+        }
+        <span style="color:#66d9ef">if</span> (unique) k <span style="color:#f92672">++</span>;
+    }
+    <span style="color:#66d9ef">return</span> k;
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">get_unique_count</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n;
+    cin <span style="color:#f92672">&gt;&gt;</span> n;
+    <span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">1000</span>];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>)    cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+    cout <span style="color:#f92672">&lt;&lt;</span> get_unique_count(a, n);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="818-数组排序">818. 数组排序</h2>
 <p>给定一个长度为 n 的数组 a 以及两个整数 l 和 r，请你编写一个函数，void sort(int a[], int l, int r)，将 a[l]∼a[r] 从小到大排序。</p>
 <p>输出排好序的数组 a。</p>
@@ -766,35 +766,35 @@ I love AcWing.</p>
 4 5 1 3 2
 输出样例：
 4 5 1 2 3</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">void</span> <span class="nf">sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-            <span class="p">{</span>
-                <span class="n">min</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-                <span class="n">p</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span>(<span style="color:#66d9ef">int</span> a[], <span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r)
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> l; i <span style="color:#f92672">&lt;</span> r; i <span style="color:#f92672">++</span>)
+    {
+        <span style="color:#66d9ef">int</span> min <span style="color:#f92672">=</span> a[i], p <span style="color:#f92672">=</span> i;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> r; j <span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">if</span> (min <span style="color:#f92672">&gt;</span> a[j])
+            {
+                min <span style="color:#f92672">=</span> a[j];
+                p <span style="color:#f92672">=</span> j;
+            }
+        a[p] <span style="color:#f92672">=</span> a[i];
+        a[i] <span style="color:#f92672">=</span> min;
+    }
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n, l, r, a[<span style="color:#ae81ff">1000</span>];
+    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> l <span style="color:#f92672">&gt;&gt;</span> r;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+    sort(a, l, r);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>) cout <span style="color:#f92672">&lt;&lt;</span> a[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>选择排序</p>
 <h2 id="821-跳台阶">821. 跳台阶</h2>
 <p>一个楼梯共有 n 级台阶，每次可以走一级或者两级，问从第 0 级台阶走到第 n 级台阶一共有多少种方案。</p>
@@ -808,25 +808,25 @@ I love AcWing.</p>
 5
 输出样例：
 8</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">fangan</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>   <span class="n">res</span> <span class="o">=</span> <span class="n">fangan</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fangan</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>   <span class="n">res</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="k">else</span>   <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fangan</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fangan</span>(<span style="color:#66d9ef">int</span> n)
+{
+    <span style="color:#66d9ef">int</span> res;
+    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>)   res <span style="color:#f92672">=</span> fangan(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> fangan(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>)   res <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    <span style="color:#66d9ef">else</span>   res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> res;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n;
+    cin <span style="color:#f92672">&gt;&gt;</span> n;
+    cout <span style="color:#f92672">&lt;&lt;</span> fangan(n);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210514225606105.png" alt="image-20210514225606105"  /></p>
 <p>深度优先递归搜索树</p>
 <h2 id="822-走方格">822. 走方格</h2>
@@ -841,25 +841,25 @@ I love AcWing.</p>
 2 3
 输出样例：
 10</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">zoufa</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span>    <span class="n">res</span> <span class="o">=</span> <span class="n">zoufa</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">zoufa</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">else</span>    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">zoufa</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">zoufa</span>(<span style="color:#66d9ef">int</span> n, <span style="color:#66d9ef">int</span> m)
+{
+    <span style="color:#66d9ef">int</span> res;
+    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> m <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> )    res <span style="color:#f92672">=</span> zoufa(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, m) <span style="color:#f92672">+</span> zoufa(n, m <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> m <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)   res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">else</span>    res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> res;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n, m;
+    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+    cout <span style="color:#f92672">&lt;&lt;</span> zoufa(n, m);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210514230845053.png" alt="image-20210514230845053"  /></p>
 <h2 id="823-排列">823. 排列❗</h2>
 <p>给定一个整数 n，将数字 1∼n 排成一排，将会有很多种排列方法。</p>
@@ -882,46 +882,46 @@ I love AcWing.</p>
 <p><img src="/C:%5cUsers%5c%e7%9b%b8%e5%bf%98%e4%ba%8e%e6%b1%9f%e6%b9%96%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210514233536767.png" alt="image-20210514233536767"  /></p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210514232132774.png" alt="image-20210514232132774"  /></p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210514232155057.png" alt="image-20210514232155057"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+<span style="color:#66d9ef">int</span> n;
 
-<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nums</span><span class="p">[],</span> <span class="kt">bool</span> <span class="n">st</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">u</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="p">{</span>
-                <span class="n">nums</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-                <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-                <span class="n">dfs</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
-                <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> nums[], <span style="color:#66d9ef">bool</span> st[])
+{
+    <span style="color:#66d9ef">if</span> (u <span style="color:#f92672">&gt;</span> n)
+    {
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i <span style="color:#f92672">++</span>) cout <span style="color:#f92672">&lt;&lt;</span> nums[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+        cout <span style="color:#f92672">&lt;&lt;</span> endl;
+    }
+    <span style="color:#66d9ef">else</span>
+    {
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i <span style="color:#f92672">++</span>)
+        {
+            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>st[i])
+            {
+                nums[u] <span style="color:#f92672">=</span> i;
+                st[i] <span style="color:#f92672">=</span> true;
+                dfs(u <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, nums, st);
+                st[i] <span style="color:#f92672">=</span> false;
+            }
+        }
+    }
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    cin <span style="color:#f92672">&gt;&gt;</span> n;
     
-    <span class="kt">int</span> <span class="n">nums</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-    <span class="kt">bool</span> <span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span style="color:#66d9ef">int</span> nums[N];
+    <span style="color:#66d9ef">bool</span> st[N] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
     
-    <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+    dfs(<span style="color:#ae81ff">1</span>, nums, st);
     
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210518232203754.png" alt="image-20210518232203754"  /></p>
 
 </section>

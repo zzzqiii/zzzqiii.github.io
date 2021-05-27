@@ -222,8 +222,8 @@
     <section class="article-content">
     <p>[toc]</p>
 <h2 id="第-1-章使用-ggplot2-进行数据可视化">第 1 章　使用 ggplot2 进行数据可视化</h2>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<span class="n">mpg</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+mpg
 </code></pre></div><pre><code>## # A tibble: 234 x 11
 ##    manufacturer model  displ  year   cyl trans  drv     cty   hwy
 ##    &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt;
@@ -239,8 +239,8 @@
 ## 10 audi         a4 qu~   2    2008     4 manua~ 4        20    28
 ## # ... with 224 more rows, and 2 more variables: fl &lt;chr&gt;,
 ## #   class &lt;chr&gt;
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="c1">#使用`class`和`drv`绘制散点图</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#75715e">#使用`class`和`drv`绘制散点图</span>
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-43-1.png" alt="plot of chunk unnamed-chunk-43"  /></p>
 <h2 id="gglot2">gglot2</h2>
 <p>ggplot()创建坐标系，可以在上面添加图层。
@@ -252,9 +252,9 @@ mapping参数定义了如何将数据集中的变量映射为图形属性。
 mapping参数与aes()函数成对出现，aes()函数的x参数和y参数分别指定了映射到x轴的标量和y轴的变量。
 ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># try again</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cty</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># try again</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cty, y <span style="color:#f92672">=</span> hwy))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-44-1.png" alt="plot of chunk unnamed-chunk-44"  /></p>
 <h2 id="绘图模板">绘图模板</h2>
 <blockquote>
@@ -262,43 +262,43 @@ ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 &lt;GEOM_FUNCTION&gt;(mapping = aes(<!-- raw HTML omitted -->))</p>
 </blockquote>
 <h3 id="124-练习">1.2.4 练习</h3>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># (1)</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="c1">#运行ggplot(data = mpg)得到空白图片</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># (1)</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#75715e">#运行ggplot(data = mpg)得到空白图片</span>
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-45-1.png" alt="plot of chunk unnamed-chunk-45"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">dim</span><span class="p">(</span><span class="n">mpg</span><span class="p">)</span> <span class="c1">#mpg 234行，11列</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">dim</span>(mpg) <span style="color:#75715e">#mpg 234行，11列</span>
 </code></pre></div><pre><code>## [1] 234  11
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">mpg</span> <span class="c1">#drv: the type of drive train</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">class</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">drv</span><span class="p">))</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">?</span>mpg <span style="color:#75715e">#drv: the type of drive train</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> class, y <span style="color:#f92672">=</span> drv))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-45-2.png" alt="plot of chunk unnamed-chunk-45"  /></p>
 <h2 id="图形属性映射">图形属性映射</h2>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">class</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, color <span style="color:#f92672">=</span> class))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-46-1.png" alt="plot of chunk unnamed-chunk-46"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 将class 映射为颜色。也可以将class映射为`size` `alpha` `shape`</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 将class 映射为颜色。也可以将class映射为`size` `alpha` `shape`</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">class</span><span class="p">))</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, shape <span style="color:#f92672">=</span> class))
 </code></pre></div><pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete
 ## values because more than 6 becomes difficult to
 ## discriminate; you have 7. Consider specifying shapes
 ## manually if you must have them.
 </code></pre><pre><code>## Warning: Removed 62 rows containing missing values (geom_point).
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-46-2.png" alt="plot of chunk unnamed-chunk-46"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># ggplot2只能同时使用6中形状，默认情况下，使用这种图形属性时，多出的变量值不会出现在图中。</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># ggplot2只能同时使用6中形状，默认情况下，使用这种图形属性时，多出的变量值不会出现在图中。</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">class</span><span class="p">),</span>     <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;blue&#34;</span><span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, alpha <span style="color:#f92672">=</span> class),     color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;blue&#34;</span>)
 </code></pre></div><pre><code>## Warning: Using alpha for a discrete variable is not advised.
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-46-3.png" alt="plot of chunk unnamed-chunk-46"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">geom_point</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">stroke</span> <span class="o">=</span> <span class="m">3</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">?</span>geom_point
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, stroke <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-46-4.png" alt="plot of chunk unnamed-chunk-46"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 在`aes()`函数外部进行设置图形属性。</span>
-<span class="c1"># 颜色的名称是一个字符串。</span>
-<span class="c1"># 点的大小用毫米表示。</span>
-<span class="c1"># 点的形状是一种数值。</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 在`aes()`函数外部进行设置图形属性。</span>
+<span style="color:#75715e"># 颜色的名称是一个字符串。</span>
+<span style="color:#75715e"># 点的大小用毫米表示。</span>
+<span style="color:#75715e"># 点的形状是一种数值。</span>
 </code></pre></div><blockquote>
 <p>要想将图形属性映射为变量，需要在函数<code>aes()</code>中将图形属性名称和变&gt; 量名称关联起来。ggplot2会自动为每个变量值分配唯一的图形属性水平&gt; ，这个过程称为标度变换。</p>
 </blockquote>
@@ -310,167 +310,167 @@ ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 </ul>
 <h2 id="分面">分面</h2>
 <p>通过单个变量对图进行分面的函数：<code>facet_wrap()</code>, <code>facet_grid()</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">class</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> class, nrow <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-1.png" alt="plot of chunk unnamed-chunk-47"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">drv</span> <span class="o">~</span> <span class="n">cyl</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_grid</span>(drv <span style="color:#f92672">~</span> cyl)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-2.png" alt="plot of chunk unnamed-chunk-47"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">. </span><span class="o">~</span><span class="n">cyl</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_grid</span>(. <span style="color:#f92672">~</span>cyl)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-3.png" alt="plot of chunk unnamed-chunk-47"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">drv</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cyl</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> drv, y <span style="color:#f92672">=</span> cyl))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-4.png" alt="plot of chunk unnamed-chunk-47"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">drv</span> <span class="o">~</span> <span class="n">.)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_grid</span>(drv <span style="color:#f92672">~</span> .)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-5.png" alt="plot of chunk unnamed-chunk-47"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">. </span><span class="o">~</span> <span class="n">cyl</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_grid</span>(. <span style="color:#f92672">~</span> cyl)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-6.png" alt="plot of chunk unnamed-chunk-47"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">class</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> class, nrow <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-47-7.png" alt="plot of chunk unnamed-chunk-47"  /></p>
 <h2 id="16-几何对象">1.6 几何对象</h2>
 <p>几何对象是图中用来表示数据的几何图形对象。我们经常根据图中使用的几何对象类型来描述相应的图。例如，条形图使用了条形几何对象，折线图使用了直线几何对象，箱线图使用了矩形和直线几何对象。散点图打破了这种趋势，它们使用点几何对象。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-48-1.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-2.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># ggplot2 中的每个几何对象函数都有一个 mapping 参数。但是，不是每种图形属性都适合每种几何对象。你可以设置点的形状，但不能设置线的“形状”，而可以设置线的线型。</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">linetype</span> <span class="o">=</span> <span class="n">drv</span><span class="p">,</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">linetype</span> <span class="o">=</span> <span class="n">drv</span><span class="p">,</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># ggplot2 中的每个几何对象函数都有一个 mapping 参数。但是，不是每种图形属性都适合每种几何对象。你可以设置点的形状，但不能设置线的“形状”，而可以设置线的线型。</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, linetype <span style="color:#f92672">=</span> drv,     color <span style="color:#f92672">=</span> drv)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, linetype <span style="color:#f92672">=</span> drv,     color <span style="color:#f92672">=</span> drv))
 </code></pre></div><pre><code>## Warning: Ignoring unknown aesthetics: linetype
 </code></pre><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-3.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-4.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">drv</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, group <span style="color:#f92672">=</span> drv))
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-5.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">),</span>
-    <span class="n">show.legend</span> <span class="o">=</span> <span class="kc">FALSE</span>
-  <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, color <span style="color:#f92672">=</span> drv),
+    show.legend <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>
+  )
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-6.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>()
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-7.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">class</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> class)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>()
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-8.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">class</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="nf">filter</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">class</span> <span class="o">==</span> <span class="s">&#34;subcompact&#34;</span><span class="p">),</span>
-    <span class="n">se</span> <span class="o">=</span> <span class="kc">FALSE</span>
-  <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> class)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(
+    data <span style="color:#f92672">=</span> <span style="color:#a6e22e">filter</span>(mpg, class <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;subcompact&#34;</span>),
+    se <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>
+  )
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-9.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># se = true, Display confidence interval around smooth</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># se = true, Display confidence interval around smooth</span>
 
-<span class="nf">ggplot</span><span class="p">(</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span>
-  <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">)</span>
-<span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">se</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(
+  data <span style="color:#f92672">=</span> mpg,
+  mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, color <span style="color:#f92672">=</span> drv)
+) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(se <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-10.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">se</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(se <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-11.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="n">drv</span><span class="p">),</span> <span class="n">se</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(group <span style="color:#f92672">=</span> drv), se <span style="color:#f92672">=</span> F)
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-12.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">)</span>
-<span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">se</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(
+  data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, color <span style="color:#f92672">=</span> drv)
+)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(se <span style="color:#f92672">=</span> F)
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-13.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">se</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> drv))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(se <span style="color:#f92672">=</span> F)
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-14.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">linetype</span> <span class="o">=</span> <span class="n">drv</span><span class="p">),</span> <span class="n">se</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> drv))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_smooth</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(linetype <span style="color:#f92672">=</span> drv), se <span style="color:#f92672">=</span> F)
 </code></pre></div><pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-48-15.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">drv</span><span class="p">)</span>
-<span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(
+  data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy, color <span style="color:#f92672">=</span> drv)
+)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-48-16.png" alt="plot of chunk unnamed-chunk-48"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 用来绘制折线图的是`geom_line`</span>
-<span class="c1"># 用来绘制箱线图的是`geom_boxplot`</span>
-<span class="c1"># 用来绘制直方图的是`geom_histogram`</span>
-<span class="c1"># 用来绘制分区图的是`facet_grid`</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 用来绘制折线图的是`geom_line`</span>
+<span style="color:#75715e"># 用来绘制箱线图的是`geom_boxplot`</span>
+<span style="color:#75715e"># 用来绘制直方图的是`geom_histogram`</span>
+<span style="color:#75715e"># 用来绘制分区图的是`facet_grid`</span>
 </code></pre></div><h2 id="17-统计变换">1.7 统计变换</h2>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-49-1.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">stat_count</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">stat_count</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut))
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-49-2.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..prop..</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> ..prop.., group <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-49-3.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..prop..</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> ..prop.., group <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-49-4.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..prop..</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s">&#34;124&#34;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> ..prop.., group <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;124&#34;</span>)
+)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-49-5.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">..prop..</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> ..prop..)
+)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-49-6.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">stat_summary</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">depth</span><span class="p">),</span>
-    <span class="n">fun.ymin</span> <span class="o">=</span> <span class="n">min</span><span class="p">,</span>
-    <span class="n">fun.ymax</span> <span class="o">=</span> <span class="n">max</span><span class="p">,</span>
-    <span class="n">fun.y</span> <span class="o">=</span> <span class="n">median</span>
-  <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">stat_summary</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> depth),
+    fun.ymin <span style="color:#f92672">=</span> min,
+    fun.ymax <span style="color:#f92672">=</span> max,
+    fun.y <span style="color:#f92672">=</span> median
+  )
 </code></pre></div><pre><code>## Warning: `fun.y` is deprecated. Use `fun` instead.
 </code></pre><pre><code>## Warning: `fun.ymin` is deprecated. Use `fun.min` instead.
 </code></pre><pre><code>## Warning: `fun.ymax` is deprecated. Use `fun.max` instead.
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-49-7.png" alt="plot of chunk unnamed-chunk-49"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">summary</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">summary</span>(mtcars)
 </code></pre></div><pre><code>##       mpg             cyl             disp             hp       
 ##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
 ##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
@@ -499,7 +499,7 @@ ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 ##  Mean   :2.812  
 ##  3rd Qu.:4.000  
 ##  Max.   :8.000
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">mean_cl_boot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mean_cl_boot</span>(mtcars)
 </code></pre></div><pre><code>##          y     ymin     ymax
 ## 1 39.60853 31.20015 49.27626
 </code></pre><blockquote>
@@ -512,41 +512,41 @@ ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 <ul>
 <li>默认几何对象是geom_pointrange()</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_pointrange</span><span class="p">(</span>
-    <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">depth</span><span class="p">),</span>
-    <span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;summary&#34;</span><span class="p">,</span>
-    <span class="n">fun.ymin</span> <span class="o">=</span> <span class="n">min</span><span class="p">,</span>
-    <span class="n">fun.ymax</span> <span class="o">=</span> <span class="n">max</span><span class="p">,</span>
-    <span class="n">fun.y</span> <span class="o">=</span> <span class="n">median</span>
-  <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_pointrange</span>(
+    <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> depth),
+    stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;summary&#34;</span>,
+    fun.ymin <span style="color:#f92672">=</span> min,
+    fun.ymax <span style="color:#f92672">=</span> max,
+    fun.y <span style="color:#f92672">=</span> median
+  )
 </code></pre></div><pre><code>## Warning: Ignoring unknown parameters: fun.ymin, fun.ymax, fun.y
 </code></pre><pre><code>## No summary function supplied, defaulting to `mean_se()`
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-50-1.png" alt="plot of chunk unnamed-chunk-50"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># fun.ymin替换成fun.min后出现了正确的图，不太懂。</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># fun.ymin替换成fun.min后出现了正确的图，不太懂。</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span><span class="o">+</span>
-  <span class="nf">geom_pointrange</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">depth</span><span class="p">),</span>
-    <span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;summary&#34;</span><span class="p">,</span>
-    <span class="n">fun.min</span> <span class="o">=</span> <span class="n">min</span><span class="p">,</span>
-    <span class="n">fun.max</span> <span class="o">=</span> <span class="n">max</span><span class="p">,</span>
-    <span class="n">fun</span> <span class="o">=</span> <span class="n">median</span>
-  <span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds)<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_pointrange</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> depth),
+    stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;summary&#34;</span>,
+    fun.min <span style="color:#f92672">=</span> min,
+    fun.max <span style="color:#f92672">=</span> max,
+    fun <span style="color:#f92672">=</span> median
+  )
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-50-2.png" alt="plot of chunk unnamed-chunk-50"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">stat_summary</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">depth</span><span class="p">),</span>
-    <span class="n">funmin</span> <span class="o">=</span> <span class="n">min</span><span class="p">,</span>
-    <span class="n">fun.ymax</span> <span class="o">=</span> <span class="n">max</span><span class="p">,</span>
-    <span class="n">fun.y</span> <span class="o">=</span> <span class="n">median</span>
-  <span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">stat_summary</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> depth),
+    funmin <span style="color:#f92672">=</span> min,
+    fun.ymax <span style="color:#f92672">=</span> max,
+    fun.y <span style="color:#f92672">=</span> median
+  )
 </code></pre></div><pre><code>## Warning: `fun.y` is deprecated. Use `fun` instead.
 </code></pre><pre><code>## Warning: `fun.ymax` is deprecated. Use `fun.max` instead.
 </code></pre><pre><code>## Warning: Ignoring unknown parameters: funmin
 </code></pre><pre><code>## Warning: Removed 5 rows containing missing values (geom_segment).
 </code></pre><p><img src="/R_data_science_c1/unnamed-chunk-50-3.png" alt="plot of chunk unnamed-chunk-50"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 报错不太懂，`fun.y` is deprecated. Use `fun` instead.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 报错不太懂，`fun.y` is deprecated. Use `fun` instead.</span>
 </code></pre></div><ol start="2">
 <li>geom_col()函数的功能是什么，和geom_bar()函数有何不同？</li>
 </ol>
@@ -574,60 +574,60 @@ ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 </ul>
 <h2 id="18-位置调整">1.8 位置调整</h2>
 <p>使用<code>color</code> 或<code>fill</code> 图形属性来为条形图上色。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>  <span class="c1">#边框</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, color <span style="color:#f92672">=</span> cut))  <span style="color:#75715e">#边框</span>
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-51-1.png" alt="plot of chunk unnamed-chunk-51"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span>  <span class="c1">#填充</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, fill <span style="color:#f92672">=</span> cut))  <span style="color:#75715e">#填充</span>
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-51-2.png" alt="plot of chunk unnamed-chunk-51"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span> <span class="c1">#条形堆叠</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, fill <span style="color:#f92672">=</span> clarity)) <span style="color:#75715e">#条形堆叠</span>
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-51-3.png" alt="plot of chunk unnamed-chunk-51"  /></p>
 <p>这种堆叠是由 position 参数设定的位置调整功能自动完成的。如果不想生成堆叠式条形图，你还可以使用以下 3 种选项之一：&ldquo;identity&rdquo;、&ldquo;fill&rdquo; 和 &ldquo;dodge&rdquo;。</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> clarity))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">5</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-1.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">5</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> clarity))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">5</span>, position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;identity&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-2.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span> <span class="c1">#identity方式是不做任何改变直接显示出来，所以需要设置透明度才能看得清楚。</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> clarity))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;identity&#34;</span>) <span style="color:#75715e">#identity方式是不做任何改变直接显示出来，所以需要设置透明度才能看得清楚。</span>
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-3.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span><span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, color <span style="color:#f92672">=</span> clarity))<span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>, position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;identity&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-4.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># position = &#34;fill&#34; 的效果与堆叠相似，但每组堆叠条形具有同样的高度，因此这种条形图可以非常轻松地比较各组间的比例</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># position = &#34;fill&#34; 的效果与堆叠相似，但每组堆叠条形具有同样的高度，因此这种条形图可以非常轻松地比较各组间的比例</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;fill&#34;</span><span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> clarity)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fill&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-5.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># position = &#34;dodge&#34; 将每组中的条形依次并列放置，这样可以非常轻松地比较每个条形表示的具体数值</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># position = &#34;dodge&#34; 将每组中的条形依次并列放置，这样可以非常轻松地比较每个条形表示的具体数值</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;dodge&#34;</span><span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> clarity)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dodge&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-6.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># position = &#34;stack&#34;，默认方式，堆叠</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">clarity</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;stack&#34;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># position = &#34;stack&#34;，默认方式，堆叠</span>
+<span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> clarity)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;stack&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-7.png" alt="plot of chunk unnamed-chunk-52"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># position = &#34;jitter&#34; 为每个数据点添加一个很小的随机扰动，这样就可以将重叠的点分散开来，因为不可能有两个点会收到同样的随机扰动</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># position = &#34;jitter&#34; 为每个数据点添加一个很小的随机扰动，这样就可以将重叠的点分散开来，因为不可能有两个点会收到同样的随机扰动</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">),</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;jitter&#34;</span>
-  <span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(
+    mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> displ, y <span style="color:#f92672">=</span> hwy),position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jitter&#34;</span>
+  )
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-52-8.png" alt="plot of chunk unnamed-chunk-52"  /></p>
 <h3 id="练习">练习</h3>
 <ol>
 <li>以下图形有什么问题？应该如何改善？</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cty</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cty, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-53-1.png" alt="plot of chunk unnamed-chunk-53"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#通过将位置调整方式设为“抖动”，可以避免这种网格化排列。</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#通过将位置调整方式设为“抖动”，可以避免这种网格化排列。</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cty</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_point</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;jitter&#34;</span><span class="p">)</span>
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cty, y <span style="color:#f92672">=</span> hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_point</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jitter&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-54-1.png" alt="plot of chunk unnamed-chunk-54"  /></p>
 <ol start="2">
 <li>geom_jitter() 使用哪些参数来控制抖动的程度？</li>
@@ -639,56 +639,56 @@ ggplot2在<code>data</code> 参数中寻找映射变量。</li>
 <ol start="3">
 <li>对比 geom_jitter() 与 geom_count()</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 添加随机扰动</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cty</span><span class="p">,</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_jitter</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 添加随机扰动</span>
+<span style="color:#a6e22e">ggplot</span>(mpg, <span style="color:#a6e22e">aes</span>(cty, hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_jitter</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-55-1.png" alt="plot of chunk unnamed-chunk-55"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 重复的点越多，点越大</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cty</span><span class="p">,</span> <span class="n">hwy</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_count</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 重复的点越多，点越大</span>
+<span style="color:#a6e22e">ggplot</span>(mpg, <span style="color:#a6e22e">aes</span>(cty, hwy)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_count</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-55-2.png" alt="plot of chunk unnamed-chunk-55"  /></p>
 <ol start="4">
 <li>geom_boxplot() 函数的默认位置调整方式是什么？创建 mpg 数据集的可视化表示来演示一下。</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">drv</span><span class="p">,</span> <span class="n">hwy</span><span class="p">,</span><span class="n">fill</span> <span class="o">=</span> <span class="n">class</span><span class="p">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(mpg, <span style="color:#a6e22e">aes</span>(drv, hwy,fill <span style="color:#f92672">=</span> class))
 
-<span class="n">p</span> <span class="o">+</span>  <span class="nf">geom_boxplot</span><span class="p">()</span>
+p <span style="color:#f92672">+</span>  <span style="color:#a6e22e">geom_boxplot</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-56-1.png" alt="plot of chunk unnamed-chunk-56"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># p + geom_boxplot(notch = TRUE)</span>
-<span class="c1"># p + geom_boxplot(varwidth = TRUE)</span>
-<span class="c1"># p + geom_boxplot(outlier.color = &#34;red&#34;, outlier.shape = 1)</span>
-<span class="c1"># p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 02)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># p + geom_boxplot(notch = TRUE)</span>
+<span style="color:#75715e"># p + geom_boxplot(varwidth = TRUE)</span>
+<span style="color:#75715e"># p + geom_boxplot(outlier.color = &#34;red&#34;, outlier.shape = 1)</span>
+<span style="color:#75715e"># p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 02)</span>
 
-<span class="n">p</span> <span class="o">+</span> <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
+p <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_boxplot</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;identity&#34;</span>)
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-56-2.png" alt="plot of chunk unnamed-chunk-56"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">drv</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">class</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">geom_boxplot</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> mpg, mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> drv, y <span style="color:#f92672">=</span> hwy,color<span style="color:#f92672">=</span>class)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_boxplot</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-56-3.png" alt="plot of chunk unnamed-chunk-56"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 默认为`position_dodge()`</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 默认为`position_dodge()`</span>
 </code></pre></div><h2 id="19-坐标系">1.9 坐标系</h2>
 <p>coord_flip() 函数可以交换 x 轴和 y 轴。当想要绘制水平箱线图时，这非常有用。它也非常适合使用长标签，但要想在 x 轴上不重叠地安排好它们是非常困难的：</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">hwy</span><span class="p">))</span>
-<span class="n">p</span> <span class="o">+</span> <span class="nf">geom_boxplot</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(mpg, <span style="color:#a6e22e">aes</span>(class, hwy))
+p <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_boxplot</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-57-1.png" alt="plot of chunk unnamed-chunk-57"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">coord_flip</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_boxplot</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_flip</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-57-2.png" alt="plot of chunk unnamed-chunk-57"  /></p>
 <p>coord_quickmap() 函数可以为地图设置合适的纵横比。当使用 ggplot2 绘制空间数据时，这个函数特别重要.</p>
 <p>coord_polar() 函数使用极坐标系。极坐标系可以揭示出条形图和鸡冠花图间的一种有趣联系</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">bar</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cut</span><span class="p">),</span> <span class="n">show.legend</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
-<span class="n">bar</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bar <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_bar</span>(<span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> cut), show.legend <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
+bar
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-58-1.png" alt="plot of chunk unnamed-chunk-58"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">bar</span> <span class="o">+</span> <span class="nf">coord_flip</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bar <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_flip</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-58-2.png" alt="plot of chunk unnamed-chunk-58"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">bar</span> <span class="o">+</span> <span class="nf">coord_polar</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bar <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_polar</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-58-3.png" alt="plot of chunk unnamed-chunk-58"  /></p>
 <h3 id="练习-1">练习</h3>
 <ol>
 <li>使用 coord_polar() 函数将堆叠式条形图转换为饼图。</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_bar</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> cut)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_bar</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-59-1.png" alt="plot of chunk unnamed-chunk-59"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cut</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_bar</span><span class="p">()</span> <span class="o">+</span> <span class="nf">coord_polar</span><span class="p">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(diamonds, <span style="color:#a6e22e">aes</span>(cut, fill <span style="color:#f92672">=</span> cut)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_bar</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_polar</span>()
 </code></pre></div><p><img src="/R_data_science_c1/unnamed-chunk-59-2.png" alt="plot of chunk unnamed-chunk-59"  /></p>
 <h2 id="110-图形分层语法">1.10 图形分层语法</h2>
 <pre><code class="language-{}" data-lang="{}">ggplot(data = &lt;DATA&gt;) +

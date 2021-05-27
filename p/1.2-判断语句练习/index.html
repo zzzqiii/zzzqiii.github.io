@@ -245,19 +245,19 @@
 6 24
 输出样例：
 Sao Multiplos</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Sao Multiplos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Nao sao Multiplos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&gt;</span> b <span style="color:#f92672">&amp;</span> a <span style="color:#f92672">%</span> b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> a <span style="color:#f92672">==</span> b <span style="color:#f92672">||</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">&amp;</span> b <span style="color:#f92672">%</span> a <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Sao Multiplos&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Nao sao Multiplos&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="660-零食">660. 零食</h2>
 <p>某商店出售 5 种零食，零食编号为 1∼5。</p>
 <p>5 种零食的价目表如下所示：</p>
@@ -279,22 +279,22 @@ Sao Multiplos</p>
 3 2
 输出样例：
 Total: R$ 10.00</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">4.00</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">4.50</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">5.00</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">2.00</span><span class="p">);</span>
-    <span class="k">else</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Total: R$ %.2f&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">1.50</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> x, y;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+    <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) printf(<span style="color:#e6db74">&#34;Total: R$ %.2f&#34;</span>, y <span style="color:#f92672">*</span> <span style="color:#ae81ff">4.00</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>) printf(<span style="color:#e6db74">&#34;Total: R$ %.2f&#34;</span>, y <span style="color:#f92672">*</span> <span style="color:#ae81ff">4.50</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>) printf(<span style="color:#e6db74">&#34;Total: R$ %.2f&#34;</span>, y <span style="color:#f92672">*</span> <span style="color:#ae81ff">5.00</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>) printf(<span style="color:#e6db74">&#34;Total: R$ %.2f&#34;</span>, y <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.00</span>);
+    <span style="color:#66d9ef">else</span> printf(<span style="color:#e6db74">&#34;Total: R$ %.2f&#34;</span>, y <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.50</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="659-区间">659. 区间</h2>
 <p>给定一个浮点数，请你判断该数字属于以下哪个区间：[0,25],(25,50],(50,75],(75,100]。</p>
 <p>如果给定的数值小于 0 或大于 100，则程序输出 Fora de intervalo，表示超出范围。</p>
@@ -309,20 +309,20 @@ Total: R$ 10.00</p>
 25.01
 输出样例：
 Intervalo (25,50]</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo [0,25]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">25</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo (25,50]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">50</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">75</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo (50,75]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">70</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Intervalo (75,100]&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Fora de intervalo&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> x;
+    cin <span style="color:#f92672">&gt;&gt;</span> x;
+    <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">25</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Intervalo [0,25]&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">25</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">50</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Intervalo (25,50]&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">50</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">75</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Intervalo (50,75]&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">70</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Intervalo (75,100]&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Fora de intervalo&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+}
 </code></pre></div><h2 id="664-三角形-">664. 三角形 ?</h2>
 <p>读取三个浮点数 A，B 和 C 并验证是否可以用它们形成三角形。</p>
 <p>如果可能，则计算并输出三角形的周长：</p>
@@ -343,22 +343,22 @@ Area = 10.0
 6.0 4.0 2.1
 输出样例2：
 Perimetro = 12.1</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Perimetro = %.1lf&#34;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
-    <span class="k">else</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Area = %.1lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> a, b, c;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+    <span style="color:#66d9ef">if</span> ((a <span style="color:#f92672">+</span> b) <span style="color:#f92672">&gt;</span> c <span style="color:#f92672">&amp;&amp;</span> abs(a <span style="color:#f92672">-</span> b) <span style="color:#f92672">&lt;</span> c)
+        printf(<span style="color:#e6db74">&#34;Perimetro = %.1lf&#34;</span>, a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c);
+    <span style="color:#66d9ef">else</span>
+        printf(<span style="color:#e6db74">&#34;Area = %.1lf&#34;</span>, (a <span style="color:#f92672">+</span> b) <span style="color:#f92672">*</span> c <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>绝对值：整数abs()  浮点数fabs（） ?</p>
 <h2 id="667-游戏时间">667. 游戏时间</h2>
 <p>读取两个整数 A 和 B，表示游戏的开始时间和结束时间，以小时为单位。</p>
@@ -382,20 +382,20 @@ O JOGO DUROU 24 HORA(S)
 2 16
 输出样例3：
 O JOGO DUROU 14 HORA(S)</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">-</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&gt;</span> b) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;O JOGO DUROU &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">-</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; HORA(S)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;O JOGO DUROU &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; HORA(S)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;O JOGO DUROU &#34;</span> <span style="color:#f92672">&lt;&lt;</span> b <span style="color:#f92672">-</span> a <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; HORA(S)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="669-加薪">669. 加薪</h2>
 <p>ABC 公司决定给员工加薪，加薪情况如下所示：</p>
 <pre><code>薪水                涨薪幅度
@@ -421,26 +421,26 @@ O JOGO DUROU 14 HORA(S)</p>
 Novo salario: 460.00
 Reajuste ganho: 60.00
 Em percentual: 15 %</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">s</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">400</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 15 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.15</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.15</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">400.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">800.00</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 12 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.12</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.12</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">800.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">1200.00</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 10 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.1</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">1200.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">2000.00</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 7 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.07</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.07</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Novo salario: %.2lf</span><span class="se">\n</span><span class="s">Reajuste ganho: %.2lf</span><span class="se">\n</span><span class="s">Em percentual: 4 %%&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">1.04</span><span class="p">,</span> <span class="n">s</span><span class="o">*</span><span class="mf">0.04</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> s;
+    cin <span style="color:#f92672">&gt;&gt;</span> s;
+    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">400</span>)
+        printf(<span style="color:#e6db74">&#34;Novo salario: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Reajuste ganho: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Em percentual: 15 %%&#34;</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">1.15</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">0.15</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">400.01</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">800.00</span>)
+        printf(<span style="color:#e6db74">&#34;Novo salario: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Reajuste ganho: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Em percentual: 12 %%&#34;</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">1.12</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">0.12</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">800.01</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1200.00</span>)
+        printf(<span style="color:#e6db74">&#34;Novo salario: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Reajuste ganho: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Em percentual: 10 %%&#34;</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">1.1</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">0.1</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1200.01</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2000.00</span>)
+        printf(<span style="color:#e6db74">&#34;Novo salario: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Reajuste ganho: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Em percentual: 7 %%&#34;</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">1.07</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">0.07</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2000</span>)
+        printf(<span style="color:#e6db74">&#34;Novo salario: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Reajuste ganho: %.2lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Em percentual: 4 %%&#34;</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">1.04</span>, s<span style="color:#f92672">*</span><span style="color:#ae81ff">0.04</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>printf输出%要打两个%%，输出两个打4个</p>
 <h2 id="670-动物">670. 动物</h2>
 <p>给定你三个葡萄牙语单词，这些词将根据下表从左到右定义一个动物。</p>
@@ -456,44 +456,44 @@ mamifero
 onivoro
 输出样例：
 homem</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">string</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="s">&#34;vertebrado&#34;</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="s">&#34;ave&#34;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;carnivoro&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;aguia&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;pomba&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;onivoro&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;homem&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;vaca&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    string a, b, c;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;vertebrado&#34;</span>)
+    {
+        <span style="color:#66d9ef">if</span> (b <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;ave&#34;</span>)
+        {
+            <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;carnivoro&#34;</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;aguia&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;pomba&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
+        <span style="color:#66d9ef">else</span>
+        {
+            <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;onivoro&#34;</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;homem&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;vaca&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
         
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="s">&#34;inseto&#34;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;hematofago&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;pulga&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;lagarta&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s">&#34;hematofago&#34;</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;sanguessuga&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;minhoca&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    }
+    <span style="color:#66d9ef">else</span>
+    {
+        <span style="color:#66d9ef">if</span> (b <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;inseto&#34;</span>)
+        {
+            <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;hematofago&#34;</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;pulga&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;lagarta&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
+        <span style="color:#66d9ef">else</span>
+        {
+            <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;hematofago&#34;</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;sanguessuga&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;minhoca&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="657-选择练习1">657. 选择练习1</h2>
 <p>读取 4 个整数值 A，B，C 和 D。</p>
 <p>如果四个整数同时满足以下条件：</p>
@@ -513,19 +513,19 @@ A 是偶数。
 5 6 7 8
 输出样例：
 Valores nao aceitos</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Valores aceitos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Valores nao aceitos&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b, c, d;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c <span style="color:#f92672">&gt;&gt;</span> d;
+    <span style="color:#66d9ef">if</span> (b <span style="color:#f92672">&gt;</span> c <span style="color:#f92672">&amp;&amp;</span> d <span style="color:#f92672">&gt;</span> a <span style="color:#f92672">&amp;&amp;</span> (c <span style="color:#f92672">+</span> d) <span style="color:#f92672">&gt;</span> (a <span style="color:#f92672">+</span> b) <span style="color:#f92672">&amp;&amp;</span> c <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> d <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> a <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Valores aceitos&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Valores nao aceitos&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="671-ddd">671. DDD</h2>
 <p>给定一个整数，请根据下表确定并输出其对应的城市名称：</p>
 <p><img src="https://cdn.acwing.com/media/article/image/2019/04/13/19_262d74385d-UOJ_1050.png" alt="UOJ_1050.png"  /></p>
@@ -538,26 +538,26 @@ Valores nao aceitos</p>
 11
 输出样例：
 Sao Paulo</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">61</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Brasilia&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">71</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Salvador&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Sao Paulo&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">21</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Rio de Janeiro&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">32</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Juiz de Fora&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">19</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Campinas&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">27</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Vitoria&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">31</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Belo Horizonte&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;DDD nao cadastrado&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a;
+    cin <span style="color:#f92672">&gt;&gt;</span> a;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">61</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Brasilia&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">71</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Salvador&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">11</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Sao Paulo&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Rio de Janeiro&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">32</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Juiz de Fora&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">19</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Campinas&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">27</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Vitoria&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">31</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Belo Horizonte&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;DDD nao cadastrado&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="662-点的坐标">662. 点的坐标</h2>
 <p>给定两个保留一位小数的浮点数 X,Y，用来表示一个点的横纵坐标。</p>
 <p>请你判断该点在坐标系中的位置。</p>
@@ -578,24 +578,24 @@ Q4
 0.0 0.0
 输出样例2：
 Origem</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q1&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q2&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q3&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Q4&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Eixo X&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Eixo Y&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Origem&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">float</span> x, y;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+    <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Q1&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Q2&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Q3&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Q4&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (y <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Eixo X&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (y <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Eixo Y&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (y <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Origem&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="666-三角形类型">666. 三角形类型?</h2>
 <p>读取表示三角形三条边的 3 个浮点数 A，B 和 C 并按降序排列，使 A 边是三边中最大的一边。</p>
 <p>接下来，根据以下情况，确定它们可以组成的三角形类型：</p>
@@ -618,53 +618,53 @@ Origem</p>
 输出样例：
 TRIANGULO ACUTANGULO
 TRIANGULO ISOSCELES</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="n">z</span><span class="p">;</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">a</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">)</span> <span class="n">a</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">;</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> x, y, z, a, b, c;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y <span style="color:#f92672">&gt;&gt;</span> z;
+    a <span style="color:#f92672">=</span> x;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&lt;</span> y) a <span style="color:#f92672">=</span> y;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&lt;</span> z) a <span style="color:#f92672">=</span> z;
+    c <span style="color:#f92672">=</span> z;
+    <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">&gt;</span> x) c <span style="color:#f92672">=</span> x;
+    <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">&gt;</span> y) c <span style="color:#f92672">=</span> y;
+    b <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> z <span style="color:#f92672">-</span> a <span style="color:#f92672">-</span> c;
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">))</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;NAO FORMA TRIANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">==</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
-        <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO RETANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO EQUILATERO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ISOSCELES&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
-        <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO OBTUSANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO EQUILATERO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ISOSCELES&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
-        <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ACUTANGULO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO EQUILATERO&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;TRIANGULO ISOSCELES&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&gt;=</span> (b <span style="color:#f92672">+</span> c)) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;NAO FORMA TRIANGULO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span>
+    {
+        <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">*</span>a <span style="color:#f92672">==</span> (b<span style="color:#f92672">*</span>b <span style="color:#f92672">+</span> c<span style="color:#f92672">*</span>c))
+        {
+            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO RETANGULO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">==</span> c)
+                cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO EQUILATERO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b <span style="color:#f92672">||</span> b <span style="color:#f92672">==</span> c <span style="color:#f92672">||</span> a <span style="color:#f92672">==</span> c)
+                cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO ISOSCELES&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">*</span>a <span style="color:#f92672">&gt;</span> (b<span style="color:#f92672">*</span>b <span style="color:#f92672">+</span> c<span style="color:#f92672">*</span>c))
+        {
+            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO OBTUSANGULO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">==</span> c)
+                cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO EQUILATERO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b <span style="color:#f92672">||</span> b <span style="color:#f92672">==</span> c <span style="color:#f92672">||</span> a <span style="color:#f92672">==</span> c)
+                cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO ISOSCELES&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">*</span>a <span style="color:#f92672">&lt;</span> (b<span style="color:#f92672">*</span>b <span style="color:#f92672">+</span> c<span style="color:#f92672">*</span>c))
+        {
+            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO ACUTANGULO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">==</span> c)
+                cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO EQUILATERO&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> b <span style="color:#f92672">||</span> b <span style="color:#f92672">==</span> c <span style="color:#f92672">||</span> a <span style="color:#f92672">==</span> c)
+                cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;TRIANGULO ISOSCELES&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>如何简化</p>
 <p>报错，使用了float，导致两个看起来相等的数不相等，原因不懂，教训是以后不使用float，用double。</p>
 <h2 id="668-游戏时间2">668. 游戏时间2</h2>
@@ -691,23 +691,23 @@ O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)
 7 10 8 9
 输出样例3：
 O JOGO DUROU 0 HORA(S) E 59 MINUTO(S)</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">min1</span><span class="p">,</span> <span class="n">min2</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
-    <span class="n">min1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">min2</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">d</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">min1</span> <span class="o">&lt;</span> <span class="n">min2</span><span class="p">)</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S) E &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; MINUTO(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;O JOGO DUROU &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; HORA(S) E &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">min2</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">-</span> <span class="n">min1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; MINUTO(S)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b, c, d, min1, min2;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c <span style="color:#f92672">&gt;&gt;</span> d;
+    min1 <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">+</span> b;
+    min2 <span style="color:#f92672">=</span> c <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">+</span> d;
+    <span style="color:#66d9ef">if</span> (min1 <span style="color:#f92672">&lt;</span> min2)
+        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;O JOGO DUROU &#34;</span> <span style="color:#f92672">&lt;&lt;</span> (min2 <span style="color:#f92672">-</span> min1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; HORA(S) E &#34;</span> <span style="color:#f92672">&lt;&lt;</span> (min2 <span style="color:#f92672">-</span> min1) <span style="color:#f92672">%</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; MINUTO(S)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span>
+        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;O JOGO DUROU &#34;</span> <span style="color:#f92672">&lt;&lt;</span> (min2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">-</span> min1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; HORA(S) E &#34;</span> <span style="color:#f92672">&lt;&lt;</span> (min2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">-</span> min1) <span style="color:#f92672">%</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; MINUTO(S)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;    
+}
 </code></pre></div><h2 id="672-税">672. 税</h2>
 <p>读取一个保留两位小数的浮点数值，表示一个公民的工资。</p>
 <p>在公民缴纳个人所得税时，不同收入部分需要缴税的税率也是不同的。</p>
@@ -736,25 +736,25 @@ R$ 355.60
 对于样例 1，0∼2000.00 部分不用缴税，2000.01∼3000.00 部分按 8% 的税率缴税，共计 1000×8%=80，3000.01∼3002.00 部分按 18% 的税率缴税，共计 2×18%=0.36，合计 80.36。</p>
 <p>对于样例 2，公民收入未超过 2000，所以输出 Isento。</p>
 <p>对于样例 3，0∼2000.00 部分不用缴税，2000.01∼3000.00 部分按 8% 的税率缴税，共计 1000×8%=80，3000.01∼4500.00 部分按 18% 的税率缴税，共计 1500×18%=270，4500.01∼4520 部分按 28% 的税率缴税，共计 20×28%=5.60，合计 355.60。</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">s</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">2000</span><span class="p">)</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Isento&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">2000.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">3000</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R$ %.2lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="mi">2000</span><span class="p">)</span><span class="o">*</span><span class="mf">0.08</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mf">3000.01</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">4500</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R$ %.2lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="mi">3000</span><span class="p">)</span><span class="o">*</span><span class="mf">0.18</span><span class="o">+</span><span class="mi">1000</span><span class="o">*</span><span class="mf">0.08</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">4500</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R$ %.2lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="mi">4500</span><span class="p">)</span><span class="o">*</span><span class="mf">0.28</span><span class="o">+</span><span class="mi">1000</span><span class="o">*</span><span class="mf">0.08</span><span class="o">+</span><span class="mi">1500</span><span class="o">*</span><span class="mf">0.18</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> s;
+    cin <span style="color:#f92672">&gt;&gt;</span> s;
+    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2000</span>)
+        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Isento&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2000.01</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">3000</span>)
+        printf(<span style="color:#e6db74">&#34;R$ %.2lf&#34;</span>, (s<span style="color:#f92672">-</span><span style="color:#ae81ff">2000</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">0.08</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3000.01</span> <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4500</span>)
+        printf(<span style="color:#e6db74">&#34;R$ %.2lf&#34;</span>, (s<span style="color:#f92672">-</span><span style="color:#ae81ff">3000</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">0.18</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">*</span><span style="color:#ae81ff">0.08</span>);
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">4500</span>)
+        printf(<span style="color:#e6db74">&#34;R$ %.2lf&#34;</span>, (s<span style="color:#f92672">-</span><span style="color:#ae81ff">4500</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">0.28</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">*</span><span style="color:#ae81ff">0.08</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1500</span><span style="color:#f92672">*</span><span style="color:#ae81ff">0.18</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="663-简单排序">663. 简单排序?</h2>
 <p>读取三个整数并按升序对它们进行排序。</p>
 <p>输入格式
@@ -774,26 +774,26 @@ R$ 355.60
 <p>7
 21
 -14</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">min</span><span class="p">,</span> <span class="n">media</span><span class="p">,</span> <span class="n">max</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">min</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">media</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="n">max</span> <span class="o">-</span> <span class="n">min</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">min</span><span class="p">,</span> <span class="n">media</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b, c, min, media, max;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+    min <span style="color:#f92672">=</span> c;
+    <span style="color:#66d9ef">if</span> (min <span style="color:#f92672">&gt;</span> b) min <span style="color:#f92672">=</span> b;
+    <span style="color:#66d9ef">if</span> (min <span style="color:#f92672">&gt;</span> a) min <span style="color:#f92672">=</span> a;
+    max <span style="color:#f92672">=</span> a;
+    <span style="color:#66d9ef">if</span> (max <span style="color:#f92672">&lt;</span> b) max <span style="color:#f92672">=</span> b;
+    <span style="color:#66d9ef">if</span> (max <span style="color:#f92672">&lt;</span> c) max <span style="color:#f92672">=</span> c;
+    media <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> max <span style="color:#f92672">-</span> min;
+    printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, min, media, max, a, b, c);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     
-<span class="p">}</span>
+}
 </code></pre></div><p>听一下老师怎么讲</p>
 <h2 id="658-一元二次方程公式">658. 一元二次方程公式</h2>
 <p>读取三个浮点数 a,b,c 的值，利用一元二次方程求根公式对方程 ax2+bx+c=0 进行求解。</p>
@@ -813,24 +813,24 @@ R$ 355.60
 输出样例：
 R1 = -0.29788
 R2 = -1.71212</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Impossivel calcular&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R1 = %.5f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">));</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;R2 = %.5f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">));</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> a, b, c, d;
+    cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+    d <span style="color:#f92672">=</span> b<span style="color:#f92672">*</span>b <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>a<span style="color:#f92672">*</span>c;
+    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> d <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>)
+        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Impossivel calcular&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span>
+        printf(<span style="color:#e6db74">&#34;R1 = %.5f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (<span style="color:#f92672">-</span>b <span style="color:#f92672">+</span> sqrt(d))<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>a));
+        printf(<span style="color:#e6db74">&#34;R2 = %.5f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (<span style="color:#f92672">-</span>b <span style="color:#f92672">-</span> sqrt(d))<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>a));
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="661-平均数3">661. 平均数3</h2>
 <p>读取 4 个数字 N1,N2,N3,N4，这 4 个数字都是保留 1 位小数的浮点数，对应于学生获得的 4 个分数。</p>
 <p>这 4 个分数的权重分别为 2,3,4,1，请你计算学生成绩的平均值 X 并输出 Media: X。</p>
@@ -864,30 +864,30 @@ Aluno reprovado.
 输出样例3：
 Media: 7.3
 Aluno aprovado.</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n1</span> <span class="o">&gt;&gt;</span> <span class="n">n2</span> <span class="o">&gt;&gt;</span> <span class="n">n3</span> <span class="o">&gt;&gt;</span> <span class="n">n4</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">*</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="n">n3</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="n">n4</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Media: %.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno aprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span><span class="mi">5</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;Aluno reprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno em exame.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Nota do exame: %.1f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">&gt;=</span> <span class="mf">5.0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno aprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Aluno reprovado.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Media final: %.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> n1, n2, n3, n4, y, m, z;
+    cin <span style="color:#f92672">&gt;&gt;</span> n1 <span style="color:#f92672">&gt;&gt;</span> n2 <span style="color:#f92672">&gt;&gt;</span> n3 <span style="color:#f92672">&gt;&gt;</span> n4 <span style="color:#f92672">&gt;&gt;</span> y;
+    m <span style="color:#f92672">=</span> n1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.2</span> <span style="color:#f92672">+</span> n2 <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.3</span> <span style="color:#f92672">+</span> n3 <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.4</span> <span style="color:#f92672">+</span> n4 <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span>;
+    printf(<span style="color:#e6db74">&#34;Media: %.1lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, m);
+    <span style="color:#66d9ef">if</span> (m <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">7</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Aluno aprovado.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (m <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span>) cout <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Aluno reprovado.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">else</span>
+    {
+        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Aluno em exame.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        printf(<span style="color:#e6db74">&#34;Nota do exame: %.1f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, y);
+        z <span style="color:#f92672">=</span> (m <span style="color:#f92672">+</span> y) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+        <span style="color:#66d9ef">if</span> (z <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5.0</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Aluno aprovado.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Aluno reprovado.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+        printf(<span style="color:#e6db74">&#34;Media final: %.1lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, z);
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div>
 </section>
 

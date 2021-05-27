@@ -250,13 +250,13 @@ class Solution { public: string replaceSpaces(string &amp;amp;str) { string res;
 <p>样例
 输入整数 n=5</p>
 <p>返回 5</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-        <span class="k">else</span> <span class="k">return</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> Fibonacci(<span style="color:#66d9ef">int</span> n) {
+        <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> n;
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Fibonacci</span>(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> Fibonacci(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>);
+    }
+};
 </code></pre></div><h2 id="21-替换空格">21. 替换空格</h2>
 <p>请实现一个函数，把字符串中的每个空格替换成&quot;%20&quot;。</p>
 <p>你可以假定输入字符串的长度最大是 1000。</p>
@@ -282,14 +282,14 @@ public:
 <p>样例
 输入：10</p>
 <p>输出：55</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">getSum</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">res</span> <span class="o">+=</span> <span class="n">getSum</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
-        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> getSum(<span style="color:#66d9ef">int</span> n) {
+        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> n;
+        n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> (res <span style="color:#f92672">+=</span> getSum(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+        <span style="color:#66d9ef">return</span> res;
+    }
+};
 </code></pre></div><p>&amp;&amp;短路运算</p>
 <h2 id="28-在o1时间删除链表结点">28. 在O(1)时间删除链表结点</h2>
 <p>给定单向链表的一个节点指针，定义一个函数在O(1)时间删除该结点。</p>
@@ -298,22 +298,22 @@ public:
 输入：链表 1-&gt;4-&gt;6-&gt;8
 删掉节点：第2个节点即6（头节点为第0个节点）</p>
 <p>输出：新链表 1-&gt;4-&gt;8</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
-</span><span class="cm"> * Definition for singly-linked list.
-</span><span class="cm"> * struct ListNode {
-</span><span class="cm"> *     int val;
-</span><span class="cm"> *     ListNode *next;
-</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
-</span><span class="cm"> * };
-</span><span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">deleteNode</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span><span class="c1">//伪装成下一个点。
-</span><span class="c1"></span>        <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="c1">//将下一个点删除。
-</span><span class="c1"></span>        <span class="c1">//*(node) = *(node-&gt;next); 另一种写法
-</span><span class="c1"></span>    <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * struct ListNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     ListNode *next;
+</span><span style="color:#75715e"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span style="color:#75715e"> * };
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> deleteNode(ListNode<span style="color:#f92672">*</span> node) {
+        node<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">=</span> node<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>val;<span style="color:#75715e">//伪装成下一个点。
+</span><span style="color:#75715e"></span>        node<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> node<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>next;<span style="color:#75715e">//将下一个点删除。
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//*(node) = *(node-&gt;next); 另一种写法
+</span><span style="color:#75715e"></span>    }
+};
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210515213951691.png" alt="image-20210515213951691"  /></p>
 <p>先伪装成下一个人，再把下一个人干掉。</p>
 <h2 id="36-合并两个排序的列表">36. 合并两个排序的列表</h2>
@@ -321,35 +321,35 @@ public:
 <p>样例
 输入：1-&gt;3-&gt;5 , 2-&gt;4-&gt;5</p>
 <p>输出：1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;5</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
-</span><span class="cm"> * Definition for singly-linked list.
-</span><span class="cm"> * struct ListNode {
-</span><span class="cm"> *     int val;
-</span><span class="cm"> *     ListNode *next;
-</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
-</span><span class="cm"> * };
-</span><span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">ListNode</span><span class="o">*</span> <span class="n">merge</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span><span class="o">*</span> <span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">dummy</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">l1</span> <span class="o">&amp;&amp;</span> <span class="n">l2</span><span class="p">)</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
-                <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">else</span>
-            <span class="p">{</span>
-                <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
-                <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">l2</span><span class="p">)</span> <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * struct ListNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     ListNode *next;
+</span><span style="color:#75715e"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span style="color:#75715e"> * };
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ListNode<span style="color:#f92672">*</span> merge(ListNode<span style="color:#f92672">*</span> l1, ListNode<span style="color:#f92672">*</span> l2) {
+        <span style="color:#66d9ef">auto</span> dummy <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>), tail <span style="color:#f92672">=</span> dummy;
+        <span style="color:#66d9ef">while</span> (l1 <span style="color:#f92672">&amp;&amp;</span> l2)
+            <span style="color:#66d9ef">if</span>(l1<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">&lt;</span> l2<span style="color:#f92672">-&gt;</span>val)
+            {
+                tail <span style="color:#f92672">=</span> tail<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> l1;
+                l1 <span style="color:#f92672">=</span> l1<span style="color:#f92672">-&gt;</span>next;
+            }
+            <span style="color:#66d9ef">else</span>
+            {
+                tail <span style="color:#f92672">=</span> tail<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> l2;
+                l2 <span style="color:#f92672">=</span> l2<span style="color:#f92672">-&gt;</span>next;
+            }
+        <span style="color:#66d9ef">if</span> (l1) tail<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> l1;
+        <span style="color:#66d9ef">if</span> (l2) tail<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> l2;
         
-        <span class="k">return</span> <span class="n">dummy</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+        <span style="color:#66d9ef">return</span> dummy<span style="color:#f92672">-&gt;</span>next;
+    }
+};
 </code></pre></div><h2 id="78-左旋转字符串">78. 左旋转字符串</h2>
 <p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。</p>
 <p>请定义一个函数实现字符串左旋转操作的功能。</p>
@@ -359,17 +359,17 @@ public:
 样例
 输入：&ldquo;abcdefg&rdquo; , n=2</p>
 <p>输出：&ldquo;cdefgab&rdquo;</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">string</span> <span class="n">leftRotateString</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">string</span> <span class="n">res</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    string leftRotateString(string str, <span style="color:#66d9ef">int</span> n) {
+        string res;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> n; i <span style="color:#f92672">&lt;</span> str.size(); i <span style="color:#f92672">++</span>)
+            res <span style="color:#f92672">+=</span> str[i];
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i <span style="color:#f92672">++</span>)
+            res <span style="color:#f92672">+=</span> str[i];
+        <span style="color:#66d9ef">return</span> res;
+    }
+};
 </code></pre></div><h2 id="87-把字符串转换成整数">87. 把字符串转换成整数</h2>
 <p>请你写一个函数 StrToInt，实现把字符串转换成整数这个功能。</p>
 <p>当然，不能使用 atoi 或者其他类似的库函数。</p>
@@ -382,49 +382,49 @@ public:
 整数后可能有任意非数字字符，请将其忽略；
 如果整数长度为 0，则返回 0；
 如果整数大于 INT_MAX(231−1)，请返回 INT_MAX；如果整数小于INT_MIN(−231) ，请返回 INT_MIN；</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">strToInt</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> strToInt(string str) {
         
-        <span class="kt">char</span> <span class="n">f</span><span class="p">;</span>
-        <span class="n">string</span> <span class="n">d</span><span class="p">;</span>
-        <span class="kt">long</span> <span class="kt">long</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">p</span><span class="p">;</span>
+        <span style="color:#66d9ef">char</span> f;
+        string d;
+        <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> d1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> p;
         
-        <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span style="color:#66d9ef">if</span> (str.size() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
         
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39; &#39;</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">f</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-                <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> str.size(); i <span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">if</span>(str[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39; &#39;</span>)
+            {
+                f <span style="color:#f92672">=</span> str[i];
+                p <span style="color:#f92672">=</span> i;
+                <span style="color:#66d9ef">break</span>;
+            }
         
-        <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="sc">&#39;0&#39;</span> <span class="o">||</span> <span class="n">str</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span>   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span style="color:#66d9ef">if</span> (str[p <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">||</span> str[p <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;9&#39;</span>)   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
         
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span> 
-                <span class="n">d</span> <span class="o">+=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">))</span>
-                <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>   
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> p; i <span style="color:#f92672">&lt;</span> str.size(); i <span style="color:#f92672">++</span>)
+        {
+            <span style="color:#66d9ef">if</span> (str[i] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&amp;&amp;</span> str[i] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span>) 
+                d <span style="color:#f92672">+=</span> str[i];
+            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>(str[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&amp;&amp;</span> str[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span>))
+                <span style="color:#66d9ef">break</span>;
+        }   
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span style="color:#66d9ef">if</span> (d.size() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
         
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-            <span class="n">d1</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> d.size(); i <span style="color:#f92672">++</span>)
+            d1 <span style="color:#f92672">+=</span> (<span style="color:#66d9ef">int</span>)(d[i] <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#f92672">*</span> pow(<span style="color:#ae81ff">10</span>, d.size() <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
         
-        <span class="k">if</span> <span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="p">)</span>  <span class="n">d1</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">d1</span><span class="p">;</span> 
-        <span class="k">if</span> <span class="p">(</span><span class="n">d1</span> <span class="o">&gt;</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span style="color:#66d9ef">if</span> (f <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>)  d1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">-</span> d1; 
+        <span style="color:#66d9ef">if</span> (d1 <span style="color:#f92672">&gt;</span> pow(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">31</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+            <span style="color:#66d9ef">return</span> (pow(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">31</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
         
-        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">d1</span> <span class="o">&lt;</span> <span class="n">pow</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
-            <span class="k">return</span> <span class="n">pow</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">31</span><span class="p">);</span>
-        <span class="k">else</span> <span class="k">return</span> <span class="n">d1</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (d1 <span style="color:#f92672">&lt;</span> pow(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">31</span>))
+            <span style="color:#66d9ef">return</span> pow(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">31</span>);
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> d1;
+    }
+};
 </code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210516103226637.png" alt="image-20210516103226637"  /></p>
 <h2 id="35-反转链表">35. 反转链表</h2>
 <p>定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。</p>
@@ -433,30 +433,30 @@ public:
 样例
 输入:1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</p>
 <p>输出:5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
-</span><span class="cm"> * Definition for singly-linked list.
-</span><span class="cm"> * struct ListNode {
-</span><span class="cm"> *     int val;
-</span><span class="cm"> *     ListNode *next;
-</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
-</span><span class="cm"> * };
-</span><span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">ListNode</span><span class="o">*</span> <span class="n">reverseList</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">))</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
-        <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">q</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">auto</span> <span class="n">o</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
-            <span class="n">q</span> <span class="o">=</span> <span class="n">o</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * struct ListNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     ListNode *next;
+</span><span style="color:#75715e"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span style="color:#75715e"> * };
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ListNode<span style="color:#f92672">*</span> reverseList(ListNode<span style="color:#f92672">*</span> head) {
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>head <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>(head<span style="color:#f92672">-&gt;</span>next)) <span style="color:#66d9ef">return</span> head;
+        <span style="color:#66d9ef">auto</span> p <span style="color:#f92672">=</span> head, q <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+        <span style="color:#66d9ef">while</span> (q)
+        {
+            <span style="color:#66d9ef">auto</span> o <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>next;
+            q<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> p;
+            p <span style="color:#f92672">=</span> q;
+            q <span style="color:#f92672">=</span> o;
+        }
+        head<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+        <span style="color:#66d9ef">return</span> p;
+    }
+};
 </code></pre></div><h2 id="66-两个链表的第一个公共结点">66. 两个链表的第一个公共结点</h2>
 <p>输入两个链表，找出它们的第一个公共结点。</p>
 <p>当不存在公共节点时，返回空节点。</p>
@@ -469,31 +469,31 @@ c1 → c2 → c3
 B:     b1 → b2 → b3</p>
 <p>输出第一个公共节点c1</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210516110722549.png" alt="image-20210516110722549"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
-</span><span class="cm"> * Definition for singly-linked list.
-</span><span class="cm"> * struct ListNode {
-</span><span class="cm"> *     int val;
-</span><span class="cm"> *     ListNode *next;
-</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
-</span><span class="cm"> * };
-</span><span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">ListNode</span> <span class="o">*</span><span class="n">findFirstCommonNode</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">headA</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">headB</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ListNode</span><span class="o">*</span> <span class="n">c</span><span class="p">;</span>
-        <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">headA</span><span class="p">;</span>
-        <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">headB</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">!=</span><span class="n">q</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">p</span> <span class="o">=</span> <span class="n">headB</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="p">)</span>  <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">q</span> <span class="o">=</span> <span class="n">headA</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * struct ListNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     ListNode *next;
+</span><span style="color:#75715e"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span style="color:#75715e"> * };
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ListNode <span style="color:#f92672">*</span>findFirstCommonNode(ListNode <span style="color:#f92672">*</span>headA, ListNode <span style="color:#f92672">*</span>headB) {
+        ListNode<span style="color:#f92672">*</span> c;
+        <span style="color:#66d9ef">auto</span> p <span style="color:#f92672">=</span> headA;
+        <span style="color:#66d9ef">auto</span> q <span style="color:#f92672">=</span> headB;
+        <span style="color:#66d9ef">while</span> (p<span style="color:#f92672">!=</span>q)
+        {
+            <span style="color:#66d9ef">if</span> (p)  p <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+            <span style="color:#66d9ef">else</span> p <span style="color:#f92672">=</span> headB;
+            <span style="color:#66d9ef">if</span> (q)  q <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>next;
+            <span style="color:#66d9ef">else</span> q <span style="color:#f92672">=</span> headA;
+        }
+        <span style="color:#66d9ef">return</span> p;
             
-    <span class="p">}</span>
-<span class="p">};</span>
+    }
+};
 </code></pre></div><h2 id="29-删除链表中重复的节点">29. 删除链表中重复的节点</h2>
 <p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留。</p>
 <p>样例1
@@ -503,30 +503,30 @@ B:     b1 → b2 → b3</p>
 输入：1-&gt;1-&gt;1-&gt;2-&gt;3</p>
 <p>输出：2-&gt;3</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210516112747636.png" alt="image-20210516112747636"  /></p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/**
-</span><span class="cm"> * Definition for singly-linked list.
-</span><span class="cm"> * struct ListNode {
-</span><span class="cm"> *     int val;
-</span><span class="cm"> *     ListNode *next;
-</span><span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}
-</span><span class="cm"> * };
-</span><span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">ListNode</span><span class="o">*</span> <span class="n">deleteDuplication</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ListNode</span><span class="o">*</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-        <span class="n">dummy</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
-        <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">dummy</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span>   <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-            <span class="k">else</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">dummy</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * struct ListNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     ListNode *next;
+</span><span style="color:#75715e"> *     ListNode(int x) : val(x), next(NULL) {}
+</span><span style="color:#75715e"> * };
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ListNode<span style="color:#f92672">*</span> deleteDuplication(ListNode<span style="color:#f92672">*</span> head) {
+        ListNode<span style="color:#f92672">*</span> dummy <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+        dummy<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+        <span style="color:#66d9ef">auto</span> p <span style="color:#f92672">=</span> dummy;
+        <span style="color:#66d9ef">while</span>(p<span style="color:#f92672">-&gt;</span>next)
+        {
+            <span style="color:#66d9ef">auto</span> q <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+            <span style="color:#66d9ef">while</span> (q<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">&amp;&amp;</span> p<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">==</span> q<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>val)    q <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>next;
+            <span style="color:#66d9ef">if</span> (p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">==</span> q)   p <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+            <span style="color:#66d9ef">else</span> p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>next;
+        }
+        <span style="color:#66d9ef">return</span> dummy<span style="color:#f92672">-&gt;</span>next;
+    }
+};
 </code></pre></div>
 </section>
 

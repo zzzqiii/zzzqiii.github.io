@@ -276,17 +276,17 @@
 <p>输出格式为 <code>DIFERENCA = X</code>，其中 XX 为 (A×B−C×D)(A×B−C×D) 的结果。</p>
 <p>数据范围</p>
 <p>−10000≤A,B,C,D≤10000</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d%d%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;DIFERENCA = %d&#34;</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">d</span><span class="p">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b, c, d;
+    scanf(<span style="color:#e6db74">&#34;%d%d%d%d&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c, <span style="color:#f92672">&amp;</span>d);
+    printf(<span style="color:#e6db74">&#34;DIFERENCA = %d&#34;</span>, a<span style="color:#f92672">*</span>b <span style="color:#f92672">-</span> c<span style="color:#f92672">*</span>d);
     
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="604-圆的面积">604. 圆的面积</h2>
 <p>计算圆的面积的公式定义为 A=πR2A=πR2。</p>
 <p>请利用这个公式计算所给圆的面积。</p>
@@ -301,17 +301,17 @@
 <pre><code>2.00
 </code></pre><p>输出样例：</p>
 <pre><code>A=12.5664
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;A=%.4lf&#34;</span><span class="p">,</span> <span class="mf">3.14159</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> r;
+    scanf(<span style="color:#e6db74">&#34;%lf&#34;</span>, <span style="color:#f92672">&amp;</span>r);
+    printf(<span style="color:#e6db74">&#34;A=%.4lf&#34;</span>, <span style="color:#ae81ff">3.14159</span> <span style="color:#f92672">*</span> r <span style="color:#f92672">*</span> r);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="604-平均数1">604. 平均数1</h2>
 <p>读取两个浮点数 A 和 B 的值，对应于两个学生的成绩。</p>
 <p>请你计算学生的平均分，其中 A 的成绩的权重为 3.5，B 的成绩的权重为 7.5。</p>
@@ -327,18 +327,18 @@
 7.1
 输出样例：
 MEDIA = 6.43182</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;MEDIA = %.5lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="mf">3.5</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">7.5</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">11</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> a, b;
+    scanf(<span style="color:#e6db74">&#34;%lf%lf&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b);
+    printf(<span style="color:#e6db74">&#34;MEDIA = %.5lf&#34;</span>, (<span style="color:#ae81ff">3.5</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> <span style="color:#ae81ff">7.5</span> <span style="color:#f92672">*</span> b)<span style="color:#f92672">/</span><span style="color:#ae81ff">11</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     
-<span class="p">}</span>
+}
 </code></pre></div><h2 id="609-工资">609. 工资</h2>
 <p>请编写一个程序，可以读取一名员工的员工编号，本月工作总时长（小时）以及时薪，并输出他的工资条，工资条中包括员工编号和员工月收入。</p>
 <p>输入格式
@@ -358,19 +358,19 @@ MEDIA = 6.43182</p>
 输出样例：
 NUMBER = 25
 SALARY = U$ 550.00</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">num</span><span class="p">,</span> <span class="n">time</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">hm</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">time</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hm</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;NUMBER = %d</span><span class="se">\n</span><span class="s">SALARY = U$ %.2lf&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">time</span><span class="o">*</span><span class="n">hm</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> num, time;
+    <span style="color:#66d9ef">double</span> hm;
+    scanf(<span style="color:#e6db74">&#34;%d%d%lf&#34;</span>, <span style="color:#f92672">&amp;</span>num, <span style="color:#f92672">&amp;</span>time, <span style="color:#f92672">&amp;</span>hm);
+    printf(<span style="color:#e6db74">&#34;NUMBER = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">SALARY = U$ %.2lf&#34;</span>, num, time<span style="color:#f92672">*</span>hm);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     
-<span class="p">}</span>
+}
 </code></pre></div><h2 id="615-油耗">615. 油耗</h2>
 <p>给定一个汽车行驶的总路程（km）和消耗的油量（l），请你求出汽车每消耗 1 升汽油可行驶多少公里路程。</p>
 <p>输入格式
@@ -385,18 +385,18 @@ SALARY = U$ 550.00</p>
 35.0
 输出样例：
 14.286 km/l</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">lucheng</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">youliang</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lucheng</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">youliang</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.3lf km/l&#34;</span><span class="p">,</span> <span class="n">lucheng</span><span class="o">/</span><span class="n">youliang</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> lucheng;
+    <span style="color:#66d9ef">double</span> youliang;
+    scanf(<span style="color:#e6db74">&#34;%d%lf&#34;</span>, <span style="color:#f92672">&amp;</span>lucheng, <span style="color:#f92672">&amp;</span>youliang);
+    printf(<span style="color:#e6db74">&#34;%.3lf km/l&#34;</span>, lucheng<span style="color:#f92672">/</span>youliang);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="616-两点间的距离">616. 两点间的距离</h2>
 <p>给定两个点 P1 和 P2，其中 P1 的坐标为 (x1,y1)，P2 的坐标为 (x2,y2)，请你计算两点间的距离是多少。</p>
 <p>distance=(x2−x1)2+(y2−y1)2−−−−−−−−−−−−−−−−−−√
@@ -412,19 +412,19 @@ SALARY = U$ 550.00</p>
 5.0 9.0
 输出样例：
 4.4721</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf%lf%lf%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y2</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.4lf&#34;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)));</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//注意输入是有顺序的
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> x1, y1, x2, y2;
+    scanf(<span style="color:#e6db74">&#34;%lf%lf%lf%lf&#34;</span>, <span style="color:#f92672">&amp;</span>x1, <span style="color:#f92672">&amp;</span>y1, <span style="color:#f92672">&amp;</span>x2, <span style="color:#f92672">&amp;</span>y2);
+    printf(<span style="color:#e6db74">&#34;%.4lf&#34;</span>, sqrt((x2<span style="color:#f92672">-</span>x1)<span style="color:#f92672">*</span>(x2<span style="color:#f92672">-</span>x1)<span style="color:#f92672">+</span>(y2<span style="color:#f92672">-</span>y1)<span style="color:#f92672">*</span>(y2<span style="color:#f92672">-</span>y1)));
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+<span style="color:#75715e">//注意输入是有顺序的
 </span></code></pre></div><h2 id="653-钞票">653. 钞票</h2>
 <p>在这个问题中，你需要读取一个整数值并将其分解为多张钞票的和，每种面值的钞票可以使用多张，并要求所用的钞票数量尽可能少。</p>
 <p>请你输出读取值和钞票清单。</p>
@@ -446,35 +446,35 @@ SALARY = U$ 550.00</p>
 1 nota(s) de R$ 5,00
 0 nota(s) de R$ 2,00
 1 nota(s) de R$ 1,00</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
     
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">/</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">/</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">/</span><span class="mi">1</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 100,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
-    <span class="c1">//n %= 100;
-</span><span class="c1"></span>    <span class="c1">//printf(&#34;%d&#34;, n / 50);
-</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 50,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 20,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 10,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 5,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 2,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 1,00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">g</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span style="color:#66d9ef">int</span> n, a, b, c, d, e, f, g;
+    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>n);
+    a <span style="color:#f92672">=</span> n <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>;
+    b <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">50</span>;
+    c <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">20</span>;
+    d <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>;
+    e <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">5</span>;
+    f <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+    g <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span><span style="color:#ae81ff">1</span>;
+    printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 100,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+    <span style="color:#75715e">//n %= 100;
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//printf(&#34;%d&#34;, n / 50);
+</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 50,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 20,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 10,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 5,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, e);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 2,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, f);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 1,00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, g);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     
-<span class="p">}</span>
+}
 </code></pre></div><h2 id="654-时间转换">654. 时间转换</h2>
 <p>读取一个整数值，它是工厂中某个事件的持续时间（以秒为单位），请你将其转换为小时：分钟：秒来表示。</p>
 <p>输入格式
@@ -513,17 +513,17 @@ int main()
 9
 输出样例：
 PROD = 27</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;PROD = %d&#34;</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b;
+    scanf(<span style="color:#e6db74">&#34;%d%d&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b);
+    printf(<span style="color:#e6db74">&#34;PROD = %d&#34;</span>, a<span style="color:#f92672">*</span>b);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="611-简单计算">611. 简单计算</h2>
 <p>给定你两个产品的产品编号，产品数量以及产品单价。</p>
 <p>请你计算买下两种产品一共需要花费多少钱。</p>
@@ -540,19 +540,19 @@ PROD = 27</p>
 16 2 5.10
 输出样例：
 VALOR A PAGAR: R$ 15.50</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p1</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p2</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;VALOR A PAGAR: R$ %.2lf&#34;</span><span class="p">,</span> <span class="n">b1</span> <span class="o">*</span><span class="n">p1</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">p2</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a1, b1, a2, b2;
+    <span style="color:#66d9ef">double</span> p1, p2;
+    scanf(<span style="color:#e6db74">&#34;%d%d%lf&#34;</span>, <span style="color:#f92672">&amp;</span>a1, <span style="color:#f92672">&amp;</span>b1, <span style="color:#f92672">&amp;</span>p1);
+    scanf(<span style="color:#e6db74">&#34;%d%d%lf&#34;</span>, <span style="color:#f92672">&amp;</span>a2, <span style="color:#f92672">&amp;</span>b2, <span style="color:#f92672">&amp;</span>p2);
+    printf(<span style="color:#e6db74">&#34;VALOR A PAGAR: R$ %.2lf&#34;</span>, b1 <span style="color:#f92672">*</span>p1 <span style="color:#f92672">+</span> b2 <span style="color:#f92672">*</span> p2);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="612-球的体积">612. 球的体积</h2>
 <p>给定你一个球体的半径 R，请你计算球体的体积。</p>
 <p>计算球体的公式为 V=(4/3)∗π∗R3。</p>
@@ -568,17 +568,17 @@ VALOR A PAGAR: R$ 15.50</p>
 3
 输出样例：
 VOLUME = 113.097</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">r</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;VOLUME = %.3lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span><span class="n">r</span><span class="p">);</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> r;
+    <span style="color:#66d9ef">double</span> pi <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14159</span>;
+    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>r);
+    printf(<span style="color:#e6db74">&#34;VOLUME = %.3lf&#34;</span>, (<span style="color:#ae81ff">4</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3.0</span>) <span style="color:#f92672">*</span> pi <span style="color:#f92672">*</span> r <span style="color:#f92672">*</span> r <span style="color:#f92672">*</span>r);
+}
 </code></pre></div><h2 id="613-面积">613. 面积</h2>
 <p>给定三个浮点数 A，B 和 C。</p>
 <p>然后，计算如下图形的面积：</p>
@@ -607,23 +607,23 @@ CIRCULO: 84.949
 TRAPEZIO: 18.200
 QUADRADO: 16.000
 RETANGULO: 12.000</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf%lf%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;TRIANGULO: %.3lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;CIRCULO: %.3lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="mf">3.14159</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span><span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;TRAPEZIO: %.3lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;QUADRADO: %.3lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;RETANGULO: %.3lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> a, b, c;
+    scanf(<span style="color:#e6db74">&#34;%lf%lf%lf&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c);
+    printf(<span style="color:#e6db74">&#34;TRIANGULO: %.3lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">*</span> c);
+    printf(<span style="color:#e6db74">&#34;CIRCULO: %.3lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">3.14159</span> <span style="color:#f92672">*</span> c <span style="color:#f92672">*</span>c);
+    printf(<span style="color:#e6db74">&#34;TRAPEZIO: %.3lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (a <span style="color:#f92672">+</span> b) <span style="color:#f92672">*</span> c <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>);
+    printf(<span style="color:#e6db74">&#34;QUADRADO: %.3lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b <span style="color:#f92672">*</span> b);
+    printf(<span style="color:#e6db74">&#34;RETANGULO: %.3lf</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a <span style="color:#f92672">*</span> b);
     
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     
-<span class="p">}</span>
+}
 </code></pre></div><h2 id="607-平均数">607. 平均数</h2>
 <p>读取三个浮点数 A，B 和 C 的值，对应于三个学生的成绩。</p>
 <p>请你计算学生的平均分，其中 A 的成绩的权重为 2，B 的成绩的权重为 3，C 的成绩的权值为 5。</p>
@@ -640,17 +640,17 @@ RETANGULO: 12.000</p>
 7.0
 输出样例：
 MEDIA = 6.3</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf%lf%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;MEDIA = %.1lf&#34;</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">c</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> a, b, c;
+    scanf(<span style="color:#e6db74">&#34;%lf%lf%lf&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c);
+    printf(<span style="color:#e6db74">&#34;MEDIA = %.1lf&#34;</span>, <span style="color:#ae81ff">0.2</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.3</span> <span style="color:#f92672">*</span> b <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> c);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="610-工资和奖金">610. 工资和奖金</h2>
 <p>请你编写一个程序，给定你一个销售人员的名字，底薪以及月销售额。</p>
 <p>请你计算他的月收入是多少。</p>
@@ -670,35 +670,35 @@ JOAO
 1230.30
 输出样例：
 TOTAL = R$ 684.54</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s%lf%lf&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span> <span class="c1">//%S
-</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;TOTAL = R$ %.2lf&#34;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.15</span> <span class="o">*</span> <span class="n">y</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">10</span>];
+    <span style="color:#66d9ef">double</span> x, y;
+    scanf(<span style="color:#e6db74">&#34;%s%lf%lf&#34;</span>, name, <span style="color:#f92672">&amp;</span>x, <span style="color:#f92672">&amp;</span>y); <span style="color:#75715e">//%S
+</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;TOTAL = R$ %.2lf&#34;</span>, x <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.15</span> <span style="color:#f92672">*</span> y);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>报错。做错的原因是name没有用%s读入。</p>
 <p>另一种方法：</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;TOTAL = R$ %.2lf&#34;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.15</span> <span class="o">*</span> <span class="n">y</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    string name;
+    cin <span style="color:#f92672">&gt;&gt;</span> name;
+    <span style="color:#66d9ef">double</span> x, y;
+    cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+    printf(<span style="color:#e6db74">&#34;TOTAL = R$ %.2lf&#34;</span>, x <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.15</span> <span style="color:#f92672">*</span> y);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="614-最大值">614. 最大值</h2>
 <p>给定三个整数，请你找出它们中的最大值。</p>
 <p>下列公式可能对你有所帮助：</p>
@@ -713,18 +713,18 @@ TOTAL = R$ 684.54</p>
 7 14 106
 输出样例：
 106 eh o maior</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d%d%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d eh o maior&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">abs</span><span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a, b, c, d;
+    scanf(<span style="color:#e6db74">&#34;%d%d%d&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c);
+    d <span style="color:#f92672">=</span> (a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> abs(a <span style="color:#f92672">-</span> b)) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+    printf(<span style="color:#e6db74">&#34;%d eh o maior&#34;</span>, (d <span style="color:#f92672">+</span> c <span style="color:#f92672">+</span> abs(d <span style="color:#f92672">-</span> c)) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="617-距离">617. 距离</h2>
 <p>两辆汽车在同一地点，同时，沿同一方向前进。</p>
 <p>一辆车的速度为 60 km/h，另一辆车的速度为 90 km/h。</p>
@@ -740,17 +740,17 @@ TOTAL = R$ 684.54</p>
 30
 输出样例：
 60 minutos</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d minutos&#34;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a;
+    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>a);
+    printf(<span style="color:#e6db74">&#34;%d minutos&#34;</span>, a <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="618-燃料消耗">618. 燃料消耗</h2>
 <p>一辆汽车每行驶 12 公里需要消耗 1 升汽油，现在告诉你该汽车的行驶速度 S（km/h）和行驶时间 T（h），请你计算该车在行驶过程中一共消耗了多少升汽油。</p>
 <p>输入格式
@@ -765,17 +765,17 @@ TOTAL = R$ 684.54</p>
 85
 输出样例：
 70.833</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">long</span> <span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lld%lld&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>  <span class="c1">//数据类型为long long
-</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.3lf&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> a, b;
+    scanf(<span style="color:#e6db74">&#34;%lld%lld&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b);  <span style="color:#75715e">//数据类型为long long
+</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;%.3lf&#34;</span>, (<span style="color:#66d9ef">double</span>)(a <span style="color:#f92672">*</span> b) <span style="color:#f92672">/</span> <span style="color:#ae81ff">12.0</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><h2 id="656-钞票和硬币">656. 钞票和硬币</h2>
 <p>读取一个带有两个小数位的浮点数，这代表货币价值。</p>
 <p>在此之后，将该值分解为多种钞票与硬币的和，每种面值的钞票和硬币使用数量不限，要求使用的钞票和硬币的数量尽可能少。</p>
@@ -804,43 +804,43 @@ MOEDAS:
 2 moeda(s) de R$ 0.10
 0 moeda(s) de R$ 0.05
 3 moeda(s) de R$ 0.01</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">a</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">%</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">a</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;NOTAS:</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 100.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">100</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">%=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 50.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">50</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">%=</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 20.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">20</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">%=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 10.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">%=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 5.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">5</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">%=</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d nota(s) de R$ 2.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">%=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;MOEDAS:</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d moeda(s) de R$ 1.00</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d moeda(s) de R$ 0.50</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">50</span><span class="p">);</span>
-    <span class="n">b</span> <span class="o">%=</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d moeda(s) de R$ 0.25</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">25</span><span class="p">);</span>
-    <span class="n">b</span> <span class="o">%=</span> <span class="mi">25</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d moeda(s) de R$ 0.10</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="n">b</span> <span class="o">%=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d moeda(s) de R$ 0.05</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">5</span><span class="p">);</span>
-    <span class="n">b</span> <span class="o">%=</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d moeda(s) de R$ 0.01</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">double</span> a;
+    <span style="color:#66d9ef">int</span> b, c;
+    scanf(<span style="color:#e6db74">&#34;%lf&#34;</span>, <span style="color:#f92672">&amp;</span>a);
+    b <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>)(a <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>;
+    c <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>)a;
+    printf(<span style="color:#e6db74">&#34;NOTAS:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 100.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>);
+    c <span style="color:#f92672">%=</span> <span style="color:#ae81ff">100</span>;
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 50.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c <span style="color:#f92672">/</span> <span style="color:#ae81ff">50</span>);
+    c <span style="color:#f92672">%=</span> <span style="color:#ae81ff">50</span>;
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 20.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c <span style="color:#f92672">/</span> <span style="color:#ae81ff">20</span>);
+    c <span style="color:#f92672">%=</span> <span style="color:#ae81ff">20</span>;
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 10.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>);
+    c <span style="color:#f92672">%=</span> <span style="color:#ae81ff">10</span>;
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 5.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c <span style="color:#f92672">/</span> <span style="color:#ae81ff">5</span>);
+    c <span style="color:#f92672">%=</span> <span style="color:#ae81ff">5</span>;
+    printf(<span style="color:#e6db74">&#34;%d nota(s) de R$ 2.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
+    c <span style="color:#f92672">%=</span> <span style="color:#ae81ff">2</span>;
+    printf(<span style="color:#e6db74">&#34;MOEDAS:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    printf(<span style="color:#e6db74">&#34;%d moeda(s) de R$ 1.00</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
+    printf(<span style="color:#e6db74">&#34;%d moeda(s) de R$ 0.50</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b <span style="color:#f92672">/</span> <span style="color:#ae81ff">50</span>);
+    b <span style="color:#f92672">%=</span> <span style="color:#ae81ff">50</span>;
+    printf(<span style="color:#e6db74">&#34;%d moeda(s) de R$ 0.25</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b <span style="color:#f92672">/</span> <span style="color:#ae81ff">25</span>);
+    b <span style="color:#f92672">%=</span> <span style="color:#ae81ff">25</span>;
+    printf(<span style="color:#e6db74">&#34;%d moeda(s) de R$ 0.10</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>);
+    b <span style="color:#f92672">%=</span> <span style="color:#ae81ff">10</span>;
+    printf(<span style="color:#e6db74">&#34;%d moeda(s) de R$ 0.05</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b <span style="color:#f92672">/</span> <span style="color:#ae81ff">5</span>);
+    b <span style="color:#f92672">%=</span> <span style="color:#ae81ff">5</span>;
+    printf(<span style="color:#e6db74">&#34;%d moeda(s) de R$ 0.01</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div><p>报错的原因是把b，即尾数算错了。</p>
 <h2 id="655-天数转换">655. 天数转换</h2>
 <p>读取对应于一个人的年龄（以天为单位）的整数值，并转化为年，月和日表示方式输出，年、月、日分别对应 ano(s), mes(es), dia(s)。</p>
@@ -857,21 +857,21 @@ MOEDAS:
 1 ano(s)
 1 mes(es)
 5 dia(s)</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d ano(s)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">365</span><span class="p">);</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">365</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d mes(es)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">30</span><span class="p">);</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d dia(s)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> n;
+    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>n);
+    printf(<span style="color:#e6db74">&#34;%d ano(s)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n <span style="color:#f92672">/</span> <span style="color:#ae81ff">365</span>);
+    n <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">365</span>;
+    printf(<span style="color:#e6db74">&#34;%d mes(es)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n <span style="color:#f92672">/</span> <span style="color:#ae81ff">30</span>);
+    n <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">30</span>;
+    printf(<span style="color:#e6db74">&#34;%d dia(s)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 </code></pre></div>
 </section>
 

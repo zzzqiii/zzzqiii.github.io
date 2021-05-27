@@ -263,14 +263,14 @@ f74291bfdc9e   pasapipeline/pasapipeline:latest   &ldquo;/bin/bash&rdquo;   3 ho
 </code></pre><p><a class="link" href="https://github.com/PASApipeline/PASApipeline/wiki/PASA_alignment_assembly"  target="_blank" rel="noopener"
     >PASA_alignment_assembly · PASApipeline/PASApipeline Wiki (github.com)</a></p>
 <p>第二步，更新注释文件</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># check gff3</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># check gff3</span>
 misc_utilities/pasa_gff3_validator.pl orign.gff3
 
-<span class="c1"># load annotation</span>
+<span style="color:#75715e"># load annotation</span>
 scripts/Load_Current_Gene_Annotations.dbi -c alignAssembly.config -g genome.fa -P orign.gff3
 
-<span class="c1"># update</span>
-<span class="c1"># annotCompare.config, set up the mysql database name same as alignAssembly.config</span>
+<span style="color:#75715e"># update</span>
+<span style="color:#75715e"># annotCompare.config, set up the mysql database name same as alignAssembly.config</span>
 Launch_PASA_pipeline.pl -c annotCompare.config -A -g genome.fa -t transcripts.fasta.clean
 </code></pre></div><p><a class="link" href="https://github.com/PASApipeline/PASApipeline/wiki/PASA_genome_annotation"  target="_blank" rel="noopener"
     >PASA_genome_annotation · PASApipeline/PASApipeline Wiki (github.com)</a></p>
