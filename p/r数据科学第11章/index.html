@@ -1,20 +1,701 @@
-function deal_prism() {
-        $('pre').each(function () {
-            if ($(this).attr('style') == "color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4") {
-                try {
-                    $(this).attr('style',"white-space:pre-wrap;");
-                    $(this).removeClass();
-                    $(this).addClass("line-numbers language-bash");
-                } catch (err) { }
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='使用forcats处理因子 library(tidyverse) library(forcats) 创建因子 要想创建一个因子，必须先创建有效水平的一个列表：
+x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#34;, &amp;#34;Mar&amp;#34;) month_levels &amp;lt;- c( &amp;#34;Jan&amp;#34;, &amp;#34;Feb&amp;#34;, &amp;#34;Mar&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;May&amp;#34;, &amp;#34;Jun&amp;#34;, &amp;#34;Jul&amp;#34;, &amp;#34;Aug&amp;#34;, &amp;#34;Sep&amp;#34;, &amp;#34;Oct&amp;#34;, &amp;#34;Nov&amp;#34;, &amp;#34;Dec&amp;#34; ) y1 &amp;lt;- factor(x1, levels = month_levels) y1 ## [1] Dec Apr Jan Mar ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec sort(y1) ## [1] Jan Mar Apr Dec ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug .'><title>R数据科学第11章</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC11%E7%AB%A0/'>
+<link rel="stylesheet" href="/prism.css">
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='R数据科学第11章'>
+<meta property='og:description' content='使用forcats处理因子 library(tidyverse) library(forcats) 创建因子 要想创建一个因子，必须先创建有效水平的一个列表：
+x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#34;, &amp;#34;Mar&amp;#34;) month_levels &amp;lt;- c( &amp;#34;Jan&amp;#34;, &amp;#34;Feb&amp;#34;, &amp;#34;Mar&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;May&amp;#34;, &amp;#34;Jun&amp;#34;, &amp;#34;Jul&amp;#34;, &amp;#34;Aug&amp;#34;, &amp;#34;Sep&amp;#34;, &amp;#34;Oct&amp;#34;, &amp;#34;Nov&amp;#34;, &amp;#34;Dec&amp;#34; ) y1 &amp;lt;- factor(x1, levels = month_levels) y1 ## [1] Dec Apr Jan Mar ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec sort(y1) ## [1] Jan Mar Apr Dec ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug .'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC11%E7%AB%A0/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='forcats' /><meta property='article:published_time' content='2021-04-13T15:03:32&#43;08:00'/><meta property='article:modified_time' content='2021-04-13T15:03:32&#43;08:00'/>
+<meta name="twitter:title" content="R数据科学第11章">
+<meta name="twitter:description" content="使用forcats处理因子 library(tidyverse) library(forcats) 创建因子 要想创建一个因子，必须先创建有效水平的一个列表：
+x1 &amp;lt;- c(&amp;#34;Dec&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;Jan&amp;#34;, &amp;#34;Mar&amp;#34;) month_levels &amp;lt;- c( &amp;#34;Jan&amp;#34;, &amp;#34;Feb&amp;#34;, &amp;#34;Mar&amp;#34;, &amp;#34;Apr&amp;#34;, &amp;#34;May&amp;#34;, &amp;#34;Jun&amp;#34;, &amp;#34;Jul&amp;#34;, &amp;#34;Aug&amp;#34;, &amp;#34;Sep&amp;#34;, &amp;#34;Oct&amp;#34;, &amp;#34;Nov&amp;#34;, &amp;#34;Dec&amp;#34; ) y1 &amp;lt;- factor(x1, levels = month_levels) y1 ## [1] Dec Apr Jan Mar ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec sort(y1) ## [1] Jan Mar Apr Dec ## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug .">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
             }
-        });
-        $.getScript("/prism.js");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/r-data-science/" style="background-color: #3498DB; color: #fff;">
+                R data science
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC11%E7%AB%A0/">R数据科学第11章</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 13, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h1 id="使用forcats处理因子">使用forcats处理因子</h1>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">forcats</span><span class="p">)</span>
+</code></pre></div><h2 id="创建因子">创建因子</h2>
+<p>要想创建一个因子，必须先创建有效水平的一个列表：</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Dec&#34;</span><span class="p">,</span> <span class="s">&#34;Apr&#34;</span><span class="p">,</span> <span class="s">&#34;Jan&#34;</span><span class="p">,</span> <span class="s">&#34;Mar&#34;</span><span class="p">)</span>
+<span class="n">month_levels</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
+<span class="s">&#34;Jan&#34;</span><span class="p">,</span> <span class="s">&#34;Feb&#34;</span><span class="p">,</span> <span class="s">&#34;Mar&#34;</span><span class="p">,</span> <span class="s">&#34;Apr&#34;</span><span class="p">,</span> <span class="s">&#34;May&#34;</span><span class="p">,</span> <span class="s">&#34;Jun&#34;</span><span class="p">,</span>
+<span class="s">&#34;Jul&#34;</span><span class="p">,</span> <span class="s">&#34;Aug&#34;</span><span class="p">,</span> <span class="s">&#34;Sep&#34;</span><span class="p">,</span> <span class="s">&#34;Oct&#34;</span><span class="p">,</span> <span class="s">&#34;Nov&#34;</span><span class="p">,</span> <span class="s">&#34;Dec&#34;</span>
+<span class="p">)</span>
+<span class="n">y1</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">month_levels</span><span class="p">)</span>
+<span class="n">y1</span>
+</code></pre></div><pre><code>## [1] Dec Apr Jan Mar
+## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
+</code></pre></div><pre><code>## [1] Jan Mar Apr Dec
+## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Dec&#34;</span><span class="p">,</span> <span class="s">&#34;Apr&#34;</span><span class="p">,</span> <span class="s">&#34;Jam&#34;</span><span class="p">,</span> <span class="s">&#34;Mar&#34;</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">month_levels</span><span class="p">)</span>
+<span class="n">y2</span>
+</code></pre></div><pre><code>## [1] Dec  Apr  &lt;NA&gt; Mar 
+## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug ... Dec
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#不在有效水平集合内的所有值都会自动转换为NA</span>
+
+<span class="c1">#显示错误信息</span>
+<span class="n">y2</span> <span class="o">&lt;-</span> <span class="nf">parse_factor</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">month_levels</span><span class="p">)</span>
+</code></pre></div><pre><code>## Warning: 1 parsing failure.
+## row col           expected actual
+##   3  -- value in level set    Jam
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果省略了定义水平的这个步骤，那么会将按字母顺序排序的数据作为水平</span>
+<span class="nf">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+</code></pre></div><pre><code>## [1] Dec Apr Jan Mar
+## Levels: Apr Dec Jan Mar
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果要让因子的顺序与初始数据的顺序保持一致，在创建因子时，将水平设置为unique(x)，或者在创建因子后再对其使用fct_inorder() 函数。</span>
+<span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="nf">unique</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<span class="n">f1</span>
+</code></pre></div><pre><code>## [1] Dec Apr Jan Mar
+## Levels: Dec Apr Jan Mar
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">f2</span> <span class="o">&lt;-</span> <span class="n">x1</span> <span class="o">%&gt;%</span> <span class="nf">factor</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">fct_inorder</span><span class="p">()</span>
+<span class="n">f2</span>
+</code></pre></div><pre><code>## [1] Dec Apr Jan Mar
+## Levels: Dec Apr Jan Mar
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果想要直接访问因子的有效水平集合，那么可以使用levels() 函数</span>
+<span class="nf">levels</span><span class="p">(</span><span class="n">f2</span><span class="p">)</span>
+</code></pre></div><pre><code>## [1] &quot;Dec&quot; &quot;Apr&quot; &quot;Jan&quot; &quot;Mar&quot;
+</code></pre><h2 id="综合社会调查">综合社会调查</h2>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span>
+</code></pre></div><pre><code>## # A tibble: 21,483 x 9
+##     year marital    age race  rincome  partyid  relig 
+##    &lt;int&gt; &lt;fct&gt;    &lt;int&gt; &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;    &lt;fct&gt; 
+##  1  2000 Never m~    26 White $8000 t~ Ind,nea~ Prote~
+##  2  2000 Divorced    48 White $8000 t~ Not str~ Prote~
+##  3  2000 Widowed     67 White Not app~ Indepen~ Prote~
+##  4  2000 Never m~    39 White Not app~ Ind,nea~ Ortho~
+##  5  2000 Divorced    25 White Not app~ Not str~ None  
+##  6  2000 Married     25 White $20000 ~ Strong ~ Prote~
+##  7  2000 Never m~    36 White $25000 ~ Not str~ Chris~
+##  8  2000 Divorced    44 White $7000 t~ Ind,nea~ Prote~
+##  9  2000 Married     44 White $25000 ~ Not str~ Prote~
+## 10  2000 Married     47 White $25000 ~ Strong ~ Prote~
+## # ... with 21,473 more rows, and 2 more variables:
+## #   denom &lt;fct&gt;, tvhours &lt;int&gt;
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#查看因子水平</span>
+<span class="n">gss_cat</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">race</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 3 x 2
+##   race      n
+## * &lt;fct&gt; &lt;int&gt;
+## 1 Other  1959
+## 2 Black  3129
+## 3 White 16395
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">gss_cat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">race</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_bar</span><span class="p">()</span>
+</code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/c11-chunk-3-2.png" alt="plot of chunk c11-chunk-3"  /></p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">(</span><span class="n">gss_cat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">race</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_bar</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/c11-chunk-3-2.png" alt="plot of chunk c11-chunk-3"  /></p>
+<h2 id="修改因子水平">修改因子水平</h2>
+<p>fct_recode() 函数可以对每个水平进行修改或重新编码</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span> <span class="o">%&gt;%</span> <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 10 x 2
+##    partyid                n
+##  * &lt;fct&gt;              &lt;int&gt;
+##  1 No answer            154
+##  2 Don't know             1
+##  3 Other party          393
+##  4 Strong republican   2314
+##  5 Not str republican  3032
+##  6 Ind,near rep        1791
+##  7 Independent         4119
+##  8 Ind,near dem        2499
+##  9 Not str democrat    3690
+## 10 Strong democrat     3490
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_recode</span><span class="p">(</span><span class="n">partyid</span><span class="p">,</span> 
+                              <span class="s">&#34;Republican, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong republican&#34;</span><span class="p">,</span>
+<span class="s">&#34;Republican, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">,</span>
+<span class="s">&#34;Independent, near rep&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span>
+<span class="s">&#34;Independent, near dem&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">,</span>
+<span class="s">&#34;Democrat, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span>
+<span class="s">&#34;Democrat, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 10 x 2
+##    partyid                   n
+##  * &lt;fct&gt;                 &lt;int&gt;
+##  1 No answer               154
+##  2 Don't know                1
+##  3 Other party             393
+##  4 Republican, strong     2314
+##  5 Republican, weak       3032
+##  6 Independent, near rep  1791
+##  7 Independent            4119
+##  8 Independent, near dem  2499
+##  9 Democrat, weak         3690
+## 10 Democrat, strong       3490
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#fct_recode() 会让没有明确提及的水平保持原样，也可以将多个原水平赋给同一个新水平，这样就可以合并原来的分类</span>
+<span class="n">gss_cat</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_recode</span><span class="p">(</span>
+    <span class="n">partyid</span><span class="p">,</span>
+    <span class="s">&#34;Republican, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong republican&#34;</span><span class="p">,</span>
+<span class="s">&#34;Republican, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">,</span>
+<span class="s">&#34;Independent, near rep&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span>
+<span class="s">&#34;Independent, near dem&#34;</span> <span class="o">=</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">,</span>
+<span class="s">&#34;Democrat, weak&#34;</span> <span class="o">=</span> <span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span>
+<span class="s">&#34;Democrat, strong&#34;</span> <span class="o">=</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">,</span>
+<span class="s">&#34;Other&#34;</span> <span class="o">=</span> <span class="s">&#34;No answer&#34;</span><span class="p">,</span>
+<span class="s">&#34;Other&#34;</span> <span class="o">=</span> <span class="s">&#34;Don&#39;t know&#34;</span><span class="p">,</span>
+<span class="s">&#34;Other&#34;</span> <span class="o">=</span> <span class="s">&#34;Other party&#34;</span>
+  <span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 8 x 2
+##   partyid                   n
+## * &lt;fct&gt;                 &lt;int&gt;
+## 1 Other                   548
+## 2 Republican, strong     2314
+## 3 Republican, weak       3032
+## 4 Independent, near rep  1791
+## 5 Independent            4119
+## 6 Independent, near dem  2499
+## 7 Democrat, weak         3690
+## 8 Democrat, strong       3490
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#如果想要合并多个水平，那么可以使用fct_recode() 函数的变体fct_collapse() 函数。</span>
+<span class="n">gss_cat</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_collapse</span><span class="p">(</span>
+    <span class="n">partyid</span><span class="p">,</span>
+    <span class="n">other</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;No answer&#34;</span><span class="p">,</span> <span class="s">&#34;Don&#39;t know&#34;</span><span class="p">,</span> <span class="s">&#34;Other party&#34;</span><span class="p">),</span>
+<span class="n">rep</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Strong republican&#34;</span><span class="p">,</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">),</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span> <span class="s">&#34;Independent&#34;</span><span class="p">,</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">),</span>
+<span class="n">dem</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">)</span>
+  <span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre></div><pre><code>## # A tibble: 4 x 2
+##   partyid     n
+## * &lt;fct&gt;   &lt;int&gt;
+## 1 other     548
+## 2 rep      5346
+## 3 ind      8409
+## 4 dem      7180
+</code></pre><h3 id="练习">练习</h3>
+<p>美国民主党、共和党和中间派的人数比例是如何随时间而变化的？</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">levels</span><span class="p">(</span><span class="n">gss_cat</span><span class="o">$</span><span class="n">partyid</span><span class="p">)</span>
+</code></pre></div><pre><code>##  [1] &quot;No answer&quot;          &quot;Don't know&quot;        
+##  [3] &quot;Other party&quot;        &quot;Strong republican&quot; 
+##  [5] &quot;Not str republican&quot; &quot;Ind,near rep&quot;      
+##  [7] &quot;Independent&quot;        &quot;Ind,near dem&quot;      
+##  [9] &quot;Not str democrat&quot;   &quot;Strong democrat&quot;
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">gss_cat</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">partyid</span> <span class="o">=</span> <span class="nf">fct_collapse</span><span class="p">(</span>
+    <span class="n">partyid</span><span class="p">,</span>
+    <span class="n">other</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;No answer&#34;</span><span class="p">,</span> <span class="s">&#34;Don&#39;t know&#34;</span><span class="p">,</span> <span class="s">&#34;Other party&#34;</span><span class="p">),</span>
+<span class="n">rep</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Strong republican&#34;</span><span class="p">,</span> <span class="s">&#34;Not str republican&#34;</span><span class="p">),</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Ind,near rep&#34;</span><span class="p">,</span> <span class="s">&#34;Independent&#34;</span><span class="p">,</span> <span class="s">&#34;Ind,near dem&#34;</span><span class="p">),</span>
+<span class="n">dem</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Not str democrat&#34;</span><span class="p">,</span> <span class="s">&#34;Strong democrat&#34;</span><span class="p">)</span>
+  <span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">count</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">partyid</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">year</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="nf">fct_reorder2</span><span class="p">(</span><span class="n">partyid</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+  <span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s">&#34;Party ID&#34;</span><span class="p">)</span>
+</code></pre></div><p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/c11-chunk-3-2.png" alt="plot of chunk c11-chunk-5"  /></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/forcats/">forcats</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC13%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第13章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC10%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第10章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC9%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第9章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC8%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第8章</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC7%E7%AB%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">R数据科学第7章</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
     }
+</style>
 
-    $(document).ready(function () {
-        deal_links();
-        deal_local_imgs();
-        deal_prism();
-    });
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
+    
 
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+
+    <script>
+        function color_tags() {
+            var colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
+            $('.tagCloud-tags a').each(function () {
+                try {
+                    tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+                    $(this).css("background", tagsColor); 
+                }
+                catch (err) { }
+            });
+        }
+
+        $(document).ready(function () {
+            color_tags()
+        });
+    </script>
+
+    <script src="/prism.js"></script>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
+        <br />本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        <span id="busuanzi_container_site_pv"> 总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
+        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+    
+	$.goup({
+	    trigger: 300,
+	    bottomOffset: 20,
+	    locationOffset: 20,
+	    title:  'Back to TOP',
+	    titleAsText: false
+	});
+</script>
+
+    </body>
+</html>

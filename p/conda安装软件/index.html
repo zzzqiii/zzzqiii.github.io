@@ -1,20 +1,525 @@
-function deal_prism() {
-        $('pre').each(function () {
-            if ($(this).attr('style') == "color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4") {
-                try {
-                    $(this).attr('style',"white-space:pre-wrap;");
-                    $(this).removeClass();
-                    $(this).addClass("line-numbers language-bash");
-                } catch (err) { }
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='使用conda安装软件 很早就听说过conda安装软件很方便，今天终于在自己的电脑上尝试了。因为实验室的服务器没有联网，就在window子系统下试了一下。
+下载 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 安装 chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限 bash Miniconda3-latest-Linux-x86_64.sh #运行 启动conda cd /home/zuozhangqi/miniconda3/bin chmod 777 activate . ./activate 当命令行前面出现(base)的时候说明现在已经在conda的环境中了。这时候输入conda list 命令就有反应了
+添加镜像 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ 显示安装的频道
+conda config --set show_channel_urls yes 查看已经添加的频道
+conda config --get channels 编辑已经添加的频道
+vim ~/.condarc 安装软件 conda install busco which busco #查看软件安装位置 conda install 软件名=版本号 #安装特定版本软件 conda list #查看已安装软件 conda update 软件名 #更新指定软件 conda remove 软件名 #卸载指定软件 退出conda环境 .'><title>Conda安装软件</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/conda%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/'>
+<link rel="stylesheet" href="/prism.css">
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Conda安装软件'>
+<meta property='og:description' content='使用conda安装软件 很早就听说过conda安装软件很方便，今天终于在自己的电脑上尝试了。因为实验室的服务器没有联网，就在window子系统下试了一下。
+下载 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 安装 chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限 bash Miniconda3-latest-Linux-x86_64.sh #运行 启动conda cd /home/zuozhangqi/miniconda3/bin chmod 777 activate . ./activate 当命令行前面出现(base)的时候说明现在已经在conda的环境中了。这时候输入conda list 命令就有反应了
+添加镜像 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ 显示安装的频道
+conda config --set show_channel_urls yes 查看已经添加的频道
+conda config --get channels 编辑已经添加的频道
+vim ~/.condarc 安装软件 conda install busco which busco #查看软件安装位置 conda install 软件名=版本号 #安装特定版本软件 conda list #查看已安装软件 conda update 软件名 #更新指定软件 conda remove 软件名 #卸载指定软件 退出conda环境 .'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/conda%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='conda' /><meta property='article:published_time' content='2021-03-06T10:59:00&#43;08:00'/><meta property='article:modified_time' content='2021-03-06T10:59:00&#43;08:00'/>
+<meta name="twitter:title" content="Conda安装软件">
+<meta name="twitter:description" content="使用conda安装软件 很早就听说过conda安装软件很方便，今天终于在自己的电脑上尝试了。因为实验室的服务器没有联网，就在window子系统下试了一下。
+下载 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 安装 chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限 bash Miniconda3-latest-Linux-x86_64.sh #运行 启动conda cd /home/zuozhangqi/miniconda3/bin chmod 777 activate . ./activate 当命令行前面出现(base)的时候说明现在已经在conda的环境中了。这时候输入conda list 命令就有反应了
+添加镜像 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ 显示安装的频道
+conda config --set show_channel_urls yes 查看已经添加的频道
+conda config --get channels 编辑已经添加的频道
+vim ~/.condarc 安装软件 conda install busco which busco #查看软件安装位置 conda install 软件名=版本号 #安装特定版本软件 conda list #查看已安装软件 conda update 软件名 #更新指定软件 conda remove 软件名 #卸载指定软件 退出conda环境 .">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
             }
-        });
-        $.getScript("/prism.js");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #839192; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/conda%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/">Conda安装软件</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Mar 06, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h2 id="使用conda安装软件">使用conda安装软件</h2>
+<p>很早就听说过conda安装软件很方便，今天终于在自己的电脑上尝试了。因为实验室的服务器没有联网，就在window子系统下试了一下。</p>
+<h4 id="下载">下载</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</code></pre></div><h4 id="安装">安装</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">chmod <span class="m">777</span> Miniconda3-latest-Linux-x86_64.sh <span class="c1">#给执行权限</span>
+bash Miniconda3-latest-Linux-x86_64.sh <span class="c1">#运行</span>
+</code></pre></div><h4 id="启动conda">启动conda</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> /home/zuozhangqi/miniconda3/bin
+chmod <span class="m">777</span> activate 
+. ./activate
+</code></pre></div><p>当命令行前面出现<code>(base)</code>的时候说明现在已经在conda的环境中了。这时候输入<code>conda list</code> 命令就有反应了</p>
+<h4 id="添加镜像">添加镜像</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+</code></pre></div><p>显示安装的频道</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda config --set show_channel_urls yes
+</code></pre></div><p>查看已经添加的频道</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda config --get channels
+</code></pre></div><p>编辑已经添加的频道</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">vim ~/.condarc
+</code></pre></div><h4 id="安装软件">安装软件</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda install busco
+which busco <span class="c1">#查看软件安装位置</span>
+conda install <span class="nv">软件名</span><span class="o">=</span>版本号 <span class="c1">#安装特定版本软件</span>
+conda list <span class="c1">#查看已安装软件</span>
+conda update 软件名  <span class="c1">#更新指定软件</span>
+conda remove 软件名   <span class="c1">#卸载指定软件</span>
+</code></pre></div><h4 id="退出conda环境">退出conda环境</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">. ./deactivate
+<span class="c1">#或者</span>
+conda deactivate
+</code></pre></div><h4 id="创建软件软连接">创建软件软连接</h4>
+<p>退出conda环境后之前安装的软件会用不了，这时只要把安装好的软件软连接到一个处在环境变量里的位置就可以使用了。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 在/home目录下创建一个.soft文件夹</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;~/.soft:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+ln -s ~/miniconda3/bin/busco ~/.soft
+</code></pre></div><h4 id="创建conda环境">创建conda环境</h4>
+<p>之前创建的时候显示的是（base）这是conda的基本环境。有的时候可以给一下软件创建一个单独的环境。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda env list  <span class="c1">#查看当前存在的环境</span>
+conda create -n python2 <span class="nv">python</span><span class="o">=</span><span class="m">2</span>
+<span class="c1"># -n: 设置新的环境的名字</span>
+<span class="c1"># python=2 指定新环境的python的版本，非必须参数</span>
+<span class="c1"># 这里也可以用一个-y参数，可以直接跳过安装的确认过程。</span>
+</code></pre></div><p>conda会创建一个新的python2的环境，输入conda activate python2就可以启动这个环境。</p>
+<h4 id="退出环境">退出环境</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda deactivate
+</code></pre></div><h4 id="删除环境">删除环境</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">conda remove -n myenv --all
+</code></pre></div><h4 id="报错">报错</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">Collecting package metadata <span class="o">(</span>current_repodata.json<span class="o">)</span>: failed
+
+CondaHTTPError: HTTP <span class="m">000</span> CONNECTION FAILED <span class="k">for</span> url &lt;https://conda.anaconda.org/genomedk/linux-64/current_repodata.json&gt;
+Elapsed: -
+</code></pre></div><p>好像是网络错误，刚开始Google了很多方法，还是报错，我还把按<a class="link" href="https://blog.csdn.net/Copper01/article/details/97134974"  target="_blank" rel="noopener"
+    >这个帖子</a>的操作把<code>~/.condarc</code>中的default删掉了，以及把一个镜像的链接的https改成了http，不知道有没有效果。conda install busco后，一直有一条线在转，在conda的GitHub上看到了一个issue，跟我的情况一样：<a class="link" href="https://github.com/conda/conda/issues/9221"  target="_blank" rel="noopener"
+    >&ldquo;Collecting package metadata&rdquo; cannot proceed and never end</a>。还参考了<a class="link" href="https://tools-platform-guide.readthedocs.io/zh_CN/latest/anaconda/conda%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83%E6%8A%A5%E9%94%99/"  target="_blank" rel="noopener"
+    >Solving environment: failed with initial frozen solve. Retrying with flexible solve</a>的做法，还是一样报错。后来等到十点还是没好，我就放着不管回去了，结果第二天早上来发现装好了。有点迷。</p>
+<h4 id="参考">参考</h4>
+<p><a class="link" href="https://www.jianshu.com/p/edaa744ea47d"  target="_blank" rel="noopener"
+    >简书 卖萌哥 &ldquo;conda的安装与使用（2020-08-10更新）&quot;</a></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> 感谢大佬的教程orz <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/conda/">conda</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
     }
+</style>
 
-    $(document).ready(function () {
-        deal_links();
-        deal_local_imgs();
-        deal_prism();
-    });
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
+    
 
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+
+    <script>
+        function color_tags() {
+            var colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
+            $('.tagCloud-tags a').each(function () {
+                try {
+                    tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+                    $(this).css("background", tagsColor); 
+                }
+                catch (err) { }
+            });
+        }
+
+        $(document).ready(function () {
+            color_tags()
+        });
+    </script>
+
+    <script src="/prism.js"></script>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
+        <br />本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        <span id="busuanzi_container_site_pv"> 总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
+        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+    
+	$.goup({
+	    trigger: 300,
+	    bottomOffset: 20,
+	    locationOffset: 20,
+	    title:  'Back to TOP',
+	    titleAsText: false
+	});
+</script>
+
+    </body>
+</html>

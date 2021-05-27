@@ -1,20 +1,1504 @@
-function deal_prism() {
-        $('pre').each(function () {
-            if ($(this).attr('style') == "color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4") {
-                try {
-                    $(this).attr('style',"white-space:pre-wrap;");
-                    $(this).removeClass();
-                    $(this).addClass("line-numbers language-bash");
-                } catch (err) { }
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='737. 数组替换 输入一个长度为 10 的整数数组 X[10]，将里面的非正整数全部替换为 1，输出替换完成后的数组。
+输入格式 输入包含 10 个整数，每个整数占一行。
+输出格式 输出新数组中的所有元素，每个元素占一行。
+输出格式为 X[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。
+数据范围 −100≤X[i]≤100 输入样例： 10 -9 0 -4 -10 0 -2 -7 7 4 输出样例： X[0] = 10 X[1] = 1 X[2] = 1 X[3] = 1 X[4] = 1 X[5] = 1 X[6] = 1
+X[7] = 1 X[8] = 7 X[9] = 4
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a[9]; for (int i = 0; i &amp;lt; 10; i&#43;&#43;) { cin &amp;gt;&amp;gt; a[i]; if (a[i] &amp;lt;= 0) a[i] = 1; printf(&amp;#34;X[%d] = %d\n&amp;#34;, i, a[i]); } return 0; } 738.'><title>1.4 数组练习</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/'>
+<link rel="stylesheet" href="/prism.css">
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='1.4 数组练习'>
+<meta property='og:description' content='737. 数组替换 输入一个长度为 10 的整数数组 X[10]，将里面的非正整数全部替换为 1，输出替换完成后的数组。
+输入格式 输入包含 10 个整数，每个整数占一行。
+输出格式 输出新数组中的所有元素，每个元素占一行。
+输出格式为 X[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。
+数据范围 −100≤X[i]≤100 输入样例： 10 -9 0 -4 -10 0 -2 -7 7 4 输出样例： X[0] = 10 X[1] = 1 X[2] = 1 X[3] = 1 X[4] = 1 X[5] = 1 X[6] = 1
+X[7] = 1 X[8] = 7 X[9] = 4
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a[9]; for (int i = 0; i &amp;lt; 10; i&#43;&#43;) { cin &amp;gt;&amp;gt; a[i]; if (a[i] &amp;lt;= 0) a[i] = 1; printf(&amp;#34;X[%d] = %d\n&amp;#34;, i, a[i]); } return 0; } 738.'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/1.4-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-05T19:59:49&#43;08:00'/><meta property='article:modified_time' content='2021-05-05T19:59:49&#43;08:00'/>
+<meta name="twitter:title" content="1.4 数组练习">
+<meta name="twitter:description" content="737. 数组替换 输入一个长度为 10 的整数数组 X[10]，将里面的非正整数全部替换为 1，输出替换完成后的数组。
+输入格式 输入包含 10 个整数，每个整数占一行。
+输出格式 输出新数组中的所有元素，每个元素占一行。
+输出格式为 X[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。
+数据范围 −100≤X[i]≤100 输入样例： 10 -9 0 -4 -10 0 -2 -7 7 4 输出样例： X[0] = 10 X[1] = 1 X[2] = 1 X[3] = 1 X[4] = 1 X[5] = 1 X[6] = 1
+X[7] = 1 X[8] = 7 X[9] = 4
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt; using namespace std; int main() { int a[9]; for (int i = 0; i &amp;lt; 10; i&#43;&#43;) { cin &amp;gt;&amp;gt; a[i]; if (a[i] &amp;lt;= 0) a[i] = 1; printf(&amp;#34;X[%d] = %d\n&amp;#34;, i, a[i]); } return 0; } 738.">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
             }
-        });
-        $.getScript("/prism.js");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" style="background-color: #2a9d8f; color: #fff;">
+                acwing语法基础课
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/1.4-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/">1.4 数组练习</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">May 05, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h2 id="737-数组替换">737. 数组替换</h2>
+<p>输入一个长度为 10 的整数数组 X[10]，将里面的非正整数全部替换为 1，输出替换完成后的数组。</p>
+<p>输入格式
+输入包含 10 个整数，每个整数占一行。</p>
+<p>输出格式
+输出新数组中的所有元素，每个元素占一行。</p>
+<p>输出格式为 X[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。</p>
+<p>数据范围
+−100≤X[i]≤100
+输入样例：
+10
+-9
+0
+-4
+-10
+0
+-2
+-7
+7
+4
+输出样例：
+X[0] = 10
+X[1] = 1
+X[2] = 1
+X[3] = 1
+X[4] = 1
+X[5] = 1
+X[6] = 1</p>
+<p>X[7] = 1
+X[8] = 7
+X[9] = 4</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;X[%d] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="738-数组填充">738. 数组填充</h2>
+<p>输入一个整数 V，输出一个长度为 10 的数组 N，数组中的第一个元素为 V，每个后续元素的值都为上一个元素的值的 2 倍。</p>
+<p>例如，如果输入整数为 1，则数组为：1,2,4,8…
+输入格式
+输入一个整数 V。</p>
+<p>输出格式
+输出数组中的所有元素，每个元素占一行。</p>
+<p>输出格式为 N[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。</p>
+<p>数据范围
+1≤V≤50
+输入样例：
+1
+输出样例：
+N[0] = 1
+N[1] = 2
+N[2] = 4
+N[3] = 8
+N[4] = 16
+N[5] = 32
+N[6] = 64
+N[7] = 128
+N[8] = 256
+N[9] = 512</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;N[0] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;N[%d] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="739-数组选择">739. 数组选择</h2>
+<p>输入一个长度为 100 的数组 A，请你按顺序输出其中不大于 10 的所有元素。</p>
+<p>输入格式
+输入 100 个数，每个数占一行，表示数组的所有元素的值。</p>
+<p>每个数可能是整数也可能是浮点数。</p>
+<p>输出格式
+按顺序输出数组中的所有不大于 10 的元素，每个元素占一行。</p>
+<p>输出格式为 A[i] = x，其中 i 为元素编号，x 为元素的值。</p>
+<p>注意，所有的 x 均保留一位小数。</p>
+<p>数据范围
+−100≤A[i]≤100
+输入样例：
+0
+-5
+63
+-8.5
+&hellip;
+输出样例：
+A[0] = 0.0
+A[1] = -5.0
+A[3] = -8.5
+&hellip;</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">99</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;A[%d] = %.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+    <span class="p">}</span>
+
+        
+<span class="p">}</span>
+</code></pre></div><h2 id="743-数组的行">743. 数组的行</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组中某一行的元素的平均值或元素的和。</p>
+<p>输入格式
+第一行输入整数 L，表示所求的具体行数（行数从 0 开始计数）。</p>
+<p>第二行包含一个大写字母，若为 S，则表示需要求出第 L 行的元素的和，若为 M，则表示需要求出第 L 行的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或元素的和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：
+7
+S
+8.3 -9.4 -5.6 9.9 2.2 3.2 6.9 7.7 -2.9 -6.3 3.9 -1.4
+-0.5 4.3 -0.3 2.3 0.7 -3.1 -6.3 5.7 -7.7 -3.7 9.7 3.8
+5.8 -9.1 3.5 7.0 2.5 -2.3 6.9 2.7 5.8 -4.6 -7.8 4.3
+-1.7 -8.9 -2.6 7.5 -9.6 6.4 -4.7 -8.0 0.6 6.7 -1.8 -0.4
+-9.8 8.9 -3.8 -2.1 5.8 -9.4 1.3 6.3 -1.3 -6.3 -6.6 8.8
+-6.3 -7.2 -6.3 -5.9 6.2 9.3 2.0 -4.3 2.7 3.6 -4.6 8.7
+3.8 7.4 8.7 -2.8 6.0 -9.2 1.9 3.1 -7.2 -6.0 9.7 -8.4
+-9.8 6.6 8.6 2.3 1.1 -2.9 6.6 -1.5 2.1 -5.1 6.4 -7.5
+-0.6 -1.6 9.5 -6.6 3.0 3.4 -7.5 -7.9 3.1 2.0 1.7 -7.6
+-9.0 9.4 6.6 -0.2 1.4 6.5 8.6 2.0 -1.3 0.2 4.0 -2.4
+-7.3 -6.3 -8.6 -7.5 8.5 1.4 -3.3 7.1 0.8 3.3 3.0 0.1
+3.3 9.0 1.7 5.2 -3.7 8.9 3.8 -7.4 -2.8 0.6 -2.4 7.1
+输出样例：</p>
+<p>6.9</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">l</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">11</span><span class="p">][</span><span class="mi">11</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">l</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">/</span><span class="mi">12</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div><h2 id="745-数组的上半部分">745. 数组的上半部分</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组的右上半部分元素的平均值或元素的和。</p>
+<p>右上半部分是指主对角线上方的部分，如下图所示，黄色部分为对角线，绿色部分为右上半部分：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/05/03/19_799a14f86d-UOJ_1183.png" alt="UOJ_1183.png"  /></p>
+<p>输入格式
+第一行输入一个大写字母，若为 S，则表示需要求出右上半部分的元素的和，若为 M，则表示需要求出右上半部分的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或元素的和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：</p>
+<p>M
+-6.5 8.2 0.7 9.0 0.8 -4.3 0.9 -0.0 -7.9 7.1 -1.6 4.6
+-9.4 -9.0 1.5 -9.0 -5.1 -0.5 -2.8 -9.1 8.0 -6.9 -5.5 -6.6
+-6.8 0.3 3.8 6.1 -9.9 -9.3 8.5 8.6 5.0 6.9 -3.6 -3.0
+-0.8 -1.6 -7.3 -6.7 4.4 -9.1 -9.0 1.6 0.3 -6.0 6.0 -0.8
+-0.8 -6.0 -4.9 -3.9 6.4 6.2 -4.2 -0.9 7.9 1.6 -8.2 -9.2
+7.8 -5.8 -5.8 -5.8 7.2 0.5 -7.9 1.2 -6.8 -9.1 0.3 -1.4
+4.3 -7.2 3.5 -6.4 -9.1 -6.0 3.5 -5.1 -5.6 -6.9 -9.1 -2.1
+-7.6 -7.1 0.7 -1.7 5.0 -9.0 1.4 -6.2 7.6 4.8 -7.5 4.0
+-0.2 0.3 -4.2 8.4 0.7 -6.4 -2.7 3.5 -0.9 3.7 0.9 -2.7
+7.1 0.1 8.4 -5.1 -7.9 -0.5 -5.3 -5.7 -4.6 9.6 -8.3 7.0
+9.6 -9.8 3.3 -9.9 -6.8 6.7 3.1 1.2 -9.5 -4.3 -1.7 -9.7
+1.8 5.0 8.3 -0.7 -0.9 3.2 2.5 0.5 7.3 8.3 0.3 0.9
+输出样例：
+-1.2</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span>  <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">)</span> <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">/</span><span class="mi">66</span><span class="p">);</span>
+    
+<span class="p">}</span>
+</code></pre></div><p>定义数组大小为100，定义为11的时候报错segment fault</p>
+<h2 id="751-数组的左方区域">751. 数组的左方区域</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组的左方区域元素的平均值或元素的和。</p>
+<p>数组的两条对角线将数组分为了上下左右四个部分，如下图所示，黄色部分为对角线，绿色部分为左方区域：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/05/03/19_4750e19a6d-UOJ_1189.png" alt="UOJ_1189.png"  /></p>
+<p>输入格式
+第一行输入一个大写字母，若为 S，则表示需要求出左方区域的元素的和，若为 M，则表示需要求出左方区域的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：</p>
+<p>S
+4.7 -3.3 -2.3 4.5 -7.0 8.7 -4.1 -3.0 -7.6 6.3 -6.6 -4.7
+-7.2 9.3 -7.6 9.1 9.2 9.0 5.5 -7.5 -9.3 -1.6 -3.5 -4.2
+0.5 -7.5 -8.3 -9.0 -6.4 3.8 0.1 -3.5 7.9 2.1 2.4 -6.2
+7.0 5.7 -9.0 -5.8 1.6 2.6 -9.2 -6.2 4.6 8.2 -8.3 -1.4
+3.8 -9.9 6.2 -2.5 -3.5 9.4 1.6 7.0 3.3 -0.5 6.7 6.0
+1.6 -3.8 5.0 8.8 4.2 7.7 0.7 7.4 7.9 -5.9 4.4 3.3
+3.7 6.2 6.7 -1.4 6.1 -6.0 8.5 9.1 5.7 -4.2 5.9 -3.5
+5.0 0.3 2.2 -3.6 6.3 -10.0 9.5 -4.7 2.7 8.1 7.5 -8.4
+-5.7 -0.3 -3.7 -3.3 7.7 9.3 -1.3 1.0 0.3 1.9 9.9 9.0
+-7.4 1.3 -9.6 -3.6 2.2 3.4 -3.6 3.5 8.3 0.5 9.7 -6.8
+1.0 -2.7 -1.5 5.4 -6.5 -3.7 5.6 8.0 -9.9 0.1 2.2 7.6
+5.6 4.3 1.5 -0.8 5.8 -5.1 5.5 6.2 -5.8 8.8 -0.6 -2.3
+输出样例：
+13.3</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span>  <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span> <span class="o">&amp;&amp;</span> <span class="mi">11</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">n</span> <span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">s</span><span class="o">/</span><span class="n">n</span><span class="p">);</span>
+    
+<span class="p">}</span>
+</code></pre></div><h2 id="753-平方矩阵">753. 平方矩阵？</h2>
+<p>输入整数 N，输出一个 N 阶的回字形二维数组。</p>
+<p>数组的最外层为 1，次外层为 2，以此类推。</p>
+<p>输入格式
+输入包含多行，每行包含一个整数 N。</p>
+<p>当输入行为 N=0 时，表示输入结束，且该行无需作任何处理。</p>
+<p>输出格式
+对于每个输入整数 N，输出一个满足要求的 N 阶二维数组。</p>
+<p>每个数组占 N 行，每行包含 N 个用空格隔开的整数。</p>
+<p>每个数组输出完毕后，输出一个空行。</p>
+<p>数据范围
+0≤N≤100
+输入样例：
+1
+2
+3
+4
+5
+0
+输出样例：</p>
+<p>1</p>
+<p>1 1
+1 1</p>
+<p>1 1 1
+1 2 1
+1 1 1</p>
+<p>1 1 1 1
+1 2 2 1
+1 2 2 1
+1 1 1 1</p>
+<p>1 1 1 1 1
+1 2 2 2 1
+1 2 3 2 1
+1 2 2 2 1
+1 1 1 1 1</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">200</span><span class="p">][</span><span class="mi">200</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">p</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">p</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">p</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>简化</p>
+<p>问题转化为到上下左右四条边的距离的最小值为i</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+	<span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    	<span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        	<span class="p">{</span>
+            	<span class="kt">int</span> <span class="n">up</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">down</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">min</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">up</span><span class="p">,</span> <span class="n">down</span><span class="p">),</span> <span class="n">min</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+        	<span class="p">}</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    	<span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="740-数组变化">740. 数组变化</h2>
+<p>输入一个长度为 20 的整数数组 N，将整个数组翻转，使得第一个元素成为倒数第一个元素，第二个元素成为倒数第二个元素，…，倒数第二个元素成为第二个元素，倒数第一个元素成为第一个元素。</p>
+<p>输出翻转后的数组。</p>
+<p>输入格式
+输入包含 20 个整数，每个数占一行。</p>
+<p>输出格式
+输出新数组中的所有元素，每个元素占一行。</p>
+<p>输出格式为 N[i] = x，其中 i 为元素编号（从 0 开始），x 为元素的值。</p>
+<p>数据范围
+−100≤N[i]≤100
+输入样例：
+0
+-5
+&hellip;
+63
+23
+输出样例：
+N[0] = 23
+N[1] = 63
+&hellip;
+N[18] = -5
+N[19] = 0</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">20</span> <span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;N[%d] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="741-斐波那契数列">741. 斐波那契数列</h2>
+<p>输入整数 N，求出斐波那契数列中的第 N 项是多少。</p>
+<p>斐波那契数列的第 0 项是 0，第 1 项是 1，从第 2 项开始的每一项都等于前两项之和。</p>
+<p>输入格式
+第一行包含整数 T，表示共有 T 个测试数据。</p>
+<p>接下来 T 行，每行包含一个整数 N。</p>
+<p>输出格式
+每个测试数据输出一个结果，每个结果占一行，</p>
+<p>结果格式为 Fib(N) = x，其中 N 为项数，x 为第 N 项的值。</p>
+<p>数据范围
+0≤N≤60
+输入样例：
+3
+0
+4
+2
+输出样例：
+Fib(0) = 0
+Fib(4) = 3
+Fib(2) = 1</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">f</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">t</span> <span class="o">--</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Fib(%d) = %lld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>小心整数溢出</p>
+<h2 id="742-最小数和它的位置">742. 最小数和它的位置</h2>
+<p>输入一个整数 N 和一个长度为 N 的整数数组 X。</p>
+<p>请你找到数组中最小的元素，并输出它的值和下标。</p>
+<p>注意，如果有多个最小值，则返回下标最小的那个。</p>
+<p>输入格式
+第一行包含整数 N。</p>
+<p>第二行包含 N 个用空格隔开的整数 X[i]。</p>
+<p>输出格式
+第一行输出 Minimum value: x，其中 x 为数组元素最小值。</p>
+<p>第二行输出 Position: y，其中 y 为最小值元素的下标（下标从 0 开始计数）。</p>
+<p>数据范围
+1&lt;N≤1000,
+−1000≤X[i]≤1000
+输入样例：
+10
+1 2 3 4 -5 6 7 8 9 10
+输出样例：
+Minimum value: -5
+Position: 4</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">2000</span><span class="p">];</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">mv</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">--</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">mv</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mv</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Minimum value: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">mv</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Position: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="744-数组中的列">744. 数组中的列</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组中某一列的元素的平均值或元素的和。</p>
+<p>输入格式
+第一行输入整数 C，表示所求的具体列数（列数从 0 开始计数）。</p>
+<p>第二行包含一个大写字母，若为 S，则表示需要求出第 C 列的元素的和，若为 M，则表示需要求出第 C 列的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或元素的和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：
+1
+S
+-9.0 -2.4 -3.3 2.4 -9.7 -5.7 -5.3 6.5 -7.3 4.8 -4.1 3.9
+1.6 -0.9 9.2 -7.5 1.0 -8.0 -4.1 -4.0 -0.1 -9.0 8.4 4.9
+-8.2 -0.3 -5.1 -5.6 6.6 0.9 -1.0 -5.4 -2.1 -4.5 -8.7 -1.1
+-4.2 6.5 -8.2 3.6 -4.6 -9.2 -1.7 6.9 -9.0 -9.8 7.7 -3.4
+-8.0 5.7 4.8 0.3 -1.4 2.8 -6.3 9.3 0.3 6.3 1.5 -1.7
+1.7 -0.0 9.7 -6.6 1.3 -2.0 -6.1 2.0 -7.8 -4.7 -9.1 6.0
+-8.2 -1.7 9.4 -1.2 -1.0 -9.0 -7.0 -6.9 -1.6 -6.8 -6.7 1.8
+4.8 1.3 -6.1 -0.6 0.5 -2.9 -6.8 1.5 5.8 3.2 0.0 7.7
+6.3 1.1 4.7 7.3 7.6 5.6 0.9 9.2 1.3 -4.9 7.8 -4.9
+0.5 3.5 -5.0 9.0 8.8 8.7 7.5 7.5 -9.6 -6.9 -1.6 6.9
+7.8 5.6 -6.4 3.6 2.3 0.5 4.1 6.1 8.6 -9.3 2.2 -0.4
+9.9 0.9 6.4 -2.8 -4.2 -7.6 0.6 9.6 3.0 0.9 5.1 4.5
+输出样例：
+19.3</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="o">/</span><span class="mi">12</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="748-数组的右下半部分">748. 数组的右下半部分</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组的右下半部分元素的平均值或元素的和。</p>
+<p>右下半部分是指次对角线下方的部分，如下图所示，黄色部分为对角线，绿色部分为右下半部分：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/05/03/19_fde98b8e6d-UOJ_1186.png" alt="UOJ_1186.png"  /></p>
+<p>输入格式
+第一行输入一个大写字母，若为 S，则表示需要求出右下半部分的元素的和，若为 M，则表示需要求出右下半部分的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：</p>
+<p>S
+9.7 -4.9 6.1 -6.1 -9.6 1.0 -3.2 0.6 3.2 -9.8 4.9 1.2
+-2.8 -5.3 2.8 -1.9 -5.4 7.5 -2.0 5.7 2.3 5.3 -7.5 8.9
+6.0 4.3 3.8 -6.7 8.1 -0.5 7.8 -2.2 -1.0 4.0 -4.9 -9.4
+5.4 3.7 -6.5 -3.9 -3.3 4.1 -2.5 -4.7 8.2 1.4 1.8 4.7
+2.4 9.0 -4.3 9.6 8.6 -6.1 -7.4 8.6 5.6 0.5 -0.4 5.2
+-5.2 2.9 -5.6 4.0 -0.2 3.8 -4.1 -1.6 -3.8 -3.1 -1.1 3.3
+-9.4 -1.4 0.6 6.5 -4.3 -8.3 6.1 2.9 -5.2 2.5 9.8 -7.7
+-2.9 -3.6 7.9 -5.8 -4.7 8.2 -6.2 1.0 7.4 -1.0 -4.4 -4.5
+0.1 9.5 4.9 1.5 0.8 -8.2 0.4 9.5 -0.8 -0.9 9.7 -2.1
+0.1 -7.6 7.8 -6.9 5.5 1.4 4.0 7.8 1.0 -1.2 9.7 -1.9
+-4.6 2.3 -5.5 8.2 -4.8 -3.7 5.4 0.2 -2.4 -0.8 7.4 0.0
+-0.1 8.2 0.8 -3.5 -7.6 -0.5 5.6 8.4 -8.6 0.9 9.0 -7.5
+输出样例：
+53.0</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="mi">11</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">n</span> <span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="o">/</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="746-数组的左下半部分">746. 数组的左下半部分</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组的左下半部分元素的平均值或元素的和。</p>
+<p>左下半部分是指主对角线下方的部分，如下图所示，黄色部分为对角线，绿色部分为左下半部分：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/05/03/19_5f9eed246d-UOJ_1184.png" alt="UOJ_1184.png"  /></p>
+<p>输入格式
+第一行输入一个大写字母，若为 S，则表示需要求出左下半部分的元素的和，若为 M，则表示需要求出左下半部分的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：</p>
+<p>S
+8.7 5.6 -2.0 -2.1 -7.9 -9.0 -6.4 1.7 2.9 -2.3 8.4 4.0
+-7.3 -2.1 0.6 -9.8 9.6 5.6 -1.3 -3.8 -9.3 -8.0 -2.0 2.9
+-4.9 -0.5 -5.5 -0.2 -4.4 -6.1 7.6 6.9 -8.0 6.8 9.1 -8.5
+-1.3 5.5 4.6 6.6 8.1 7.9 -9.3 9.6 4.6 0.9 -3.5 -4.3
+-7.0 -1.2 7.0 7.1 -5.7 7.8 -2.3 4.3 0.2 -0.4 -6.6 7.6
+-3.2 -5.4 -4.7 4.7 3.6 8.8 5.1 -3.1 -2.9 2.8 -4.3 -1.4
+-1.8 -3.3 -5.6 1.8 8.3 -0.5 2.0 -3.9 -1.0 -8.6 8.0 -3.3
+-2.5 -9.8 9.2 -0.8 -9.4 -0.5 1.6 1.5 3.4 -0.1 7.0 -6.2
+-1.0 4.9 2.2 -8.7 -0.9 4.8 2.3 2.0 -3.2 -7.5 -4.0 9.9
+-1.1 -2.9 8.7 3.6 7.4 7.8 10.0 -9.0 1.6 8.3 6.3 -5.8
+-9.9 0.6 2.0 -3.8 -6.3 0.6 7.3 3.8 -7.1 9.5 2.2 1.3
+-2.8 -9.1 7.1 -0.2 0.6 -6.5 1.1 -0.1 -3.6 4.0 -5.4 1.1
+输出样例：
+-2.8</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">n</span> <span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="o">/</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="750-数组的下方区域">750. 数组的下方区域</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组的下方区域元素的平均值或元素的和。</p>
+<p>数组的两条对角线将数组分为了上下左右四个部分，如下图所示，黄色部分为对角线，绿色部分为下方区域：</p>
+<p>UOJ_1188.png</p>
+<p>输入格式
+第一行输入一个大写字母，若为 S，则表示需要求出下方区域的元素的和，若为 M，则表示需要求出下方区域的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：</p>
+<p>S
+-6.0 0.7 -8.4 -5.7 -4.1 7.6 9.5 -9.7 4.1 0.6 -6.5 -4.9
+6.6 4.9 -3.1 5.3 0.3 -4.5 3.9 -1.5 6.6 7.0 5.1 2.5
+-8.5 1.8 -2.7 0.1 -4.9 -7.2 4.3 6.0 -1.4 2.7 -3.0 2.0
+4.8 -7.0 -1.3 0.8 1.0 4.5 -1.1 -2.9 -3.9 -3.9 -8.9 5.8
+-2.1 -9.6 5.1 0.2 1.0 -1.7 6.4 4.1 2.8 -6.9 2.4 9.3
+-6.0 -9.1 -7.0 -7.0 7.8 5.1 6.9 -7.6 0.4 -7.2 5.5 6.0
+-1.9 5.5 1.9 -8.5 -5.3 2.3 -9.3 2.0 -0.2 1.2 5.6 -1.8
+8.2 2.3 3.5 1.4 4.0 -5.1 -6.9 -2.8 1.7 -7.0 7.8 1.8
+-6.0 -4.1 -4.6 -9.4 -4.9 -4.1 4.2 6.3 -2.8 8.7 8.1 -0.9
+8.8 -6.5 -4.3 6.1 -6.2 -3.9 -7.0 7.3 5.0 -0.9 -0.0 5.6
+-2.4 1.4 8.5 -2.2 0.9 5.3 3.6 8.8 -8.1 3.0 -3.1 6.5
+-3.8 -6.4 2.3 4.2 -9.8 -0.3 -9.9 -7.4 3.5 1.5 -0.2 7.0
+输出样例：
+-11.9</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span> <span class="o">&amp;&amp;</span> <span class="mi">11</span><span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">n</span> <span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="752-数组的右方区域">752. 数组的右方区域</h2>
+<p>输入一个二维数组 M[12][12]，根据输入的要求，求出二维数组的右方区域元素的平均值或元素的和。</p>
+<p>数组的两条对角线将数组分为了上下左右四个部分，如下图所示，黄色部分为对角线，绿色部分为右方区域：</p>
+<p>UOJ_1190.png</p>
+<p>输入格式
+第一行输入一个大写字母，若为 S，则表示需要求出右方区域的元素的和，若为 M，则表示需要求出右方区域的元素的平均值。</p>
+<p>接下来 12 行，每行包含 12 个用空格隔开的浮点数，表示这个二维数组，其中第 i+1 行的第 j+1 个数表示数组元素 M[i][j]。</p>
+<p>输出格式
+输出一个数，表示所求的平均数或和的值，保留一位小数。</p>
+<p>数据范围
+−100.0≤M[i][j]≤100.0
+输入样例：</p>
+<p>S
+2.4 7.8 9.4 -5.6 6.9 -4.9 4.8 0.8 3.6 1.7 -1.4 9.7
+-6.8 -3.7 -2.0 -4.9 -4.5 -5.3 6.1 7.5 -4.3 5.9 -9.5 9.7
+-6.5 -0.4 1.6 3.7 -4.4 -3.3 1.9 7.7 -1.4 4.5 7.4 -3.0
+-1.2 0.4 9.8 9.8 -4.3 -1.3 -1.6 0.5 2.8 -4.0 8.5 3.9
+0.2 -2.0 -6.4 -9.8 3.7 -2.0 1.7 -3.6 -3.4 2.4 -1.2 -3.9
+-8.3 5.8 -1.0 -4.4 1.0 -2.4 2.8 -4.6 2.1 8.7 -6.8 -8.3
+6.3 -6.8 -7.0 9.3 -7.7 -1.7 8.2 -6.5 -1.8 6.7 8.2 4.4
+0.4 8.6 -1.2 8.6 -4.6 1.8 9.6 1.6 2.0 -1.0 3.9 -9.2
+7.5 -3.1 6.2 -4.5 -3.0 2.5 -7.7 2.9 0.3 3.3 -2.7 3.4
+-5.0 3.0 -0.0 4.3 9.5 -0.0 -9.9 -8.6 -0.9 -5.5 7.7 6.5
+4.9 -9.6 -2.9 8.5 2.0 -9.9 -4.9 -1.5 -2.4 -7.6 1.7 8.5
+-6.4 6.8 -3.7 -4.7 0.2 5.8 -5.4 0.6 7.0 -4.2 -7.5 -2.4
+输出样例：
+40.9</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="o">&amp;&amp;</span> <span class="mi">11</span><span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">n</span> <span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;S&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.1lf&#34;</span><span class="p">,</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="754-平方矩阵">754. 平方矩阵Ⅱ</h2>
+<p>输入整数 N，输出一个 N 阶的二维数组。</p>
+<p>数组的形式参照样例。</p>
+<p>输入格式
+输入包含多行，每行包含一个整数 N。</p>
+<p>当输入行为 N=0 时，表示输入结束，且该行无需作任何处理。</p>
+<p>输出格式
+对于每个输入整数 N，输出一个满足要求的 N 阶二维数组。</p>
+<p>每个数组占 N 行，每行包含 N 个用空格隔开的整数。</p>
+<p>每个数组输出完毕后，输出一个空行。</p>
+<p>数据范围
+0≤N≤100
+输入样例：
+1
+2
+3
+4
+5
+0
+输出样例：</p>
+<p>1</p>
+<p>1 2
+2 1</p>
+<p>1 2 3
+2 1 2
+3 2 1</p>
+<p>1 2 3 4
+2 1 2 3
+3 2 1 2
+4 3 2 1</p>
+<p>1 2 3 4 5
+2 1 2 3 4
+3 2 1 2 3
+4 3 2 1 2
+5 4 3 2 1</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">200</span><span class="p">][</span><span class="mi">200</span><span class="p">],</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">cx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span> <span class="o">++</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">cx</span> <span class="o">==</span> <span class="n">j</span> <span class="o">-</span> <span class="n">cy</span> <span class="o">||</span> <span class="n">k</span> <span class="o">-</span> <span class="n">cy</span> <span class="o">==</span> <span class="n">j</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span> <span class="o">++</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>规律是a [i] [j] = |i - j| + 1</p>
+<h2 id="平方矩阵">平方矩阵Ⅲ</h2>
+<p>输入整数 N，输出一个 N 阶的二维数组 M。</p>
+<p>这个 N 阶二维数组满足 M[i][j]=2i+j。</p>
+<p>具体形式可参考样例。</p>
+<p>输入格式
+输入包含多行，每行包含一个整数 N。</p>
+<p>当输入行为 N=0 时，表示输入结束，且该行无需作任何处理。</p>
+<p>输出格式
+对于每个输入整数 N，输出一个满足要求的 N 阶二维数组。</p>
+<p>每个数组占 N 行，每行包含 N 个用空格隔开的整数。</p>
+<p>每个数组输出完毕后，输出一个空行。</p>
+<p>数据范围
+0≤N≤15
+输入样例：</p>
+<p>1
+2
+3
+4
+5
+0
+输出样例：
+1</p>
+<p>1 2
+2 4</p>
+<p>1 2 4
+2 4 8
+4 8 16</p>
+<p>1 2 4 8
+2 4 8 16
+4 8 16 32
+8 16 32 64</p>
+<p>1 2 4 8 16
+2 4 8 16 32
+4 8 16 32 64
+8 16 32 64 128
+16 32 64 128 256</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="mi">20</span><span class="p">][</span><span class="mi">20</span><span class="p">];</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">);</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="756-蛇形矩阵">756. 蛇形矩阵?</h2>
+<p>输入两个整数 n 和 m，输出一个 n 行 m 列的矩阵，将数字 1 到 n×m 按照回字蛇形填充至矩阵中。</p>
+<p>具体矩阵形式可参考样例。</p>
+<p>输入格式
+输入共一行，包含两个整数 n 和 m。</p>
+<p>输出格式
+输出满足要求的矩阵。</p>
+<p>矩阵占 n 行，每行包含 m 个空格隔开的整数。</p>
+<p>数据范围
+1≤n,m≤100
+输入样例：
+3 3
+输出样例：
+1 2 3
+8 9 4
+7 6 5</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">200</span><span class="p">][</span><span class="mi">200</span><span class="p">],</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">min</span><span class="p">((</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">&amp;&amp;</span>  <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">,</span> <span class="n">x</span> <span class="o">++</span><span class="p">)</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">++</span><span class="p">,</span> <span class="n">x</span> <span class="o">++</span><span class="p">)</span> <span class="n">s</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">c</span> <span class="o">--</span><span class="p">,</span> <span class="n">x</span> <span class="o">++</span><span class="p">)</span>   <span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span><span class="n">x</span> <span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">d</span> <span class="o">--</span><span class="p">,</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span>    <span class="n">s</span><span class="p">[</span><span class="n">d</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="n">i</span> <span class="o">&amp;&amp;</span>  <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">,</span> <span class="n">x</span> <span class="o">++</span><span class="p">)</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">&amp;&amp;</span>  <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">++</span><span class="p">,</span> <span class="n">x</span> <span class="o">++</span><span class="p">)</span> <span class="n">s</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="n">i</span> <span class="o">&amp;&amp;</span>  <span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">k</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>简化</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210508111423242.png" alt="image-20210508111423242"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210508114757842.png" alt="image-20210508114757842"  /></p>
+<p><strong>偏移量</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">res</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">dx</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">},</span> <span class="n">dy</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">b</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">[</span><span class="n">d</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">||</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">m</span> <span class="o">||</span> <span class="n">res</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span><span class="p">;</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">b</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">[</span><span class="n">d</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/1.8-stl/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.8 STL</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.8-stl%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.8 STL练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.7 类结构体指针引用练习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.7-%E7%B1%BB%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E5%BC%95%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.7 类结构体指针引用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/1.6-%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.6 函数练习</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
     }
+</style>
 
-    $(document).ready(function () {
-        deal_links();
-        deal_local_imgs();
-        deal_prism();
-    });
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
+    
 
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+
+    <script>
+        function color_tags() {
+            var colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
+            $('.tagCloud-tags a').each(function () {
+                try {
+                    tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+                    $(this).css("background", tagsColor); 
+                }
+                catch (err) { }
+            });
+        }
+
+        $(document).ready(function () {
+            color_tags()
+        });
+    </script>
+
+    <script src="/prism.js"></script>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
+        <br />本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        <span id="busuanzi_container_site_pv"> 总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
+        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+    
+	$.goup({
+	    trigger: 300,
+	    bottomOffset: 20,
+	    locationOffset: 20,
+	    title:  'Back to TOP',
+	    titleAsText: false
+	});
+</script>
+
+    </body>
+</html>
