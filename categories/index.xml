@@ -6,11 +6,20 @@
     <description>Recent content in Categories on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 May 2021 20:15:33 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Jun 2021 23:57:10 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django</title>
+      <link>https://zzzqiii.github.io/categories/django/</link>
+      <pubDate>Fri, 04 Jun 2021 23:57:10 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/categories/django/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>acwing算法基础课</title>
       <link>https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/</link>
-      <pubDate>Sun, 23 May 2021 20:15:33 +0800</pubDate>
+      <pubDate>Sun, 30 May 2021 00:24:48 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/</guid>
       <description></description>
@@ -22,6 +31,15 @@
       <pubDate>Sat, 22 May 2021 17:10:19 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/categories/bioinfo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>try</title>
+      <link>https://zzzqiii.github.io/categories/try/</link>
+      <pubDate>Sat, 22 May 2021 12:14:56 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/categories/try/</guid>
       <description></description>
     </item>
     
@@ -40,15 +58,6 @@
       <pubDate>Mon, 17 May 2021 23:07:46 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/categories/acwing%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>try</title>
-      <link>https://zzzqiii.github.io/categories/try/</link>
-      <pubDate>Wed, 12 May 2021 13:45:54 +0800</pubDate>
-      
-      <guid>https://zzzqiii.github.io/categories/try/</guid>
       <description></description>
     </item>
     

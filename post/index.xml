@@ -6,7 +6,39 @@
     <description>Recent content in Posts on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 May 2021 20:15:33 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Jun 2021 23:57:10 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django2-hello world</title>
+      <link>https://zzzqiii.github.io/p/django2-hello-world/</link>
+      <pubDate>Fri, 04 Jun 2021 23:57:10 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/django2-hello-world/</guid>
+      <description>hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
+wsgi部署文件
+客户端打开网址发送请求给服务器，请求打开网址，urls规定网址是否有效，有效的话进一步处理请求。
+客户端发送请求，服务端处理请求，返回给客户端。
+在mysite根目录下
+python manage.py migrate	#同步数据库 python manage.py runserver	#启动本地服务 python manage.py createsuperuser #创造超级管理员 python manage.py help 关掉本地服务器CTRL C
+urls 规定有效访问路径
+from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.</description>
+    </item>
+    
+    <item>
+      <title>基础算法一</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%80/</link>
+      <pubDate>Sun, 30 May 2021 00:24:48 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%80/</guid>
+      <description>快速排序 785. 快速排序 给定你一个长度为 n 的整数数列。
+请你使用快速排序对这个数列按照从小到大进行排序。
+并将排好序的数列按顺序输出。
+输入格式 输入共两行，第一行包含整数 n。
+第二行包含 n 个整数（所有整数均在 1∼109 范围内），表示整个数列。
+输出格式 输出共一行，包含 n 个整数，表示排好序的数列。
+数据范围 1≤n≤100000 输入样例： 5 3 1 2 4 5 输出样例： 1 2 3 4 5
+#include &amp;lt;iostream&amp;gt;using namespace std; const int N = 1e6 + 10; int n; int q[N]; void quick_sort(int q[], int l, int r) { if (l &amp;gt;= r) return; int x = q[l], i = l - 1, j = r + 1; while (i &amp;lt; j) { do i ++; while (q[i] &amp;lt; x); do j --; while (q[j] &amp;gt; x); if (i &amp;lt; j) swap(q[i], q[j]); } quick_sort(q, l, j); quick_sort(q, j + 1, r); } int main() { scanf(&amp;#34;%d&amp;#34;, &amp;amp;n); for (int i = 0; i &amp;lt; n; i ++) scanf(&amp;#34;%d&amp;#34;, &amp;amp;q[i]); quick_sort(q, 0, n - 1); for (int i = 0; i &amp;lt; n; i ++) printf(&amp;#34;%d&amp;#34;, q[i]); return 0; } 786.</description>
+    </item>
+    
     <item>
       <title>基础算法</title>
       <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</link>
@@ -35,6 +67,21 @@
 接下来是把pasa的镜像pull下来。命令很简单，docker pull pasapipeline/pasapipeline, 但是呢，由于我是一个新得不能再新的新手，我甚至不知道命令输在那里好吧。摸索了一番发现直接命令行工具里输入就好了，power shell或者cmd或者git bash都可以。
 pull完了之后打开docker的toolbox可以在images一栏看到pasa，然后点右边的run就好了，最好设置名字，不然会出现随机的，后面不太方便。pasa的文档写的很简单，如下：
 结合了这个帖子https://www.jianshu.com/p/8e46e3291872，理解了一下这些命令，但是直觉告诉我事情不会这么简单，果然第一步就报错了docker run --rm -it -v /tmp:/tmp -v /raid1/data:/raid1/data pasapipeline/pasapipeline:latest就是这一步，-v应该是把本地的文件挂载上去，但是呢，文件夹是有了，可是里面根本没有东西，我又把文件打包成zip，有是有，但是根本就解压不了，就是个空壳。可能别人是在Linux系统上操作的吧。又看到了一个帖子说要把启用或关闭windows功能的Hyper-V勾上，可是勾上之后让我关机重启了一下，之后并没有任何变化。于是我又放弃了，直接用docker cp把文件传上去，docker cp D:/temp/09_ogs/ pasa:/usr/local/src, pasa是前面创建容器的时候取的名字。到这里，我以为快成功了，没想到接下来又报错。从box里进去pasa的/bin/sh，然后运行pasa，很快啊，一跑上去就报错了。然后我去搜如何进入已经启动的容器，说是用docker exec -it pasa /bin/bash个命令，centos换成容器的名字，我换成了我的容器的名字，很快啊，又报错，笑死，根本进不去。然后我又研究了一下这个命令，发现从toolbox里进去的cmd上面有一行字，写的是…… /bin/sh，我又有灵感了，把前面那条命令的bash换成sh，好了，现在可以从powershell里进去了，但是还是原来那个环境，啥也没变。然后又看到一个帖子，现在想想简直是救命恩贴，说是先docker ps查看安装的容器，然后我发现出来的是</description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://zzzqiii.github.io/p/docker/</link>
+      <pubDate>Sat, 22 May 2021 12:14:56 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/docker/</guid>
+      <description>basic docker version 查看docker版本
+Run the command docker ps and count the number of running containers.
+Run the command docker images and count the number of available images.
+进入镜像：docker run redis
+退出：ctrl + C 或者docker stop &amp;lt;container-id&amp;gt;
+To stop all the containers at once, run the command: docker stop $(docker ps -aq) To remove all the stopped containers at once, run the command: docker rm $(docker ps -aq)
+Run a container with the nginx:1.</description>
     </item>
     
     <item>
