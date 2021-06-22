@@ -15,18 +15,18 @@
         <description>&lt;h2 id=&#34;hello-world&#34;&gt;hello world&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;django-admin startproject mysite
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;uls 整个网站的路由控制，只能访问规定的网址。&lt;/p&gt;
-&lt;p&gt;wsgi部署文件&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210605000020532.png&#34; alt=&#34;image-20210605000020532&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;客户端打开网址发送请求给服务器，请求打开网址，urls规定网址是否有效，有效的话进一步处理请求。&lt;/p&gt;
 &lt;p&gt;客户端发送请求，服务端处理请求，返回给客户端。&lt;/p&gt;
-&lt;p&gt;在mysite根目录下&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;python manage.py migrate	#同步数据库
-python manage.py runserver	#启动本地服务
-python manage.py createsuperuser #创造超级管理员
-python manage.py help
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关掉本地服务器CTRL C&lt;/p&gt;
-&lt;h3 id=&#34;urls&#34;&gt;urls&lt;/h3&gt;
-&lt;p&gt;规定有效访问路径&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在D:\django\test\mysite\mysite目录下新建文件views.py&lt;/p&gt;
+&lt;p&gt;新建方法返回显示hello world的请求&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from django.http import HttpResponse
+
+def index(request):
+	return HttpResponse(&amp;quot;Hello, world&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;编辑urls.py文件，规定有效访问路径&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;from django.contrib import admin
 from django.urls import path
 from . import views
@@ -35,6 +35,7 @@ urlpatterns = [
     path(&#39;admin/&#39;, admin.site.urls),
     path(&#39;&#39;, views.index),
 ]
+
 
 from django.contrib import admin
 from django.urls import re_path
@@ -47,6 +48,13 @@ urlpatterns = [
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;path没有正则表达式&lt;/p&gt;
 &lt;p&gt;re_path正则表达式&lt;/p&gt;
 &lt;p&gt;效果相同，控制访问首页的行为。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在mysite根目录下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python manage.py migrate	#同步数据库
+python manage.py runserver	#启动本地服务
+python manage.py createsuperuser #创造超级管理员
+python manage.py help
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关掉本地服务器CTRL C&lt;/p&gt;
 &lt;p&gt;127.0.0.1:8000/admin/	管理员地址&lt;/p&gt;
 &lt;p&gt;name zzq&lt;/p&gt;
 &lt;p&gt;password 123456txt&lt;/p&gt;
