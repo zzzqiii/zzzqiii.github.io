@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='其实不是在gff文件中提取，要根据这么一个表格的信息提取序列，和gff文件差不多。
+Feature ID	Type	Contig	Start	Stop	Frame	Strand	Length (bp)	Function	Subsystem fig|6666666.796949.rna.1	RNA	1	25785	25858	3	&#43;	74	tRNA-Thr-CGT	- none - fig|6666666.796949.rna.5	RNA	1	58770	58697	-3	-	74	tRNA-Trp-CCA	- none - 可以看到这里有一条负链，stop的数字小于end的数字。按照我原来的想法，就是把58697到58770的序列提出了再反转一下就好了，试了一下发现不对。
+然后去搜了一下DNA正负链的知识：
+ 正负链的定义： DNA是双链的，对于一个参考基因组，一条链被指定为forward链，那么另一条就是reverse链。这种定义是十分硬核的，并没有什么生物学意义。如果非要说有什么意义，那么可能就是为了世界各地的命名规则统一，使得研究更为方便。英文中通常将正负链写为forward/reverse strand，有时也会使用plus/minus strand表示
+基因的位置： 一个基因位于正链或者反链的其中一条链上。我们知道，一个基因既有编码链信息（或者说是sense strand），也有模板链（也可以说是nonsense strand）。大概50%的基因其模板链位于正链(forward strand)上，而另外50%的基因其模板链位于反链（reverse strand）上。因此，我们可以知道正链上既可以有一个基因的正义链信息，也可以有另一个基因的反义链信息。当然，一个基因的正义链信息位于正链上，那么它的反义链信息只能位于负链上。
+DNA的方向： 我们都知道DNA的方向是5&#39;-&amp;gt;3&amp;rsquo;方向，但是这在正负链上是如何表现得呢？在正链（forward strand）上，这个方向是从左往右的。而在负链上，这个方向是从右往左的。
+作者：鹿无为 链接：https://www.jianshu.com/p/2a118933d716
+ 果然还是我的生物学知识太浅薄了，正确的做法应该是先截取对应的区间然后再进行反向互补，如下：
+def rev(seq): base_trans = {&amp;#39;A&amp;#39;:&amp;#39;T&amp;#39;, &amp;#39;C&amp;#39;:&amp;#39;G&amp;#39;, &amp;#39;T&amp;#39;:&amp;#39;A&amp;#39;, &amp;#39;G&amp;#39;:&amp;#39;C&amp;#39;, &amp;#39;N&amp;#39;:&amp;#39;N&amp;#39;, &amp;#39;a&amp;#39;:&amp;#39;t&amp;#39;, &amp;#39;c&amp;#39;:&amp;#39;g&amp;#39;, &amp;#39;t&amp;#39;:&amp;#39;a&amp;#39;, &amp;#39;g&amp;#39;:&amp;#39;c&amp;#39;, &amp;#39;n&amp;#39;:&amp;#39;n&amp;#39;} rev_seq = list(reversed(seq)) rev_seq_list = [base_trans[k] for k in rev_seq] rev_seq = &amp;#39;&amp;#39;.'><title>Gff文件提取负链序列</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/'>
+<link rel="stylesheet" href="/prism.css">
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Gff文件提取负链序列'>
+<meta property='og:description' content='其实不是在gff文件中提取，要根据这么一个表格的信息提取序列，和gff文件差不多。
+Feature ID	Type	Contig	Start	Stop	Frame	Strand	Length (bp)	Function	Subsystem fig|6666666.796949.rna.1	RNA	1	25785	25858	3	&#43;	74	tRNA-Thr-CGT	- none - fig|6666666.796949.rna.5	RNA	1	58770	58697	-3	-	74	tRNA-Trp-CCA	- none - 可以看到这里有一条负链，stop的数字小于end的数字。按照我原来的想法，就是把58697到58770的序列提出了再反转一下就好了，试了一下发现不对。
+然后去搜了一下DNA正负链的知识：
+ 正负链的定义： DNA是双链的，对于一个参考基因组，一条链被指定为forward链，那么另一条就是reverse链。这种定义是十分硬核的，并没有什么生物学意义。如果非要说有什么意义，那么可能就是为了世界各地的命名规则统一，使得研究更为方便。英文中通常将正负链写为forward/reverse strand，有时也会使用plus/minus strand表示
+基因的位置： 一个基因位于正链或者反链的其中一条链上。我们知道，一个基因既有编码链信息（或者说是sense strand），也有模板链（也可以说是nonsense strand）。大概50%的基因其模板链位于正链(forward strand)上，而另外50%的基因其模板链位于反链（reverse strand）上。因此，我们可以知道正链上既可以有一个基因的正义链信息，也可以有另一个基因的反义链信息。当然，一个基因的正义链信息位于正链上，那么它的反义链信息只能位于负链上。
+DNA的方向： 我们都知道DNA的方向是5&#39;-&amp;gt;3&amp;rsquo;方向，但是这在正负链上是如何表现得呢？在正链（forward strand）上，这个方向是从左往右的。而在负链上，这个方向是从右往左的。
+作者：鹿无为 链接：https://www.jianshu.com/p/2a118933d716
+ 果然还是我的生物学知识太浅薄了，正确的做法应该是先截取对应的区间然后再进行反向互补，如下：
+def rev(seq): base_trans = {&amp;#39;A&amp;#39;:&amp;#39;T&amp;#39;, &amp;#39;C&amp;#39;:&amp;#39;G&amp;#39;, &amp;#39;T&amp;#39;:&amp;#39;A&amp;#39;, &amp;#39;G&amp;#39;:&amp;#39;C&amp;#39;, &amp;#39;N&amp;#39;:&amp;#39;N&amp;#39;, &amp;#39;a&amp;#39;:&amp;#39;t&amp;#39;, &amp;#39;c&amp;#39;:&amp;#39;g&amp;#39;, &amp;#39;t&amp;#39;:&amp;#39;a&amp;#39;, &amp;#39;g&amp;#39;:&amp;#39;c&amp;#39;, &amp;#39;n&amp;#39;:&amp;#39;n&amp;#39;} rev_seq = list(reversed(seq)) rev_seq_list = [base_trans[k] for k in rev_seq] rev_seq = &amp;#39;&amp;#39;.'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-06-22T14:10:39&#43;08:00'/><meta property='article:modified_time' content='2021-06-22T14:10:39&#43;08:00'/>
+<meta name="twitter:title" content="Gff文件提取负链序列">
+<meta name="twitter:description" content="其实不是在gff文件中提取，要根据这么一个表格的信息提取序列，和gff文件差不多。
+Feature ID	Type	Contig	Start	Stop	Frame	Strand	Length (bp)	Function	Subsystem fig|6666666.796949.rna.1	RNA	1	25785	25858	3	&#43;	74	tRNA-Thr-CGT	- none - fig|6666666.796949.rna.5	RNA	1	58770	58697	-3	-	74	tRNA-Trp-CCA	- none - 可以看到这里有一条负链，stop的数字小于end的数字。按照我原来的想法，就是把58697到58770的序列提出了再反转一下就好了，试了一下发现不对。
+然后去搜了一下DNA正负链的知识：
+ 正负链的定义： DNA是双链的，对于一个参考基因组，一条链被指定为forward链，那么另一条就是reverse链。这种定义是十分硬核的，并没有什么生物学意义。如果非要说有什么意义，那么可能就是为了世界各地的命名规则统一，使得研究更为方便。英文中通常将正负链写为forward/reverse strand，有时也会使用plus/minus strand表示
+基因的位置： 一个基因位于正链或者反链的其中一条链上。我们知道，一个基因既有编码链信息（或者说是sense strand），也有模板链（也可以说是nonsense strand）。大概50%的基因其模板链位于正链(forward strand)上，而另外50%的基因其模板链位于反链（reverse strand）上。因此，我们可以知道正链上既可以有一个基因的正义链信息，也可以有另一个基因的反义链信息。当然，一个基因的正义链信息位于正链上，那么它的反义链信息只能位于负链上。
+DNA的方向： 我们都知道DNA的方向是5&#39;-&amp;gt;3&amp;rsquo;方向，但是这在正负链上是如何表现得呢？在正链（forward strand）上，这个方向是从左往右的。而在负链上，这个方向是从右往左的。
+作者：鹿无为 链接：https://www.jianshu.com/p/2a118933d716
+ 果然还是我的生物学知识太浅薄了，正确的做法应该是先截取对应的区间然后再进行反向互补，如下：
+def rev(seq): base_trans = {&amp;#39;A&amp;#39;:&amp;#39;T&amp;#39;, &amp;#39;C&amp;#39;:&amp;#39;G&amp;#39;, &amp;#39;T&amp;#39;:&amp;#39;A&amp;#39;, &amp;#39;G&amp;#39;:&amp;#39;C&amp;#39;, &amp;#39;N&amp;#39;:&amp;#39;N&amp;#39;, &amp;#39;a&amp;#39;:&amp;#39;t&amp;#39;, &amp;#39;c&amp;#39;:&amp;#39;g&amp;#39;, &amp;#39;t&amp;#39;:&amp;#39;a&amp;#39;, &amp;#39;g&amp;#39;:&amp;#39;c&amp;#39;, &amp;#39;n&amp;#39;:&amp;#39;n&amp;#39;} rev_seq = list(reversed(seq)) rev_seq_list = [base_trans[k] for k in rev_seq] rev_seq = &amp;#39;&amp;#39;.">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf7a73592b64a775d7c675ddcbdd3aae8_127949_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://zzzqiii.github.io">相忘于江湖</a></h1>
+        <h2 class="site-description">No one is coming.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://zzzqiii.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/bioinfo/" style="background-color: #A569BD; color: #fff;">
+                bioinfo
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/">Gff文件提取负链序列</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jun 22, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>其实不是在gff文件中提取，要根据这么一个表格的信息提取序列，和gff文件差不多。</p>
+<pre><code>Feature ID	Type	Contig	Start	Stop	Frame	Strand	Length (bp)	Function	Subsystem
+fig|6666666.796949.rna.1	RNA	1	25785	25858	3	+	74	tRNA-Thr-CGT	- none -
+fig|6666666.796949.rna.5	RNA	1	58770	58697	-3	-	74	tRNA-Trp-CCA	- none -
+
+</code></pre><p>可以看到这里有一条负链，stop的数字小于end的数字。按照我原来的想法，就是把58697到58770的序列提出了再反转一下就好了，试了一下发现不对。</p>
+<p>然后去搜了一下DNA正负链的知识：</p>
+<blockquote>
+<p>正负链的定义：
+DNA是双链的，对于一个参考基因组，一条链被指定为forward链，那么另一条就是reverse链。这种定义是十分硬核的，并没有什么生物学意义。如果非要说有什么意义，那么可能就是为了世界各地的命名规则统一，使得研究更为方便。英文中通常将正负链写为forward/reverse strand，有时也会使用plus/minus strand表示</p>
+<p>基因的位置：
+一个基因位于正链或者反链的其中一条链上。我们知道，一个基因既有编码链信息（或者说是sense strand），也有模板链（也可以说是nonsense strand）。大概50%的基因其模板链位于正链(forward strand)上，而另外50%的基因其模板链位于反链（reverse strand）上。因此，我们可以知道正链上既可以有一个基因的正义链信息，也可以有另一个基因的反义链信息。当然，一个基因的正义链信息位于正链上，那么它的反义链信息只能位于负链上。</p>
+<p>DNA的方向：
+我们都知道DNA的方向是5'-&gt;3&rsquo;方向，但是这在正负链上是如何表现得呢？在正链（forward strand）上，这个方向是从左往右的。而在负链上，这个方向是从右往左的。</p>
+<p>作者：鹿无为
+链接：https://www.jianshu.com/p/2a118933d716</p>
+</blockquote>
+<p>果然还是我的生物学知识太浅薄了，正确的做法应该是先截取对应的区间然后再进行反向互补，如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">rev</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+	<span class="n">base_trans</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span><span class="s1">&#39;n&#39;</span><span class="p">}</span>
+	<span class="n">rev_seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+	<span class="n">rev_seq_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_trans</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">rev_seq</span><span class="p">]</span>
+	<span class="n">rev_seq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rev_seq_list</span><span class="p">)</span>
+	<span class="k">return</span><span class="p">(</span><span class="n">rev_seq</span><span class="p">)</span>
+
+
+<span class="n">fasta</span><span class="o">=</span><span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;long.fasta&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+	<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+		<span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+		<span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;&gt;&#34;</span><span class="p">):</span>
+			<span class="n">name</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&#34;&gt;&#34;</span><span class="p">)</span>
+			<span class="n">fasta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">fasta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">fasta</span><span class="p">:</span>
+	<span class="n">fasta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fasta</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+<span class="n">rna</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;rna_position_table.tsv&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+	<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+		<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rna.&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>		
+		<span class="n">contig</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;+&#34;</span><span class="p">):</span>
+			<span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+			<span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">4</span><span class="p">])</span>		
+			<span class="k">print</span><span class="p">(</span><span class="s2">&#34;&gt;&#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="n">fasta</span><span class="p">[</span><span class="n">contig</span><span class="p">][</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;-&#34;</span><span class="p">):</span>
+			<span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">4</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+			<span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
+			<span class="n">seq</span> <span class="o">=</span> <span class="n">fasta</span><span class="p">[</span><span class="n">contig</span><span class="p">][</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+			<span class="k">print</span><span class="p">(</span><span class="s2">&#34;&gt;&#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="n">rev</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+</code></pre></div><ul>
+<li>参考资料</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/2a118933d716">https://www.jianshu.com/p/2a118933d716</a></p>
+<p><a href="https://blog.csdn.net/weixin_35414887/article/details/112149678?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-9&amp;spm=1001.2101.3001.4242">https://blog.csdn.net/weixin_35414887/article/details/112149678?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-9&amp;spm=1001.2101.3001.4242</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ggtree画系统发育树</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/pasa/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Pasa</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/sra%E4%B8%8B%E8%BD%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">sra下载</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%B3%A8%E9%87%8A/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">基因组注释</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/cytoscape/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Cytoscape</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zzqi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+
+    <script>
+        function color_tags() {
+            var colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
+            $('.tagCloud-tags a').each(function () {
+                try {
+                    tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+                    $(this).css("background", tagsColor); 
+                }
+                catch (err) { }
+            });
+        }
+
+        $(document).ready(function () {
+            color_tags()
+        });
+    </script>
+
+    <script src="/prism.js"></script>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
+        <br />本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        <span id="busuanzi_container_site_pv"> 总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
+        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+    
+	$.goup({
+	    trigger: 300,
+	    bottomOffset: 20,
+	    locationOffset: 20,
+	    title:  'Back to TOP',
+	    titleAsText: false
+	});
+</script>
+
+    </body>
+</html>

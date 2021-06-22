@@ -6,7 +6,24 @@
     <description>Recent content in Posts on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Jun 2021 10:55:17 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Jun 2021 14:10:39 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gff文件提取负链序列</title>
+      <link>https://zzzqiii.github.io/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Tue, 22 Jun 2021 14:10:39 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/</guid>
+      <description>其实不是在gff文件中提取，要根据这么一个表格的信息提取序列，和gff文件差不多。
+Feature ID	Type	Contig	Start	Stop	Frame	Strand	Length (bp)	Function	Subsystem fig|6666666.796949.rna.1	RNA	1	25785	25858	3	+	74	tRNA-Thr-CGT	- none - fig|6666666.796949.rna.5	RNA	1	58770	58697	-3	-	74	tRNA-Trp-CCA	- none - 可以看到这里有一条负链，stop的数字小于end的数字。按照我原来的想法，就是把58697到58770的序列提出了再反转一下就好了，试了一下发现不对。
+然后去搜了一下DNA正负链的知识：
+ 正负链的定义： DNA是双链的，对于一个参考基因组，一条链被指定为forward链，那么另一条就是reverse链。这种定义是十分硬核的，并没有什么生物学意义。如果非要说有什么意义，那么可能就是为了世界各地的命名规则统一，使得研究更为方便。英文中通常将正负链写为forward/reverse strand，有时也会使用plus/minus strand表示
+基因的位置： 一个基因位于正链或者反链的其中一条链上。我们知道，一个基因既有编码链信息（或者说是sense strand），也有模板链（也可以说是nonsense strand）。大概50%的基因其模板链位于正链(forward strand)上，而另外50%的基因其模板链位于反链（reverse strand）上。因此，我们可以知道正链上既可以有一个基因的正义链信息，也可以有另一个基因的反义链信息。当然，一个基因的正义链信息位于正链上，那么它的反义链信息只能位于负链上。
+DNA的方向： 我们都知道DNA的方向是5&#39;-&amp;gt;3&amp;rsquo;方向，但是这在正负链上是如何表现得呢？在正链（forward strand）上，这个方向是从左往右的。而在负链上，这个方向是从右往左的。
+作者：鹿无为 链接：https://www.jianshu.com/p/2a118933d716
+ 果然还是我的生物学知识太浅薄了，正确的做法应该是先截取对应的区间然后再进行反向互补，如下：
+def rev(seq): base_trans = {&amp;#39;A&amp;#39;:&amp;#39;T&amp;#39;, &amp;#39;C&amp;#39;:&amp;#39;G&amp;#39;, &amp;#39;T&amp;#39;:&amp;#39;A&amp;#39;, &amp;#39;G&amp;#39;:&amp;#39;C&amp;#39;, &amp;#39;N&amp;#39;:&amp;#39;N&amp;#39;, &amp;#39;a&amp;#39;:&amp;#39;t&amp;#39;, &amp;#39;c&amp;#39;:&amp;#39;g&amp;#39;, &amp;#39;t&amp;#39;:&amp;#39;a&amp;#39;, &amp;#39;g&amp;#39;:&amp;#39;c&amp;#39;, &amp;#39;n&amp;#39;:&amp;#39;n&amp;#39;} rev_seq = list(reversed(seq)) rev_seq_list = [base_trans[k] for k in rev_seq] rev_seq = &amp;#39;&amp;#39;.</description>
+    </item>
+    
     <item>
       <title>ggtree画系统发育树</title>
       <link>https://zzzqiii.github.io/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/</link>
@@ -18,7 +35,7 @@
 tree &amp;lt;- read.tree(a.treefile) ggtree(tree) 很简单。可是有一次我用这个最基础的命令画树都出现了报错：
 ggtree 2.4.2 error: Error in DataMask$new(.data, caller_env) : argument “caller_env” is missing, with no default
 幸好在网上搜到了解决办法，貌似是因为ggtree依赖的dplyr升级了，所以要么把ggtree也升级，要么把dplyr卸载再重新装低版本的。我选择重新装1.0.5版本的dplyr包。
-参照https://stackoverflow.com/questions/67542581/ggtree-2-4-2-error-error-in-datamasknew-data-caller-env-argument-caller
+参照 https://stackoverflow.com/questions/67542581/ggtree-2-4-2-error-error-in-datamasknew-data-caller-env-argument-caller
 #Start a new R session remove.packages(&amp;#34;dplyr&amp;#34;) devtools::install_version(&amp;#34;dplyr&amp;#34;,version=&amp;#34;1.0.5&amp;#34;) require(dplyr) 在控制台输入以上命令就可以了。当然这个过程中我还遇到了各种报错，就不细说了，可能因为我是在脚本中运行的，迷惑。
 用上面的最基础的命令画出来的图是只有枝条的树，还需要进一步的美化，这个过程有点像ggplot2作图。我在使用过程中主要的需求是，①在枝条后面添加一组或多组标签，②给枝条分组标上不同颜色，③进化树再整个页面都能显示，④扇形进化树等，主要是这些问题，虽然都是小问题，但还是花费了好多时间。下面是解决的方法：
 ①③

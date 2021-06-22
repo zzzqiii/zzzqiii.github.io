@@ -18,7 +18,7 @@
 tree &amp;lt;- read.tree(a.treefile) ggtree(tree) 很简单。可是有一次我用这个最基础的命令画树都出现了报错：
 ggtree 2.4.2 error: Error in DataMask$new(.data, caller_env) : argument “caller_env” is missing, with no default
 幸好在网上搜到了解决办法，貌似是因为ggtree依赖的dplyr升级了，所以要么把ggtree也升级，要么把dplyr卸载再重新装低版本的。我选择重新装1.0.5版本的dplyr包。
-参照https://stackoverflow.com/questions/67542581/ggtree-2-4-2-error-error-in-datamasknew-data-caller-env-argument-caller
+参照 https://stackoverflow.com/questions/67542581/ggtree-2-4-2-error-error-in-datamasknew-data-caller-env-argument-caller
 #Start a new R session remove.packages(&amp;#34;dplyr&amp;#34;) devtools::install_version(&amp;#34;dplyr&amp;#34;,version=&amp;#34;1.0.5&amp;#34;) require(dplyr) 在控制台输入以上命令就可以了。当然这个过程中我还遇到了各种报错，就不细说了，可能因为我是在脚本中运行的，迷惑。
 用上面的最基础的命令画出来的图是只有枝条的树，还需要进一步的美化，这个过程有点像ggplot2作图。我在使用过程中主要的需求是，①在枝条后面添加一组或多组标签，②给枝条分组标上不同颜色，③进化树再整个页面都能显示，④扇形进化树等，主要是这些问题，虽然都是小问题，但还是花费了好多时间。下面是解决的方法：
 ①③
