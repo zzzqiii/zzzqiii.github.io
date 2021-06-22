@@ -6,7 +6,26 @@
     <description>Recent content in bioinfo on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 May 2021 17:10:19 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/bioinfo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Jun 2021 10:55:17 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/bioinfo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggtree画系统发育树</title>
+      <link>https://zzzqiii.github.io/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/</link>
+      <pubDate>Tue, 22 Jun 2021 10:55:17 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/</guid>
+      <description>使用iqtree得到treefile之后需要将系统发育树可视化，有很多工具可以做到，不过应为最开始学的是ggtree并且功能比较强大，所以后面用的都是这个了，这里记录使用过程中遇到的一些小问题。
+基础的画树命令：
+tree &amp;lt;- read.tree(a.treefile) ggtree(tree) 很简单。可是有一次我用这个最基础的命令画树都出现了报错：
+ggtree 2.4.2 error: Error in DataMask$new(.data, caller_env) : argument “caller_env” is missing, with no default
+幸好在网上搜到了解决办法，貌似是因为ggtree依赖的dplyr升级了，所以要么把ggtree也升级，要么把dplyr卸载再重新装低版本的。我选择重新装1.0.5版本的dplyr包。
+参照https://stackoverflow.com/questions/67542581/ggtree-2-4-2-error-error-in-datamasknew-data-caller-env-argument-caller
+#Start a new R session remove.packages(&amp;#34;dplyr&amp;#34;) devtools::install_version(&amp;#34;dplyr&amp;#34;,version=&amp;#34;1.0.5&amp;#34;) require(dplyr) 在控制台输入以上命令就可以了。当然这个过程中我还遇到了各种报错，就不细说了，可能因为我是在脚本中运行的，迷惑。
+用上面的最基础的命令画出来的图是只有枝条的树，还需要进一步的美化，这个过程有点像ggplot2作图。我在使用过程中主要的需求是，①在枝条后面添加一组或多组标签，②给枝条分组标上不同颜色，③进化树再整个页面都能显示，④扇形进化树等，主要是这些问题，虽然都是小问题，但还是花费了好多时间。下面是解决的方法：
+①③
+betatree&amp;lt;-read.tree(&amp;#34;all_combination.fasta.treefile&amp;#34;) pdf(&amp;#34;sinc_tree.pdf&amp;#34;) p&amp;lt;-ggtree(betatree, branch.length=&amp;#39;none&amp;#39;) df &amp;lt;- read.table(&amp;#34;name.txt&amp;#34;,header=T,sep=&amp;#34;\t&amp;#34;, fileEncoding = &amp;#34;utf-8&amp;#34;) p%&amp;lt;+%df+geom_tiplab(aes(label=name1),fontface=&amp;#34;italic&amp;#34;, align = T)+geom_treescale(linesize=0.3,fontsize=3)+xlim(NA,18) dev.off() 添加标签用的是tiplab这个参数，如果只有一个参数并且正好是树文件里的名字，那么直接写geom_tiplab()就好了，但往往不是。这时候需要一个表格，表格里名字和标签一一对应，如下：
+Tiplabel	name1	name2 ChiloXsuppressalis	Chilo suppressalis	二化螟 ManducaXsexta	Manduca sexta	烟草天蛾 DanausXplexippus	Danaus plexippus	帝王蝶 CydiaXpomonella	Cydia pomonella	苹果蠹蛾 CnaphalocrocisXmedinalis	Cnaphalocrocis medinalis	稻纵卷叶螟 PlutellaXxylostella	Plutella xylostella	小菜蛾 SpodopteraXlitura	Spodoptera litura	斜纹夜蛾 HelicoverpaXarmigera	Helicoverpa armigera	棉铃虫 PapilioXxuthus	Papilio xuthus	柑橘凤蝶 OstriniaXfurnacalis	Ostrinia furnacalis	玉米螟 BombyxXmori	Bombyx mori	家蚕 ApisXmellifera	Apis mellifera	意大利蜜蜂 AnophelesXgambiae	Anopheles gambiae	冈比亚按蚊 DrosophilaXmelanogaster	Drosophila melanogaster	黑腹果蝇 PediculusXhumanus	Pediculus humanus	体虱 AnoplophoraXglabripennis	Anoplophora glabripennis	光肩星天牛 TriboliumXcastaneum	Tribolium castaneum	赤拟谷盗 NilaparvataXlugens	Nilaparvata lugens	褐飞虱 BemisiaXtabaci	Bemisia tabaci	烟粉虱 StenopsycheXtienmushanensis	Stenopsyche tienmushanensis	石蛾 ScirpophagaXincertulas	Scirpophaga incertulas	三化螟 把这个表格读入，然后用%&amp;lt;+%合并到最开始的树上，然后geom_tiplab就可以使用name1这一列了。</description>
+    </item>
+    
     <item>
       <title>Pasa</title>
       <link>https://zzzqiii.github.io/p/pasa/</link>
