@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='创建主页面的内容，显示hello world
+ hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
 客户端打开网址发送请求给服务器，请求打开网址，urls规定网址是否有效，有效的话进一步处理请求。
 客户端发送请求，服务端处理请求，返回给客户端。
  在D:\django\test\mysite\mysite目录下新建文件views.py
 新建方法返回显示hello world的请求
 from django.http import HttpResponse def index(request): return HttpResponse(&amp;quot;Hello, world&amp;quot;)  编辑urls.py文件，规定有效访问路径
-from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式
-re_path正则表达式
-效果相同，控制访问首页的行为。
- 在mysite根目录下'><title>Django2-hello world</title>
+from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式'><title>Django2-hello world</title>
 
 <link rel='canonical' href='https://zzzqiii.github.io/p/django2-hello-world/'>
 <link rel="stylesheet" href="/prism.css">
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Django2-hello world'>
-<meta property='og:description' content='hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
+<meta property='og:description' content='创建主页面的内容，显示hello world
+ hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
 客户端打开网址发送请求给服务器，请求打开网址，urls规定网址是否有效，有效的话进一步处理请求。
 客户端发送请求，服务端处理请求，返回给客户端。
  在D:\django\test\mysite\mysite目录下新建文件views.py
 新建方法返回显示hello world的请求
 from django.http import HttpResponse def index(request): return HttpResponse(&amp;quot;Hello, world&amp;quot;)  编辑urls.py文件，规定有效访问路径
-from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式
-re_path正则表达式
-效果相同，控制访问首页的行为。
- 在mysite根目录下'>
+from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式'>
 <meta property='og:url' content='https://zzzqiii.github.io/p/django2-hello-world/'>
 <meta property='og:site_name' content='相忘于江湖'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-06-04T23:57:10&#43;08:00'/><meta property='article:modified_time' content='2021-06-04T23:57:10&#43;08:00'/>
 <meta name="twitter:title" content="Django2-hello world">
-<meta name="twitter:description" content="hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
+<meta name="twitter:description" content="创建主页面的内容，显示hello world
+ hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
 客户端打开网址发送请求给服务器，请求打开网址，urls规定网址是否有效，有效的话进一步处理请求。
 客户端发送请求，服务端处理请求，返回给客户端。
  在D:\django\test\mysite\mysite目录下新建文件views.py
 新建方法返回显示hello world的请求
 from django.http import HttpResponse def index(request): return HttpResponse(&amp;quot;Hello, world&amp;quot;)  编辑urls.py文件，规定有效访问路径
-from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式
-re_path正则表达式
-效果相同，控制访问首页的行为。
- 在mysite根目录下">
+from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     </head>
@@ -218,8 +212,8 @@ re_path正则表达式
     
     <header class="article-category">
         
-            <a href="/categories/django/" >
-                Django
+            <a href="/categories/django2/" >
+                Django2
             </a>
         
     </header>
@@ -243,7 +237,10 @@ re_path正则表达式
 </header>
 
     <section class="article-content">
-    <h2 id="hello-world">hello world</h2>
+    <blockquote>
+<p>创建主页面的内容，显示hello world</p>
+</blockquote>
+<h2 id="hello-world">hello world</h2>
 <pre><code>django-admin startproject mysite
 </code></pre><p>uls 整个网站的路由控制，只能访问规定的网址。</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210605000020532.png" alt="image-20210605000020532"  /></p>

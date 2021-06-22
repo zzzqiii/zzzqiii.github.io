@@ -6,23 +6,71 @@
     <description>Recent content in Posts on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Jun 2021 23:57:10 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Jun 2021 23:54:58 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基础算法三_习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</link>
+      <pubDate>Mon, 21 Jun 2021 23:54:58 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>基础算法三</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/</link>
+      <pubDate>Mon, 21 Jun 2021 23:36:02 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/</guid>
+      <description>双指针算法 输出字符串中的单词，每个单词以一个空格隔开。
+45min</description>
+    </item>
+    
+    <item>
+      <title>基础算法二_习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</link>
+      <pubDate>Sat, 19 Jun 2021 15:42:20 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</guid>
+      <description>高精度加法 给定两个正整数，计算它们的和。
+输入格式 共两行，每行包含一个整数。
+输出格式 共一行，包含所求的和。
+数据范围 1≤整数长度≤100000 输入样例： 12 23 输出样例： 35
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;vector&amp;gt; using namespace std; const int N = 1e6 + 10; vector&amp;lt;int&amp;gt; add(vector&amp;lt;int&amp;gt; &amp;amp;A, vector&amp;lt;int&amp;gt; &amp;amp;B) { vector &amp;lt;int&amp;gt; C; int t = 0; for (int i = 0; i &amp;lt; A.size() || i &amp;lt; B.size(); i ++) { if (i &amp;lt; A.size()) t += A[i]; if (i &amp;lt; B.size()) t += B[i]; C.push_back(t % 10); t /= 10; } if (t) C.</description>
+    </item>
+    
+    <item>
+      <title>基本应用结构</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sat, 05 Jun 2021 22:00:13 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8%E7%BB%93%E6%9E%84/</guid>
+      <description>相似的页面使用模型去创建，创建一个article的应用，这个app里有一个Article模型，这个模型有标题和内容两个属性，同步到数据库。增加后台管理的article应用。
+ 模型：
+标题；内容；作者等。
+python manage.py startapp #应用名称 python manage.py startapp article 在mysite下多了一个article的文件夹。
+修改该文件夹下的models.py:
+from django.db import models # Create your models here. class Article(models.Model): #继承models里已经定义好的Model类 title = models.CharField(max_length=30) #找到models里的字符串类型的字段，最长为30字符 content = models.TextField()	#文本字段。 #加入标题和内容两个属性 写入到models.py告诉django去使用这个app，在mysite文件夹下的setting.py里设置：
+INSTALLED_APPS = [ &#39;django.contrib.admin&#39;, &#39;django.contrib.auth&#39;, &#39;django.contrib.contenttypes&#39;, &#39;django.contrib.sessions&#39;, &#39;django.contrib.messages&#39;, &#39;django.contrib.staticfiles&#39;, &#39;article&#39;, ] #在这里增加前面新增的应用article 将修改同步到数据库。
+python manage.py makemigrations #在mysite目录下里多了article这个文件夹 python manage.py migrate 打开后台界面：
+python manage.py runserver 编辑article目录下的admin.py文件
+from django.contrib import admin from . models import Article # Register your models here.</description>
+    </item>
+    
     <item>
       <title>Django2-hello world</title>
       <link>https://zzzqiii.github.io/p/django2-hello-world/</link>
       <pubDate>Fri, 04 Jun 2021 23:57:10 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/p/django2-hello-world/</guid>
-      <description>hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
+      <description>创建主页面的内容，显示hello world
+ hello world django-admin startproject mysite uls 整个网站的路由控制，只能访问规定的网址。
 客户端打开网址发送请求给服务器，请求打开网址，urls规定网址是否有效，有效的话进一步处理请求。
 客户端发送请求，服务端处理请求，返回给客户端。
  在D:\django\test\mysite\mysite目录下新建文件views.py
 新建方法返回显示hello world的请求
 from django.http import HttpResponse def index(request): return HttpResponse(&amp;quot;Hello, world&amp;quot;)  编辑urls.py文件，规定有效访问路径
-from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式
-re_path正则表达式
-效果相同，控制访问首页的行为。
- 在mysite根目录下</description>
+from django.contrib import admin from django.urls import path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls), path(&#39;&#39;, views.index), ] from django.contrib import admin from django.urls import re_path from . import views urlpatterns = [ path(&#39;admin/&#39;, admin.site.urls),	#规定后台管理的方式http://127.0.0.1:8000/admin/ path(&#39;^$&#39;, views.index), #127.0.0.1:8000 ] path没有正则表达式</description>
     </item>
     
     <item>

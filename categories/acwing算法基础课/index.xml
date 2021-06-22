@@ -6,7 +6,39 @@
     <description>Recent content in acwing算法基础课 on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 May 2021 00:24:48 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Jun 2021 23:54:58 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基础算法三_习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</link>
+      <pubDate>Mon, 21 Jun 2021 23:54:58 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>基础算法三</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/</link>
+      <pubDate>Mon, 21 Jun 2021 23:36:02 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/</guid>
+      <description>双指针算法 输出字符串中的单词，每个单词以一个空格隔开。
+45min</description>
+    </item>
+    
+    <item>
+      <title>基础算法二_习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</link>
+      <pubDate>Sat, 19 Jun 2021 15:42:20 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</guid>
+      <description>高精度加法 给定两个正整数，计算它们的和。
+输入格式 共两行，每行包含一个整数。
+输出格式 共一行，包含所求的和。
+数据范围 1≤整数长度≤100000 输入样例： 12 23 输出样例： 35
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;vector&amp;gt; using namespace std; const int N = 1e6 + 10; vector&amp;lt;int&amp;gt; add(vector&amp;lt;int&amp;gt; &amp;amp;A, vector&amp;lt;int&amp;gt; &amp;amp;B) { vector &amp;lt;int&amp;gt; C; int t = 0; for (int i = 0; i &amp;lt; A.size() || i &amp;lt; B.size(); i ++) { if (i &amp;lt; A.size()) t += A[i]; if (i &amp;lt; B.size()) t += B[i]; C.push_back(t % 10); t /= 10; } if (t) C.</description>
+    </item>
+    
     <item>
       <title>基础算法一</title>
       <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%80/</link>
