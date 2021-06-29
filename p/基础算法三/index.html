@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='双指针算法 输出字符串中的单词，每个单词以一个空格隔开。
-45min'><title>基础算法三</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='双指针算法 思路：先写一个暴力n*n的算法，然后看i和j有没有什么单调关系，有单调关系的话可以把枚举的状态数量从O（n*n)变成O（n）。
+输出字符串中的单词，每个单词以一个空格隔开。
+45min
+位运算 求整数n的二进制表示中第k位数字是几？ 下标k：从各位开始算，各位是第0位
+ 先把第k位移到最后一位：n&amp;raquo;k; 看各位是几，x&amp;amp;1； n &amp;raquo; k &amp;amp; 1;  lowbit(x) 树状数组的基本操作
+作用是返回x的最后一位1是多少
+x = 1010，lowbit(x) = 10;
+x = 101000, lowbit(x) = 1000;
+lowbit的实现：x &amp;amp; -x
+-x是原数的补码（取反加1）
+-x = ~x &#43; 1;
+x &amp;amp; -x = x &amp;amp; (~x &#43; 1);
+​ x = 1010&amp;hellip;100&amp;hellip;000;
+​ ~x = 0101&amp;hellip;011&amp;hellip;111;
+​ ~x &#43; 1 = 0101&amp;hellip;100&amp;hellip;000;
+x &amp;amp; (~x &#43; 1) = 0000&amp;hellip;100&amp;hellip;000;
+应用：统计x中1的个数，每次把最后一个1减掉，当x等于0的时候，里面就没有1了。'><title>基础算法三</title>
 
 <link rel='canonical' href='https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/'>
 <link rel="stylesheet" href="/prism.css">
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='基础算法三'>
-<meta property='og:description' content='双指针算法 输出字符串中的单词，每个单词以一个空格隔开。
-45min'>
+<meta property='og:description' content='双指针算法 思路：先写一个暴力n*n的算法，然后看i和j有没有什么单调关系，有单调关系的话可以把枚举的状态数量从O（n*n)变成O（n）。
+输出字符串中的单词，每个单词以一个空格隔开。
+45min
+位运算 求整数n的二进制表示中第k位数字是几？ 下标k：从各位开始算，各位是第0位
+ 先把第k位移到最后一位：n&amp;raquo;k; 看各位是几，x&amp;amp;1； n &amp;raquo; k &amp;amp; 1;  lowbit(x) 树状数组的基本操作
+作用是返回x的最后一位1是多少
+x = 1010，lowbit(x) = 10;
+x = 101000, lowbit(x) = 1000;
+lowbit的实现：x &amp;amp; -x
+-x是原数的补码（取反加1）
+-x = ~x &#43; 1;
+x &amp;amp; -x = x &amp;amp; (~x &#43; 1);
+​ x = 1010&amp;hellip;100&amp;hellip;000;
+​ ~x = 0101&amp;hellip;011&amp;hellip;111;
+​ ~x &#43; 1 = 0101&amp;hellip;100&amp;hellip;000;
+x &amp;amp; (~x &#43; 1) = 0000&amp;hellip;100&amp;hellip;000;
+应用：统计x中1的个数，每次把最后一个1减掉，当x等于0的时候，里面就没有1了。'>
 <meta property='og:url' content='https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/'>
 <meta property='og:site_name' content='相忘于江湖'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-06-21T23:36:02&#43;08:00'/><meta property='article:modified_time' content='2021-06-21T23:36:02&#43;08:00'/>
 <meta name="twitter:title" content="基础算法三">
-<meta name="twitter:description" content="双指针算法 输出字符串中的单词，每个单词以一个空格隔开。
-45min">
+<meta name="twitter:description" content="双指针算法 思路：先写一个暴力n*n的算法，然后看i和j有没有什么单调关系，有单调关系的话可以把枚举的状态数量从O（n*n)变成O（n）。
+输出字符串中的单词，每个单词以一个空格隔开。
+45min
+位运算 求整数n的二进制表示中第k位数字是几？ 下标k：从各位开始算，各位是第0位
+ 先把第k位移到最后一位：n&amp;raquo;k; 看各位是几，x&amp;amp;1； n &amp;raquo; k &amp;amp; 1;  lowbit(x) 树状数组的基本操作
+作用是返回x的最后一位1是多少
+x = 1010，lowbit(x) = 10;
+x = 101000, lowbit(x) = 1000;
+lowbit的实现：x &amp;amp; -x
+-x是原数的补码（取反加1）
+-x = ~x &#43; 1;
+x &amp;amp; -x = x &amp;amp; (~x &#43; 1);
+​ x = 1010&amp;hellip;100&amp;hellip;000;
+​ ~x = 0101&amp;hellip;011&amp;hellip;111;
+​ ~x &#43; 1 = 0101&amp;hellip;100&amp;hellip;000;
+x &amp;amp; (~x &#43; 1) = 0000&amp;hellip;100&amp;hellip;000;
+应用：统计x中1的个数，每次把最后一个1减掉，当x等于0的时候，里面就没有1了。">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     </head>
@@ -220,10 +265,52 @@
 
     <section class="article-content">
     <h2 id="双指针算法">双指针算法</h2>
+<p>思路：先写一个暴力n*n的算法，然后看i和j有没有什么单调关系，有单调关系的话可以把枚举的状态数量从O（n*n)变成O（n）。</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210621235115109.png" alt="image-20210621235115109"  /></p>
 <p>输出字符串中的单词，每个单词以一个空格隔开。</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210621234849632.png" alt="image-20210621234849632"  /></p>
 <p>45min</p>
+<h2 id="位运算">位运算</h2>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210623222634687.png" alt="image-20210623222634687"  /></p>
+<h4 id="求整数n的二进制表示中第k位数字是几">求整数n的二进制表示中第k位数字是几？</h4>
+<p>下标k：从各位开始算，各位是第0位</p>
+<ol>
+<li>先把第k位移到最后一位：n&raquo;k;</li>
+<li>看各位是几，x&amp;1；</li>
+<li>n &raquo; k &amp; 1;</li>
+</ol>
+<h4 id="lowbitx">lowbit(x)</h4>
+<p>树状数组的基本操作</p>
+<p>作用是返回x的最后一位1是多少</p>
+<p>x = 1010，lowbit(x) = 10;</p>
+<p>x = 101000, lowbit(x) = 1000;</p>
+<p>lowbit的实现：x &amp; -x</p>
+<p>-x是原数的补码（取反加1）</p>
+<p>-x = ~x + 1;</p>
+<p>x &amp; -x = x &amp; (~x + 1);</p>
+<p>​                 x = 1010&hellip;100&hellip;000;</p>
+<p>​               ~x = 0101&hellip;011&hellip;111;</p>
+<p>​         ~x + 1 = 0101&hellip;100&hellip;000;</p>
+<p>x &amp; (~x + 1) = 0000&hellip;100&hellip;000;</p>
+<p>应用：统计x中1的个数，每次把最后一个1减掉，当x等于0的时候，里面就没有1了。</p>
+<p><strong>原码</strong>：x = 000&hellip;1010 （32位）</p>
+<p><strong>反码</strong>：x = 111&hellip;0101（每个位置都取反）</p>
+<p><strong>补码</strong>：x = 111&hellip;0110 （反码+1）</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210623224543093.png" alt="image-20210623224543093"  /></p>
+<p>unsigned int 无符号整数</p>
+<p>负数用补码来实现，计算机的低沉实现没有减法，用加法来做减法。</p>
+<p>-x = 0 - x = 000&hellip;00 -x</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210623225154077.png" alt="image-20210623225154077"  /></p>
+<h2 id="离散化">离散化</h2>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210623235004420.png" alt="image-20210623235004420"  /></p>
+<ol>
+<li>去重</li>
+</ol>
+<p>vector<!-- raw HTML omitted --> alls; //存储所有待离散化的值</p>
+<p>sort(alls.begin(), alls.end()); //将所有值排序</p>
+<p>alls.erase(unique(alls.begin), alls.end()), alls.end()); //去掉重复元素 。unique将数组中所有元素去重，并返回去重后的尾端点，并把重复元素放在后面.</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210623235442045.png" alt="image-20210623235442045"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210624000328920.png" alt="image-20210624000328920"  /></p>
 
 </section>
 
@@ -254,6 +341,18 @@
         <h2 class="section-title">相关文章</h2>
         <div class="related-contents">
             <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构一</h2>
+        </div>
+    </a>
+</article>
                 
                     
 <article class="">

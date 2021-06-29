@@ -483,7 +483,12 @@
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">--</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">i</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div><h2 id="常用库函数">常用库函数</h2>
+</code></pre></div><pre><code>“位与”运算是“位运算”的一种，运算法则是在二进制数下，相同位的两个数字都为1，则为1；若有一个不为1，则为0。&amp;运算通常用于二进制取位操作，例如一个数 &amp; 1的结果就是取二进制的最末位。这可以用来判断一个整数的奇偶，二进制的最末位为0表示该数为偶数，最末位为1表示该数为奇数。
+
+再举个例子，6的二进制是110，11的二进制是1011，那么6 &amp; 11（也可以表达为6 and 11）的结果就是二进制的10，即十进制的2。
+这里 n&amp;1 就是——判断n是否为奇数
+因为n为奇数时，对应的二进制数最低位一定为1，n&amp;1的结果就是1
+</code></pre><h2 id="常用库函数">常用库函数</h2>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">

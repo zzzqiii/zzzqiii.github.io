@@ -6,14 +6,33 @@
     <description>Recent content in acwing算法基础课 on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Jun 2021 23:54:58 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Jun 2021 22:49:55 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构一</title>
+      <link>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/</link>
+      <pubDate>Sun, 27 Jun 2021 22:49:55 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/</guid>
+      <description>链表与邻接表 用结构体来实现
+面试题用得多，笔试题用得不多
+struct Node { int val; Node *next; }; new Node(); //非常慢 单链表 动态链表很慢
+数组模拟邻接表快。
+邻接表最常用：n个链表，最主要的应用是存储数和树。
+用数组模拟需要定义值val数组：e[N], next指针数组ne[N]。e和ne都是整型数组。
+链表每个点存两个值，一个是该点的value，该点表示的值是多少，另一个是下一个点的位置在什么地方。
+e和ne用下标关联起来。空节点的下标用-1来表示。
+插入头节点，即把红色的点变成第一个点。
+双链表 优化某些问题的时候常用
+栈与队列 kmp </description>
+    </item>
+    
     <item>
       <title>基础算法三_习题</title>
       <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Mon, 21 Jun 2021 23:54:58 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</guid>
-      <description></description>
+      <description>双指针算法 最长不连续重复子序列 #include &amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; int a[N], s[N]; int main() { int n; cin &amp;gt;&amp;gt; n; int res = 0; for (int i = 0; i &amp;lt; n; i ++) cin &amp;gt;&amp;gt; a[i]; for (int i = 0, j = 0; i &amp;lt; n; i ++) { s[a[i]] ++; while (s[a[i]] &amp;gt; 1) { s[a[j]] --; j ++; } res = max(res, i - j + 1); } cout &amp;lt;&amp;lt; res; return 0; } 数组元素的目标和 #include &amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; int n, m, x; int a[N], b[N]; int main() { cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; x; for (int i = 0; i &amp;lt; n; i ++) cin &amp;gt;&amp;gt; a[i]; for (int j = 0; j &amp;lt; m; j ++) cin &amp;gt;&amp;gt; b[j]; for (int i = 0, j = m - 1; i &amp;lt; n; i ++) { while (j &amp;gt;= 0 &amp;amp;&amp;amp; a[i] + b[j] &amp;gt; x) j --; if (a[i] + b[j] == x) { printf(&amp;#34;%d %d\n&amp;#34;, i, j); break; } } return 0; } 位运算 二进制中1的个数 #include &amp;lt;iostream&amp;gt; using namespace std; int lowbit(int x) { return x &amp;amp; -x; } int main() { int n; cin &amp;gt;&amp;gt; n; while (n --) { int m; cin &amp;gt;&amp;gt; m; int res = 0; while (m) { m -= lowbit(m); res += 1; } cout &amp;lt;&amp;lt; res &amp;lt;&amp;lt; &amp;#39; &amp;#39;; } return 0; } 64位整数乘法 求 a 乘 b 对 p 取模的值。</description>
     </item>
     
     <item>
@@ -22,8 +41,23 @@
       <pubDate>Mon, 21 Jun 2021 23:36:02 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/</guid>
-      <description>双指针算法 输出字符串中的单词，每个单词以一个空格隔开。
-45min</description>
+      <description>双指针算法 思路：先写一个暴力n*n的算法，然后看i和j有没有什么单调关系，有单调关系的话可以把枚举的状态数量从O（n*n)变成O（n）。
+输出字符串中的单词，每个单词以一个空格隔开。
+45min
+位运算 求整数n的二进制表示中第k位数字是几？ 下标k：从各位开始算，各位是第0位
+ 先把第k位移到最后一位：n&amp;raquo;k; 看各位是几，x&amp;amp;1； n &amp;raquo; k &amp;amp; 1;  lowbit(x) 树状数组的基本操作
+作用是返回x的最后一位1是多少
+x = 1010，lowbit(x) = 10;
+x = 101000, lowbit(x) = 1000;
+lowbit的实现：x &amp;amp; -x
+-x是原数的补码（取反加1）
+-x = ~x + 1;
+x &amp;amp; -x = x &amp;amp; (~x + 1);
+​ x = 1010&amp;hellip;100&amp;hellip;000;
+​ ~x = 0101&amp;hellip;011&amp;hellip;111;
+​ ~x + 1 = 0101&amp;hellip;100&amp;hellip;000;
+x &amp;amp; (~x + 1) = 0000&amp;hellip;100&amp;hellip;000;
+应用：统计x中1的个数，每次把最后一个1减掉，当x等于0的时候，里面就没有1了。</description>
     </item>
     
     <item>
