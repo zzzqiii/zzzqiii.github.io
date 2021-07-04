@@ -14,6 +14,19 @@
 <meta name="twitter:description" content="类和结构体 #include &amp;lt;iostream&amp;gt;using namespace std; class Student { private: int age, height; double money; string books[50]; //只能在类里面调用  public: string name; void say() { cout &amp;lt;&amp;lt; &amp;#34;I&amp;#39;m&amp;#34; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; endl; } int get_age() { return age; } void add_money(double x) { money &#43;= x; } //可以在外面也可以在类里面调用  //可以有多个private和public }b, persons[100];//也可以直接在后面声明。 //一定要加分号 struct Person { int age, height; double money; Person() {} Person(int _age, int _height, double _money) //构造函数，和结构体同名，没有类型，里面可以传递参数。可以定义多个构造函数。  { age = _age; height = _height; money = _money; } //特殊写法，更快。  Person(int _age, int _height, double _money) : age(_age), height(_height), money(_money) {} }; int main() { Student c; Person people[50]; //也可以声明数组  Person p(18, 180, 100.">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-201256535-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
     <body class="
     article-page has-toc

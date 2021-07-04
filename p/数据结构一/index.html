@@ -47,6 +47,19 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
 #include &amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; int head, idx, e[N], ne[N]; void init() { head = -1; idx = 0; } void add_to_head(int x) { e[idx] = x; ne[idx] = head; head = idx; idx &#43;&#43;; } void add(int k, int x) { e[idx] = x; ne[idx] = ne[k]; ne[k] = idx; idx &#43;&#43;; } void remove(int k) { ne[k] = ne[ne[k]]; } int main() { init(); int m; cin &amp;gt;&amp;gt; m; while (m --) { int k, x; char op; cin &amp;gt;&amp;gt; op; if (op == &amp;#39;H&amp;#39;) { cin &amp;gt;&amp;gt; x; add_to_head(x); } else if (op == &amp;#39;D&amp;#39;) { cin &amp;gt;&amp;gt; k; if (!">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-201256535-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
     <body class="
     article-page has-toc

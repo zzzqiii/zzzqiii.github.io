@@ -14,6 +14,19 @@
 <meta name="twitter:description" content="vector #include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;ctime&amp;gt; using namespace std; bool cmp(int a, int b) //a是否应该排在b的前面 { return a &amp;lt; b; //如果a小于b的话a就应该排在b的前面。 } int main() { vector&amp;lt;int&amp;gt; a({1, 2, 3, 4, 5}); reverse(a.begin(), a.end()); for (int x : a) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; random_shuffle(a.begin(), a.end()); //把数组的顺序打乱。但是每次运行的结果是一样的。  srand(time(0));//加了一个跟时间有关的随机数种子，再打乱之后每次运行的结果就会发生变化。  random_shuffle(a.begin(), a.end()); sort(a.begin(), a.end());//从小到大  sort(a.begin(), a.end(), greater&amp;lt;int&amp;gt;()); //从大到小  sort(a.begin(), a.end(), cmp); //自定义比较。  for (int x : a) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; int b[] = {1, 2, 4, 5, 6}; reverse(b, b &#43; 5); //逗号前写第一个位置的指针，逗号后写最后一个的下一个。  for (int x : b) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; int p[] = {1, 1, 2, 2, 3, 3, 4}; int m = unique(p, p&#43;7) - p; cout &amp;lt;&amp;lt; m &amp;lt;&amp;lt; endl; for (int i = 0; i &amp;lt; m; i &#43;&#43;) cout &amp;lt;&amp;lt; p[i] &amp;lt;&amp;lt; &amp;#39; &amp;#39;; cout &amp;lt;&amp;lt; endl; vector&amp;lt;int&amp;gt; q({1,1,2,2,3,3,4}); int n = unique(q.">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-201256535-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
     <body class="
     article-page has-toc

@@ -17,6 +17,19 @@ test &amp;lt;- &amp;#34;string\&amp;#34;string&amp;#34; print(test) ## [1] &amp;
 test &amp;lt;- &amp;#34;string\&amp;#34;string&amp;#34; print(test) ## [1] &amp;quot;string\&amp;quot;string&amp;quot; test ## [1] &amp;quot;string\&amp;quot;string&amp;quot; writeLines(test) #查看字符串的初始内容。 ## string&amp;quot;string str_length(c(&amp;#34;a&amp;#34;, &amp;#34;R4ds&amp;#34;, NA)) #字符串长度 ## [1] 1 4 NA str_c(&amp;#34;x&amp;#34;, &amp;#34;y&amp;#34;) #组合字符串 ## [1] &amp;quot;xy&amp;quot; str_c(&amp;#34;x&amp;#34;, &amp;#34;y&amp;#34;, sep = &amp;#34;,&amp;#34;) ## [1] &amp;quot;x,y&amp;quot; x &amp;lt;- c(&amp;#34;abc&amp;#34;, NA) str_c(&amp;#34;|-&amp;#34;, x, &amp;#34;-|&amp;#34;) ## [1] &amp;quot;|-abc-|&amp;quot; NA str_c(&amp;#34;|-&amp;#34;, str_replace_na(x), &amp;#34;-|&amp;#34;) ## [1] &amp;quot;|-abc-|&amp;quot; &amp;quot;|-NA-|&amp;quot; str_c(&amp;#34;prefix&amp;#34;, c(&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;), &amp;#34;-suffix&amp;#34;) ## [1] &amp;quot;prefixa-suffix&amp;quot; &amp;quot;prefixb-suffix&amp;quot; &amp;quot;prefixc-suffix&amp;quot; name &amp;lt;- &amp;#34;zzq&amp;#34; time_of_day &amp;lt;- &amp;#34;afternoon&amp;#34; birthday &amp;lt;- FALSE str_c( &amp;#34;Good &amp;#34;, time_of_day, &amp;#34; &amp;#34;, name, if (birthday) &amp;#34; and HAPPY BIRTHDAY&amp;#34;, &amp;#34;.">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-201256535-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
     <body class="
     article-page has-toc
