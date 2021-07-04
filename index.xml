@@ -41,11 +41,18 @@
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。&lt;/p&gt;
-&lt;p&gt;但是更新自己的博客主题也废了老大劲。&lt;/p&gt;
+&lt;p&gt;但是更新自己的博客主题还是遇到点小问题。&lt;/p&gt;
 &lt;p&gt;这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。&lt;/p&gt;
-&lt;p&gt;把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的内容啥也不知道，不知道哪里出了问题，于是在GitHub上开了一个&lt;a class=&#34;link&#34; href=&#34;https://user-images.githubusercontent.com/78252314/124375831-a9835280-dcd6-11eb-891e-48f66a82d6da.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的知识一无所知，不知道哪里出了问题，于是在GitHub上开了一个&lt;a class=&#34;link&#34; href=&#34;https://user-images.githubusercontent.com/78252314/124375831-a9835280-dcd6-11eb-891e-48f66a82d6da.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;issue&lt;/a&gt; ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。&lt;/p&gt;
-</description>
+&lt;p&gt;另外这次还换了一个评论系统，之前用disqus，但是广告太多了，于是换成了utterances.&lt;/p&gt;
+&lt;p&gt;这个用起来也很简单，首先登陆GitHub，访问&lt;a class=&#34;link&#34; href=&#34;https://github.com/apps/utterances&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;utterances&lt;/a&gt; 点击install，再改一下config.yaml文件就好了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;utterances:
+            repo: zzzqiii/zzzqiii.github.io
+            issueTerm: pathname
+            label:
+&lt;/code&gt;&lt;/pre&gt;</description>
         </item>
         <item>
         <title>数据结构一</title>
