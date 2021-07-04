@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Jul 2021 18:37:18 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Update_theme</title>
-      <link>https://zzzqiii.github.io/p/update_theme/</link>
+      <title>更新hugo主题</title>
+      <link>https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/</link>
       <pubDate>Sun, 04 Jul 2021 18:37:18 +0800</pubDate>
       
-      <guid>https://zzzqiii.github.io/p/update_theme/</guid>
+      <guid>https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/</guid>
       <description>Stack主题终于更新了！
 Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
   feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
@@ -760,15 +760,6 @@ INFO: ***** Start a BUSCO v5.0.0 analysis, current time: 03/06/2021 14:29:00 ***
       <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%80%E7%AB%A0/</guid>
       <description>[toc]
 第 1 章　使用 ggplot2 进行数据可视化 library(tidyverse) mpg ## # A tibble: 234 x 11 ## manufacturer model displ year cyl trans drv cty hwy ## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; ## 1 audi a4 1.8 1999 4 auto(~ f 18 29 ## 2 audi a4 1.8 1999 4 manua~ f 21 29 ## 3 audi a4 2 2008 4 manua~ f 20 31 ## 4 audi a4 2 2008 4 auto(~ f 21 30 ## 5 audi a4 2.</description>
-    </item>
-    
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://zzzqiii.github.io/p/markdown-syntax-guide/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://zzzqiii.github.io/p/markdown-syntax-guide/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
   </channel>

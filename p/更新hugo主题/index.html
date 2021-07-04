@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='下载
- conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
-  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
-  手动下载：
- https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
-解压，把bin添加到环境变量。
-发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-需要configure。
-在bin目录下vdb-config -i
-然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
-下载SRA  prefetch --option-file sra.txt
-数据默认下载到~/ncbi/public/sra/里面
-会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
-如果是fastq
-fastq-dump --split-files SRR6784805.'><title>sra下载</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Stack主题终于更新了！
+Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
+  feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
+但是更新自己的博客主题还是遇到点小问题。
+这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。
+把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的知识一无所知，不知道哪里出了问题，于是在GitHub上开了一个issue ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。
+另外这次还换了一个评论系统，之前用disqus，但是广告太多了，于是换成了utterances.
+这个用起来也很简单，首先登陆GitHub，访问utterances 点击install，再改一下config.yaml文件就好了。
+utterances: repo: zzzqiii/zzzqiii.github.io issueTerm: pathname label: '><title>更新hugo主题</title>
 
-<link rel='canonical' href='https://zzzqiii.github.io/p/sra%E4%B8%8B%E8%BD%BD/'>
+<link rel='canonical' href='https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='sra下载'>
-<meta property='og:description' content='下载
- conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
-  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
-  手动下载：
- https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
-解压，把bin添加到环境变量。
-发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-需要configure。
-在bin目录下vdb-config -i
-然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
-下载SRA  prefetch --option-file sra.txt
-数据默认下载到~/ncbi/public/sra/里面
-会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
-如果是fastq
-fastq-dump --split-files SRR6784805.'>
-<meta property='og:url' content='https://zzzqiii.github.io/p/sra%E4%B8%8B%E8%BD%BD/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='更新hugo主题'>
+<meta property='og:description' content='Stack主题终于更新了！
+Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
+  feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
+但是更新自己的博客主题还是遇到点小问题。
+这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。
+把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的知识一无所知，不知道哪里出了问题，于是在GitHub上开了一个issue ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。
+另外这次还换了一个评论系统，之前用disqus，但是广告太多了，于是换成了utterances.
+这个用起来也很简单，首先登陆GitHub，访问utterances 点击install，再改一下config.yaml文件就好了。
+utterances: repo: zzzqiii/zzzqiii.github.io issueTerm: pathname label: '>
+<meta property='og:url' content='https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/'>
 <meta property='og:site_name' content='相忘于江湖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-10T15:11:09&#43;08:00'/><meta property='article:modified_time' content='2021-05-10T15:11:09&#43;08:00'/>
-<meta name="twitter:title" content="sra下载">
-<meta name="twitter:description" content="下载
- conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
-  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
-  手动下载：
- https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
-解压，把bin添加到环境变量。
-发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-需要configure。
-在bin目录下vdb-config -i
-然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
-下载SRA  prefetch --option-file sra.txt
-数据默认下载到~/ncbi/public/sra/里面
-会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
-如果是fastq
-fastq-dump --split-files SRR6784805.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-04T18:37:18&#43;08:00'/><meta property='article:modified_time' content='2021-07-04T18:37:18&#43;08:00'/><meta property='og:image' content='https://gitee.com/zuozhangqi/blogimg/raw/master/img/stack.jpg' />
+<meta name="twitter:title" content="更新hugo主题">
+<meta name="twitter:description" content="Stack主题终于更新了！
+Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
+  feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
+但是更新自己的博客主题还是遇到点小问题。
+这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。
+把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的知识一无所知，不知道哪里出了问题，于是在GitHub上开了一个issue ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。
+另外这次还换了一个评论系统，之前用disqus，但是广告太多了，于是换成了utterances.
+这个用起来也很简单，首先登陆GitHub，访问utterances 点击install，再改一下config.yaml文件就好了。
+utterances: repo: zzzqiii/zzzqiii.github.io issueTerm: pathname label: "><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://gitee.com/zuozhangqi/blogimg/raw/master/img/stack.jpg' />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     </head>
@@ -221,22 +204,30 @@ fastq-dump --split-files SRR6784805.">
 
     
 <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/">
+                
+                    <img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/stack.jpg" loading="lazy" alt="Featured image of post 更新hugo主题" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/bioinfo/" style="background-color: #A569BD; color: #fff;">
-                bioinfo
+            <a href="/categories/try/" style="background-color: #C0392B; color: #fff;">
+                try
             </a>
         
     </header>
     
 
     <h2 class="article-title">
-        <a href="/p/sra%E4%B8%8B%E8%BD%BD/">sra下载</a>
+        <a href="/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/">更新hugo主题</a>
     </h2>
 
     <footer class="article-time">
@@ -248,61 +239,52 @@ fastq-dump --split-files SRR6784805.">
 
 
 
-        <time class="article-time--published">May 10, 2021</time>
+        <time class="article-time--published">Jul 04, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <ol>
-<li>
-<p>下载</p>
+    <p>Stack主题终于更新了！</p>
+<p><a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/releases/tag/v2.4.0"  target="_blank" rel="noopener"
+    >Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)</a></p>
+<blockquote>
 <ul>
-<li>conda下载：https://anaconda.org/bioconda/sra-tools</li>
+<li>feat: Table of Contents <a class="link" href="https://github.com/CaiJimmy"  target="_blank" rel="noopener"
+    >@CaiJimmy</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/232"  target="_blank" rel="noopener"
+    >#232</a>)</li>
+<li>feat: change the page vertical scrollbar styles <a class="link" href="https://github.com/moll-y"  target="_blank" rel="noopener"
+    >@moll-y</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/227"  target="_blank" rel="noopener"
+    >#227</a>)</li>
+<li>feat(comment): add Waline <a class="link" href="https://github.com/ciallowo"  target="_blank" rel="noopener"
+    >@ciallowo</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/200"  target="_blank" rel="noopener"
+    >#200</a>)</li>
+<li>feat: change horizontal scrollbar styles <a class="link" href="https://github.com/moll-y"  target="_blank" rel="noopener"
+    >@moll-y</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/211"  target="_blank" rel="noopener"
+    >#211</a>)</li>
+<li>feat: Add support for Google Analytics v4 <a class="link" href="https://github.com/zhixuan666"  target="_blank" rel="noopener"
+    >@zhixuan666</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/214"  target="_blank" rel="noopener"
+    >#214</a>)</li>
+<li>feat: add Vssue comment <a class="link" href="https://github.com/mapleafgo"  target="_blank" rel="noopener"
+    >@mapleafgo</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/197"  target="_blank" rel="noopener"
+    >#197</a>)</li>
+<li>feat(i18n): add Dutch <a class="link" href="https://github.com/miclnl"  target="_blank" rel="noopener"
+    >@miclnl</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/180"  target="_blank" rel="noopener"
+    >#180</a>)</li>
 </ul>
-<p>To install this package with conda run one of the following:
-<code>conda install -c bioconda sra-tools</code>
-<code>conda install -c bioconda/label/cf201901 sra-tools</code></p>
-</li>
-<li>
-<p>使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。</p>
-</li>
-<li>
-<p>手动下载：</p>
-<ul>
-<li><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software</a></li>
-</ul>
-</li>
-</ol>
-<p><code>tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz</code></p>
-<p>解压，把bin添加到环境变量。</p>
-<p>发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration</p>
-<p>需要configure。</p>
-<p>在bin目录下<code>vdb-config -i</code></p>
-<p>然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。</p>
-<ol start="4">
-<li>下载SRA</li>
-</ol>
-<p><code>prefetch --option-file sra.txt</code></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210510152758370.png" alt="image-20210510152758370"  /></p>
-<p>数据默认下载到~/ncbi/public/sra/里面</p>
-<p>会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。</p>
-<p>如果是fastq</p>
-<pre><code>fastq-dump --split-files SRR6784805.sra
-</code></pre><p>如果是sff</p>
-<pre><code>sff-dump --split-files SRR6784805.sra
-</code></pre><p>使用fastq-dump后，就得到了双端的fastq测序数据了。</p>
-<p>但是好像比较慢，一直是…，不确定是不是在下，最后还是选择了了迅雷orz。</p>
-<ol start="5">
-<li>迅雷下载</li>
-</ol>
-<p>在ncbi上搜索</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image.png" alt="image"  /></p>
-<p>下载这个生成的csv文件，复制下载链接那一列到迅雷中去。</p>
-<p>参考：</p>
-<p><a href="https://pzweuj.github.io/2018/03/11/NCBI-SRA.html">https://pzweuj.github.io/2018/03/11/NCBI-SRA.html</a></p>
-<p><a href="https://www.omicsclass.com/article/964">https://www.omicsclass.com/article/964</a></p>
-<p><a href="https://www.omicsclass.com/article/53">https://www.omicsclass.com/article/53</a></p>
-
+</blockquote>
+<p>终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。</p>
+<p>但是更新自己的博客主题还是遇到点小问题。</p>
+<p>这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。</p>
+<p>把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的知识一无所知，不知道哪里出了问题，于是在GitHub上开了一个<a class="link" href="https://user-images.githubusercontent.com/78252314/124375831-a9835280-dcd6-11eb-891e-48f66a82d6da.png"  target="_blank" rel="noopener"
+    >issue</a> ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。</p>
+<p>另外这次还换了一个评论系统，之前用disqus，但是广告太多了，于是换成了utterances.</p>
+<p>这个用起来也很简单，首先登陆GitHub，访问<a class="link" href="https://github.com/apps/utterances"  target="_blank" rel="noopener"
+    >utterances</a> 点击install，再改一下config.yaml文件就好了。</p>
+<pre><code>utterances:
+            repo: zzzqiii/zzzqiii.github.io
+            issueTerm: pathname
+            label:
+</code></pre>
 </section>
 
 
@@ -358,60 +340,36 @@ fastq-dump --split-files SRR6784805.">
                 
                     
 <article class="">
-    <a href="/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/">
+    <a href="/p/docker/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Gff文件提取负链序列</h2>
+            <h2 class="article-title">Docker</h2>
         </div>
     </a>
 </article>
                 
                     
 <article class="">
-    <a href="/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/">
+    <a href="/p/%E5%8A%A0%E8%A3%85%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">ggtree画系统发育树</h2>
+            <h2 class="article-title">加装固态硬盘</h2>
         </div>
     </a>
 </article>
                 
                     
 <article class="">
-    <a href="/p/pasa/">
+    <a href="/p/first/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Pasa</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%B3%A8%E9%87%8A/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">基因组注释</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/cytoscape/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Cytoscape</h2>
+            <h2 class="article-title">First</h2>
         </div>
     </a>
 </article>

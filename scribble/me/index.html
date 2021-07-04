@@ -1,59 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='下载
- conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
-  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
-  手动下载：
- https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
-解压，把bin添加到环境变量。
-发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-需要configure。
-在bin目录下vdb-config -i
-然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
-下载SRA  prefetch --option-file sra.txt
-数据默认下载到~/ncbi/public/sra/里面
-会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
-如果是fastq
-fastq-dump --split-files SRR6784805.'><title>sra下载</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='生物信息学专业研一在读
+想要变强的菜鸡
+以此博客记录五年的修行之路✊'><title>About Me</title>
 
-<link rel='canonical' href='https://zzzqiii.github.io/p/sra%E4%B8%8B%E8%BD%BD/'>
+<link rel='canonical' href='https://zzzqiii.github.io/scribble/me/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='sra下载'>
-<meta property='og:description' content='下载
- conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
-  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
-  手动下载：
- https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
-解压，把bin添加到环境变量。
-发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-需要configure。
-在bin目录下vdb-config -i
-然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
-下载SRA  prefetch --option-file sra.txt
-数据默认下载到~/ncbi/public/sra/里面
-会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
-如果是fastq
-fastq-dump --split-files SRR6784805.'>
-<meta property='og:url' content='https://zzzqiii.github.io/p/sra%E4%B8%8B%E8%BD%BD/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='About Me'>
+<meta property='og:description' content='生物信息学专业研一在读
+想要变强的菜鸡
+以此博客记录五年的修行之路✊'>
+<meta property='og:url' content='https://zzzqiii.github.io/scribble/me/'>
 <meta property='og:site_name' content='相忘于江湖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-10T15:11:09&#43;08:00'/><meta property='article:modified_time' content='2021-05-10T15:11:09&#43;08:00'/>
-<meta name="twitter:title" content="sra下载">
-<meta name="twitter:description" content="下载
- conda下载：https://anaconda.org/bioconda/sra-tools  To install this package with conda run one of the following: conda install -c bioconda sra-tools conda install -c bioconda/label/cf201901 sra-tools
-  使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。
-  手动下载：
- https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software    tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz
-解压，把bin添加到环境变量。
-发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-需要configure。
-在bin目录下vdb-config -i
-然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。
-下载SRA  prefetch --option-file sra.txt
-数据默认下载到~/ncbi/public/sra/里面
-会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。
-如果是fastq
-fastq-dump --split-files SRR6784805.">
+<meta property='og:type' content='article'><meta property='article:section' content='Scribble' /><meta property='article:published_time' content='2021-03-03T21:51:12&#43;08:00'/><meta property='article:modified_time' content='2021-03-03T21:51:12&#43;08:00'/><meta property='og:image' content='https://zzzqiii.github.io/me.jpg' />
+<meta name="twitter:title" content="About Me">
+<meta name="twitter:description" content="生物信息学专业研一在读
+想要变强的菜鸡
+以此博客记录五年的修行之路✊"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zzzqiii.github.io/me.jpg' />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     </head>
@@ -221,22 +186,22 @@ fastq-dump --split-files SRR6784805.">
 
     
 <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/scribble/me/">
+                
+                    <img src="/me.jpg" loading="lazy" alt="Featured image of post About Me" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/bioinfo/" style="background-color: #A569BD; color: #fff;">
-                bioinfo
-            </a>
-        
-    </header>
-    
 
     <h2 class="article-title">
-        <a href="/p/sra%E4%B8%8B%E8%BD%BD/">sra下载</a>
+        <a href="/scribble/me/">About Me</a>
     </h2>
 
     <footer class="article-time">
@@ -248,60 +213,14 @@ fastq-dump --split-files SRR6784805.">
 
 
 
-        <time class="article-time--published">May 10, 2021</time>
+        <time class="article-time--published">Mar 03, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <ol>
-<li>
-<p>下载</p>
-<ul>
-<li>conda下载：https://anaconda.org/bioconda/sra-tools</li>
-</ul>
-<p>To install this package with conda run one of the following:
-<code>conda install -c bioconda sra-tools</code>
-<code>conda install -c bioconda/label/cf201901 sra-tools</code></p>
-</li>
-<li>
-<p>使用prefetch发现报错：prefetch.2.8.0 err: path not found while resolving tree within virtual file system module。网上搜索之后选择了手动下载。</p>
-</li>
-<li>
-<p>手动下载：</p>
-<ul>
-<li><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software</a></li>
-</ul>
-</li>
-</ol>
-<p><code>tar zxvf sratoolkit.2.11.0-ubuntu64.tar.gz</code></p>
-<p>解压，把bin添加到环境变量。</p>
-<p>发现还是无法使用，看了一下官网，https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration</p>
-<p>需要configure。</p>
-<p>在bin目录下<code>vdb-config -i</code></p>
-<p>然后会出来一个图形页面，按提示说的乱点就好了，主要是设置了一个下载目录。</p>
-<ol start="4">
-<li>下载SRA</li>
-</ol>
-<p><code>prefetch --option-file sra.txt</code></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210510152758370.png" alt="image-20210510152758370"  /></p>
-<p>数据默认下载到~/ncbi/public/sra/里面</p>
-<p>会得到一个叫SRR6784805.sra的文件。其实可以认为这个文件也是一个压缩包之类的东西。 需要解压（转换为相应的格式）。</p>
-<p>如果是fastq</p>
-<pre><code>fastq-dump --split-files SRR6784805.sra
-</code></pre><p>如果是sff</p>
-<pre><code>sff-dump --split-files SRR6784805.sra
-</code></pre><p>使用fastq-dump后，就得到了双端的fastq测序数据了。</p>
-<p>但是好像比较慢，一直是…，不确定是不是在下，最后还是选择了了迅雷orz。</p>
-<ol start="5">
-<li>迅雷下载</li>
-</ol>
-<p>在ncbi上搜索</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image.png" alt="image"  /></p>
-<p>下载这个生成的csv文件，复制下载链接那一列到迅雷中去。</p>
-<p>参考：</p>
-<p><a href="https://pzweuj.github.io/2018/03/11/NCBI-SRA.html">https://pzweuj.github.io/2018/03/11/NCBI-SRA.html</a></p>
-<p><a href="https://www.omicsclass.com/article/964">https://www.omicsclass.com/article/964</a></p>
-<p><a href="https://www.omicsclass.com/article/53">https://www.omicsclass.com/article/53</a></p>
+    <p>生物信息学专业研一在读</p>
+<p>想要变强的菜鸡</p>
+<p>以此博客记录五年的修行之路✊</p>
 
 </section>
 
@@ -351,73 +270,6 @@ fastq-dump --split-files SRR6784805.">
 
     <aside class="related-contents--wrapper">
     
-    
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
-                
-                    
-<article class="">
-    <a href="/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Gff文件提取负链序列</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">ggtree画系统发育树</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/pasa/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Pasa</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%B3%A8%E9%87%8A/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">基因组注释</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/cytoscape/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Cytoscape</h2>
-        </div>
-    </a>
-</article>
-                
-            </div>
-        </div>
     
 </aside>
 

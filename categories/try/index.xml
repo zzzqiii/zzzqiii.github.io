@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Jul 2021 18:37:18 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/try/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Update_theme</title>
-      <link>https://zzzqiii.github.io/p/update_theme/</link>
+      <title>更新hugo主题</title>
+      <link>https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/</link>
       <pubDate>Sun, 04 Jul 2021 18:37:18 +0800</pubDate>
       
-      <guid>https://zzzqiii.github.io/p/update_theme/</guid>
+      <guid>https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/</guid>
       <description>Stack主题终于更新了！
 Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
   feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。

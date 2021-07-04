@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scribbles on 相忘于江湖</title>
+    <link>https://zzzqiii.github.io/scribble/</link>
+    <description>Recent content in Scribbles on 相忘于江湖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Mar 2021 21:51:12 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/scribble/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://zzzqiii.github.io/scribble/me/</link>
+      <pubDate>Wed, 03 Mar 2021 21:51:12 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/scribble/me/</guid>
+      <description>生物信息学专业研一在读
+想要变强的菜鸡
+以此博客记录五年的修行之路✊</description>
+    </item>
+    
+  </channel>
+</rss>
