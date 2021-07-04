@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='链表与邻接表 用结构体来实现
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='链表与邻接表 单链表 用结构体来实现
 面试题用得多，笔试题用得不多
-struct Node { int val; Node *next; }; new Node(); //非常慢 单链表 动态链表很慢
+struct Node { int val; Node *next; }; new Node(); //非常慢 动态链表很慢
 数组模拟邻接表快。
 邻接表最常用：n个链表，最主要的应用是存储数和树。
 用数组模拟需要定义值val数组：e[N], next指针数组ne[N]。e和ne都是整型数组。
@@ -17,9 +17,9 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
 <link rel='canonical' href='https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='数据结构一'>
-<meta property='og:description' content='链表与邻接表 用结构体来实现
+<meta property='og:description' content='链表与邻接表 单链表 用结构体来实现
 面试题用得多，笔试题用得不多
-struct Node { int val; Node *next; }; new Node(); //非常慢 单链表 动态链表很慢
+struct Node { int val; Node *next; }; new Node(); //非常慢 动态链表很慢
 数组模拟邻接表快。
 邻接表最常用：n个链表，最主要的应用是存储数和树。
 用数组模拟需要定义值val数组：e[N], next指针数组ne[N]。e和ne都是整型数组。
@@ -33,9 +33,9 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
 <meta property='og:site_name' content='相忘于江湖'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-06-27T22:49:55&#43;08:00'/><meta property='article:modified_time' content='2021-06-27T22:49:55&#43;08:00'/>
 <meta name="twitter:title" content="数据结构一">
-<meta name="twitter:description" content="链表与邻接表 用结构体来实现
+<meta name="twitter:description" content="链表与邻接表 单链表 用结构体来实现
 面试题用得多，笔试题用得不多
-struct Node { int val; Node *next; }; new Node(); //非常慢 单链表 动态链表很慢
+struct Node { int val; Node *next; }; new Node(); //非常慢 动态链表很慢
 数组模拟邻接表快。
 邻接表最常用：n个链表，最主要的应用是存储数和树。
 用数组模拟需要定义值val数组：e[N], next指针数组ne[N]。e和ne都是整型数组。
@@ -125,7 +125,8 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
 </header>
 
     <section class="article-content">
-    <h3 id="链表与邻接表">链表与邻接表</h3>
+    <h2 id="链表与邻接表">链表与邻接表</h2>
+<h3 id="单链表">单链表</h3>
 <p>用结构体来实现</p>
 <p>面试题用得多，笔试题用得不多</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="nc">Node</span>
@@ -134,8 +135,7 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
     <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="k">new</span> <span class="nf">Node</span><span class="p">();</span> <span class="c1">//非常慢
-</span></code></pre></div><h4 id="单链表">单链表</h4>
-<p>动态链表很慢</p>
+</span></code></pre></div><p>动态链表很慢</p>
 <p>数组模拟邻接表快。</p>
 <p>邻接表最常用：n个链表，最主要的应用是存储数和树。</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210627225909443.png" alt="image-20210627225909443"  /></p>
@@ -296,7 +296,7 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h4 id="双链表">双链表</h4>
+</code></pre></div><h3 id="双链表">双链表</h3>
 <p>优化某些问题的时候常用</p>
 <p>单链表和双链表初始化不一样，双链表不需要存第一个，而单链表需要。</p>
 <p>初始化</p>
@@ -458,11 +458,11 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
     
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="栈与队列">栈与队列</h3>
+</code></pre></div><h2 id="栈与队列">栈与队列</h2>
 <p>栈：先进后出</p>
 <p>队列：先进后出</p>
 <p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210703105954200.png" alt="image-20210703105954200"  /></p>
-<h4 id="单调栈">单调栈</h4>
+<h3 id="单调栈">单调栈</h3>
 <p>给定一个长度为  N  的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出  −1 。</p>
 <p>输入格式
 第一行包含整数  N ，表示数列长度。</p>
@@ -529,7 +529,7 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-</code></pre></div><h4 id="单调队列">单调队列</h4>
+</code></pre></div><h3 id="单调队列">单调队列</h3>
 <p>给定一个大小为  n≤106  的数组。</p>
 <p>有一个大小为  k  的滑动窗口，它从数组的最左边移动到最右边。</p>
 <p>你只能在窗口中看到  k  个数字。</p>
@@ -632,7 +632,7 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
     <span class="n">puts</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="kmp">kmp</h3>
+</code></pre></div><h2 id="kmp">kmp</h2>
 <p>给定一个模式串  S ，以及一个模板串  P ，所有字符串中只包含大小写英文字母以及阿拉伯数字。</p>
 <p>模板串  P  在模式串  S  中多次作为子串出现。</p>
 <p>求出模板串  P  在模式串  S  中所有出现的位置的起始下标。</p>
@@ -778,12 +778,12 @@ ababa
                 
                     
 <article class="">
-    <a href="/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/">
+    <a href="/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89-%E4%B9%A0%E9%A2%98/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">基础算法三_习题</h2>
+            <h2 class="article-title">基础算法三 习题</h2>
         </div>
     </a>
 </article>
@@ -1000,23 +1000,19 @@ ababa
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#链表与邻接表">链表与邻接表</a>
       <ol>
-        <li><a href="#链表与邻接表">链表与邻接表</a>
-          <ol>
-            <li><a href="#单链表">单链表</a></li>
-            <li><a href="#双链表">双链表</a></li>
-          </ol>
-        </li>
-        <li><a href="#栈与队列">栈与队列</a>
-          <ol>
-            <li><a href="#单调栈">单调栈</a></li>
-            <li><a href="#单调队列">单调队列</a></li>
-          </ol>
-        </li>
-        <li><a href="#kmp">kmp</a></li>
+        <li><a href="#单链表">单链表</a></li>
+        <li><a href="#双链表">双链表</a></li>
       </ol>
     </li>
+    <li><a href="#栈与队列">栈与队列</a>
+      <ol>
+        <li><a href="#单调栈">单调栈</a></li>
+        <li><a href="#单调队列">单调队列</a></li>
+      </ol>
+    </li>
+    <li><a href="#kmp">kmp</a></li>
   </ol>
 </nav>
                 </div>

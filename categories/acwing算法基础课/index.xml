@@ -13,9 +13,9 @@
       <pubDate>Sun, 27 Jun 2021 22:49:55 +0800</pubDate>
       
       <guid>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/</guid>
-      <description>链表与邻接表 用结构体来实现
+      <description>链表与邻接表 单链表 用结构体来实现
 面试题用得多，笔试题用得不多
-struct Node { int val; Node *next; }; new Node(); //非常慢 单链表 动态链表很慢
+struct Node { int val; Node *next; }; new Node(); //非常慢 动态链表很慢
 数组模拟邻接表快。
 邻接表最常用：n个链表，最主要的应用是存储数和树。
 用数组模拟需要定义值val数组：e[N], next指针数组ne[N]。e和ne都是整型数组。
@@ -28,11 +28,11 @@ e和ne用下标关联起来。空节点的下标用-1来表示。
     </item>
     
     <item>
-      <title>基础算法三_习题</title>
-      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</link>
+      <title>基础算法三 习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89-%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Mon, 21 Jun 2021 23:54:58 +0800</pubDate>
       
-      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</guid>
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89-%E4%B9%A0%E9%A2%98/</guid>
       <description>双指针算法 最长不连续重复子序列 #include &amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; int a[N], s[N]; int main() { int n; cin &amp;gt;&amp;gt; n; int res = 0; for (int i = 0; i &amp;lt; n; i ++) cin &amp;gt;&amp;gt; a[i]; for (int i = 0, j = 0; i &amp;lt; n; i ++) { s[a[i]] ++; while (s[a[i]] &amp;gt; 1) { s[a[j]] --; j ++; } res = max(res, i - j + 1); } cout &amp;lt;&amp;lt; res; return 0; } 数组元素的目标和 #include &amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; int n, m, x; int a[N], b[N]; int main() { cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; x; for (int i = 0; i &amp;lt; n; i ++) cin &amp;gt;&amp;gt; a[i]; for (int j = 0; j &amp;lt; m; j ++) cin &amp;gt;&amp;gt; b[j]; for (int i = 0, j = m - 1; i &amp;lt; n; i ++) { while (j &amp;gt;= 0 &amp;amp;&amp;amp; a[i] + b[j] &amp;gt; x) j --; if (a[i] + b[j] == x) { printf(&amp;#34;%d %d\n&amp;#34;, i, j); break; } } return 0; } 位运算 二进制中1的个数 #include &amp;lt;iostream&amp;gt; using namespace std; int lowbit(int x) { return x &amp;amp; -x; } int main() { int n; cin &amp;gt;&amp;gt; n; while (n --) { int m; cin &amp;gt;&amp;gt; m; int res = 0; while (m) { m -= lowbit(m); res += 1; } cout &amp;lt;&amp;lt; res &amp;lt;&amp;lt; &amp;#39; &amp;#39;; } return 0; } 64位整数乘法 求 a 乘 b 对 p 取模的值。</description>
     </item>
     

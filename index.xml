@@ -6,13 +6,55 @@
         <description>Recent content on 相忘于江湖</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 27 Jun 2021 22:49:55 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 04 Jul 2021 18:37:18 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Update_theme</title>
+        <link>https://zzzqiii.github.io/p/update_theme/</link>
+        <pubDate>Sun, 04 Jul 2021 18:37:18 +0800</pubDate>
+        
+        <guid>https://zzzqiii.github.io/p/update_theme/</guid>
+        <description>&lt;p&gt;Stack主题终于更新了！&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/releases/tag/v2.4.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;feat: Table of Contents &lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@CaiJimmy&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/232&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#232&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;feat: change the page vertical scrollbar styles &lt;a class=&#34;link&#34; href=&#34;https://github.com/moll-y&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@moll-y&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/227&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#227&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;feat(comment): add Waline &lt;a class=&#34;link&#34; href=&#34;https://github.com/ciallowo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@ciallowo&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/200&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#200&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;feat: change horizontal scrollbar styles &lt;a class=&#34;link&#34; href=&#34;https://github.com/moll-y&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@moll-y&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/211&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#211&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;feat: Add support for Google Analytics v4 &lt;a class=&#34;link&#34; href=&#34;https://github.com/zhixuan666&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@zhixuan666&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/214&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#214&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;feat: add Vssue comment &lt;a class=&#34;link&#34; href=&#34;https://github.com/mapleafgo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@mapleafgo&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/197&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#197&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;feat(i18n): add Dutch &lt;a class=&#34;link&#34; href=&#34;https://github.com/miclnl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@miclnl&lt;/a&gt; (&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/pull/180&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#180&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。&lt;/p&gt;
+&lt;p&gt;但是更新自己的博客主题也废了老大劲。&lt;/p&gt;
+&lt;p&gt;这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。&lt;/p&gt;
+&lt;p&gt;把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的内容啥也不知道，不知道哪里出了问题，于是在GitHub上开了一个&lt;a class=&#34;link&#34; href=&#34;https://user-images.githubusercontent.com/78252314/124375831-a9835280-dcd6-11eb-891e-48f66a82d6da.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;issue&lt;/a&gt; ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>数据结构一</title>
         <link>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/</link>
         <pubDate>Sun, 27 Jun 2021 22:49:55 +0800</pubDate>
         
         <guid>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/</guid>
-        <description>&lt;h3 id=&#34;链表与邻接表&#34;&gt;链表与邻接表&lt;/h3&gt;
+        <description>&lt;h2 id=&#34;链表与邻接表&#34;&gt;链表与邻接表&lt;/h2&gt;
+&lt;h3 id=&#34;单链表&#34;&gt;单链表&lt;/h3&gt;
 &lt;p&gt;用结构体来实现&lt;/p&gt;
 &lt;p&gt;面试题用得多，笔试题用得不多&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Node&lt;/span&gt;
@@ -21,8 +63,7 @@
     &lt;span class=&#34;n&#34;&gt;Node&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//非常慢
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;单链表&#34;&gt;单链表&lt;/h4&gt;
-&lt;p&gt;动态链表很慢&lt;/p&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;动态链表很慢&lt;/p&gt;
 &lt;p&gt;数组模拟邻接表快。&lt;/p&gt;
 &lt;p&gt;邻接表最常用：n个链表，最主要的应用是存储数和树。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210627225909443.png&#34; alt=&#34;image-20210627225909443&#34;  /&gt;&lt;/p&gt;
@@ -183,7 +224,7 @@
     &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;双链表&#34;&gt;双链表&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;双链表&#34;&gt;双链表&lt;/h3&gt;
 &lt;p&gt;优化某些问题的时候常用&lt;/p&gt;
 &lt;p&gt;单链表和双链表初始化不一样，双链表不需要存第一个，而单链表需要。&lt;/p&gt;
 &lt;p&gt;初始化&lt;/p&gt;
@@ -345,11 +386,11 @@
     
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;栈与队列&#34;&gt;栈与队列&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;栈与队列&#34;&gt;栈与队列&lt;/h2&gt;
 &lt;p&gt;栈：先进后出&lt;/p&gt;
 &lt;p&gt;队列：先进后出&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210703105954200.png&#34; alt=&#34;image-20210703105954200&#34;  /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;单调栈&#34;&gt;单调栈&lt;/h4&gt;
+&lt;h3 id=&#34;单调栈&#34;&gt;单调栈&lt;/h3&gt;
 &lt;p&gt;给定一个长度为  N  的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出  −1 。&lt;/p&gt;
 &lt;p&gt;输入格式
 第一行包含整数  N ，表示数列长度。&lt;/p&gt;
@@ -416,7 +457,7 @@
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;单调队列&#34;&gt;单调队列&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;单调队列&#34;&gt;单调队列&lt;/h3&gt;
 &lt;p&gt;给定一个大小为  n≤106  的数组。&lt;/p&gt;
 &lt;p&gt;有一个大小为  k  的滑动窗口，它从数组的最左边移动到最右边。&lt;/p&gt;
 &lt;p&gt;你只能在窗口中看到  k  个数字。&lt;/p&gt;
@@ -519,7 +560,7 @@
     &lt;span class=&#34;n&#34;&gt;puts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kmp&#34;&gt;kmp&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;kmp&#34;&gt;kmp&lt;/h2&gt;
 &lt;p&gt;给定一个模式串  S ，以及一个模板串  P ，所有字符串中只包含大小写英文字母以及阿拉伯数字。&lt;/p&gt;
 &lt;p&gt;模板串  P  在模式串  S  中多次作为子串出现。&lt;/p&gt;
 &lt;p&gt;求出模板串  P  在模式串  S  中所有出现的位置的起始下标。&lt;/p&gt;
@@ -758,11 +799,11 @@ ctg5046_3480728-3500070_	1	sinc5046
 &lt;/code&gt;&lt;/pre&gt;</description>
         </item>
         <item>
-        <title>基础算法三_习题</title>
-        <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</link>
+        <title>基础算法三 习题</title>
+        <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89-%E4%B9%A0%E9%A2%98/</link>
         <pubDate>Mon, 21 Jun 2021 23:54:58 +0800</pubDate>
         
-        <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89_%E4%B9%A0%E9%A2%98/</guid>
+        <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89-%E4%B9%A0%E9%A2%98/</guid>
         <description>&lt;h2 id=&#34;双指针算法&#34;&gt;双指针算法&lt;/h2&gt;
 &lt;h3 id=&#34;最长不连续重复子序列&#34;&gt;最长不连续重复子序列&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210621235514126.png&#34; alt=&#34;image-20210621235514126&#34;  /&gt;&lt;/p&gt;

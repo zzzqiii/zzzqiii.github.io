@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='basic docker version 查看docker版本
-Run the command docker ps and count the number of running containers.
-Run the command docker images and count the number of available images.
-进入镜像：docker run redis
-退出：ctrl &#43; C 或者docker stop &amp;lt;container-id&amp;gt;
-To stop all the containers at once, run the command: docker stop $(docker ps -aq) To remove all the stopped containers at once, run the command: docker rm $(docker ps -aq)
-Run a container with the nginx:1.'><title>Docker</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Stack主题终于更新了！
+Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
+  feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
+但是更新自己的博客主题也废了老大劲。
+这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。
+把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的内容啥也不知道，不知道哪里出了问题，于是在GitHub上开了一个issue ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。'><title>Update_theme</title>
 
-<link rel='canonical' href='https://zzzqiii.github.io/p/docker/'>
+<link rel='canonical' href='https://zzzqiii.github.io/p/update_theme/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Docker'>
-<meta property='og:description' content='basic docker version 查看docker版本
-Run the command docker ps and count the number of running containers.
-Run the command docker images and count the number of available images.
-进入镜像：docker run redis
-退出：ctrl &#43; C 或者docker stop &amp;lt;container-id&amp;gt;
-To stop all the containers at once, run the command: docker stop $(docker ps -aq) To remove all the stopped containers at once, run the command: docker rm $(docker ps -aq)
-Run a container with the nginx:1.'>
-<meta property='og:url' content='https://zzzqiii.github.io/p/docker/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Update_theme'>
+<meta property='og:description' content='Stack主题终于更新了！
+Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
+  feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
+但是更新自己的博客主题也废了老大劲。
+这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。
+把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的内容啥也不知道，不知道哪里出了问题，于是在GitHub上开了一个issue ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/update_theme/'>
 <meta property='og:site_name' content='相忘于江湖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-22T12:14:56&#43;08:00'/><meta property='article:modified_time' content='2021-05-22T12:14:56&#43;08:00'/>
-<meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="basic docker version 查看docker版本
-Run the command docker ps and count the number of running containers.
-Run the command docker images and count the number of available images.
-进入镜像：docker run redis
-退出：ctrl &#43; C 或者docker stop &amp;lt;container-id&amp;gt;
-To stop all the containers at once, run the command: docker stop $(docker ps -aq) To remove all the stopped containers at once, run the command: docker rm $(docker ps -aq)
-Run a container with the nginx:1.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-04T18:37:18&#43;08:00'/><meta property='article:modified_time' content='2021-07-04T18:37:18&#43;08:00'/>
+<meta name="twitter:title" content="Update_theme">
+<meta name="twitter:description" content="Stack主题终于更新了！
+Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)
+  feat: Table of Contents @CaiJimmy (#232) feat: change the page vertical scrollbar styles @moll-y (#227) feat(comment): add Waline @ciallowo (#200) feat: change horizontal scrollbar styles @moll-y (#211) feat: Add support for Google Analytics v4 @zhixuan666 (#214) feat: add Vssue comment @mapleafgo (#197) feat(i18n): add Dutch @miclnl (#180)   终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。
+但是更新自己的博客主题也废了老大劲。
+这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。
+把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的内容啥也不知道，不知道哪里出了问题，于是在GitHub上开了一个issue ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     </head>
@@ -212,7 +209,7 @@ Run a container with the nginx:1.">
     
 
     <h2 class="article-title">
-        <a href="/p/docker/">Docker</a>
+        <a href="/p/update_theme/">Update_theme</a>
     </h2>
 
     <footer class="article-time">
@@ -224,23 +221,44 @@ Run a container with the nginx:1.">
 
 
 
-        <time class="article-time--published">May 22, 2021</time>
+        <time class="article-time--published">Jul 04, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <h2 id="basic">basic</h2>
-<p><code>docker version</code> 查看docker版本</p>
-<p>Run the command <code>docker ps</code> and count the number of running containers.</p>
-<p>Run the command <code>docker images</code> and count the number of available images.</p>
-<p>进入镜像：<code>docker run redis</code></p>
-<p>退出：ctrl + C 或者<code>docker stop &lt;container-id&gt;</code></p>
-<p>To stop all the containers at once, run the command: <code>docker stop $(docker ps -aq)</code>
-To remove all the stopped containers at once, run the command: <code>docker rm $(docker ps -aq)</code></p>
-<p>Run a container with the <code>nginx:1.14-alpine</code> image and name it <code>webapp</code>:</p>
-<p>Run the command <code>docker run -d --name webapp nginx:1.14-alpine</code> and check the status of created container by <code>docker ps</code> command.</p>
-<p>Stop and delete all the containers being used by images.
-Then run the command to delete all the available images: <code>docker rmi $(docker images -aq)</code></p>
+    <p>Stack主题终于更新了！</p>
+<p><a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/releases/tag/v2.4.0"  target="_blank" rel="noopener"
+    >Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)</a></p>
+<blockquote>
+<ul>
+<li>feat: Table of Contents <a class="link" href="https://github.com/CaiJimmy"  target="_blank" rel="noopener"
+    >@CaiJimmy</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/232"  target="_blank" rel="noopener"
+    >#232</a>)</li>
+<li>feat: change the page vertical scrollbar styles <a class="link" href="https://github.com/moll-y"  target="_blank" rel="noopener"
+    >@moll-y</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/227"  target="_blank" rel="noopener"
+    >#227</a>)</li>
+<li>feat(comment): add Waline <a class="link" href="https://github.com/ciallowo"  target="_blank" rel="noopener"
+    >@ciallowo</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/200"  target="_blank" rel="noopener"
+    >#200</a>)</li>
+<li>feat: change horizontal scrollbar styles <a class="link" href="https://github.com/moll-y"  target="_blank" rel="noopener"
+    >@moll-y</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/211"  target="_blank" rel="noopener"
+    >#211</a>)</li>
+<li>feat: Add support for Google Analytics v4 <a class="link" href="https://github.com/zhixuan666"  target="_blank" rel="noopener"
+    >@zhixuan666</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/214"  target="_blank" rel="noopener"
+    >#214</a>)</li>
+<li>feat: add Vssue comment <a class="link" href="https://github.com/mapleafgo"  target="_blank" rel="noopener"
+    >@mapleafgo</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/197"  target="_blank" rel="noopener"
+    >#197</a>)</li>
+<li>feat(i18n): add Dutch <a class="link" href="https://github.com/miclnl"  target="_blank" rel="noopener"
+    >@miclnl</a> (<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/pull/180"  target="_blank" rel="noopener"
+    >#180</a>)</li>
+</ul>
+</blockquote>
+<p>终于有了侧边标题栏。不会写代码的我只能眼巴巴地等别人更新哈哈哈。</p>
+<p>但是更新自己的博客主题也废了老大劲。</p>
+<p>这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。</p>
+<p>把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的内容啥也不知道，不知道哪里出了问题，于是在GitHub上开了一个<a class="link" href="https://user-images.githubusercontent.com/78252314/124375831-a9835280-dcd6-11eb-891e-48f66a82d6da.png"  target="_blank" rel="noopener"
+    >issue</a> ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。</p>
 
 </section>
 
@@ -297,12 +315,12 @@ Then run the command to delete all the available images: <code>docker rmi $(dock
                 
                     
 <article class="">
-    <a href="/p/update_theme/">
+    <a href="/p/docker/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Update_theme</h2>
+            <h2 class="article-title">Docker</h2>
         </div>
     </a>
 </article>
