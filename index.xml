@@ -1236,7 +1236,7 @@ ctg5046_3480728-3500070_	1	sinc5046
         <pubDate>Sat, 19 Jun 2021 15:42:20 +0800</pubDate>
         
         <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C-%E4%B9%A0%E9%A2%98/</guid>
-        <description>&lt;h1 id=&#34;高精度加法&#34;&gt;高精度加法&lt;/h1&gt;
+        <description>&lt;h2 id=&#34;高精度加法&#34;&gt;高精度加法&lt;/h2&gt;
 &lt;p&gt;给定两个正整数，计算它们的和。&lt;/p&gt;
 &lt;p&gt;输入格式
 共两行，每行包含一个整数。&lt;/p&gt;
@@ -1288,7 +1288,7 @@ ctg5046_3480728-3500070_	1	sinc5046
         &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;高精度减法&#34;&gt;高精度减法&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;高精度减法&#34;&gt;高精度减法&lt;/h2&gt;
 &lt;p&gt;给定两个正整数，计算它们的差，计算结果可能为负数。&lt;/p&gt;
 &lt;p&gt;输入格式
 共两行，每行包含一个整数。&lt;/p&gt;
@@ -1357,7 +1357,7 @@ ctg5046_3480728-3500070_	1	sinc5046
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;高精度乘法&#34;&gt;高精度乘法&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;高精度乘法&#34;&gt;高精度乘法&lt;/h2&gt;
 &lt;p&gt;给定两个正整数  A  和  B ，请你计算  A×B  的值。&lt;/p&gt;
 &lt;p&gt;输入格式
 共两行，第一行包含整数  A ，第二行包含整数  B 。&lt;/p&gt;
@@ -1401,7 +1401,7 @@ ctg5046_3480728-3500070_	1	sinc5046
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;高精度除法&#34;&gt;高精度除法&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;高精度除法&#34;&gt;高精度除法&lt;/h2&gt;
 &lt;p&gt;给定两个非负整数  A，B ，请你计算  A/B  的商和余数。&lt;/p&gt;
 &lt;p&gt;输入格式
 共两行，第一行包含整数  A ，第二行包含整数  B 。&lt;/p&gt;
@@ -1451,7 +1451,7 @@ B  一定不为  0
     &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;前缀和&#34;&gt;前缀和&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;前缀和&#34;&gt;前缀和&lt;/h2&gt;
 &lt;p&gt;输入一个长度为  n  的整数序列。&lt;/p&gt;
 &lt;p&gt;接下来再输入  m  个询问，每个询问输入一对  l,r 。&lt;/p&gt;
 &lt;p&gt;对于每个询问，输出原序列中从第  l  个数到第  r  个数的和。&lt;/p&gt;
@@ -1497,7 +1497,7 @@ B  一定不为  0
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;子矩阵的和&#34;&gt;子矩阵的和&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;子矩阵的和&#34;&gt;子矩阵的和&lt;/h2&gt;
 &lt;p&gt;输入一个  n  行  m  列的整数矩阵，再输入  q  个询问，每个询问包含四个整数  x1,y1,x2,y2 ，表示一个子矩阵的左上角坐标和右下角坐标。&lt;/p&gt;
 &lt;p&gt;对于每个询问输出子矩阵中所有数的和。&lt;/p&gt;
 &lt;p&gt;输入格式
@@ -1549,7 +1549,7 @@ B  一定不为  0
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;差分&#34;&gt;差分&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;差分&#34;&gt;差分&lt;/h2&gt;
 &lt;p&gt;输入一个长度为  n  的整数序列。&lt;/p&gt;
 &lt;p&gt;接下来输入  m  个操作，每个操作包含三个整数  l,r,c ，表示将序列中  [l,r]  之间的每个数加上  c 。&lt;/p&gt;
 &lt;p&gt;请你输出进行完所有操作后的序列。&lt;/p&gt;
@@ -1605,7 +1605,7 @@ B  一定不为  0
         &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;二维差分&#34;&gt;二维差分&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;二维差分&#34;&gt;二维差分&lt;/h2&gt;
 &lt;p&gt;输入一个  n  行  m  列的整数矩阵，再输入  q  个操作，每个操作包含五个整数  x1,y1,x2,y2,c ，其中  (x1,y1)  和  (x2,y2)  表示一个子矩阵的左上角坐标和右下角坐标。&lt;/p&gt;
 &lt;p&gt;每个操作都要将选中的子矩阵中的每个元素的值加上  c 。&lt;/p&gt;
 &lt;p&gt;请你将进行完所有操作后的矩阵输出。&lt;/p&gt;
