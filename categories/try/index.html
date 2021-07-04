@@ -4,7 +4,6 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='This is a example category'><title>Category: try - 相忘于江湖</title>
 
 <link rel='canonical' href='https://zzzqiii.github.io/categories/try/'>
-<link rel="stylesheet" href="/prism.css">
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Category: try - 相忘于江湖'>
 <meta property='og:description' content='This is a example category'>
@@ -34,13 +33,13 @@
         if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
             
 
-            document.body.dataset.scheme = 'dark';
+            document.documentElement.dataset.scheme = 'dark';
         } else {
-            document.body.dataset.scheme = 'light';
+            document.documentElement.dataset.scheme = 'light';
         }
     })();
-</script><div class="container main-container flex on-phone--column extended ">
-            <aside class="sidebar left-sidebar sticky">
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -170,8 +169,7 @@
         
     </ol>
 </aside>
-
-            <main class="main full-width">
+<main class="main full-width">
     <h3 class="section-title">
         
             Categories
@@ -243,35 +241,8 @@
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
-
-    <script>
-        function color_tags() {
-            var colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
-            $('.tagCloud-tags a').each(function () {
-                try {
-                    tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
-                    $(this).css("background", tagsColor); 
-                }
-                catch (err) { }
-            });
-        }
-
-        $(document).ready(function () {
-            color_tags()
-        });
-    </script>
-
-    <script src="/prism.js"></script>
-
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-
-        <br />本站访客数<span id="busuanzi_value_site_uv"></span>人次
-        <span id="busuanzi_container_site_pv"> 总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
-        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-
 </footer>
 
             </main>
@@ -382,6 +353,34 @@
                 hugo
             </a>
         
+            <a href="/tags/magrittr/" class="font_size_1">
+                magrittr
+            </a>
+        
+            <a href="/tags/readr/" class="font_size_1">
+                readr
+            </a>
+        
+            <a href="/tags/relational-data/" class="font_size_1">
+                relational data
+            </a>
+        
+            <a href="/tags/rmd/" class="font_size_1">
+                Rmd
+            </a>
+        
+            <a href="/tags/statistical-learning/" class="font_size_1">
+                Statistical Learning
+            </a>
+        
+            <a href="/tags/stringr/" class="font_size_1">
+                stringr
+            </a>
+        
+            <a href="/tags/tibble/" class="font_size_1">
+                tibble
+            </a>
+        
     </div>
 </section>
         
@@ -404,14 +403,6 @@
 
         document.head.appendChild(customFont);
     }());
-    
-	$.goup({
-	    trigger: 300,
-	    bottomOffset: 20,
-	    locationOffset: 20,
-	    title:  'Back to TOP',
-	    titleAsText: false
-	});
 </script>
 
     </body>
