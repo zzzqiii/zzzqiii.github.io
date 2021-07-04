@@ -98,11 +98,11 @@ x &amp;amp; (~x + 1) = 0000&amp;hellip;100&amp;hellip;000;
     </item>
     
     <item>
-      <title>基础算法二_习题</title>
-      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</link>
+      <title>基础算法二 习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C-%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Sat, 19 Jun 2021 15:42:20 +0800</pubDate>
       
-      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</guid>
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C-%E4%B9%A0%E9%A2%98/</guid>
       <description>高精度加法 给定两个正整数，计算它们的和。
 输入格式 共两行，每行包含一个整数。
 输出格式 共一行，包含所求的和。
@@ -743,6 +743,15 @@ INFO: ***** Start a BUSCO v5.0.0 analysis, current time: 03/06/2021 14:29:00 ***
       <guid>https://zzzqiii.github.io/p/r%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%80%E7%AB%A0/</guid>
       <description>[toc]
 第 1 章　使用 ggplot2 进行数据可视化 library(tidyverse) mpg ## # A tibble: 234 x 11 ## manufacturer model displ year cyl trans drv cty hwy ## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; ## 1 audi a4 1.8 1999 4 auto(~ f 18 29 ## 2 audi a4 1.8 1999 4 manua~ f 21 29 ## 3 audi a4 2 2008 4 manua~ f 20 31 ## 4 audi a4 2 2008 4 auto(~ f 21 30 ## 5 audi a4 2.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://zzzqiii.github.io/p/markdown-syntax-guide/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/markdown-syntax-guide/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
   </channel>

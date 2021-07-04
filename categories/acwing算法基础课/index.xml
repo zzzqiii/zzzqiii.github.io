@@ -62,11 +62,11 @@ x &amp;amp; (~x + 1) = 0000&amp;hellip;100&amp;hellip;000;
     </item>
     
     <item>
-      <title>基础算法二_习题</title>
-      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</link>
+      <title>基础算法二 习题</title>
+      <link>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C-%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Sat, 19 Jun 2021 15:42:20 +0800</pubDate>
       
-      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C_%E4%B9%A0%E9%A2%98/</guid>
+      <guid>https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%8C-%E4%B9%A0%E9%A2%98/</guid>
       <description>高精度加法 给定两个正整数，计算它们的和。
 输入格式 共两行，每行包含一个整数。
 输出格式 共一行，包含所求的和。
