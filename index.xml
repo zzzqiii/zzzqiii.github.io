@@ -12,7 +12,8 @@
         <pubDate>Sun, 04 Jul 2021 18:37:18 +0800</pubDate>
         
         <guid>https://zzzqiii.github.io/p/%E6%9B%B4%E6%96%B0hugo%E4%B8%BB%E9%A2%98/</guid>
-        <description>&lt;img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/stack.jpg" alt="Featured image of post 更新hugo主题" /&gt;&lt;p&gt;Stack主题终于更新了！&lt;/p&gt;
+        <description>&lt;img src="https://zzzqiii.github.io/images/stack.jpg" alt="Featured image of post 更新hugo主题" /&gt;&lt;h2 id=&#34;更新主题&#34;&gt;更新主题&lt;/h2&gt;
+&lt;p&gt;Stack主题终于更新了！&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/releases/tag/v2.4.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Release v2.4.0 📃 · CaiJimmy/hugo-theme-stack (github.com)&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -45,7 +46,7 @@
 &lt;p&gt;这个过程是很简单的，首先是删除原来的主题文件夹，或者改成别的名字。&lt;/p&gt;
 &lt;p&gt;把exampleSite里的config.yaml复制过来，改一下自己的内容，就跟建站的时候一样。但是改完之后发现除了点小bug，就是侧边标题不会固定在页面上，我对前端的知识一无所知，不知道哪里出了问题，于是在GitHub上开了一个&lt;a class=&#34;link&#34; href=&#34;https://user-images.githubusercontent.com/78252314/124375831-a9835280-dcd6-11eb-891e-48f66a82d6da.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;issue&lt;/a&gt; ，很快就有大佬回复我了。他建议我删除resources文件夹，因为这里边有hugo的缓存，我删了之后还是没有变化。于是我又重新建了一个文件夹，从头开始建站的过程，然后发现新生成的文件里少了assets这个文件夹，然后就想起来作者好像还说过要把assets和config.yaml都复制到站点目录下，我意识到可能是assets还是保留原来的设置的锅，于是就把它给删了，重新复制过来。然后一切又都正常了。&lt;/p&gt;
-&lt;hr&gt;
+&lt;h2 id=&#34;utterances评论系统&#34;&gt;utterances评论系统&lt;/h2&gt;
 &lt;p&gt;另外这次还换了一个评论系统，之前用disqus，但是广告太多了，于是换成了utterances.&lt;/p&gt;
 &lt;p&gt;这个用起来也很简单，首先登陆GitHub，访问&lt;a class=&#34;link&#34; href=&#34;https://github.com/apps/utterances&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;utterances&lt;/a&gt; 点击install，再改一下config.yaml文件就好了。&lt;/p&gt;
@@ -53,8 +54,7 @@
             repo: zzzqiii/zzzqiii.github.io
             issueTerm: pathname
             label:
-&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;p&gt;除此之外还新增了一个自定义菜单&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;新增自定义菜单&#34;&gt;新增自定义菜单&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.stack.jimmycai.com/zh/configuration/custom-menu.html&#34;&gt;https://docs.stack.jimmycai.com/zh/configuration/custom-menu.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;根据作者的提示，在config.yaml下新增了一些部分&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -87,7 +87,27 @@
 &lt;pre&gt;&lt;code&gt;hugo new scribble/test.md
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里的一个坑是由于我改了太多次，hugo server -D的页面没有及时更新，所以总是以为自己搞错了。其实早就改好了。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后还新增了about版块，这里只有一个页面，所以不用在content下新建文件夹，只要在page里修改就好了，在page里修改about.md的内容即可。&lt;/p&gt;
+&lt;p&gt;另外还新增了about版块，这里只有一个页面，所以不用在content下新建文件夹，只要在page里修改就好了，在page里修改about.md的内容即可。这里插入的图片可以放在static文件夹下，例如，在static中新建文件夹，命名为me，然后在把照片放里面，照片名字为na.jpg。在文章中要插入照片：&lt;code&gt;![na](me/na.jpg)&lt;/code&gt; 。&lt;/p&gt;
+&lt;h2 id=&#34;统计访问&#34;&gt;统计访问&lt;/h2&gt;
+&lt;p&gt;修改blog\themes\hugo-theme-stack-2.4.0\layouts\partials\footer\footer.html文件，在&lt;code&gt;&amp;lt;/section&amp;gt;&lt;/code&gt;后加上&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;br&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;本站访客数&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;busuanzi_value_site_uv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;人次
+        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;busuanzi_container_site_pv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; 总访问量&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;busuanzi_value_site_pv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;次 &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;busuanzi_container_page_pv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;本文阅读量&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;busuanzi_value_page_pv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;次&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;span&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;让谷歌收录博客&#34;&gt;让谷歌收录博客&lt;/h2&gt;
+&lt;p&gt;首先打开谷歌搜索site:https://zzzqiii.github.io/。如何搜不到说明未被收录，这样的话要把把网站地址提交到Google Web Master &lt;a class=&#34;link&#34; href=&#34;https://search.google.com/search-console?hl=zh-CN&amp;amp;utm_source=wmx&amp;amp;utm_medium=deprecation-pane&amp;amp;utm_content=home&amp;amp;resource_id=https://huiyu-li.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Search Console&lt;/a&gt; 然后提交自己的网址，推荐验证方法是在自己的网站上添加一个它提供的html文件，把这个文件放到public文件夹中即可，然后就可以验证成功了。&lt;/p&gt;
+&lt;p&gt;另外config.yaml中还有一个googleAnalytics，后面需要填写它的跟踪ID。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://support.google.com/analytics/answer/1008080&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;设置 Google Analytics（分析）全局网站代码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://support.google.com/analytics/answer/10269537&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;为网站设置 Google Analytics（分析）(Universal Analytics)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;按这个操作就好了，注意需要设置Universal Analytics。然后把genzongID填到config.yaml中。&lt;/p&gt;
+&lt;p&gt;过半天大概就成功了。&lt;/p&gt;
 </description>
         </item>
         <item>
