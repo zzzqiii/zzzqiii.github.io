@@ -6,7 +6,19 @@
     <description>Recent content in acwing算法基础课 on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Jun 2021 22:49:55 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 23:40:44 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构二</title>
+      <link>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C/</link>
+      <pubDate>Sat, 03 Jul 2021 23:40:44 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C/</guid>
+      <description>Tire 高效地存储和查找字符串集合的数据结构
+存储：
+查找：
+#include &amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; char str[N]; int idx, son[N][26], cnt[N]; void insert(char str[]) { int p = 0; for (int i = 0; str[i]; i ++) { int u = str[i] - &amp;#39;a&amp;#39;; if (!son[p][u]) son[p][u] = ++ idx; p = son[p][u]; } cnt[p] ++; } int query(char str[]) { int p = 0; for (int i = 0; str[i]; i ++) { int u = str[i] - &amp;#39;a&amp;#39;; if (!</description>
+    </item>
+    
     <item>
       <title>数据结构一</title>
       <link>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/</link>
