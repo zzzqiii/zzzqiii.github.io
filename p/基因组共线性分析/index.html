@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='cytoscape入门'><title>Cytoscape</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='j首先要对两个基因组进行比对，可以选择用核酸序列也可以选择对蛋白序列进行比对，前者一般使用satsuma，后者使用mcmscan。核酸序列比对的缺点是不能排除重复序列的影响，但是因为satsuma使用起来很简单，所以还是了它来进行基因组共线性分析。
+比对 bsub -J satsuma -n 28 -o stm.log &amp;#34;/gpfs/bioinformatics/software/satsuma-code/SatsumaSynteny -q sinc_chr.fasta -t cmed_chr.fasta -o /gpfs/home/zuozhangqi/sinc_genome_data/11_Synteny/cmed/out_satsuma -n 28&amp;#34; bioinfologics/satsuma2: FFT cross-correlation based synteny aligner, (re)designed to make full use of parallel computing (github.com)
+800M的基因组大概要运行两三天的时间。
+最后在输出目录out_satsuma中有一个satsuma_summary.chained.out的文件，提供了比对上区域。
+可视化 satsuma的manual上提供的可视化工具是mizbee，但是摸索了半天还是不知道怎么用，遂放弃，还是用回circos。
+cd ../data; ls -1 csup_sinc.txt #告诉circos哪些区域需要连线 karyotype_csup_sinc.txt #提供染色体核型的信息 cd ../etc/; ls -1 circos.conf housekeeping.conf ideogram.conf link.conf ticks.conf satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息。
+再circos 一下就好了。'><title>基因组共线性分析</title>
 
-<link rel='canonical' href='https://zzzqiii.github.io/p/cytoscape/'>
+<link rel='canonical' href='https://zzzqiii.github.io/p/%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%85%B1%E7%BA%BF%E6%80%A7%E5%88%86%E6%9E%90/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Cytoscape'>
-<meta property='og:description' content='cytoscape入门'>
-<meta property='og:url' content='https://zzzqiii.github.io/p/cytoscape/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='基因组共线性分析'>
+<meta property='og:description' content='j首先要对两个基因组进行比对，可以选择用核酸序列也可以选择对蛋白序列进行比对，前者一般使用satsuma，后者使用mcmscan。核酸序列比对的缺点是不能排除重复序列的影响，但是因为satsuma使用起来很简单，所以还是了它来进行基因组共线性分析。
+比对 bsub -J satsuma -n 28 -o stm.log &amp;#34;/gpfs/bioinformatics/software/satsuma-code/SatsumaSynteny -q sinc_chr.fasta -t cmed_chr.fasta -o /gpfs/home/zuozhangqi/sinc_genome_data/11_Synteny/cmed/out_satsuma -n 28&amp;#34; bioinfologics/satsuma2: FFT cross-correlation based synteny aligner, (re)designed to make full use of parallel computing (github.com)
+800M的基因组大概要运行两三天的时间。
+最后在输出目录out_satsuma中有一个satsuma_summary.chained.out的文件，提供了比对上区域。
+可视化 satsuma的manual上提供的可视化工具是mizbee，但是摸索了半天还是不知道怎么用，遂放弃，还是用回circos。
+cd ../data; ls -1 csup_sinc.txt #告诉circos哪些区域需要连线 karyotype_csup_sinc.txt #提供染色体核型的信息 cd ../etc/; ls -1 circos.conf housekeeping.conf ideogram.conf link.conf ticks.conf satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息。
+再circos 一下就好了。'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%85%B1%E7%BA%BF%E6%80%A7%E5%88%86%E6%9E%90/'>
 <meta property='og:site_name' content='相忘于江湖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cytoscape' /><meta property='article:published_time' content='2021-03-03T22:16:45&#43;08:00'/><meta property='article:modified_time' content='2021-03-03T22:16:45&#43;08:00'/>
-<meta name="twitter:title" content="Cytoscape">
-<meta name="twitter:description" content="cytoscape入门">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-19T09:53:00&#43;08:00'/><meta property='article:modified_time' content='2021-07-19T09:53:00&#43;08:00'/>
+<meta name="twitter:title" content="基因组共线性分析">
+<meta name="twitter:description" content="j首先要对两个基因组进行比对，可以选择用核酸序列也可以选择对蛋白序列进行比对，前者一般使用satsuma，后者使用mcmscan。核酸序列比对的缺点是不能排除重复序列的影响，但是因为satsuma使用起来很简单，所以还是了它来进行基因组共线性分析。
+比对 bsub -J satsuma -n 28 -o stm.log &amp;#34;/gpfs/bioinformatics/software/satsuma-code/SatsumaSynteny -q sinc_chr.fasta -t cmed_chr.fasta -o /gpfs/home/zuozhangqi/sinc_genome_data/11_Synteny/cmed/out_satsuma -n 28&amp;#34; bioinfologics/satsuma2: FFT cross-correlation based synteny aligner, (re)designed to make full use of parallel computing (github.com)
+800M的基因组大概要运行两三天的时间。
+最后在输出目录out_satsuma中有一个satsuma_summary.chained.out的文件，提供了比对上区域。
+可视化 satsuma的manual上提供的可视化工具是mizbee，但是摸索了半天还是不知道怎么用，遂放弃，还是用回circos。
+cd ../data; ls -1 csup_sinc.txt #告诉circos哪些区域需要连线 karyotype_csup_sinc.txt #提供染色体核型的信息 cd ../etc/; ls -1 circos.conf housekeeping.conf ideogram.conf link.conf ticks.conf satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息。
+再circos 一下就好了。">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
 <script type="application/javascript">
@@ -78,17 +96,9 @@ if (!doNotTrack) {
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/bioinfo/" style="background-color: #A569BD; color: #fff;">
-                bioinfo
-            </a>
-        
-    </header>
-    
 
     <h2 class="article-title">
-        <a href="/p/cytoscape/">Cytoscape</a>
+        <a href="/p/%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%85%B1%E7%BA%BF%E6%80%A7%E5%88%86%E6%9E%90/">基因组共线性分析</a>
     </h2>
 
     <footer class="article-time">
@@ -100,75 +110,37 @@ if (!doNotTrack) {
 
 
 
-        <time class="article-time--published">Mar 03, 2021</time>
+        <time class="article-time--published">Jul 19, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <h1 id="cytoscape入门">cytoscape入门</h1>
-<p>2月接手了一个WGCNA项目，我主要负责调控网络的构建，于是从零开始学习cytoscape软件的使用。</p>
-<h3 id="数据准备">数据准备</h3>
-<p>构建网络的数据是在WGCNA这一步生成的，给到我的是各个模块的edge文件和node文件，如下所示：</p>
-<p><img src="/C:%5cUsers%5c%e7%9b%b8%e5%bf%98%e4%ba%8e%e6%b1%9f%e6%b9%96%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210301231928941.png" alt="image-20210301231928941"  /></p>
-<!-- raw HTML omitted -->
-<p>edge文件的内容是节点和节点之间的联系，weight为连接的权重。</p>
-<!-- raw HTML omitted -->
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301232042640.png" alt=""  /></p>
-<p>node文件的内容是节点的属性，比如这里是mRNA、circRNA等属性。后续作图中可以根据不同的属性设置不同的节点形状。</p>
-<h3 id="文件导入">文件导入</h3>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301232234767.png" alt=""  /></p>
-<p>首先导入edge文件，点击上面的按钮即可，导入后需要选择from node和to node：</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301232642812.png" alt=""  /></p>
-<p>随后导入node文件，同样也要选择key和value的对象：</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301232756547.png" alt=""  /></p>
-<h3 id="调整网络">调整网络</h3>
-<p>导入文件后，cytoscape会自动生成调控网络，如果node和edge数量比较多，生成的网络也会比较杂乱，需要根据需求进行调整。</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301233040226.png" alt=""  /></p>
-<p>控制面板可以调节node、edge和network的格式，default里可以选择网络的默认风格。可以先在里面挑选一个好看的，再进行其他调整。</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301233201602.png" alt=""  /></p>
-<p>比较使用的一个技巧是可以通过byp这一栏根据不同节点的特性设置形状，如下所示，我选择了根据节点的属性不同（mRNA/circRNA/lncRNA/miRNA）设置不同的形状，在column一栏也有其他的特性可以选择，比如degree等等，mapping  type主要选择离散或者连续，因为有点特性是离散的，比如属性，有的是连续的，这个功能特别方便。另外，也可以在网络图中选中一些节点或者连接，然后在byp这一栏，为选中的节点或连接单独设计形状或颜色或字体。</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301233433764.png" alt=""  /></p>
-<p><strong>select</strong></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301233905778.png" alt=""  /></p>
-<p>这个功能主要是为了方便我们选择节点，可以单独选择node或edge，也可以同时选择，或者反选，这个功能在使用的过程中也很方便。再新版的cytoscape中，还可以选择annotation，有助于调整网络，让它更美观。</p>
-<p><strong>layout</strong></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301234229751.png" alt=""  /></p>
-<p>这个功能主要帮助我们对网络图进行布局，可以选择圆形或者矩形，在这个项目中我使用的主要是group attribute layout，可以根据节点的属性进行布局。也可以选中感兴趣的节点，然后点击attribute circle layout，就会生成圆形的网络图，setting选项可以设置圆的半径。</p>
-<p><strong>tools</strong></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301234514410.png" alt=""  /></p>
-<p>工具栏这一块用到的是analyze network，点进去可以生成这张网络图的一些信息，比如degree，点击后在table面板可以看到这些信息：</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301234702279.png" alt=""  /></p>
-<p>在结果面板可以将这些参数可视化，并体现在网络图中：</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301234807618.png" alt=""  /></p>
-<p>如上所示，点击node degree distribution→visualize parameter→apply后，可以根据degree值的不同生成相应的网络，可以看到生成的网络的节点的颜色根据degree的不同呈现渐变。</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301235127017.png" alt=""  /></p>
-<p>tools中merge也是一个很方便的工具，它可以对两个网络去交集、并集、补集，这个项目中因为要生成通路-mRNA-lnc/miRNA/circRNA网络图，所以我先分别做了通路-mRNA和mRNA-lnc/miRNA/circRNA网络图，再用merge进行合并。</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301235539865.png" alt=""  /></p>
-<p>还有上面的快捷工具也是经常用到的，有放大镜的四个icon是对图进行放大或缩小的操作。上图中标1的图标可以将选中的node或edge复制到新的画布，图标2可以选择跟已经选中的node相邻的节点，在最新版的cytoscpe软件中有明了的动图介绍。</p>
-<p><strong>apps</strong></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210301235859044.png" alt=""  /></p>
-<p>apps中点击app manager可以下载插件，比如WGCNA中经常用到的cytohubba插件。</p>
-<p>下面介绍cytohubba的使用：</p>
-<p>下载完插件后，在控制面板会出现cytohubba这一栏：</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210302000226854.png" alt=""  /></p>
-<p>点击calculate，选择排列的方式，点击export后可以得到这个插件分析的网络图，在result和table版面都可以查看它的分析结果。</p>
-<p>在最开始尝试的时候选择的是degree算法，它考虑了各个节点间连接的权重，即weight值，因此得到的degree值会和analyze network那一步得到的degree值不一样，后者仅为与某个节点连接的数目。因此利用这个插件可以得到调控的网络的核心节点。</p>
-<h3 id="导出网络">导出网络</h3>
-<p>cytoscape导出的图片为所见即所得形式的，也就是说你在当前的页面上看到的是什么最后导出的图片就是什么，如果你现实的网络图不完整，最后导出的也是不完整的网络图。<img src="/" alt=""  /></p>
-<p>导出的方法是点击file，然后选择export as image，然后选择合适的格式即可。</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210302000756512.png" alt=""  /></p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210302000827619%281%29.png" alt=""  /></p>
+    <p>j首先要对两个基因组进行比对，可以选择用核酸序列也可以选择对蛋白序列进行比对，前者一般使用satsuma，后者使用mcmscan。核酸序列比对的缺点是不能排除重复序列的影响，但是因为satsuma使用起来很简单，所以还是了它来进行基因组共线性分析。</p>
+<h2 id="比对">比对</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"> bsub -J satsuma -n <span class="m">28</span> -o stm.log <span class="s2">&#34;/gpfs/bioinformatics/software/satsuma-code/SatsumaSynteny -q sinc_chr.fasta -t cmed_chr.fasta -o /gpfs/home/zuozhangqi/sinc_genome_data/11_Synteny/cmed/out_satsuma -n 28&#34;</span>
+</code></pre></div><p><a class="link" href="https://github.com/bioinfologics/satsuma2"  target="_blank" rel="noopener"
+    >bioinfologics/satsuma2: FFT cross-correlation based synteny aligner, (re)designed to make full use of parallel computing (github.com)</a></p>
+<p>800M的基因组大概要运行两三天的时间。</p>
+<p>最后在输出目录out_satsuma中有一个satsuma_summary.chained.out的文件，提供了比对上区域。</p>
+<h2 id="可视化">可视化</h2>
+<p>satsuma的manual上提供的可视化工具是mizbee，但是摸索了半天还是不知道怎么用，遂放弃，还是用回circos。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ../data<span class="p">;</span> ls -1
+csup_sinc.txt <span class="c1">#告诉circos哪些区域需要连线</span>
+karyotype_csup_sinc.txt <span class="c1">#提供染色体核型的信息</span>
+<span class="nb">cd</span> ../etc/<span class="p">;</span> ls -1
+circos.conf
+housekeeping.conf
+ideogram.conf
+link.conf
+ticks.conf
+</code></pre></div><p>satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息。</p>
+<p>再<code>circos</code> 一下就好了。</p>
+
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/cytoscape/">cytoscape</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">
@@ -212,73 +184,6 @@ if (!doNotTrack) {
 
     <aside class="related-contents--wrapper">
     
-    
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
-                
-                    
-<article class="">
-    <a href="/p/r8s-ggtree%E7%BB%98%E5%88%B6%E5%B8%A6%E5%88%86%E5%8C%96%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%9B%E5%8C%96%E6%A0%91/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">R8s&#43;ggtree绘制带分化时间的进化树</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/gff%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E8%B4%9F%E9%93%BE%E5%BA%8F%E5%88%97/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Gff文件提取负链序列</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/ggtree%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">ggtree画系统发育树</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/pasa/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Pasa</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/sra%E4%B8%8B%E8%BD%BD/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">sra下载</h2>
-        </div>
-    </a>
-</article>
-                
-            </div>
-        </div>
     
 </aside>
 
@@ -448,14 +353,8 @@ if (!doNotTrack) {
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#数据准备">数据准备</a></li>
-        <li><a href="#文件导入">文件导入</a></li>
-        <li><a href="#调整网络">调整网络</a></li>
-        <li><a href="#导出网络">导出网络</a></li>
-      </ol>
-    </li>
+    <li><a href="#比对">比对</a></li>
+    <li><a href="#可视化">可视化</a></li>
   </ol>
 </nav>
                 </div>

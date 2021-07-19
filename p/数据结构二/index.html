@@ -215,6 +215,15 @@ if (!doNotTrack) {
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="并查集">并查集</h3>
+<ol>
+<li>将两个集合合并</li>
+<li>询问两个元素是否在一个集合当中</li>
+</ol>
+<p>近乎O(1)</p>
+<p>基本原理：用树的形式维护所有的集合。每个集合用一棵树来表示，树根的变化就是整个集合的编号。每个节点存储它的父节点，p[x]表示x的父节点。</p>
+<p>问题1：如何判断树根：if(p[x] = x)</p>
+<p>问题2：如何求x的集合编号：while (p[x] != x ) x = p[x];</p>
+<p>问题3：如何合并两个集合：px是x的集合编号，py是y的集合编号。p[x] = y</p>
 <h3 id="堆">堆</h3>
 
 </section>
