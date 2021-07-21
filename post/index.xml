@@ -6,7 +6,21 @@
     <description>Recent content in Posts on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Jul 2021 15:06:56 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 10:48:59 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3d Dna组装基因组</title>
+      <link>https://zzzqiii.github.io/p/3d-dna%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/</link>
+      <pubDate>Wed, 21 Jul 2021 10:48:59 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/3d-dna%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/</guid>
+      <description>3d-DNA组装基因组的流程如下：
+如果有了基因组的初步组装（draft assembly)，那么可以跳过第一步。
+Hi-C &amp;amp; Juicer analysis Juicer 能够将原始的测序数据转化为hic文件。
+Home · aidenlab/juicer Wiki (github.com) 详细地说明了它的使用方法。
+安装： juicer有集群版本也有CPU版本，这两者的使用稍微有些不一样，之前在集群上用的时候没注意看，直接安装了CPU版本的，浪费时间白白跑了一个多月啥结果都没有，后来发现了这个问题，又重新安装了，却发现集群上的BWA用不了，于是放弃了，还是用来CPU版本的，不过在集群上跑应该会快很多。
+git clone https://github.com/theaidenlab/juicer.git cd 07_01_3d-dna-assembly-second ln -s ~/juicer/CPU scripts #如果是集群就要复制另一个目录 cd scripts/common wget https://hicfiles.tc4ga.com/public/juicer/juicer_tools.1.9.9_jcuda.0.8.jar ln -s juicer_tools.1.9.9_jcuda.0.8.jar juicer_tools.jar cd ../.. mkdir references cp draft.fa references/ #复制基因组到references目录下 # this is optional, only needed for fragment-delimited files mkdir restriction_sites mkdir work; cd work #工作目录 mkdir fastq mv &amp;lt;fastq_files&amp;gt; fastq/ #存放fastq文件 &amp;lt;myJuicerDir&amp;gt;/scripts/juicer.sh -D &amp;lt;myJuicerDir&amp;gt; #更改juicer.sh脚本中的目录 使用 在reference目录下，为基因组建立索引</description>
+    </item>
+    
     <item>
       <title>R8s&#43;ggtree绘制带分化时间的进化树</title>
       <link>https://zzzqiii.github.io/p/r8s-ggtree%E7%BB%98%E5%88%B6%E5%B8%A6%E5%88%86%E5%8C%96%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%9B%E5%8C%96%E6%A0%91/</link>

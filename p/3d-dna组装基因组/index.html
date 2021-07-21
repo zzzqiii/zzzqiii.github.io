@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='3d-DNA组装基因组的流程如下：
+如果有了基因组的初步组装（draft assembly)，那么可以跳过第一步。
+Hi-C &amp;amp; Juicer analysis Juicer 能够将原始的测序数据转化为hic文件。
+Home · aidenlab/juicer Wiki (github.com) 详细地说明了它的使用方法。
+安装： juicer有集群版本也有CPU版本，这两者的使用稍微有些不一样，之前在集群上用的时候没注意看，直接安装了CPU版本的，浪费时间白白跑了一个多月啥结果都没有，后来发现了这个问题，又重新安装了，却发现集群上的BWA用不了，于是放弃了，还是用来CPU版本的，不过在集群上跑应该会快很多。
+git clone https://github.com/theaidenlab/juicer.git cd 07_01_3d-dna-assembly-second ln -s ~/juicer/CPU scripts #如果是集群就要复制另一个目录 cd scripts/common wget https://hicfiles.tc4ga.com/public/juicer/juicer_tools.1.9.9_jcuda.0.8.jar ln -s juicer_tools.1.9.9_jcuda.0.8.jar juicer_tools.jar cd ../.. mkdir references cp draft.fa references/ #复制基因组到references目录下 # this is optional, only needed for fragment-delimited files mkdir restriction_sites mkdir work; cd work #工作目录 mkdir fastq mv &amp;lt;fastq_files&amp;gt; fastq/ #存放fastq文件 &amp;lt;myJuicerDir&amp;gt;/scripts/juicer.sh -D &amp;lt;myJuicerDir&amp;gt; #更改juicer.sh脚本中的目录 使用 在reference目录下，为基因组建立索引'><title>3d Dna组装基因组</title>
+
+<link rel='canonical' href='https://zzzqiii.github.io/p/3d-dna%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='3d Dna组装基因组'>
+<meta property='og:description' content='3d-DNA组装基因组的流程如下：
+如果有了基因组的初步组装（draft assembly)，那么可以跳过第一步。
+Hi-C &amp;amp; Juicer analysis Juicer 能够将原始的测序数据转化为hic文件。
+Home · aidenlab/juicer Wiki (github.com) 详细地说明了它的使用方法。
+安装： juicer有集群版本也有CPU版本，这两者的使用稍微有些不一样，之前在集群上用的时候没注意看，直接安装了CPU版本的，浪费时间白白跑了一个多月啥结果都没有，后来发现了这个问题，又重新安装了，却发现集群上的BWA用不了，于是放弃了，还是用来CPU版本的，不过在集群上跑应该会快很多。
+git clone https://github.com/theaidenlab/juicer.git cd 07_01_3d-dna-assembly-second ln -s ~/juicer/CPU scripts #如果是集群就要复制另一个目录 cd scripts/common wget https://hicfiles.tc4ga.com/public/juicer/juicer_tools.1.9.9_jcuda.0.8.jar ln -s juicer_tools.1.9.9_jcuda.0.8.jar juicer_tools.jar cd ../.. mkdir references cp draft.fa references/ #复制基因组到references目录下 # this is optional, only needed for fragment-delimited files mkdir restriction_sites mkdir work; cd work #工作目录 mkdir fastq mv &amp;lt;fastq_files&amp;gt; fastq/ #存放fastq文件 &amp;lt;myJuicerDir&amp;gt;/scripts/juicer.sh -D &amp;lt;myJuicerDir&amp;gt; #更改juicer.sh脚本中的目录 使用 在reference目录下，为基因组建立索引'>
+<meta property='og:url' content='https://zzzqiii.github.io/p/3d-dna%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/'>
+<meta property='og:site_name' content='相忘于江湖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-21T10:48:59&#43;08:00'/><meta property='article:modified_time' content='2021-07-21T10:48:59&#43;08:00'/>
+<meta name="twitter:title" content="3d Dna组装基因组">
+<meta name="twitter:description" content="3d-DNA组装基因组的流程如下：
+如果有了基因组的初步组装（draft assembly)，那么可以跳过第一步。
+Hi-C &amp;amp; Juicer analysis Juicer 能够将原始的测序数据转化为hic文件。
+Home · aidenlab/juicer Wiki (github.com) 详细地说明了它的使用方法。
+安装： juicer有集群版本也有CPU版本，这两者的使用稍微有些不一样，之前在集群上用的时候没注意看，直接安装了CPU版本的，浪费时间白白跑了一个多月啥结果都没有，后来发现了这个问题，又重新安装了，却发现集群上的BWA用不了，于是放弃了，还是用来CPU版本的，不过在集群上跑应该会快很多。
+git clone https://github.com/theaidenlab/juicer.git cd 07_01_3d-dna-assembly-second ln -s ~/juicer/CPU scripts #如果是集群就要复制另一个目录 cd scripts/common wget https://hicfiles.tc4ga.com/public/juicer/juicer_tools.1.9.9_jcuda.0.8.jar ln -s juicer_tools.1.9.9_jcuda.0.8.jar juicer_tools.jar cd ../.. mkdir references cp draft.fa references/ #复制基因组到references目录下 # this is optional, only needed for fragment-delimited files mkdir restriction_sites mkdir work; cd work #工作目录 mkdir fastq mv &amp;lt;fastq_files&amp;gt; fastq/ #存放fastq文件 &amp;lt;myJuicerDir&amp;gt;/scripts/juicer.sh -D &amp;lt;myJuicerDir&amp;gt; #更改juicer.sh脚本中的目录 使用 在reference目录下，为基因组建立索引">
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-201256535-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://zzzqiii.github.io" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/3d-dna%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/">3d Dna组装基因组</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jul 21, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>3d-DNA组装基因组的流程如下：</p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210721105543818.png" alt="image-20210721105543818"  /></p>
+<p>如果有了基因组的初步组装（draft assembly)，那么可以跳过第一步。</p>
+<h3 id="hi-c--juicer-analysis">Hi-C &amp; Juicer analysis</h3>
+<p>Juicer 能够将原始的测序数据转化为hic文件。</p>
+<p><a class="link" href="https://github.com/aidenlab/juicer/wiki"  target="_blank" rel="noopener"
+    >Home · aidenlab/juicer Wiki (github.com)</a> 详细地说明了它的使用方法。</p>
+<h4 id="安装">安装：</h4>
+<p>juicer有集群版本也有CPU版本，这两者的使用稍微有些不一样，之前在集群上用的时候没注意看，直接安装了CPU版本的，浪费时间白白跑了一个多月啥结果都没有，后来发现了这个问题，又重新安装了，却发现集群上的BWA用不了，于是放弃了，还是用来CPU版本的，不过在集群上跑应该会快很多。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git clone https://github.com/theaidenlab/juicer.git
+<span class="nb">cd</span> 07_01_3d-dna-assembly-second
+ln -s ~/juicer/CPU scripts  <span class="c1">#如果是集群就要复制另一个目录</span>
+<span class="nb">cd</span> scripts/common
+wget https://hicfiles.tc4ga.com/public/juicer/juicer_tools.1.9.9_jcuda.0.8.jar
+ln -s juicer_tools.1.9.9_jcuda.0.8.jar  juicer_tools.jar
+<span class="nb">cd</span> ../..
+mkdir references
+cp draft.fa references/   <span class="c1">#复制基因组到references目录下</span>
+<span class="c1"># this is optional, only needed for fragment-delimited files</span>
+mkdir restriction_sites
+mkdir work<span class="p">;</span> <span class="nb">cd</span> work <span class="c1">#工作目录</span>
+mkdir fastq
+mv &lt;fastq_files&gt; fastq/ <span class="c1">#存放fastq文件</span>
+&lt;myJuicerDir&gt;/scripts/juicer.sh -D &lt;myJuicerDir&gt; <span class="c1">#更改juicer.sh脚本中的目录</span>
+</code></pre></div><h4 id="使用">使用</h4>
+<p>在reference目录下，为基因组建立索引</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">bwa index draft.fa
+</code></pre></div><p>根据基因组构建可能的酶切位点文件</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">generate_site_positions.py MboI draft draft.fa
+awk <span class="s1">&#39;BEGIN{OFS=&#34;\t&#34;}{print $1, $NF}&#39;</span> draft_MboI.txt &gt; draft.chrom.sizes
+</code></pre></div><p>运行juicer</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">~/software/juicer-master/scripts/juicer.sh -g draft -s MboI -z draft.fa -y draft_MboI.txt -p draft.chrom.sizes
+</code></pre></div><p>输出的结果文件在aligned目录下，merged_nodups.txt就是下一步3D-DNA的输入文件之一。</p>
+<h3 id="candidate-assembly-with-3d-dna-pipeline">Candidate Assembly with 3D-DNA Pipeline</h3>
+<p>这个流程需要的输入文件为：</p>
+<ol>
+<li>a fasta file describing the draft assembly (.fasta, .fa and .fna files are allowed)</li>
+<li>a “merged_nodups.txt” file which is generated by the Juicer pipeline</li>
+</ol>
+<p>运行</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">/home/zuozhangqi/software/3d-dna-master/run-asm-pipeline.sh draft.fa merged_nodups.txt
+</code></pre></div><p>最后输出文件中，包含FINAL就是需要的结果。</p>
+<p>把hic和assemebly文件导入到Juicerbox中，可以进行手工纠错。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="zzzqiii/zzzqiii.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 相忘于江湖
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
+        <br />本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        <span id="busuanzi_container_site_pv"> 总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
+        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#hi-c--juicer-analysis">Hi-C &amp; Juicer analysis</a>
+          <ol>
+            <li><a href="#安装">安装：</a></li>
+            <li><a href="#使用">使用</a></li>
+          </ol>
+        </li>
+        <li><a href="#candidate-assembly-with-3d-dna-pipeline">Candidate Assembly with 3D-DNA Pipeline</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
