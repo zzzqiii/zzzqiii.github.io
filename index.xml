@@ -237,16 +237,24 @@ end;
 &lt;h2 id=&#34;可视化&#34;&gt;可视化&lt;/h2&gt;
 &lt;p&gt;satsuma的manual上提供的可视化工具是mizbee，但是摸索了半天还是不知道怎么用，遂放弃，还是用回circos。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ../data&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; ls -1
-csup_sinc.txt &lt;span class=&#34;c1&#34;&gt;#告诉circos哪些区域需要连线&lt;/span&gt;
-karyotype_csup_sinc.txt &lt;span class=&#34;c1&#34;&gt;#提供染色体核型的信息&lt;/span&gt;
+cmed_sinc.txt &lt;span class=&#34;c1&#34;&gt;#告诉circos哪些区域需要连线&lt;/span&gt;
+karyotype_cmed_sinc.txt &lt;span class=&#34;c1&#34;&gt;#提供染色体核型的信息&lt;/span&gt;
 &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ../etc/&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; ls -1
 circos.conf
 housekeeping.conf
 ideogram.conf
 link.conf
 ticks.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息。&lt;/p&gt;
-&lt;p&gt;再&lt;code&gt;circos&lt;/code&gt; 一下就好了。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息，得到cmed_sinc.txt:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;awk &lt;span class=&#34;s1&#34;&gt;&amp;#39;{NF=6}1&amp;#39;&lt;/span&gt; satsuma_summary.chained.out &amp;gt; cmed_sinc.txt
+sed -i &lt;span class=&#34;s2&#34;&gt;&amp;#34;s/Chr/cmed_chr/g&amp;#34;&lt;/span&gt; cmed_sinc.txt
+sed -i &lt;span class=&#34;s2&#34;&gt;&amp;#34;s/ chr/ sinc_chr/g&amp;#34;&lt;/span&gt; cmed_sinc.txt
+mv cmed_sinc.txt cmed_sinc_without_color.txt
+python link.py cmed_sinc_without_color.txt &amp;gt; cmed_sinc.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;生成karyotype_cmed_sinc.txt&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &amp;quot;s/csup/cmed/g&amp;quot; karyotype.py
+python karyotype.py sinc_chr.fasta cmed_chr.fasta karyotype_sinc.txt karyotype_cmed_sinc.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再&lt;code&gt;circos&lt;/code&gt; 一下就好了。&lt;/p&gt;
 </description>
         </item>
         <item>

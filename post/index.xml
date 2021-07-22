@@ -43,8 +43,8 @@ r8s输入 treeio这个R包中有一个r8s输入样例：
 800M的基因组大概要运行两三天的时间。
 最后在输出目录out_satsuma中有一个satsuma_summary.chained.out的文件，提供了比对上区域。
 可视化 satsuma的manual上提供的可视化工具是mizbee，但是摸索了半天还是不知道怎么用，遂放弃，还是用回circos。
-cd ../data; ls -1 csup_sinc.txt #告诉circos哪些区域需要连线 karyotype_csup_sinc.txt #提供染色体核型的信息 cd ../etc/; ls -1 circos.conf housekeeping.conf ideogram.conf link.conf ticks.conf satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息。
-再circos 一下就好了。</description>
+cd ../data; ls -1 cmed_sinc.txt #告诉circos哪些区域需要连线 karyotype_cmed_sinc.txt #提供染色体核型的信息 cd ../etc/; ls -1 circos.conf housekeeping.conf ideogram.conf link.conf ticks.conf satsuma_summary.chained.out中提取前6列，并在最后一列补充link的颜色信息，得到cmed_sinc.txt:
+awk &amp;#39;{NF=6}1&amp;#39; satsuma_summary.chained.out &amp;gt; cmed_sinc.txt sed -i &amp;#34;s/Chr/cmed_chr/g&amp;#34; cmed_sinc.txt sed -i &amp;#34;s/ chr/ sinc_chr/g&amp;#34; cmed_sinc.txt mv cmed_sinc.</description>
     </item>
     
     <item>
