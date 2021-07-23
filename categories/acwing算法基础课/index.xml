@@ -6,7 +6,36 @@
     <description>Recent content in acwing算法基础课 on 相忘于江湖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jul 2021 23:40:44 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 21:26:28 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/acwing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>搜索与图论一</title>
+      <link>https://zzzqiii.github.io/p/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%E4%B8%80/</link>
+      <pubDate>Thu, 22 Jul 2021 21:26:28 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%E4%B8%80/</guid>
+      <description>深度优先搜索DFS 宽度优先搜索BFS 树与图的存储 树与图的深度优先遍历 树与图的宽度优先遍历 拓扑排序 </description>
+    </item>
+    
+    <item>
+      <title>数据结构三</title>
+      <link>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%89/</link>
+      <pubDate>Mon, 19 Jul 2021 21:22:28 +0800</pubDate>
+      
+      <guid>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%89/</guid>
+      <description>哈希表 存储结构：
+ 开放寻址法（y总常用，因为只需要开一个数组）；拉链法（都很常用） 字符串哈希方式  哈希表的作用：把一个庞大的空间或值域映射到比较小的空间，一般映射到0~N。
+拉链法： 模一般要取质数，且离2的整次幂尽可能的远，冲突的概率最小。
+插入：
+e[idx] = x, ne[idx] = h[k], h[k] = idx ++;
+维护一个集合，支持如下几种操作：
+I x，插入一个数 x ； Q x，询问数 x 是否在集合中出现过； 现在要进行 N 次操作，对于每个询问操作输出对应的结果。
+输入格式 第一行包含整数 N ，表示操作数量。
+接下来 N 行，每行包含一个操作指令，操作指令为 I x，Q x 中的一种。
+输出格式 对于每个询问指令 Q x，输出一个询问结果，如果 x 在集合中出现过，则输出 Yes，否则输出 No。
+每个结果占一行。
+数据范围 1≤N≤105 −109≤x≤109 输入样例： 5 I 1 I 2 I 3 Q 2 Q 5 输出样例： Yes No</description>
+    </item>
+    
     <item>
       <title>数据结构二</title>
       <link>https://zzzqiii.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C/</link>

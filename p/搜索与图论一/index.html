@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='快排（分治）  确定分界点。q[l], q[(l&#43;r)/2], q[r]随机 ⭐调整区间。大于分界点的放一边，小于的放一边。 递归处理左右两端  第二步：
-  开两个数组：a[], b[]
-  小于x的放在a中，大于的放在b中。
-  a和b放回q中。
-  或者用指针
-  归并排序——分治  确定分界点：mid = （l &#43; r）/ 2; 递归排序 归并——合二为一  整数二分 '><title>基础算法</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='深度优先搜索DFS 宽度优先搜索BFS 树与图的存储 树与图的深度优先遍历 树与图的宽度优先遍历 拓扑排序 '><title>搜索与图论一</title>
 
-<link rel='canonical' href='https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/'>
+<link rel='canonical' href='https://zzzqiii.github.io/p/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%E4%B8%80/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='基础算法'>
-<meta property='og:description' content='快排（分治）  确定分界点。q[l], q[(l&#43;r)/2], q[r]随机 ⭐调整区间。大于分界点的放一边，小于的放一边。 递归处理左右两端  第二步：
-  开两个数组：a[], b[]
-  小于x的放在a中，大于的放在b中。
-  a和b放回q中。
-  或者用指针
-  归并排序——分治  确定分界点：mid = （l &#43; r）/ 2; 递归排序 归并——合二为一  整数二分 '>
-<meta property='og:url' content='https://zzzqiii.github.io/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='搜索与图论一'>
+<meta property='og:description' content='深度优先搜索DFS 宽度优先搜索BFS 树与图的存储 树与图的深度优先遍历 树与图的宽度优先遍历 拓扑排序 '>
+<meta property='og:url' content='https://zzzqiii.github.io/p/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%E4%B8%80/'>
 <meta property='og:site_name' content='相忘于江湖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-05-23T20:15:33&#43;08:00'/><meta property='article:modified_time' content='2021-05-23T20:15:33&#43;08:00'/>
-<meta name="twitter:title" content="基础算法">
-<meta name="twitter:description" content="快排（分治）  确定分界点。q[l], q[(l&#43;r)/2], q[r]随机 ⭐调整区间。大于分界点的放一边，小于的放一边。 递归处理左右两端  第二步：
-  开两个数组：a[], b[]
-  小于x的放在a中，大于的放在b中。
-  a和b放回q中。
-  或者用指针
-  归并排序——分治  确定分界点：mid = （l &#43; r）/ 2; 递归排序 归并——合二为一  整数二分 ">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-22T21:26:28&#43;08:00'/><meta property='article:modified_time' content='2021-07-22T21:26:28&#43;08:00'/>
+<meta name="twitter:title" content="搜索与图论一">
+<meta name="twitter:description" content="深度优先搜索DFS 宽度优先搜索BFS 树与图的存储 树与图的深度优先遍历 树与图的宽度优先遍历 拓扑排序 ">
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
 <script type="application/javascript">
@@ -103,7 +88,7 @@ if (!doNotTrack) {
     
 
     <h2 class="article-title">
-        <a href="/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">基础算法</a>
+        <a href="/p/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%E4%B8%80/">搜索与图论一</a>
     </h2>
 
     <footer class="article-time">
@@ -115,42 +100,24 @@ if (!doNotTrack) {
 
 
 
-        <time class="article-time--published">May 23, 2021</time>
+        <time class="article-time--published">Jul 22, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <h2 id="快排分治">快排（分治）</h2>
-<ol>
-<li>确定分界点。q[l], q[(l+r)/2], q[r]随机</li>
-<li>⭐调整区间。大于分界点的放一边，小于的放一边。</li>
-<li>递归处理左右两端</li>
-</ol>
-<p>第二步：</p>
-<ul>
-<li>
-<p>开两个数组：a[], b[]</p>
-</li>
-<li>
-<p>小于x的放在a中，大于的放在b中。</p>
-</li>
-<li>
-<p>a和b放回q中。</p>
-</li>
-<li>
-<p>或者用指针</p>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210523203135748.png" alt="image-20210523203135748"  /></p>
-</li>
-</ul>
-<h2 id="归并排序分治">归并排序——分治</h2>
-<ol>
-<li>确定分界点：mid = （l + r）/ 2;</li>
-<li>递归排序</li>
-<li>归并——合二为一</li>
-</ol>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210523214054921.png" alt="image-20210523214054921"  /></p>
-<h2 id="整数二分">整数二分</h2>
-<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210523221620808.png" alt="image-20210523221620808"  /></p>
+    <h2 id="深度优先搜索dfs">深度优先搜索DFS</h2>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722213339225.png" alt="image-20210722213339225"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722215223608.png" alt="image-20210722215223608"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722215257228.png" alt="image-20210722215257228"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722220417521.png" alt="image-20210722220417521"  /></p>
+<h2 id="宽度优先搜索bfs">宽度优先搜索BFS</h2>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722213525497.png" alt="image-20210722213525497"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722213929417.png" alt="image-20210722213929417"  /></p>
+<p><img src="https://gitee.com/zuozhangqi/blogimg/raw/master/img/image-20210722223820249.png" alt="image-20210722223820249"  /></p>
+<h2 id="树与图的存储">树与图的存储</h2>
+<h2 id="树与图的深度优先遍历">树与图的深度优先遍历</h2>
+<h2 id="树与图的宽度优先遍历">树与图的宽度优先遍历</h2>
+<h2 id="拓扑排序">拓扑排序</h2>
 
 </section>
 
@@ -207,18 +174,6 @@ if (!doNotTrack) {
                 
                     
 <article class="">
-    <a href="/p/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%E4%B8%80/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">搜索与图论一</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
     <a href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%89/">
         
         
@@ -261,6 +216,18 @@ if (!doNotTrack) {
 
         <div class="article-details">
             <h2 class="article-title">基础算法三 习题</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%B8%89/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">基础算法三</h2>
         </div>
     </a>
 </article>
@@ -436,9 +403,12 @@ if (!doNotTrack) {
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#快排分治">快排（分治）</a></li>
-    <li><a href="#归并排序分治">归并排序——分治</a></li>
-    <li><a href="#整数二分">整数二分</a></li>
+    <li><a href="#深度优先搜索dfs">深度优先搜索DFS</a></li>
+    <li><a href="#宽度优先搜索bfs">宽度优先搜索BFS</a></li>
+    <li><a href="#树与图的存储">树与图的存储</a></li>
+    <li><a href="#树与图的深度优先遍历">树与图的深度优先遍历</a></li>
+    <li><a href="#树与图的宽度优先遍历">树与图的宽度优先遍历</a></li>
+    <li><a href="#拓扑排序">拓扑排序</a></li>
   </ol>
 </nav>
                 </div>
