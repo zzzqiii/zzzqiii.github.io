@@ -160,9 +160,7 @@ git push -u origin master
 
 并且在master下面新增了一个分支：gh-pages。
 
-最后，访问user.github.io即为作者设置好的默认主页，通过hugo命令可以新增文章。可惜使用自动部署似乎不能更改默认的layout，添加页面统计的脚本。
-
-
+最后，访问user.github.io即为作者设置好的默认主页，通过hugo命令可以新增文章。
 
 
 
