@@ -2,7 +2,7 @@
 title: OneDrive设置自动同步
 date: 2023-02-27T18:03:45+08:00
 draft: true
-image: img/onedrive-logo-chmura-microsoft.jpg
+image: onedrive-logo-chmura-microsoft.jpg
 categories:
     - 学习
 tags:
