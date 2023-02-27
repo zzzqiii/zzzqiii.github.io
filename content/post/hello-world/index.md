@@ -61,6 +61,16 @@ git clone git@github.com:zzzqiii/zzzqiii.github.io.git
 
 Settings=>Pages=>Build and deployment=>Branch，选择gh-pages，save。
 
+6. 在本地下载主题
+
+在主目录下新建themes文件夹，下载主题
+
+```bash
+git clone git@github.com:CaiJimmy/hugo-theme-stack.git
+```
+
+
+
 
 
 #### 修改配置
@@ -69,7 +79,7 @@ Settings=>Pages=>Build and deployment=>Branch，选择gh-pages，save。
 
 1. **修改config.toml文件**
 
-- 修改baseurl和语言
+- 修改baseurl、语言、主题
 
 ```
 # Change baseurl before deploy
@@ -77,6 +87,7 @@ baseurl = "https://zzzqiii.github.io/"
 languageCode = "zh-cn"
 paginate = 5
 title = "Every day counts"
+theme = "hugo-theme-stack"
 
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk, ar
