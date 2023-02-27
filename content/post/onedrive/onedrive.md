@@ -2,7 +2,7 @@
 title: "OneDrive设置自动同步"
 description: 
 date: 2023-02-27T20:51:01+08:00
-image: onedrive-logo-chmura-microsoft.jpg
+image: img.jpg
 math: 
 license: 
 hidden: false
