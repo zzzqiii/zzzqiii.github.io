@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>学习 on Every day counts</title><link>https://zzzqiii.github.io/categories/%E5%AD%A6%E4%B9%A0/</link><description>Recent content in 学习 on Every day counts</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 27 Feb 2023 20:51:01 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/categories/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>OneDrive设置自动同步</title><link>https://zzzqiii.github.io/p/onedrive%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/</link><pubDate>Mon, 27 Feb 2023 20:51:01 +0800</pubDate><guid>https://zzzqiii.github.io/p/onedrive%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/</guid><description>&lt;img src="https://zzzqiii.github.io/p/onedrive%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/img.jpg" alt="Featured image of post OneDrive设置自动同步" />&lt;p>最近发现用学校的邮箱登录OneDrive有5T的空间，https://www.microsoft.com/zh-cn/education/products/office，果断白嫖，登录之后就可以在电脑上备份文件。注意在电脑上登录的时候会提示要不要把文档桌面等等文件夹同步过去，可以先跳过。&lt;/p>
+&lt;p>添加文件的方法是：&lt;/p>
+&lt;blockquote>
+&lt;p>第一步是向您的 OneDrive 添加文件。 从 PC 或 Mac 添加文件的最佳方式是下载 OneDrive 并将文件 拖入 OneDrive 文件夹。 假定您在笔记本电脑上创建了一个 PowerPoint 演示文稿 — 您可以将其拖入 您的 OneDrive 文件夹，以便从您的手机访问该文件。&lt;/p>
+&lt;/blockquote>
+&lt;p>移动或复制到OneDrive文件夹就好了。&lt;/p>
+&lt;p>但是这样原文件修改后不会同步，要在OneDrive文件夹里的文件修改才会同步。不像坚果云一样，右键点击同步改文件夹之后就可以同步到云端了。&lt;/p>
+&lt;p>OneDrive同步的方法是创建软连接：&lt;/p>
+&lt;p>&lt;code>mklink /d &amp;quot;onedrive文件夹地址\需要同步的文件夹名&amp;quot; &amp;quot;需要同步的文件夹地址&amp;quot;&lt;/code>&lt;/p>
+&lt;p>例如我要同步E盘中的doc文件夹到onedrive中的E盘备份文件夹：&lt;/p>
+&lt;p>先在OneDrive中新建E盘备份文件夹，然后创建软连接&lt;/p>
+&lt;p>&lt;code>mklink /d &amp;quot;D:\OneDrive\OneDrive - zju.edu.cn\E盘备份\doc&amp;quot; &amp;quot;E:\doc&amp;quot;&lt;/code>&lt;/p>
+&lt;p>这样就会在onedrive中的E盘备份文件夹中自动新建doc文件夹并把里面的东西同步。&lt;/p>
+&lt;p>注意不要提前在OneDrive中创建需要同步的文件夹名，否则会报错：当文件已存在时，无法创建该文件。&lt;/p></description></item><item><title>使用hugo stack主题创建博客</title><link>https://zzzqiii.github.io/p/hello-world/</link><pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate><guid>https://zzzqiii.github.io/p/hello-world/</guid><description>&lt;img src="https://zzzqiii.github.io/p/hello-world/cover.jpg" alt="Featured image of post 使用hugo stack主题创建博客" />&lt;p>之前换了电脑后懒得折腾，写的博客差不多一年没更新了，今天终于恢复好了，以前写的文章太乱了，所以这次干脆重建好了。还是用之前的hugo主题&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>hugo-theme-stack&lt;/a>，现在这个版本可以不用下载主题，自动部署在GitHub上&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+>
+hugo-theme-stack-starter&lt;/a>。虽然简单了很多，但还是踩了很多坑，记录一下。&lt;/p>
+&lt;h4 id="安装">安装&lt;/h4>
+&lt;ol>
+&lt;li>安装hugo&lt;/li>
+&lt;/ol>
+&lt;p>用管理员打开powershell，安装choco，用choco安装hugo&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Set-ExecutionPolicy&lt;/span> &lt;span class="n">RemoteSigned&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Set-ExecutionPolicy&lt;/span> &lt;span class="n">Bypass&lt;/span> &lt;span class="n">-Scope&lt;/span> &lt;span class="k">Process&lt;/span> &lt;span class="n">-Force&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nb">iex &lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nb">New-Object&lt;/span> &lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">Net&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">WebClient&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="py">DownloadString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;https://chocolatey.org/install.ps1&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">choco&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="nb">hugo-extended&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>安装go&lt;/li>
+&lt;/ol>
+&lt;p>下载安装包https://golang.google.cn/dl/，安装。&lt;/p>
+&lt;h4 id="部署">部署&lt;/h4>
+&lt;ol>
+&lt;li>修改GitHub默认分支&lt;/li>
+&lt;/ol>
+&lt;p>先将github新建的repository的默认分支设置修改为master，Setting=》Repository=》main修改为master。&lt;/p>
+&lt;ol start="2">
+&lt;li>创建GitHub repository&lt;/li>
+&lt;/ol>
+&lt;p>以&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+>hugo-theme-stack-starter&lt;/a>模板创建仓库，点击Use this template，&lt;/p>
+&lt;p>新建repository，设置名字为username.github.io。后缀要加上.github.io，否则无法访问http://username.github.io&lt;/p>
+&lt;ol start="3">
+&lt;li>修改action的设置&lt;/li>
+&lt;/ol>
+&lt;p>Settings=&amp;gt;Actions=&amp;gt;General=&amp;gt;Workflow permissions选择read and write permissions.&lt;/p>
+&lt;ol start="4">
+&lt;li>将Github上新建的hugo-theme-stack-starter仓库关联到本地&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git clone git@github.com:zzzqiii/zzzqiii.github.io.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>设置GitHub Pages&lt;/li>
+&lt;/ol>
+&lt;p>Settings=&amp;gt;Pages=&amp;gt;Build and deployment=&amp;gt;Branch，选择gh-pages，save。&lt;/p>
+&lt;ol start="6">
+&lt;li>在本地下载主题&lt;/li>
+&lt;/ol>
+&lt;p>在主目录下新建themes文件夹，下载主题&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git clone git@github.com:CaiJimmy/hugo-theme-stack.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="修改配置">修改配置&lt;/h4>
+&lt;p>修改config\_default中的配置文件。包括：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>修改config.toml文件&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>修改baseurl、语言、主题&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Change baseurl before deploy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">baseurl = &amp;#34;https://zzzqiii.github.io/&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">languageCode = &amp;#34;zh-cn&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">paginate = 5
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">title = &amp;#34;Every day counts&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">theme = &amp;#34;hugo-theme-stack&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Theme i18n support
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk, ar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DefaultContentLanguage = &amp;#34;zh-cn&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># This will make .Summary and .WordCount behave correctly for CJK languages.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hasCJKLanguage = true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Change it to your Disqus shortname before using
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#disqusShortname = &amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>谷歌搜索&lt;/li>
+&lt;/ul>
+&lt;p>打开谷歌搜索site:https://zzzqiii.github.io/。如何搜不到说明未被收录，为了让网站能被搜到，登录&lt;a class="link" href="https://analytics.google.com/analytics/web/provision/#/provision" target="_blank" rel="noopener"
+>谷歌分析&lt;/a>，账号开设=》媒体资源设置=》关于您的商家=》选择平台（网站）=》输入网址=》复制网站数据流的衡量ID。&lt;/p>
+&lt;p>在config.toml中写入衡量ID，将网址与google analytics关联。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># GA Tracking ID
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">googleAnalytics = &amp;#34;G-*****&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>修改params.toml文件中的参数&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>设置网站图标&lt;/li>
+&lt;/ul>
+&lt;p>在主目录下新建static文件夹，把favicon.ico文件放在static文件夹中。在params.toml中新增：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">favicon = &amp;#34;/favicon.ico&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>修改emoji&lt;/li>
+&lt;/ul>
+&lt;p>在&lt;a class="link" href="https://emojipedia.org/" target="_blank" rel="noopener"
+>📙 Emojipedia — 😃 Home of Emoji Meanings 💁👌🎍😍&lt;/a> 上复制想要的标签&lt;/p>
+&lt;ul>
+&lt;li>设置头像&lt;/li>
+&lt;/ul>
+&lt;p>在主目录下新建assets/img文件夹，把头像avatar.jpg放在img文件夹中，&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[sidebar.avatar]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">enabled = true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">local = true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">src = &amp;#34;img/avatar.jpg&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>修改评论系统&lt;/li>
+&lt;/ul>
+&lt;p>这里使用utterances评论系统，要先将utterances和GitHub关联，访问&lt;a class="link" href="https://github.com/apps/utterances" target="_blank" rel="noopener"
+>utterances&lt;/a> 点击install，然后修改配置文件params.toml&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[comments]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">enabled = true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">provider = &amp;#34;utterances&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[comments.utterances]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">repo = &amp;#34;zzzqiii/zzzqiii.github.io&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">issueTerm = &amp;#34;pathname&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">label = &amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过hugo new post/title/index.md新建文章，文件名为index.md，否则无法显示同文件夹下的图片作为头图。&lt;/p>
+&lt;p>完成修改后push到github上&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;update&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>执行git push时，github会自动运行workflow进行部署，如果前面不修改action权限，这里会报错。&lt;/p>
+&lt;p>部署好了后会发现actions这里执行好了两个workflows：update和pages build and deployment.&lt;/p>
+&lt;p>并且在master下面新增了一个分支：gh-pages。&lt;/p>
+&lt;p>最后，访问user.github.io即为作者设置好的默认主页，通过hugo命令可以新增文章。&lt;/p>
+&lt;p>参考：&lt;/p>
+&lt;p>&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+>https://stack.jimmycai.com/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://blog.tuwei.space/p/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BAhugo-%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8stack%E4%B8%BB%E9%A2%98%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener"
+>https://blog.tuwei.space/p/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BAhugo-%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8stack%E4%B8%BB%E9%A2%98%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E9%83%A8%E7%BD%B2/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://huohuade-blog.github.io/p/%E7%94%A8hugo-stack%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/" target="_blank" rel="noopener"
+>https://huohuade-blog.github.io/p/%E7%94%A8hugo-stack%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OneDrive on Every day counts</title><link>https://zzzqiii.github.io/tags/onedrive/</link><description>Recent content in OneDrive on Every day counts</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 27 Feb 2023 20:51:01 +0800</lastBuildDate><atom:link href="https://zzzqiii.github.io/tags/onedrive/index.xml" rel="self" type="application/rss+xml"/><item><title>OneDrive设置自动同步</title><link>https://zzzqiii.github.io/p/onedrive%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/</link><pubDate>Mon, 27 Feb 2023 20:51:01 +0800</pubDate><guid>https://zzzqiii.github.io/p/onedrive%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/</guid><description>&lt;img src="https://zzzqiii.github.io/p/onedrive%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/img.jpg" alt="Featured image of post OneDrive设置自动同步" />&lt;p>最近发现用学校的邮箱登录OneDrive有5T的空间，https://www.microsoft.com/zh-cn/education/products/office，果断白嫖，登录之后就可以在电脑上备份文件。注意在电脑上登录的时候会提示要不要把文档桌面等等文件夹同步过去，可以先跳过。&lt;/p>
+&lt;p>添加文件的方法是：&lt;/p>
+&lt;blockquote>
+&lt;p>第一步是向您的 OneDrive 添加文件。 从 PC 或 Mac 添加文件的最佳方式是下载 OneDrive 并将文件 拖入 OneDrive 文件夹。 假定您在笔记本电脑上创建了一个 PowerPoint 演示文稿 — 您可以将其拖入 您的 OneDrive 文件夹，以便从您的手机访问该文件。&lt;/p>
+&lt;/blockquote>
+&lt;p>移动或复制到OneDrive文件夹就好了。&lt;/p>
+&lt;p>但是这样原文件修改后不会同步，要在OneDrive文件夹里的文件修改才会同步。不像坚果云一样，右键点击同步改文件夹之后就可以同步到云端了。&lt;/p>
+&lt;p>OneDrive同步的方法是创建软连接：&lt;/p>
+&lt;p>&lt;code>mklink /d &amp;quot;onedrive文件夹地址\需要同步的文件夹名&amp;quot; &amp;quot;需要同步的文件夹地址&amp;quot;&lt;/code>&lt;/p>
+&lt;p>例如我要同步E盘中的doc文件夹到onedrive中的E盘备份文件夹：&lt;/p>
+&lt;p>先在OneDrive中新建E盘备份文件夹，然后创建软连接&lt;/p>
+&lt;p>&lt;code>mklink /d &amp;quot;D:\OneDrive\OneDrive - zju.edu.cn\E盘备份\doc&amp;quot; &amp;quot;E:\doc&amp;quot;&lt;/code>&lt;/p>
+&lt;p>这样就会在onedrive中的E盘备份文件夹中自动新建doc文件夹并把里面的东西同步。&lt;/p>
+&lt;p>注意不要提前在OneDrive中创建需要同步的文件夹名，否则会报错：当文件已存在时，无法创建该文件。&lt;/p></description></item></channel></rss>
