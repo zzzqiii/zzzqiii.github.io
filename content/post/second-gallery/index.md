@@ -2,7 +2,7 @@
 title: "滨海大道日落"
 description: 
 date: 2023-05-01T21:30:47+08:00
-slug: zhoushan
+slug: sunset
 image: p15.jpg
 math: 
 license: 
