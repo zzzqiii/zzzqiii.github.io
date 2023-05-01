@@ -2,6 +2,7 @@
 title: "舟山滨海大道夜景随拍"
 description: 
 date: 2023-05-01T13:16:01+08:00
+slug: zhoushan
 image: p1.jpg
 math: 
 license: 
