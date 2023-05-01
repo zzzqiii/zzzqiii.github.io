@@ -156,6 +156,8 @@ label = ""
 
 
 
+通过hugo new post/title/index.md新建文章，文件名为index.md，否则无法显示同文件夹下的图片作为头图。
+
 完成修改后push到github上
 
 ```bash

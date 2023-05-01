@@ -1,11 +1,18 @@
 # Configure main menu and social menu
 #[[main]]
-#identifier = "home"
-#name = "Home"
-#url = "/"
+#identifier = "gallery"
+#name = "Gallery"
+#url = "/gallery/"
 #[main.params]
-#icon = "home"
+#icon = "photo"
 #newtab = true
+
+#[[main]]
+#identifier = "gallery"
+#name = "Gallery"
+#url = "/gallery/"
+#weight = -90
+#icon = "photo"
 
 [[social]]
 identifier = "github"
